@@ -1,7 +1,7 @@
 {
   "name": "nodejs-notes-app",
   "version": "2.0.0",
-  "description": "Notes App",
+  "description": "JUNIOR App",
   "main": "index.js",
   "type": "module",
   "scripts": {
