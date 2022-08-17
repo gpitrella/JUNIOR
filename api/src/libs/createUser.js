@@ -1,4 +1,5 @@
 import User from "../models/User.js";
+import Tech from "../models/Tech.js";
 
 export const createAdminUser = async () => {
   const userFound = await User.findOne({ email: "admin@localhost" });
@@ -15,4 +16,18 @@ export const createAdminUser = async () => {
   const admin = await newUser.save();
 
   console.log("Admin user created", admin);
+};
+
+export const createTech = async () => {
+  const techFound = await Tech.findOne({ name: "React" });
+
+  if (techFound) return;
+
+  const newTech = new Tech({
+    name: "React",
+  });
+
+  const tech = await newTech.save();
+
+  console.log("Admin user created", tech);
 };

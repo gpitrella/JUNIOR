@@ -1,0 +1,114 @@
+.gpt3__alert-container {
+	width: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+	z-index: 9999;
+}
+
+.gpt3__alert-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+
+	position: fixed;
+	padding: 2rem;
+	border:5px solid var(--color-blog);
+    border-radius: 10px;
+
+    font-family: var(--font-family);
+
+	/* ff 3.6+ */
+    background: -moz-radial-gradient(circle at 30% -100%, #042c54 25%, rgba(4, 44, 84, 1) 35%, rgba(27, 120, 222, 1) 100%);
+
+    /* safari 5.1+,chrome 10+ */
+    background: -webkit-radial-gradient(circle at 30% -100%, #042c54 25%, rgba(4, 44, 84, 1) 35%, rgba(27, 120, 222, 1) 100%);
+
+    /* opera 11.10+ */
+    background: -o-radial-gradient(circle at 30% -100%, #042c54 25%, rgba(4, 44, 84, 1) 35%, rgba(27, 120, 222, 1) 100%);
+
+    /* ie 10+ */
+    background: -ms-radial-gradient(circle at 30% -100%, #042c54 25%, rgba(4, 44, 84, 1) 35%, rgba(27, 120, 222, 1) 100%);
+
+    /* global 92%+ browsers support */
+    background: radial-gradient(circle at 30% -100%, #042c54 25%, rgba(4, 44, 84, 1) 35%, rgba(27, 120, 222, 1) 100%);
+
+    filter: drop-shadow(4px 8px 8px rgba(0, 0, 0, 0.25));
+}
+
+.gpt3__alert-content:hover {
+	cursor: pointer;
+	opacity: 0.9;
+	transition: all 0.4s linear;
+}
+
+.gpt3__alert-content h2 {
+	margin-bottom: 1rem;
+
+	font-size: 28px;
+    line-height: 34px;
+    font-weight: 800;
+    color: var(--color-subtext);
+}
+
+.gpt3__alert-content p {
+	max-width: 550px;
+
+	font-size: 16px;
+    line-height: 26px;
+    color: #fff;	
+}
+
+.gpt3__alert-content p a {
+    text-decoration: overline #ae67fa;
+}
+
+/* === Media queries === */
+@media screen and (max-width: 800px) {
+	.gpt3__alert-content h2 {
+		font-size: 24px;
+	    line-height: 30px;
+	}
+
+	.gpt3__alert-content p {
+		font-size: 14px;
+	    line-height: 24px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.gpt3__alert-content {
+		padding: 1.5rem;
+	}
+
+	.gpt3__alert-content h2 {
+		font-size: 22px;
+	    line-height: 38px;
+	}
+
+	.gpt3__alert-content p {
+		max-width: 350px;
+
+		font-size: 12px;
+	    line-height: 22px;
+	}	
+}
+
+@media screen and (max-width: 400px) {
+	.gpt3__alert-content {
+		padding: 1rem;
+	}
+
+	.gpt3__alert-content h2 {
+		font-size: 20px;
+	}
+
+	.gpt3__alert-content p {
+		max-width: 225px;
+
+		font-size: 10px;
+	}	
+}
