@@ -21,6 +21,7 @@ passport.use(
       if (!isMatch)
         return done(null, false, { message: "Incorrect Password." });
       
+      console.log('Usuario logeado correctamente:' + user)
       return done(null, user);
     }
   )

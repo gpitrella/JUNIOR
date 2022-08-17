@@ -8,12 +8,12 @@ import morgan from "morgan";
 import MongoStore from "connect-mongo";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
-
 import { MONGODB_URI, PORT } from "./config.js";
-
 import indexRoutes from "./routes/index.routes.js";
 import notesRoutes from "./routes/notes.routes.js";
 import userRoutes from "./routes/auth.routes.js";
+import projectRoutes from "./routes/project.routes.js";
+import techRoutes from "./routes/project.routes.js";
 import "./config/passport.js";
 
 // Initializations
@@ -36,6 +36,7 @@ app.set("view engine", ".hbs"); // REPLAY POR REACT - USA EXPRESS HANDLEBARS
 
 // middlewares
 app.use(morgan("dev"));
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method")); // Sirve para que formulario envie no solo get, put, sino delete o post. 
 app.use( // Sirve para mantener una session del usuario.
@@ -63,6 +64,8 @@ app.use((req, res, next) => {
 app.use(indexRoutes);
 app.use(userRoutes);
 app.use(notesRoutes);
+app.use(projectRoutes);
+app.use(techRoutes);
 
 // static files 
 app.use(express.static(join(__dirname, "public"))); // Reemplazar por REACT
