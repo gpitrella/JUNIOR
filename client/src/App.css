@@ -16,8 +16,8 @@ a {
 
 .btn {
 	border: none;
-  outline: none;
-  cursor: pointer;
+  	outline: none;
+  	cursor: pointer;
 }
 
 .btn:hover {

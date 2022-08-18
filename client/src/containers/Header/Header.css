@@ -8,14 +8,12 @@
 	justify-content: center;
 	align-items: flex-start;
 	flex-direction: column;
-
-	margin-right: 5rem;
 }
 
 .gpt3__header-content h1 {
 	font-family: var(--font-family);
 	font-weight: 800;
-	font-size: 62px;
+	font-size: 55px;
 	line-height: 75px;
 	letter-spacing: -0.04em;
 }
@@ -32,7 +30,7 @@
 }
 
 .gpt3__header-content__input {
-	width: 100%;
+	/* width: 100%; */
 	margin: 2rem 0 1rem;
 
 	display: flex;
@@ -67,9 +65,7 @@
     border: 2px solid #FF4820;
     padding: 0 1rem;
     color: #fff;
-
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-radius: 5px;
 }
 
 .gpt3__header-content__people {
@@ -110,6 +106,10 @@
 
 .canvas_box {
 	height: 100px;
+}
+
+.btn_start {
+	width: 250px;
 }
 
 /* === Media queries === */

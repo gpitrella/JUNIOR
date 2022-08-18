@@ -2,13 +2,13 @@
 import React, { Suspense } from 'react';
 import styled from 'styled-components';
 import {
-  Blog, 
-  Features, 
+  Blog,  
   Footer, 
   Header,
   Possibility, 
   WhatGPT3
-} from './containers'
+} from './containers';
+import Features from './containers/Features/Features';
 import { CTA, Brand, Navbar } from './components'
 import AOS from 'aos'; // Animations on scrolling dependency
 
@@ -31,11 +31,11 @@ const App = () => {
         <Navbar />
         <Header />  
       </div>
-      <Brand /> 
-      <WhatGPT3 /> 
+      {/* <WhatGPT3 />  */}
       <Features />
-      <Possibility />
+      <Brand /> 
       <CTA />
+      <Possibility />
       <Blog />
       <Footer />
       
