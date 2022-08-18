@@ -21,8 +21,6 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -45,23 +43,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "description": "This is an example of a modern web site landing page, builded from scratch following [this incredible JavaScript Mastery's tutorial](https://youtu.be/LMagNcngvcU), and with some great improvements builded by myself.",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JPdevelop22/GPT3-lading-page-ex.git"
-  },
-  "keywords": [
-    "landing-page",
-    "examples",
-    "react",
-    "modern-style"
-  ],
-  "author": "JP90",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JPdevelop22/GPT3-lading-page-ex/issues"
-  },
-  "homepage": "https://JPdevelop22.github.io/GPT3-lading-page-ex"
+  }
 }
