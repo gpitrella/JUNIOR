@@ -9,6 +9,7 @@ import {
   WhatGPT3
 } from './containers';
 import Features from './containers/Features/Features';
+import Features2 from './containers/Features2/Features2';
 import { CTA, Brand, Navbar } from './components'
 import AOS from 'aos'; // Animations on scrolling dependency
 
@@ -32,9 +33,10 @@ const App = () => {
         <Header />  
       </div>
       {/* <WhatGPT3 />  */}
+      <CTA />
       <Features />
       <Brand /> 
-      <CTA />
+      <Features2 />
       <Possibility />
       <Blog />
       <Footer />

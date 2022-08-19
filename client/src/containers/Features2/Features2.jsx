@@ -1,18 +1,18 @@
 import React from 'react';
 import Feature from '../../components/Feature.jsx';
 import Lottie from 'react-lottie';
-import astronaut from '../../assets/astronaut-notebook.json';
-import './Features.css';
+import astronaut2 from '../../assets/astronaut.json';
+import './Features2.css';
 
 // Data to put in features
 const featuresData = [
 	{
-		title: '1. Elegi un Proyecto:',
-		text: 'Selección el proyecto que más te atraiga por tecnología, desafío o impacto.',
+		title: '1. Publica tu Proyecto:',
+		text: 'Agrega el proyecto a la App con todos los detalles que estas buscando.',
 	},
 	{
-		title: '2. Empeza a Colaborar:',
-		text: 'Comenzá a colaborar con las tareas que todavía están pendientes en el proyecto.',
+		title: '2. Encontra Colaboradores:',
+		text: 'Comenzá tu proyecto y los colaboradores van ir aportando valor a tu proyecto.',
 	},
 	{
 		title: '3. Suma la Experiencia a tu CV:',
@@ -23,7 +23,7 @@ const featuresData = [
 const defaultOptions = {
 	loop: true,
 	autoplay: true,
-	animationData: astronaut,
+	animationData: astronaut2,
 	rendererSettings: {
 	  preserveAspectRatio: "xMidYMid slice"
 	}
@@ -33,18 +33,13 @@ const defaultOptions = {
  * Features of GPT3
  * @return {element} a component that shows GPT3 features
  */
-const Features = () => {
+const Features2 = () => {
 	return (
 		<div className="features section__padding" id="features">
-			<Lottie 
-				options={defaultOptions}
-				height={400}
-				width={400}
-			/>
 			<div className="features-main">
 				<div className="features-heading">
 					<h1 className="gradient__text">
-						¿Como empezas a ganar experiencia? Fácil, seguí estos simples pasos:
+						Tenes una idea / proyecto para desarrollar, perfecto seguí estos pasos:
 					</h1>
 				</div>
 				<div className="features-container">
@@ -53,8 +48,13 @@ const Features = () => {
 					))}
 				</div>
 			</div>
+				<Lottie 
+					options={defaultOptions}
+					height={600}
+					width={600}
+				/>
 		</div>
 	)
 }
 
-export default Features;
+export default Features2;
