@@ -19,24 +19,30 @@ export const createNewProject = async (req, res) => {
   if (!newtech) {
     errors.push({ text: "Please Write one tech" });
   }
-  if (errors.length > 0)
+  if (errors.length > 0){
     return res.send(errors)
-    // return res.render("notes/new-note", {
-    //   errors,
-    //   title,
-    //   description,
-    // });
+  }
     else{
-
       const findTech = await Tech.findOne({ name: newtech })
-      console.log('id',findTech._id)
-      const newProject = await new Project({ title, description, gitHubUrl, newtech});
-      const saveProject = await newProject.save();
-      await Project.findByIdAndUpdate(saveProject._id, { $push: { 'tech':findTech._id } })
-      console.log('project',newProject)
-      // const create = await createNewTech(newtech)
-      // await Project.findByIdAndUpdate(saveProject._id,{ $push: {}})
-      res.json(saveProject)
+      if(!findTech){
+        const createTech = new Tech({name:newtech})
+        const auxNewTech = await createTech.save() 
+        const newProject = new Project({ title, description, gitHubUrl, newtech});
+        const saveProject = await newProject.save();
+        await Project.findByIdAndUpdate(saveProject._id, { $push: { 'tech':auxNewTech._id } })
+
+        console.log('newT',auxNewTech)
+        res.json(saveProject)
+      }
+      else{
+          console.log('id',findTech)
+          const newProject = new Project({ title, description, gitHubUrl, newtech});
+          const saveProject = await newProject.save();
+          await Project.findByIdAndUpdate(saveProject._id, { $push: { 'tech':findTech._id } })
+          // { $addToSet: { tags: { $each: [ "camera", "electronics", "accessories" ] } } }/
+          //Pruebas
+          res.json(saveProject)
+      }
     }
 }
   

@@ -18,7 +18,6 @@ const ProjectSchema = new mongoose.Schema(
     },
     tech: {
       type:[{type: Schema.ObjectId, ref: "Tech",required: true}],
-      
   },
     user: {
       type: String,
