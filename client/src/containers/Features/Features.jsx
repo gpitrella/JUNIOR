@@ -36,11 +36,13 @@ const defaultOptions = {
 const Features = () => {
 	return (
 		<div className="features section__padding" id="features">
-			<Lottie 
-				options={defaultOptions}
-				height={400}
-				width={400}
-			/>
+			<div className="lotties_notebook_astronaut">
+				<Lottie
+					options={defaultOptions}
+					height={400}
+					width={400}
+				/>
+			</div>
 			<div className="features-main">
 				<div className="features-heading">
 					<h1 className="gradient__text">

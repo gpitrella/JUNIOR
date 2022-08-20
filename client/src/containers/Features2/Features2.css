@@ -12,7 +12,6 @@
 	align-items: flex-start;
 	flex-direction: column;
 	text-align: left;
-	margin-right: 5rem;
 }
 
 .features-main {
@@ -22,7 +21,7 @@
 }
 
 .features-heading h1 {
-	font-size: 34px;
+	font-size: 30px;
     line-height: 45px;
     font-weight: 800;
     font-family: var(--font-family);
@@ -30,7 +29,7 @@
 
 .features-heading p {
     color: var(--color-subtext);
-    font-size: 16px;
+    font-size: 14px;
     line-height: 30px;
     font-weight: 500;
     font-family: var(--font-family);

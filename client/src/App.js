@@ -6,7 +6,8 @@ import {
   Footer, 
   Header,
   Possibility, 
-  WhatGPT3
+  WhatGPT3,
+  Background
 } from './containers';
 import Features from './containers/Features/Features';
 import Features2 from './containers/Features2/Features2';
@@ -38,9 +39,9 @@ const App = () => {
       <Brand /> 
       <Features2 />
       <Possibility />
-      <Blog />
-      <Footer />
-      
+      {/* <Blog /> */}
+      {/* <Footer /> */}
+      <Background />
     </div>
   );
 }
