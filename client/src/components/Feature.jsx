@@ -1,6 +1,5 @@
 import React from 'react'
-
-import './feature.css'
+import styled from './Feature.module.css'
 
 /**
  * A feature of GPT3
@@ -10,12 +9,12 @@ import './feature.css'
  */
 const Feature = ({ title, text }) => {
 	return (
-		<div className="gpt3__features-container__feature">
-			<div className="gpt3__features-container__feature-title">
+		<div className={styled.featurescontainer__feature}>
+			<div className={styled.featurescontainer__featuretitle}>
 				<div />
 				<h1>{title}</h1>
 			</div>
-			<div className="gpt3__features-container_feature-text">
+			<div className={styled.featurescontainer_featuretext}>
 				<p>{text}</p>
 			</div>
 		</div>

@@ -17,7 +17,7 @@
 .features-main {
 	display: flex;
 	flex-direction: column;
-	width: 60%;
+	width: 70%;
 }
 
 .features-heading h1 {
@@ -33,6 +33,7 @@
     line-height: 30px;
     font-weight: 500;
     font-family: var(--font-family);
+
     margin-top: 2rem;
 }
 
@@ -42,10 +43,6 @@
 	justify-content: flex-start;
 	align-items: center;
 	flex-direction: column;
-}
-
-#lotties_notebook_astronaut {
-	margin: 0px 45px 0px 0px;
 }
 
 /* === Media queries === */

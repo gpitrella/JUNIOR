@@ -25,7 +25,6 @@ export const createNewProject = async (req, res) => {
     //   title,
     //   description,
     // });
-
   const addTech = await Tech.findOne({ name: "React" });
   const tech = { "$ref": "teches", "$id": addTech._id }
   console.log('Este es la tech:', addTech)

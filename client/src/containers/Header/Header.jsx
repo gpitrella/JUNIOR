@@ -67,7 +67,7 @@ const Header = () => {
 						De JUNIOR para Juniors
 					</h1>
 					<p>
-						Suma experiencia colaborando y desarrollando los proyectos más desafiantes. 
+						¿Sos Desarrollador y queres ganar Experiencia? Sumala colaborando y desarrollando los proyectos más desafiantes. 
 						En JUNIOR vas a encontrar todas las herramientas para potenciar tu carrera como desarrollador.
 					</p>
 

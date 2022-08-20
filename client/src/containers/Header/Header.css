@@ -3,7 +3,6 @@
 }
 
 .gpt3__header-content {
-	flex: 1;
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
@@ -25,7 +24,6 @@
 	font-size: 20px;
 	line-height: 27px;
 	color: var(--color-text);
-
 	margin-top: 1.5rem;
 }
 
