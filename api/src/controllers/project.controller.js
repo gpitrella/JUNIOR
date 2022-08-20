@@ -1,5 +1,6 @@
 import Project from "../models/Project.js";
 import Tech from "../models/Tech.js";
+import { createNewTech } from "./tech.controller.js";
 
 // export const renderNoteForm = (req, res) => res.render("notes/new-note");
 
@@ -25,21 +26,32 @@ export const createNewProject = async (req, res) => {
     //   title,
     //   description,
     // });
+    else{
 
-  const addTech = await Tech.findOne({ name: "React" });
-  const tech = { "$ref": "teches", "$id": addTech._id }
-  console.log('Este es la tech:', addTech)
-  const newProject = new Project({ title, description, gitHubUrl, tech });
-  newProject.user = req.user.id;
+      const findTech = await Tech.findOne({ name: newtech })
+      console.log('id',findTech._id)
+      const newProject = await new Project({ title, description, gitHubUrl, newtech});
+      const saveProject = await newProject.save();
+      await Project.findByIdAndUpdate(saveProject._id, { $push: { 'tech':findTech._id } })
+      console.log('project',newProject)
+      // const create = await createNewTech(newtech)
+      // await Project.findByIdAndUpdate(saveProject._id,{ $push: {}})
+      res.json(saveProject)
+    }
+}
+  
+  
+  // const addTech = await Tech.findOne({ name: newtech });
+  // const tech = { "$ref": "teches", "$id": addTech._id }
+  // console.log('Este es la tech:', addTech)
+  // newProject.user = req.user.id;
   // console.log(newProject._id)
   // db.teches.insert([{"idFrom": {"$ref": "users", "$id": ObjectId("5c9ccc140aee604c4ab6cd07")}, "idTo": {"$ref": "users", "$id": ObjectId("5c9ccc140aee604c4ab6cd06")}, "message": "Gracias por responder"}])
-
+  
 //   newProject.user = req.user.id;
-  await newProject.save();
-  res.send('Project created successfully!')
+  
 //   req.flash("success_msg", "Note Added Successfully");
 //   res.redirect("/notes");
-};
 
 // export const renderNotes = async (req, res) => {
 //   const notes = await Note.find({ user: req.user.id })

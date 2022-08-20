@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
+var Schema = mongoose.Schema;
 
+// const Tech = mongoose.model("Tech", TechSchema)
 const ProjectSchema = new mongoose.Schema(
   {
     title: {
@@ -15,12 +17,11 @@ const ProjectSchema = new mongoose.Schema(
         required: true,
     },
     tech: {
-      type: Object,
-      required: true,
+      type:[{type: Schema.ObjectId, ref: "Tech",required: true}],
+      
   },
     user: {
       type: String,
-      required: true,
     },
   },
   {
