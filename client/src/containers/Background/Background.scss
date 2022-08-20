@@ -198,15 +198,38 @@ $shadows-big:    multiple-box-shadow(100);
   animation-name: animGravity;
 }
     
-#subtitle {
-  position: absolute;
-  font-weight: 300;
+#footer_link {
+  position: sticky;
   top: 70%;
   left: 0;
   right: 0;
   font-size: 25px;
   text-align: center;
   letter-spacing: 6px;
+  margin-top: -300px;
+  img {
+    width: 100px;
+    margin-top: 40px;
+  }
+  #footer_main_links {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+
+#subtitle {
+  // position: sticky;
+  font-weight: 300;
+  // top: 70%;
+  // left: 0;
+  // right: 0;
+  font-size: 25px;
+  // text-align: center;
+  // letter-spacing: 6px;
+  // margin-top: -350px;
   
   span {
     color: rgb(216, 216, 216);
@@ -227,6 +250,8 @@ $shadows-big:    multiple-box-shadow(100);
     }
   }
 }
+
+
 
 
 
