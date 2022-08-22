@@ -2,7 +2,7 @@ import React from 'react';
 import Feature from '../../components/Feature.jsx';
 import Lottie from 'react-lottie';
 import astronaut from '../../assets/astronaut-notebook.json';
-import './Features.css';
+import styled from './Features.module.css';
 
 // Data to put in features
 const featuresData = [
@@ -35,21 +35,21 @@ const defaultOptions = {
  */
 const Features = () => {
 	return (
-		<div className="features section__padding" id="features">
-			<div className="lotties_notebook_astronaut">
+		<div className={`${styled.features} ${styled.section__padding}`} id={styled.features}> 
+			<div id={styled.lotties_notebook_astronaut}>
 				<Lottie
 					options={defaultOptions}
-					height={400}
-					width={400}
+					height={300}
+					width={300}
 				/>
 			</div>
-			<div className="features-main">
-				<div className="features-heading">
-					<h1 className="gradient__text">
+			<div className={styled.features_main}>
+				<div className={styled.features_heading}>
+					<h1 className={styled.gradient__text}>
 						¿Como empezas a ganar experiencia? Fácil, seguí estos simples pasos:
 					</h1>
 				</div>
-				<div className="features-container">
+				<div className={styled.features_container}>
 					{featuresData.map((feature, idx) => (
 						<Feature title={feature.title} text={feature.text} key={idx} />	
 					))}

@@ -2,7 +2,7 @@ import React from 'react';
 import Feature from '../../components/Feature.jsx';
 import Lottie from 'react-lottie';
 import astronaut2 from '../../assets/astronaut.json';
-import './Features2.css';
+import styled from './Features2.module.css';
 
 // Data to put in features
 const featuresData = [
@@ -35,14 +35,14 @@ const defaultOptions = {
  */
 const Features2 = () => {
 	return (
-		<div className="features section__padding" id="features">
-			<div className="features-main">
-				<div className="features-heading">
-					<h1 className="gradient__text">
+		<div className={`${styled.features} ${styled.section__padding}`} id={styled.features}>
+			<div className={styled.features_main}>
+				<div className={styled.features_heading}>
+					<h1 className={styled.gradient__text}>
 						Tenes una idea / proyecto para desarrollar, perfecto seguí estos pasos:
 					</h1>
 				</div>
-				<div className="features-container">
+				<div className={styled.features_container}>
 					{featuresData.map((feature, idx) => (
 						<Feature title={feature.title} text={feature.text} key={idx} />	
 					))}
@@ -50,8 +50,8 @@ const Features2 = () => {
 			</div>
 				<Lottie 
 					options={defaultOptions}
-					height={600}
-					width={600}
+					height={450}
+					width={400}
 				/>
 		</div>
 	)
