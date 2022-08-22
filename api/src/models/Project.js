@@ -17,7 +17,7 @@ const ProjectSchema = new mongoose.Schema(
         required: true,
     },
     tech: {
-      type:[{type: Schema.ObjectId, ref: "Tech",required: true}],
+      type:[{type: String, required: true}],
   },
     user: {
       type: String,

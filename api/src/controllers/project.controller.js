@@ -1,8 +1,5 @@
 import Project from "../models/Project.js";
 import Tech from "../models/Tech.js";
-import { createNewTech } from "./tech.controller.js";
-
-// export const renderNoteForm = (req, res) => res.render("notes/new-note");
 
 export const createNewProject = async (req, res) => {
   const { title, description, gitHubUrl, newtech } = req.body;
@@ -23,67 +20,14 @@ export const createNewProject = async (req, res) => {
     return res.send(errors)
   }
     else{
-      const findTech = await Tech.findOne({ name: newtech })
-      if(!findTech){
-        const createTech = new Tech({name:newtech})
-        const auxNewTech = await createTech.save() 
-        const newProject = new Project({ title, description, gitHubUrl, newtech});
+        const techs = newtech.map(f=>f.toLowerCase())
+        const newProject = new Project({ title, description, gitHubUrl,tech:techs});
         const saveProject = await newProject.save();
-        await Project.findByIdAndUpdate(saveProject._id, { $push: { 'tech':auxNewTech._id } })
-
-        console.log('newT',auxNewTech)
-        res.json(saveProject)
-      }
-      else{
-          console.log('id',findTech)
-          const newProject = new Project({ title, description, gitHubUrl, newtech});
-          const saveProject = await newProject.save();
-          await Project.findByIdAndUpdate(saveProject._id, { $push: { 'tech':findTech._id } })
-          // { $addToSet: { tags: { $each: [ "camera", "electronics", "accessories" ] } } }/
-          //Pruebas
+        const mapName = saveProject.tech.map(m=>m)
+        mapName.forEach(async m=>{
+          if(!await Tech.findOne({name: m})){
+            await Tech.create({name:m})
+        }})
           res.json(saveProject)
-      }
     }
 }
-  
-  
-  // const addTech = await Tech.findOne({ name: newtech });
-  // const tech = { "$ref": "teches", "$id": addTech._id }
-  // console.log('Este es la tech:', addTech)
-  // newProject.user = req.user.id;
-  // console.log(newProject._id)
-  // db.teches.insert([{"idFrom": {"$ref": "users", "$id": ObjectId("5c9ccc140aee604c4ab6cd07")}, "idTo": {"$ref": "users", "$id": ObjectId("5c9ccc140aee604c4ab6cd06")}, "message": "Gracias por responder"}])
-  
-//   newProject.user = req.user.id;
-  
-//   req.flash("success_msg", "Note Added Successfully");
-//   res.redirect("/notes");
-
-// export const renderNotes = async (req, res) => {
-//   const notes = await Note.find({ user: req.user.id })
-//     .sort({ date: "desc" })
-//     .lean();
-//   res.render("notes/all-notes", { notes });
-// };
-
-// export const renderEditForm = async (req, res) => {
-//   const note = await Note.findById(req.params.id).lean();
-//   if (note.user != req.user.id) {
-//     req.flash("error_msg", "Not Authorized");
-//     return res.redirect("/notes");
-//   }
-//   res.render("notes/edit-note", { note });
-// };
-
-// export const updateNote = async (req, res) => {
-//   const { title, description } = req.body;
-//   await Note.findByIdAndUpdate(req.params.id, { title, description });
-//   req.flash("success_msg", "Note Updated Successfully");
-//   res.redirect("/notes");
-// };
-
-// export const deleteNote = async (req, res) => {
-//   await Note.findByIdAndDelete(req.params.id);
-//   req.flash("success_msg", "Note Deleted Successfully");
-//   res.redirect("/notes");
-// };
