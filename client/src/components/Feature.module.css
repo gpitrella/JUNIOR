@@ -16,7 +16,7 @@
 .featurescontainer__featuretitle h1 {
     font-family: var(--font-family);
     font-weight: 800;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 24px;
     letter-spacing: -0.04em;
     color: #fff;
@@ -39,7 +39,7 @@
 .featurescontainer_featuretext p {
     font-family: var(--font-family);
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 24px;
     color: var(--color-text);
 }
