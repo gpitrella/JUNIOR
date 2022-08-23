@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { filterByTechs } from "../controllers/filters.controllers.js";
 import {
     createNewProject,
 //   renderNoteForm,
@@ -8,23 +9,9 @@ import {
 //   deleteNote,
 } from "../controllers/project.controller.js";
 import { isAuthenticated } from "../helpers/auth.js";
-
 const router = Router();
 
-// New Note
-// router.get("/projects/add", isAuthenticated, renderNoteForm);
-
-router.post("/projects/newproject", createNewProject);
-
-// // Get All Notes
-// router.get("/notes", isAuthenticated, renderNotes);
-
-// // Edit Notes
-// router.get("/notes/edit/:id", isAuthenticated, renderEditForm);
-
-// router.put("/notes/edit-note/:id", isAuthenticated, updateNote);
-
-// // Delete Notes
-// router.delete("/notes/delete/:id", isAuthenticated, deleteNote);
+router.post("/projects/filter",filterByTechs);
+// router.post("/projects/newproject", createNewProject);
 
 export default router;
