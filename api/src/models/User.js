@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
+const { Schema } = mongoose;
 
 const UserSchema = new mongoose.Schema(
   {
@@ -7,6 +8,7 @@ const UserSchema = new mongoose.Schema(
     email: { type: String, required: true, unique: true, trim: true },
     password: { type: String, required: true },
     date: { type: Date, default: Date.now },
+    projects: [{type: Schema.Types.ObjectId, ref: 'Project'}]
   },
   {
     timestamps: true,

@@ -16,7 +16,7 @@ export const createNewTech = async (req, res) => {
     //   description,
     // });
 
-  const newTech = new Tech({ name });
+  const newTech = Tech.create({ name });
 //   newProject.user = req.user.id;
   await newTech.save();
   res.send('Tech created successfully!')
