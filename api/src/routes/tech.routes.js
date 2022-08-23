@@ -13,7 +13,7 @@ const router = Router();
 
 // New Note
 // router.get("/projects/add", isAuthenticated, renderNoteForm);
-router.post("/tech/newtech", createNewTech);
+router.post("/newtech", createNewTech);
 
 // // Get All Notes
 // router.get("/notes", isAuthenticated, renderNotes);

@@ -11,7 +11,7 @@ import {
 import { isAuthenticated } from "../helpers/auth.js";
 const router = Router();
 
-router.post("/projects/filter",filterByTechs);
+router.post("/filter",filterByTechs);
 // router.post("/projects/newproject", createNewProject);
 
 export default router;

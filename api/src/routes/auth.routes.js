@@ -10,14 +10,14 @@ import {
 const router = Router();
 
 // Routes
-router.get("/auth/signup", renderSignUpForm);
+router.get("/signup", renderSignUpForm);
 
-router.post("/auth/signup", singup);
+router.post("/signup", singup);
 
-router.get("/auth/signin", renderSigninForm);
+router.get("/signin", renderSigninForm);
 
-router.post("/auth/signin", signin);
+router.post("/signin", signin);
 
-router.get("/auth/logout", logout);
+router.get("/logout", logout);
 
 export default router;

@@ -3,6 +3,6 @@ import { filterByTechs } from '../controllers/filters.controllers';
 const router = Router();
 
 // Routes
-router.post("/fil/filter",filterByTechs);
+router.post("/",filterByTechs);
 
 export default router
