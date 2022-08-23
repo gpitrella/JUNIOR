@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
+const { Schema } = mongoose;
 
+// const Tech = mongoose.model("Tech", TechSchema)
 const ProjectSchema = new mongoose.Schema(
   {
     title: {
@@ -15,12 +17,10 @@ const ProjectSchema = new mongoose.Schema(
         required: true,
     },
     tech: {
-      type: Object,
-      required: true,
-    },
+      type:[{type: String, required: true}],
+  },
     user: {
       type: String,
-      required: true,
     },
   },
   {

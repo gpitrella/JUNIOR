@@ -14,7 +14,7 @@ const router = Router();
 // New Note
 // router.get("/projects/add", isAuthenticated, renderNoteForm);
 
-router.post("/projects/newproject", isAuthenticated, createNewProject);
+router.post("/projects/newproject", createNewProject);
 
 // // Get All Notes
 // router.get("/notes", isAuthenticated, renderNotes);
