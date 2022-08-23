@@ -22,7 +22,10 @@ const ProjectSchema = new mongoose.Schema(
     },
     tech: {
       type:[{type: String, required: true}],
-  },
+    },
+    payment: {
+      type: [{type: Boolean, required: true}],
+    },
     user: {
       type: String,
     },
