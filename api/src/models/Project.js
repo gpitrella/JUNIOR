@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-var Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 // const Tech = mongoose.model("Tech", TechSchema)
 const ProjectSchema = new mongoose.Schema(
