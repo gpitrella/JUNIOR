@@ -1,8 +1,7 @@
 import Project from "../models/Project.js"
 
 export const filterByTechs = async (req,res)=>{
-    const {teches} = req.body
-    console.log(teches)
+    const { teches, payment } = req.body
     const projects = await Project.find({})
     const _setfilter = new Set()
     for(let tech of teches){
@@ -12,6 +11,12 @@ export const filterByTechs = async (req,res)=>{
             }
         }
     }
+    if (payment) {
+        _setfilter.forEach((project) => {
+            if(project.payment !== payment) _setfilter.delete(project);
+        })
+    }
+
     const setfilter= Array.from(_setfilter)
     console.log(setfilter)
     res.status(200).json(setfilter)
