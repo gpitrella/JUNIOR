@@ -1,13 +1,13 @@
-import google from '../assets/google.png';
-import slack from '../assets/slack.png';
-import atlassian from '../assets/atlassian.png';
-import dropbox from '../assets/dropbox.png';
-import shopify from '../assets/shopify.png';
+import html from '../assets/html.png';
+import js from '../assets/js.png';
+import postgre from '../assets/postgre.png';
+import structure from '../assets/structure.png';
+import typescript from '../assets/typescript.png';
 
 export {
-	google,
-	slack,
-	atlassian,
-	dropbox,
-	shopify
+	html,
+	js,
+	postgre,
+	structure,
+	typescript
 }
