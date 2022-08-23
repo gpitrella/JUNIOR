@@ -1,12 +1,11 @@
-import React from 'react'
-
-import './brand.css'
+import React from 'react';
+import styled from './Brand.module.css';
 import {
-	google,
-	slack,
-	atlassian,
-	dropbox,
-	shopify
+	html,
+	js,
+	postgre,
+	structure,
+	typescript,
 } from './imgImporter' 
 
 /**
@@ -15,12 +14,12 @@ import {
  */
 const Brand = () => {
 	return (
-		<div className="gpt3__brand section__padding">
-			<div><img src={google} alt="Google brand" /></div>
-			<div><img src={slack} alt="Slack brand" /></div>
-			<div><img src={atlassian} alt="Atlassian brand" /></div>
-			<div><img src={dropbox} alt="Dropbox brand" /></div>
-			<div><img src={shopify} alt="Shopify brand" /></div>
+		<div className={styled.brand}>
+			<div><img src={html} alt="HTML brand" className={styled.img_brands}/></div>
+			<div><img src={js} alt="Js brand" className={styled.img_brands}/></div>
+			<div><img src={postgre} alt="Postgre brand" className={styled.img_brands}/></div>
+			<div><img src={structure} alt="Structure brand" className={styled.img_brands}/></div>
+			<div><img src={typescript} alt="TS brand" className={styled.img_brands}/></div>
 		</div>
 	)
 }

@@ -9,17 +9,17 @@ import './possibility.css'
  */
 const Possibility = () => {
 	return (
-		<div className="gpt3__possibility section__padding" id="possibility">
-			<div className="gpt3__possibility-image" data-aos="fade-right" data-aos-delay="350">
-				<img src={possibilityImg} alt="GPT3 possibilities" />
+		<div className="possibility" id="possibility">
+			<div className="possibilityImage" data-aos="fade-right" data-aos-delay="350">
+				<img src={possibilityImg} alt="Person with idea" />
 			</div>
-			<div className="gpt3__possibility-content">
-				<h4>Request Early Access to Get Started</h4>
-			    <h1 className="gradient__text">The possibilities are <br /> beyond your imagination</h1>
+			<div className="possibility-content">
+				<h4>Tambien podes tener un proyecto sin ser Desarrollador</h4>
+			    <h1 className="gradient__text">¿NO sos Desarrollar? <br /> Pero tenes un proyecto para desarrollar.</h1>
 			    <p>
-					Yet bed any for travelling assistance indulgence unpleasing. Not thoughts all exercise blessing. Indulgence way everything joy alteration boisterous the attachment. Party we years to order allow asked of.
+					Contactanos y vas a tener a los mejores Juniors disponibles para llevar tus proyectos a la realidad.
 				</p>
-				<h4>Request Early Access to Get Started</h4>
+				<h4>Registrate y carga tu proyecto como Generador de Ideas.</h4>
 			</div>
 		</div>
 	)

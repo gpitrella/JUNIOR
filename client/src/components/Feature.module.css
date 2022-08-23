@@ -1,4 +1,4 @@
-.gpt3__features-container__feature {
+.featurescontainer__feature {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
@@ -8,21 +8,21 @@
 	margin: 1rem;
 }
 
-.gpt3__features-container__feature-title {
+.featurescontainer__featuretitle {
 	flex: 1;
 	max-width: 100%;
 }
 
-.gpt3__features-container__feature-title h1 {
+.featurescontainer__featuretitle h1 {
     font-family: var(--font-family);
     font-weight: 800;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 24px;
     letter-spacing: -0.04em;
     color: #fff;
 }
 
-.gpt3__features-container__feature-title div {
+.featurescontainer__featuretitle div {
     width: 38px;
     height: 3px;
     background: var(--gradient-bar);
@@ -30,33 +30,33 @@
     margin-bottom: 0.25rem;
 }
 
-.gpt3__features-container_feature-text {
+.featurescontainer_featuretext {
     flex: 2;
     max-width: 390px;
     display: flex;
 }
 
-.gpt3__features-container_feature-text p {
+.featurescontainer_featuretext p {
     font-family: var(--font-family);
     font-weight: 500;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 24px;
     color: var(--color-text);
 }
 
 /* === Media queries === */
 @media screen and (max-width: 550px) {
-    .gpt3__features-container__feature-title h1 {
+    .featurescontainer__featuretitle h1 {
         font-size: 14px;
         line-height: 22px;
     }
 
-    .gpt3__features-container_feature-text p {
+    .featurescontainer_featuretext p {
         font-size: 12px;
         line-height: 20px;
     }
 
-    .gpt3__features-container__feature {
+    .featurescontainer__feature {
         margin: 1rem 0;
     }
 }
