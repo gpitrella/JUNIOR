@@ -16,6 +16,10 @@ const ProjectSchema = new mongoose.Schema(
         type: String,
         required: true,
     },
+    wspUrl:{
+      type: String,
+      require: false,
+    },
     tech: {
       type:[{type: String, required: true}],
   },
