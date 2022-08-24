@@ -18,6 +18,5 @@ export const filterByTechs = async (req,res)=>{
     }
 
     const setfilter= Array.from(_setfilter)
-    console.log(setfilter)
     res.status(200).json(setfilter)
 }
