@@ -29,6 +29,9 @@ const ProjectSchema = new mongoose.Schema(
     user: {
       type: String,
     },
+    image: {
+      type: String
+    }
   },
   {
     timestamps: true,
