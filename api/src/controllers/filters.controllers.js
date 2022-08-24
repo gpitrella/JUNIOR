@@ -11,7 +11,7 @@ export const filterByTechs = async (req,res)=>{
             }
         }
     }
-    if (payment) {
+    if (payment !== undefined) {
         _setfilter.forEach((project) => {
             if(project.payment !== payment) _setfilter.delete(project);
         })

@@ -23,12 +23,15 @@ const ProjectSchema = new mongoose.Schema(
     tech: {
       type:[{type: String, required: true}],
     },
-    payment: {
-      type: [{type: Boolean, required: true}],
+    payment: { 
+      type: Boolean, required: true, default: false
     },
     user: {
       type: String,
     },
+    image: {
+      type: String
+    }
   },
   {
     timestamps: true,
