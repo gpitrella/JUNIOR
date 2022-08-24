@@ -1,5 +1,7 @@
 // import React from 'react';
 import React, { Suspense } from 'react';
+import { useEffect, useState } from 'react';
+import jwt_decode from "jwt-decode";
 import { BrowserRouter, NavLink, Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import {
@@ -31,10 +33,63 @@ AOS.init({
 });
 
 const App = () => {
+// ?-- Auth width Google
+  const [ user, setUser ] = useState({});
+
+  function handleCallbackResponse(response) {
+    console.log("Encoded JWT ID token: " + response.credential);
+    var userObject = jwt_decode(response.credential);
+    console.log(userObject);
+    setUser(userObject);
+    document.getElementById("signInDiv").hidden = true;
+  }
+
+  function handleSignOut(event) {
+    setUser({});
+    document.getElementById("signInDiv").hidden = false;
+  }
+
+  useEffect(() => {
+    /* global google */
+    google.accounts.id.initialize({
+      client_id: "442763437096-mbm8s7rhocjbjg29r94k37bgm5fevm7i.apps.googleusercontent.com",
+      callback: handleCallbackResponse
+    });
+
+    google.accounts.id.renderButton(
+      document.getElementById("signInDiv"),
+      { theme:"outline", size: "large"}
+    );
+
+    google.accounts.id.prompt();
+    
+  }, []);
+   
+  console.log(user, 'dsp de useEffect App.js');
+
+
+// ?-- End Auth
+
+
   return (
     <BrowserRouter>
      
         <div className="App">
+
+        <div id="signInDiv"></div>
+        { Object.keys(user).length !== 0 &&
+          <button onClick={ (e) => handleSignOut(e)}>Sign Out</button>
+        }
+        
+        { user &&
+          <div>
+            <img src={user.picture}></img>
+            <h3>{user.name}</h3>
+            <h3>{user.email}</h3>
+          </div>  
+
+        }
+
           <div className="gradient__bg">
         <Navbar />
           <Routes>
