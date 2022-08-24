@@ -48,7 +48,12 @@
     padding: 0.5rem 3rem;
     border-radius: 2rem;
     min-width: 150px;
+	cursor: pointer;
+	&:hover {
+		box-shadow: 0px 0px 5px rgba(0,0, 0,0.6);
+	}
 }
+
 
 /* === Media queries === */
 @media screen and (max-width: 650px) {

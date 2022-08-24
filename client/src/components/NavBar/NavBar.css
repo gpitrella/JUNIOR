@@ -2,8 +2,8 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-
 	padding: 2rem 14rem;
+	z-index: 2;
 }
 
 .gpt3__navbar-links {
@@ -68,7 +68,6 @@
 
 .gpt3__navbar-menu {
 	margin-left: 1rem;
-
 	display: none;
 	position: relative;
 }
