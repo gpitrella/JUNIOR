@@ -18,7 +18,7 @@ export const createNewTech = async (req, res) => {
 
   const newTech = Tech.create({ name });
 //   newProject.user = req.user.id;
-  await newTech.save();
+  // await newTech.save();
   res.send('Tech created successfully!')
 //   req.flash("success_msg", "Note Added Successfully");
 //   res.redirect("/notes");
