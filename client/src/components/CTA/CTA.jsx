@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from './Cta.module.css';
+import styled from './Cta.module.scss';
+import { Link } from 'react-router-dom';
 
 /**
  * A click to action
@@ -13,7 +14,7 @@ const CTA = () => {
 			    <h3>Busca los proyectos & sumate a las ideas más atractivas.</h3>
 			</div>
 			<div className={styled.ctabtn} data-aos="zoom-out" data-aos-delay="100">
-				<button className={styled.btn} type="button" onClick={() => {window.location = '#home'}}>Buscar</button>
+				<Link to="/filter"><button className={styled.btn} type="button" >Buscar</button></Link>
 			</div>
 		</div>
 	)

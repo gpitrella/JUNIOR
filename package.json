@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@trendmicro/react-sidenav": "^0.5.0"
+  }
+}
