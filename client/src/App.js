@@ -12,9 +12,10 @@ import {
 } from './containers';
 import Features from './containers/Features/Features';
 import Features2 from './containers/Features2/Features2';
-import SideBar from './containers/SideBar/SideBar';
+// import SideBar from './containers/SideBar/SideBar';
+import Store from './components/Store/Store';
 import Home from './containers/Home/Home';
-import { CTA, Brand, Navbar } from './components'
+import { CTA, Brand, Navbar } from './components';
 import AOS from 'aos'; // Animations on scrolling dependency
 
 // For mark CSS classes I'm using the BEM (Block Element Modifier) notation 
@@ -33,20 +34,20 @@ const App = () => {
   return (
     <BrowserRouter>
      
-      <Navbar />
-        {/* <div className="App">
-          <div className="gradient__bg"> */}
+        <div className="App">
+          <div className="gradient__bg">
+        <Navbar />
           <Routes>
             <Route exact path="/" element={<Home />}/>
-            <Route exact path="/filter" element={<SideBar />} />
+            <Route exact path="/filter" element={<Store />} />
           </Routes>
             {/* <Route path="/" element={<CTA />} />
             <Route path="/" element={<Features />} />
             <Route path="/" element={<Brand />} />
             <Route path="/" element={<Features2 />} />
             <Route path="/" element={<Possibility />} /> */}
-               
-          {/* </div> */}
+        <Background />
+          </div>
           {/* <WhatGPT3 />  */}
           {/* <CTA />
           <Features />
@@ -55,9 +56,8 @@ const App = () => {
           <Possibility /> */}
           {/* <Blog /> */}
           {/* <Footer /> */}
-          <Background />
           
-        {/* </div> */}
+        </div>
         
     </BrowserRouter>
   );
