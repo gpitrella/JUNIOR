@@ -26,7 +26,7 @@ const ProjectSchema = new mongoose.Schema(
     payment: {
       type: [{ type: Boolean, required: true, default: false }],
     },
-    user: {
+    userId: {
       type: String,
     },
     image: {
