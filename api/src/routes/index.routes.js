@@ -13,6 +13,7 @@ router.get("/about", renderAbout);
 router.use("/auth", authRoutes);
 router.use("/filters", filterRoutes);
 
+
 router.use("/tech", techRoutes);
 
 export default router;

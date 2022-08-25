@@ -23,8 +23,8 @@ const ProjectSchema = new mongoose.Schema(
     tech: {
       type:[{type: String, required: true}],
     },
-    payment: {
-      type: [{ type: Boolean, required: true, default: false }],
+    payment: { 
+      type: Boolean, required: true, default: false
     },
     userId: {
       type: String,
