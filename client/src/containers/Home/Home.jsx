@@ -1,12 +1,8 @@
 
 import React from 'react';
 import {
-    Blog,  
-    Footer, 
     Header,
     Possibility, 
-    WhatGPT3,
-    Background
   } from '../../containers';
   import Features from '../../containers/Features/Features';
   import Features2 from '../../containers/Features2/Features2';

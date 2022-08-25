@@ -68,7 +68,7 @@ export default function MediaControlCard({ project }) {
   };
 
   return (
-    <Card sx={{ display: 'flex', margin: 5, width: 800, justifyContent: "space-between" }}>
+    <Card sx={{ display: 'flex', margin: 5, width: 800, justifyContent: "space-between", borderRadius: 5 }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', width: 600 }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h5">
