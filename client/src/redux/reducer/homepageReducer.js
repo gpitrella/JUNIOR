@@ -1,9 +1,12 @@
 import {
-  FILTER_PROJECTS
+  FILTER_PROJECTS,
+  GET_USER
 } from '../actions/actiontype';
 
 const initialState = {
-  filterProjects: []
+  filterProjects: [],
+  auser: {},
+
 };
 
 const homepageReducer = function(state = initialState, { type, payload }) {
@@ -12,6 +15,12 @@ const homepageReducer = function(state = initialState, { type, payload }) {
       return {
         ...state,
         filterProjects: payload
+      }
+
+    case GET_USER:
+      return {
+        ...state,
+        auser: payload
       }
 
     default:
