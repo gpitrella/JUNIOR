@@ -6,6 +6,8 @@ import {
   } from '../../containers';
   import Features from '../../containers/Features/Features';
   import Features2 from '../../containers/Features2/Features2';
+  import Footer from '../../components/Footer/Footer';
+  import { Navbar } from '../../components';
  
   import { CTA, Brand } from '../../components';
 /**
@@ -17,12 +19,14 @@ const Home = () => {
 
 	return (
 		<>
-			<Header />
+            <Navbar />
+			      <Header />
             <CTA />
             <Features />
             <Brand />
             <Features2 />
             <Possibility />
+            <Footer />
 		</>
 	)
 }

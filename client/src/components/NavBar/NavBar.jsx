@@ -9,26 +9,32 @@ import logo from '../../assets/Logo-JR.jpg'
  * Menu where site links are
  * @return {element} site links  
  */
-const Menu = () => (
-	<>
-		<p><a href="#home">Home</a></p>
-		<p><a href="#wgpt3">Proyectos</a></p>
-		<p><a href="#features">Finalizados</a></p>
-		{/* <p><a href="#possibility">Open AI</a></p>
-		<p><a href="#blog">Library</a></p> */}
-	</>
-)
+const Menu = () => {
+	return (
+			<>
+				<p><a href="#home">Home</a></p>
+				<p><a href="#wgpt3">Proyectos</a></p>
+				<p><a href="#features">Finalizados</a></p>
+				{/* <p><a href="#possibility">Open AI</a></p>
+				<p><a href="#blog">Library</a></p> */}
+			</>
+		)
+}
+
 
 /**
  * Buttons for simulate signs functionalities
  * @return {element} Sign buttons 
  */
-const SignBtns = () => (
-	<>
-		<p>Sign in</p>
-		<button className="btn" type="button">Sign up</button>
-	</>
-)
+const SignBtns = () => {
+	return (
+		<>
+			<p>Sign in</p>
+			<button className="btn" type="button">Sign up</button>
+		</>
+	)
+}
+
 
 /**
  * Navigation bar

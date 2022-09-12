@@ -8,7 +8,7 @@ import {
 
 import Store from './components/Store/Store';
 import Home from './containers/Home/Home';
-import { Navbar } from './components';
+// import { Navbar } from './components';
 import AOS from 'aos'; // Animations on scrolling dependency
 
 // For mark CSS classes I'm using the BEM (Block Element Modifier) notation 
@@ -28,14 +28,14 @@ const App = () => {
   return (
     <BrowserRouter>
         <div className="App">
+            <Background />
           <div className="gradient__bg">
-            <Navbar />
+                {/* <Navbar /> */}
               <Routes>
                 <Route exact path="/" element={<LandingPage />}/>
                 <Route exact path="/home" element={<Home />}/>
                 <Route exact path="/filter" element={<Store />} />
               </Routes>
-            <Background />
           </div>          
         </div>
     </BrowserRouter>

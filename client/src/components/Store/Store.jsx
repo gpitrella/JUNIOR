@@ -2,6 +2,7 @@ import React from 'react';
 // import { useSelector, useDispatch } from 'react-redux';
 // import { useParams } from 'react-router-dom';
 import SideBar from '../../containers/SideBar/SideBar';
+import { Navbar } from '../../components';
 import CardProject from '../../components/CardProject/CardProject';
 // import FilterPanel from '../FilterPanel/FilterPanel';
 // import OrderPanel from '../OrderPanel/OrderPanel';
@@ -14,6 +15,7 @@ import CardProject from '../../components/CardProject/CardProject';
 // import { buildFilter, buildPathWithFilter } from '../../util';
 
 import s from './Store.module.css';
+// import Navbar from '../NavBar/NavBar';
 // import Loading from '../SVG/Loading';
 
 
@@ -138,6 +140,8 @@ export default function Store() {
   // }
 
   return (
+        <>
+        <Navbar />
     <div className = {s.container}>
 
       <div>
@@ -185,5 +189,6 @@ export default function Store() {
         </div> */}
       </div>
     </div>
+    </>
   );
 }
