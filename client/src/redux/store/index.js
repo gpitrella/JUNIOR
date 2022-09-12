@@ -1,32 +1,33 @@
-// import { applyMiddleware } from 'redux';
-// import { configureStore, combineReducers} from '@reduxjs/toolkit';
+import { applyMiddleware } from 'redux';
+import {configureStore, combineReducers} from "@reduxjs/toolkit";
+//import { configureStore } from '@reduxjs/toolkit';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import homepage from '../reducer/homepageReducer.js';
+import rootReducer from '../reducer';
+import thunk from 'redux-thunk';
 
-// // import { composeWithDevTools } from 'redux-devtools-extension';
-// // import homepage from '../reducer/index.js';
-// import rootReducer from '../reducer/index';
-// import thunk from 'redux-thunk';
+const reducer = combineReducers({
+  homepageReducer: homepage,
+})
+export const store = configureStore({
+  reducer
+  //composeWithDevTools(applyMiddleware(thunk))
+});
 
-// // const reducer = combineReducers({
-// //   homepage: homepage
-// // });
-
-// export const store = configureStore({
-//   rootReducer
-// });
-// // composeWithDevTools(applyMiddleware(thunk))
-
-// export default store;
-
-
-// import { createStore, applyMiddleware, compose } from 'redux';
-// import rootReducer from '../reducer/index';
-// import thunk from 'redux-thunk';
+export default store;
+/*
+import {configureStore, combineReducers} from "@reduxjs/toolkit";
 
 
-// const store = createStore(
-//     rootReducer,
-//     compose(applyMiddleware(thunk), 
-//     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-// );
+const reducer = combineReducers({
+pokemonSearch: pokemonSearchSlice
+});
 
-// export default store;
+const store = configureStore({
+reducer
+});
+
+
+
+export default store;
+*/

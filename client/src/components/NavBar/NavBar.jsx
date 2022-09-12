@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri'
-
+import { useSelector, useDispatch } from 'react-redux';
 import './NavBar.css'
 // import logo from '../assets/logo.svg'
 import logo from '../../assets/Logo-JR.jpg'
@@ -10,17 +10,16 @@ import logo from '../../assets/Logo-JR.jpg'
  * @return {element} site links  
  */
 const Menu = () => {
+	
 	return (
-			<>
-				<p><a href="#home">Home</a></p>
-				<p><a href="#wgpt3">Proyectos</a></p>
-				<p><a href="#features">Finalizados</a></p>
-				{/* <p><a href="#possibility">Open AI</a></p>
-				<p><a href="#blog">Library</a></p> */}
-			</>
-		)
-}
-
+	<>
+		<p><a href="#home">Home</a></p>
+		<p><a href="#wgpt3">Proyectos</a></p>
+		<p><a href="#features">Finalizados</a></p>
+		{/* <p><a href="#possibility">Open AI</a></p>
+		<p><a href="#blog">Library</a></p> */}
+	</>
+)}
 
 /**
  * Buttons for simulate signs functionalities
@@ -28,13 +27,13 @@ const Menu = () => {
  */
 const SignBtns = () => {
 	return (
-		<>
-			<p>Sign in</p>
-			<button className="btn" type="button">Sign up</button>
-		</>
-	)
-}
-
+	
+	<>
+		<p>Bienvenido</p>
+		<p>Sign in</p>
+		<button className="btn" type="button">Sign up</button>
+	</>
+)}
 
 /**
  * Navigation bar
