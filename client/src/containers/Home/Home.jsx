@@ -8,6 +8,7 @@ import {
   import Features2 from '../../containers/Features2/Features2';
   import Footer from '../../components/Footer/Footer';
   import { Navbar } from '../../components';
+  import styled from './Home.module.css';
  
   import { CTA, Brand } from '../../components';
 /**
@@ -18,7 +19,7 @@ const Home = () => {
 
 
 	return (
-		<>
+		<div className={styled.gradient__bg}>
             <Navbar />
 			      <Header />
             <CTA />
@@ -27,7 +28,7 @@ const Home = () => {
             <Features2 />
             <Possibility />
             <Footer />
-		</>
+		</div>
 	)
 }
 
