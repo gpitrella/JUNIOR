@@ -1,9 +1,11 @@
 import React from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 // import { useParams } from 'react-router-dom';
 import SideBar from '../../containers/SideBar/SideBar';
 import { Navbar } from '../../components';
 import CardProject from '../../components/CardProject/CardProject';
+import { getAllProjects } from '../../redux/actions/projectsActions.js';
+
 // import FilterPanel from '../FilterPanel/FilterPanel';
 // import OrderPanel from '../OrderPanel/OrderPanel';
 // import Pagination from '../Pagination/Pagination';
@@ -46,11 +48,15 @@ const projectsEjemplos = [
 
 export default function Store() {
 
-  // const dispatch = useDispatch();
-  // // const { showLoading, showError, showStore, products, noProducts, filter, results } = useSelector(state => state.storepage);
+  const dispatch = useDispatch();
+  const { allProjects  } = useSelector(state => state.projectsReducer);
   // const [ dispatching, setDispatching ] = React.useState(false);
   // const [ queryName, setqueryName ] = React.useState('');
   // const params = useParams();
+
+  React.useEffect(()=> {
+    dispatch(getAllProjects());
+  }, [])
 
   // React.useEffect(() => {
 
@@ -169,10 +175,9 @@ export default function Store() {
         </div> */}
         <div className = {s.producCardsStore}>
           {
-            projectsEjemplos.length > 0 && projectsEjemplos.map(project => {
-              return (<CardProject project={project}/>)
+            allProjects.length > 0 && allProjects.map(project => {
+              return (<CardProject key={project._id} project={project}/>)
             })
-
           }
             {/* <ProductCardsStore products = {products}/> */}
           </div>

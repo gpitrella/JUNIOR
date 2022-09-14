@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri'
-import { useSelector, useDispatch } from 'react-redux';
-import './NavBar.css'
-// import logo from '../assets/logo.svg'
-import logo from '../../assets/Logo-JR.jpg'
+import { Link } from 'react-router-dom';
+import './NavBar.css';
+import logo from '../../assets/logo.png';
 
 /**
  * Menu where site links are
@@ -13,8 +12,8 @@ const Menu = () => {
 	
 	return (
 	<>
-		<p><a href="#home">Home</a></p>
-		<p><a href="#wgpt3">Proyectos</a></p>
+		<Link to='/home'><p>Home</p></Link>
+		<Link to='/projects'><p>Proyectos</p></Link>
 		<p><a href="#features">Finalizados</a></p>
 		{/* <p><a href="#possibility">Open AI</a></p>
 		<p><a href="#blog">Library</a></p> */}
@@ -46,7 +45,7 @@ const Navbar = () => {
 		<div className="gpt3__navbar">
 			<div className="gpt3__navbar-links">
 				<div className="gpt3__navbar-links_logo">
-					<img src={logo} alt="GPT3 logo" />
+					<img src={logo} alt="logo Junior" />
 				</div>
 				<div className="navbar-links_main_container">
 					<div className="gpt3__navbar-links_container">

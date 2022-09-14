@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.scss';
-import logo from "../../assets/Logo-JR.jpg"
+import logo from "../../assets/logo.png"
 
 /**
  * Features of GPT3

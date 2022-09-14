@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './footer.css'
-import gpt3Logo from '../assets/logo.svg'
+import gpt3Logo from '../assets/logo.png'
 
 /**
  * Footer section of the page

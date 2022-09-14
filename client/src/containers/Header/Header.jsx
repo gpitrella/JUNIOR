@@ -44,20 +44,6 @@ const Header = () => {
 	 */
 	const onEmailInputChanged = (evt) => setEmail(evt.target.value)
 
-	/**
-	 * Email button controller
-	 */
-	const onEmailBtnClicked = () => {
-		if (email && validateEmail(email)) {
-			setIsAlertShowing(true)
-
-			// Starts a time out for quit alert after 10 seconds
-			setTimeout(() => setIsAlertShowing(false), 10000);
-		} else {
-			setEmail("Bad email!")
-		}
-	}
-
 	return (
 		<>
 			<Alert show={isAlertShowing} handler={() => setIsAlertShowing(false)} />
@@ -73,7 +59,7 @@ const Header = () => {
 
 					<div className="gpt3__header-content__input">
 						{/* <input type="email" placeholder="Your Email Address" value={email} onChange={onEmailInputChanged} /> */}
-						<button className="btn btn_start" type="button" onClick={onEmailBtnClicked}>Empezar</button>
+						<button className="btn btn_start" type="button"><a href="#empezar">Empezar</a></button>
 					</div>
 
 					<div className="gpt3__header-content__people">
