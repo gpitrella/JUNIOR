@@ -5,14 +5,9 @@ import jwt_decode from "jwt-decode";
 import { getUser } from './redux/actions/generalActions';
 import styled from 'styled-components';
 import { BrowserRouter, NavLink, Routes, Route } from 'react-router-dom';
-import {
-  Background
-} from './containers';
-// import SideBar from './containers/SideBar/SideBar';
-
+import { Background } from './containers';
 import Store from './components/Store/Store';
 import Home from './containers/Home/Home';
-// import { Navbar } from './components';
 import AOS from 'aos'; // Animations on scrolling dependency
 
 // For mark CSS classes I'm using the BEM (Block Element Modifier) notation 
@@ -29,7 +24,7 @@ AOS.init({
 });
 
 export default function App() {
-// ?-- Auth width Google
+  // ?-- Auth width Google
   //const [ user, setUser ] = useState({});
   const dispatch = useDispatch()
   const { auser } = useSelector((state) => state.homepageReducer);
@@ -73,24 +68,22 @@ export default function App() {
 
 
   return (
-
-    // <>
-     
-
-    <React.Fragment>
+     <React.Fragment>
         <div className="App">
+        <div id="signInDiv"></div>
+          { Object.keys(auser).length !== 0 &&
+            <button onClick={ (e) => handleSignOut(e)}>Sign Out</button>
+          }
             <Background />
           <div className="gradient__bg">
-                {/* <Navbar /> */}
               <Routes>
                 <Route exact path="/" element={<LandingPage />}/>
                 <Route exact path="/home" element={<Home />}/>
-                <Route exact path="/filter" element={<Store />} />
+                <Route exact path="/projects" element={<Store />} />
               </Routes>
           </div>          
         </div>
     </React.Fragment>
-    // </>
   );
 }
 
