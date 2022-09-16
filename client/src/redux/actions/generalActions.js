@@ -1,7 +1,7 @@
-import axios from 'axios';
+// import axios from 'axios';
 
 import {
-  FILTER_PROJECTS,
+  // FILTER_PROJECTS,
   GET_USER,
 } from './actiontype';
 

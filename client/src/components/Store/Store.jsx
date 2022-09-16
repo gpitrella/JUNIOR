@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import { useParams } from 'react-router-dom';
-import SideBar from '../../containers/SideBar/SideBar';
+import Sidebar from '../Sidebar/Sidebar.jsx';
 import { Navbar } from '../../components';
 import CardProject from '../../components/CardProject/CardProject';
 import { getAllProjects } from '../../redux/actions/projectsActions.js';
@@ -148,19 +148,25 @@ export default function Store() {
   return (
         <>
         <Navbar />
-    <div className = {s.container}>
+          <div className = {s.containerProjects}>
+            <Sidebar />
+            <div className = {s.producCardsStore}>
+              {
+                allProjects.length > 0 && allProjects.map(project => {
+                  return (<CardProject key={project._id} project={project}/>)
+                })
+              }
+            </div>
 
-      <div>
-        {/* <div className = {s.containerTitle}> // FILTROS APLICADOS EN LA APP
-        {
-          filter && buildPathWithFilter(filter).map((element, index) => 
-            <><span className = {s.arrow}>{'/'}</span><span className = {s.path}> {element} </span></>       
-          )
-        }
-        </div> */}
-        <div className = {s.filterPanel}>
-          <SideBar />
-        </div>
+            {/* <div className = {s.containerTitle}> // FILTROS APLICADOS EN LA APP
+            {
+              filter && buildPathWithFilter(filter).map((element, index) => 
+                <><span className = {s.arrow}>{'/'}</span><span className = {s.path}> {element} </span></>       
+              )
+            }
+            </div> */}
+            
+            
         {/* <div className = {s.subHeaderZone}> // DEVUELVE LA CANTIDAD DE PRODUCTOS ENCONTRADOS Y LOS FILTROS DE CATEGORIAS
 
           <ShowResultCount loading = {showLoading} results = {results} page = {filter.page} pages = {filter.pages} />
@@ -173,14 +179,6 @@ export default function Store() {
         {/* <div className = {s.pagination}> // PAGINACION DE PROJECTOS
           <Pagination />
         </div> */}
-        <div className = {s.producCardsStore}>
-          {
-            allProjects.length > 0 && allProjects.map(project => {
-              return (<CardProject key={project._id} project={project}/>)
-            })
-          }
-            {/* <ProductCardsStore products = {products}/> */}
-          </div>
         {/* {
           !showLoading && !showError && products && products.length > 0 &&
           <div className = {s.producCardsStore}>
@@ -193,7 +191,6 @@ export default function Store() {
           <Pagination />
         </div> */}
       </div>
-    </div>
     </>
   );
 }

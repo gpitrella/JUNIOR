@@ -4,34 +4,24 @@ import { Link } from 'react-router-dom';
 import './NavBar.css';
 import logo from '../../assets/logo.png';
 
-/**
- * Menu where site links are
- * @return {element} site links  
- */
+
+
 const Menu = () => {
-	
 	return (
-	<>
-		<Link to='/home'><p>Home</p></Link>
-		<Link to='/projects'><p>Proyectos</p></Link>
-		<p><a href="#features">Finalizados</a></p>
-		{/* <p><a href="#possibility">Open AI</a></p>
-		<p><a href="#blog">Library</a></p> */}
-	</>
+		<>
+			<Link to='/projects'><p>Proyectos</p></Link>
+			<p><a href="#features">About JR</a></p>
+			{/* <p><a href="#possibility">Open AI</a></p>
+			<p><a href="#blog">Library</a></p> */}
+		</>
 )}
 
-/**
- * Buttons for simulate signs functionalities
- * @return {element} Sign buttons 
- */
 const SignBtns = () => {
 	return (
-	
-	<>
-		<p>Bienvenido</p>
-		<p>Sign in</p>
-		<button className="btn" type="button">Sign up</button>
-	</>
+		<>
+			<p>Bienvenido</p>
+			<button className="btn" type="button">Login</button>
+		</>
 )}
 
 /**
@@ -40,37 +30,49 @@ const SignBtns = () => {
  */
 const Navbar = () => {
 	const [toggleMenu, setToggleMenu] = useState(false) // Use for controll the mini menu
+	const [stickyNavbar, setStickyNavbar] = useState(false)
+
+	window.onscroll = function() {scrollFunction()};
+	function scrollFunction() {
+		if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+			setStickyNavbar(true);
+		} else {
+			setStickyNavbar(false);
+		}
+	  }
 
 	return (
-		<div className="gpt3__navbar">
-			<div className="gpt3__navbar-links">
-				<div className="gpt3__navbar-links_logo">
-					<img src={logo} alt="logo Junior" />
-				</div>
+		<div className={ stickyNavbar ? "navbarSticky" : "navbar" }>
+			<div className="navbar-links_logo">
+				<Link to='/home'>
+					<img src={logo} id="logoNavbar" alt="Logo Junior" />
+				</Link>
+			</div>
+			<div className="navbar-links">
 				<div className="navbar-links_main_container">
-					<div className="gpt3__navbar-links_container">
+					<div className="navbar-links_container">
 						<Menu />
 					</div>
 				</div>
 			</div>
 
-			<div className="gpt3__navbar-sign">
+			<div className="navbar-sign">
 				<SignBtns />
 			</div>
 
-			<div className="gpt3__navbar-menu">
+			<div className="navbar-menu">
 				{/* Choose when and how to show the mini menu */}
 				{toggleMenu
 					? <RiCloseLine color="#fff" size={27} onClick={() => setToggleMenu(false)} />
 					: <RiMenu3Line color="#fff" size={27} onClick={() => setToggleMenu(true)} />
 				}
 				{toggleMenu && (
-					<div className="gpt3__navbar-menu_container scale-up-center">
-						<div className="gpt3__navbar-menu_container-links">
+					<div className="navbar-menu_container scale-up-center">
+						<div className="navbar-menu_container-links">
 							<Menu />
 						</div>
 
-						<div className="gpt3__navbar-menu_container-links-sign">
+						<div className="navbar-menu_container-links-sign">
 							<SignBtns />
 						</div>
 					</div>

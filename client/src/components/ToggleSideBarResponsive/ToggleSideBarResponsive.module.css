@@ -1,0 +1,30 @@
+.btnShowSidebarResponsive {
+  position: fixed;
+  bottom: 7rem;
+  left: 1rem;
+  height: 3rem;
+  width: 3rem;
+  font-size: 10px;
+  background: linear-gradient(65.58deg, rgba(0, 66, 255, 1) -11.84%, rgba(235, 0, 27, 1) 98.75%);
+  box-shadow: inset 0px -1px 0px 0px rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 0.5rem;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 1px;
+
+  z-index: 50;
+}
+
+@media (min-width: 700px) {
+  .btnShowSidebarResponsive {
+    display: none;
+  }
+}

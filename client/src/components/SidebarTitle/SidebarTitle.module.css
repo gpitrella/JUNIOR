@@ -1,0 +1,27 @@
+.title {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  letter-spacing: 2px;
+}
+
+.containerTitle {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  grid-gap: 0.5rem;
+
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.separator {
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 5px 0 5px 0;
+  width: 100%;
+}
