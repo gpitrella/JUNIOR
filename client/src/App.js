@@ -86,35 +86,3 @@ export default function App() {
     </React.Fragment>
   );
 }
-
-
-{/* <div className="App">
-
-<div id="signInDiv"></div>
-{ Object.keys(auser).length !== 0 &&
-  <button onClick={ (e) => handleSignOut(e)}>Sign Out</button>
-} */}
-
-          {/* <div className="gradient__bg"> */}
-{/* <Navbar /> */}
-  {/* <Routes>
-    <Route exact path="/" element={<Home />}/>
-    <Route exact path="/filter" element={<Store />} />
-  </Routes> */}
-    {/* <Route path="/" element={<CTA />} />
-    <Route path="/" element={<Features />} />
-    <Route path="/" element={<Brand />} />
-    <Route path="/" element={<Features2 />} />
-    <Route path="/" element={<Possibility />} /> */}
-{/* <Background /> */}
-  {/* </div> */}
-  {/* <WhatGPT3 />  */}
-  {/* <CTA />
-  <Features />
-  <Brand /> 
-  <Features2 />
-  <Possibility /> */}
-  {/* <Blog /> */}
-  {/* <Footer /> */}
-  
-{/* </div> */}
