@@ -3,12 +3,14 @@ import {configureStore, combineReducers} from "@reduxjs/toolkit";
 // import { composeWithDevTools } from 'redux-devtools-extension';
 import homepage from '../reducer/homepageReducer.js';
 import project from '../reducer/projectsReducer.js';
+import filterProjects from "../reducer/filterProjectsReducer.js";
 // import rootReducer from '../reducer';
 // import thunk from 'redux-thunk';
 
 const reducer = combineReducers({
   homepageReducer: homepage,
   projectsReducer: project,
+  filterReducer: filterProjects
 })
 
 export const store = configureStore({

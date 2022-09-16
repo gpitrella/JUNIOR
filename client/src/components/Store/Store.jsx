@@ -1,10 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import { useParams } from 'react-router-dom';
+import Lottie from 'react-lottie';
 import Sidebar from '../Sidebar/Sidebar.jsx';
 import { Navbar } from '../../components';
 import CardProject from '../../components/CardProject/CardProject';
-import { getAllProjects } from '../../redux/actions/projectsActions.js';
+import { getAllProjects, getAllTechs } from '../../redux/actions/projectsActions.js';
+import notProject from '../../assets/astronautnotproject.json';
 
 // import FilterPanel from '../FilterPanel/FilterPanel';
 // import OrderPanel from '../OrderPanel/OrderPanel';
@@ -21,30 +23,30 @@ import s from './Store.module.css';
 // import Loading from '../SVG/Loading';
 
 
-const projectsEjemplos = [
-  {
-    _id: "62fa5fe7bf6d1699d7f3e224",
-    title: "Proyecto con Logeo",
-    description: "Primer proyecto creado una vez logeado.",
-    gitHubUrl: "https://github.com/singhkshitij/My-Landing-Page",
-    image: "https://www.iata.org/contentassets/d7c512eb9a704ba2a8056e3186a31921/cargo_live_animals_parrot.jpg?w=330&h=200&mode=crop&scale=both&v=20191213012337",
-    tech: ["React", "Redux", "Express", "Sequelize"],
-    user: "62fa59f0a41323e6e7f40705",
-    createdAt: "2022-08-15T15:01:59.908+00:00",
-    updatedAt: "2022-08-15T15:01:59.908+00:00"
-  },
-  {
-    _id: "62fa5fe7bf6d1699d7f3e224",
-    title: "Segundo Proyecto con Logeo",
-    description: "Segundo proyecto creado una vez logeado.",
-    gitHubUrl: "https://github.com/singhkshitij/My-Landing-Page",
-    image: "https://i.pinimg.com/564x/50/61/94/5061940a1eeb9ed87977a575254895a3.jpg",
-    tech: ["React", "Express", "MongoDB"],
-    user: "62fa59f0a41323e6e7f40705",
-    createdAt: "2022-08-15T15:01:59.908+00:00",
-    updatedAt: "2022-08-15T15:01:59.908+00:00"
-  },
-]
+// const projectsEjemplos = [
+//   {
+//     _id: "62fa5fe7bf6d1699d7f3e224",
+//     title: "Proyecto con Logeo",
+//     description: "Primer proyecto creado una vez logeado.",
+//     gitHubUrl: "https://github.com/singhkshitij/My-Landing-Page",
+//     image: "https://www.iata.org/contentassets/d7c512eb9a704ba2a8056e3186a31921/cargo_live_animals_parrot.jpg?w=330&h=200&mode=crop&scale=both&v=20191213012337",
+//     tech: ["React", "Redux", "Express", "Sequelize"],
+//     user: "62fa59f0a41323e6e7f40705",
+//     createdAt: "2022-08-15T15:01:59.908+00:00",
+//     updatedAt: "2022-08-15T15:01:59.908+00:00"
+//   },
+//   {
+//     _id: "62fa5fe7bf6d1699d7f3e224",
+//     title: "Segundo Proyecto con Logeo",
+//     description: "Segundo proyecto creado una vez logeado.",
+//     gitHubUrl: "https://github.com/singhkshitij/My-Landing-Page",
+//     image: "https://i.pinimg.com/564x/50/61/94/5061940a1eeb9ed87977a575254895a3.jpg",
+//     tech: ["React", "Express", "MongoDB"],
+//     user: "62fa59f0a41323e6e7f40705",
+//     createdAt: "2022-08-15T15:01:59.908+00:00",
+//     updatedAt: "2022-08-15T15:01:59.908+00:00"
+//   },
+// ]
 
 export default function Store() {
 
@@ -56,8 +58,17 @@ export default function Store() {
 
   React.useEffect(()=> {
     dispatch(getAllProjects());
+    dispatch(getAllTechs());
   }, [])
 
+  const defaultOptions = {
+		loop: true,
+		autoplay: true,
+		animationData: notProject,
+		rendererSettings: {
+		  preserveAspectRatio: "xMidYMid slice"
+		}
+	};
   // React.useEffect(() => {
 
   //   let idTimeOut = setTimeout(() => {
@@ -150,13 +161,20 @@ export default function Store() {
         <Navbar />
           <div className = {s.containerProjects}>
             <Sidebar />
-            <div className = {s.producCardsStore}>
-              {
-                allProjects.length > 0 && allProjects.map(project => {
-                  return (<CardProject key={project._id} project={project}/>)
-                })
-              }
-            </div>
+            { allProjects.length === 0 
+                ? <div className = {s.withoutCardsStore}>
+                    <h2>Sin Proyectos con estos filtros</h2>
+                    <h2>aprovecha y crea el primero. </h2>             
+                    <Lottie options={defaultOptions} height={400} width={400} />  
+                  </div>
+                : <div className = {s.producCardsStore}>
+                    {
+                      allProjects.length > 0 && allProjects.map(project => {
+                        return (<CardProject key={project._id} project={project}/>)
+                      })
+                    }
+                  </div>
+          }
 
             {/* <div className = {s.containerTitle}> // FILTROS APLICADOS EN LA APP
             {

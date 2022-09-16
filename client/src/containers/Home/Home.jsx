@@ -10,7 +10,7 @@ import Footer from '../../components/Footer/Footer';
 import { Navbar } from '../../components';
 import styled from './Home.module.css';
 import { useDispatch } from 'react-redux';
-import { getAllProjects } from '../../redux/actions/projectsActions.js';
+import { getAllProjects, getAllTechs } from '../../redux/actions/projectsActions.js';
 import { CTA, Brand } from '../../components';
 
 export default function Home () {
@@ -19,6 +19,7 @@ export default function Home () {
 
   React.useEffect(()=> {
     dispatch(getAllProjects());
+    dispatch(getAllTechs());
   }, [])
   
 	return (

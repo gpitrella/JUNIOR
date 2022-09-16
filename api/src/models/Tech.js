@@ -13,3 +13,4 @@ const TechSchema = new mongoose.Schema(
 );
 
 export default mongoose.model("Tech", TechSchema);
+

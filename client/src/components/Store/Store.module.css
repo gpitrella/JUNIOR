@@ -1,9 +1,6 @@
 .containerProjects {
-  /*width: 100vw;*/
-  margin: 0px 0 20px 0;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   flex-direction: row;
   box-sizing: border-box;
 }
@@ -53,6 +50,15 @@
 
 .producCardsStore {
   margin-right: 9rem;
+}
+
+.withoutCardsStore {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 50px;
+  flex-direction: column;
+  color: white;
 }
 
 .exampleCard {

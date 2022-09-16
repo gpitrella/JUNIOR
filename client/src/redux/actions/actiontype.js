@@ -1,10 +1,15 @@
 // USERS ACTIONS
 export const CHANGE_THEME = 'CHANGE_THEME';
-export const FILTER_PROJECTS = 'FILTER_PROJECTS';
 export const GET_USER = 'GET_USER';
 
 // PROJECTS ACTIONS
 export const GET_ALL_PROJECTS = 'GET_ALL_PROJECTS';
+export const GET_ALL_TECHS = 'GET_ALL_TECHS';
+
+// FILTER PROJECTS ACTIONS
+export const FILTER_PROJECTS = 'FILTER_PROJECTS';
+export const UPDATE_STATUS_FILTER = 'UPDATE_STATUS_FILTER';
+
 
 // BASE URL
 export const BASE_URL = 'http://localhost:4001';
