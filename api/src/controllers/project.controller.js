@@ -4,7 +4,7 @@ import User from "../models/User.js";
 
 export const createNewProject = async (req, res) => {
   try {
-    const { title, description, gitHubUrl, wspUrl, image, newtech, userId } = req.body;
+    const { title, description, gitHubUrl, wspUrl, image, newtech, userId, payment } = req.body;
     const errors = [];
     if (!title) {
       errors.push({ text: "Please Write a Title." });
@@ -18,6 +18,9 @@ export const createNewProject = async (req, res) => {
     if (!newtech) {
       errors.push({ text: "Please Write one tech" });
     }
+    if (!payment) {
+      errors.push({ text: "Please Description is the project is payment or not" });
+    }
     if (errors.length > 0) {
       return res.send(errors)
     }
@@ -26,7 +29,7 @@ export const createNewProject = async (req, res) => {
       console.log(findInDb)
       if (!findInDb) {
         const techs = newtech.map(f => f.toLowerCase())
-        const newProject = new Project({ title, description, gitHubUrl, wspUrl, image, tech: techs, userId });
+        const newProject = new Project({ title, description, gitHubUrl, wspUrl, image, tech: techs, userId, payment });
         const saveProject = await newProject.save();
         const mapName = saveProject.tech.map(m => m)
         mapName.forEach(async m => {
@@ -47,6 +50,7 @@ export const createNewProject = async (req, res) => {
 export const getAllProyect = async (req, res) => {
   try {
     const findInDb = await Project.find({})
+    console.log('entre a projects', findInDb)
     res.status(200).json(findInDb)
   } catch (err) {
     res.status(400).json(err.message)

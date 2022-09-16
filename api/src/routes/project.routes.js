@@ -8,8 +8,8 @@ router.get("/projects/allprojects", getAllProyect)
 //POST
 router.post("/projects/newproject", createNewProject);
 //PUT
-router.put("/porjects/updateproject", updateProject)
+router.put("/projects/updateproject", updateProject)
 //DELETE
-router.delete("/porjects/deleteproject", projectDelete)
+router.delete("/projects/deleteproject", projectDelete)
 
 export default router;
