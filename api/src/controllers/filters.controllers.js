@@ -2,6 +2,11 @@ import Project from "../models/Project.js"
 
 export const filterByTechs = async (req,res)=>{
     const { teches, payment } = req.body
+    // Order
+    // if(order) {let auxOrder = order.split(","); order = [[auxOrder[0], auxOrder[1]]]}
+    // else order  = [['ranking','desc']]
+
+    // Filter by Tech
     const projects = await Project.find({})
     const _setfilter = new Set()
     if(teches[0] !== "All") {
@@ -17,7 +22,9 @@ export const filterByTechs = async (req,res)=>{
             _setfilter.add(iproject);
         }
     }
-    if(payment !== undefined) {
+
+    // Filter by Payment
+    if(payment !== "All") {
         _setfilter.forEach((project) => {
             if(project.payment !== payment) _setfilter.delete(project);
         })

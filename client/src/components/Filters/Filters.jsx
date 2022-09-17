@@ -20,13 +20,13 @@ export default function Filters() {
 
   // console.log(filterTechs);
   let handleChangeSelect = function(field, newValue) {
-    if (filterReducer[field] === newValue) return;
-    dispatch(updateStatusFilter({ field, newValue }));
-    if (newValue === "All") {
-      dispatch(getAllProjects());
-    } else {
-      dispatch(updateFilterProjects(generateQueryWithState({ ...filterReducer, [field]: newValue })));
-    }
+    // if (filterReducer[field] === newValue) return;
+    // dispatch(updateStatusFilter({ field, newValue }));
+    // if (newValue === "All") {
+    //   dispatch(getAllProjects());
+    // } else {
+    //   dispatch(updateFilterProjects(generateQueryWithState({ ...filterReducer, [field]: newValue })));
+    // }
   }
 
   let handleChangeSelectResetPage = function(field, newValue) {
@@ -63,7 +63,7 @@ export default function Filters() {
         // disabled = {searchState.loading}
         // valueSelected = {searchState.orderBy}
         values = {["All", "Remunerado", "Colaborativo"]}
-        handleValue = {handleChangeSelect}
+        handleValue = {handleChangeSelectResetPage}
         name = {"payment"}
       />
       <h4 className = {s.label}>Order: </h4>
