@@ -40,16 +40,17 @@
 // }
 
 export let generateQueryWithState = function(state) {
-  if(state.payment === "All") {
-    return ({
-      teches: [state.tech]
-    });
-  } else {
     return ({
       teches: [state.tech],
-      payment: state.payment === "Colaborativo" ? false : true 
+      payment: (state.payment === "All" 
+                      ? "All" 
+                      : state.payment === "Colaborativo" 
+                                ? false : true),
+      // status: (state.status === "All" 
+      //                 ? "All" 
+      //                 : state.status === "develop" 
+      //                           ? false : true)                           
     });
-  }
 }
 
 
