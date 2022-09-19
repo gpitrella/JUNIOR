@@ -15,7 +15,6 @@ const projectsReducer = function(state = initialState, { type, payload }) {
         allProjects: payload
       }
     case FILTER_PROJECTS:
-      console.log('Payload filter Store:', payload);
       return {
         ...state,
         allProjects: payload

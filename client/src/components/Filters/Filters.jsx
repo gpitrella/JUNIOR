@@ -35,6 +35,7 @@ export default function Filters() {
     if (newValue === "All") {
       dispatch(getAllProjects());
     } else {
+      console.log('lo que devuelve el generador:',generateQueryWithState({ ...filterReducer, [field]: newValue }))
       dispatch(updateFilterProjects(generateQueryWithState({ ...filterReducer, [field]: newValue })));
     }
   }
@@ -50,8 +51,6 @@ export default function Filters() {
       <CustomSelect
         disabled={false}
         valueSelected={filterReducer?.tech}
-        // disabled = {searchState.loading}
-        // valueSelected = {searchState.status}
         values = {allNameTechs?.concat("All")}
         handleValue = {handleChangeSelectResetPage}
         name = {"tech"}
@@ -66,15 +65,35 @@ export default function Filters() {
         handleValue = {handleChangeSelectResetPage}
         name = {"payment"}
       />
-      <h4 className = {s.label}>Order: </h4>
+      <h4 className = {s.label}>Status: </h4>
       <CustomSelect
         disabled={false}
-        valueSelected={"ascending"}
+        valueSelected={filterReducer?.status}
+        // disabled = {searchState.loading}
+        // valueSelected = {searchState.orderBy}
+        values = {["All", "En Desarrollo", "Finalizado"]}
+        handleValue = {handleChangeSelectResetPage}
+        name = {"status"}
+      />
+      <h4 className = {s.label}>Ordenar Por: </h4>
+      <CustomSelect
+        disabled={false}
+        valueSelected={filterReducer?.order}
         // disabled = {searchState.loading}
         // valueSelected = {searchState.order}
-        values = {["ascending", "descending"]}
-        handleValue = {handleChangeSelect}
+        values = {["Fecha Creación", "Fecha Actualización", "Titulo"]}
+        handleValue = {handleChangeSelectResetPage}
         name = {"order"}
+      />
+      <h4 className = {s.label}>Ordenar: </h4>
+      <CustomSelect
+        disabled={false}
+        valueSelected={filterReducer?.orderby}
+        // disabled = {searchState.loading}
+        // valueSelected = {searchState.order}
+        values = {["Ascendente", "Descendente"]}
+        handleValue = {handleChangeSelectResetPage}
+        name = {"orderby"}
       />
     </span>
   )

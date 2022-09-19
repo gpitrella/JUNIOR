@@ -30,7 +30,6 @@ export function getAllTechs(){
 
 // Filter Projects
 export function updateFilterProjects(filters){
-  console.log('redux: filtros para ruta', filters)
   return function(dispatch){
       return axios.post(`${BASE_URL}/filters`, filters)
                   .then(projects => dispatch({ type: FILTER_PROJECTS, payload: projects.data }))

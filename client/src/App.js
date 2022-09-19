@@ -6,7 +6,7 @@ import { getUser } from './redux/actions/generalActions';
 import styled from 'styled-components';
 import { BrowserRouter, NavLink, Routes, Route } from 'react-router-dom';
 import { Background } from './containers';
-import Store from './components/Store/Store';
+import Projects from './components/Projects/Projects';
 import Home from './containers/Home/Home';
 import AOS from 'aos'; // Animations on scrolling dependency
 
@@ -79,7 +79,7 @@ export default function App() {
               <Routes>
                 <Route exact path="/" element={<LandingPage />}/>
                 <Route exact path="/home" element={<Home />}/>
-                <Route exact path="/projects" element={<Store />} />
+                <Route exact path="/projects" element={<Projects />} />
               </Routes>
           </div>          
         </div>

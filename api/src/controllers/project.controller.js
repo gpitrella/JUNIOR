@@ -46,8 +46,7 @@ export const createNewProject = async (req, res) => {
 }
 export const getAllProyect = async (req, res) => {
   try {
-    const findInDb = await Project.find({})
-    console.log('entre a projects', findInDb)
+    const findInDb = await Project.find({}).sort( { createdAt: 1, "_id": 1 } )
     res.status(200).json(findInDb)
   } catch (err) {
     res.status(400).json(err.message)
