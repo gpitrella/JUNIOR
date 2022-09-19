@@ -20,7 +20,10 @@ const SignBtns = () => {
 	return (
 		<>
 			<p>Bienvenido</p>
-			<button className="btn" type="button">Login</button>
+			<Link to="/login" className="links_profile_user">
+                          {/* <MenuItem onClick={handleMenuClose} >Sign In</MenuItem> */}
+				<button className="btn" type="button">Login</button>
+            </Link>
 		</>
 )}
 

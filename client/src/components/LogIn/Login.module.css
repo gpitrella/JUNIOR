@@ -1,0 +1,12 @@
+.loginContainer {
+  background-color: var(--primaryColor);
+}
+
+.input {
+  background-color: var(--primaryColorSub);
+  color: var(--fontColor);
+}
+
+.errorMsg {
+  color: var(--dangerColor);
+}

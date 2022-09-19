@@ -4,9 +4,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import jwt_decode from "jwt-decode";
 import { getUser } from './redux/actions/generalActions';
 import styled from 'styled-components';
-import { BrowserRouter, NavLink, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, NavLink, Routes, Route, Navigate } from 'react-router-dom';
 import { Background } from './containers';
 import Projects from './components/Projects/Projects';
+import LogIn from './components/LogIn/LogIn';
+import SignUp from './components/SignUp/SignUp';
 import Home from './containers/Home/Home';
 import AOS from 'aos'; // Animations on scrolling dependency
 
@@ -45,8 +47,9 @@ export default function App() {
     document.getElementById("signInDiv").hidden = false;
   }
 
-  useEffect(() => {
+  function handleGoogle(e){
     /* global google */
+    e.preventDefault();
     google.accounts.id.initialize({
       client_id: "442763437096-mbm8s7rhocjbjg29r94k37bgm5fevm7i.apps.googleusercontent.com",
       callback: handleCallbackResponse
@@ -59,9 +62,9 @@ export default function App() {
 
     google.accounts.id.prompt();
     
-  }, []);
+  };
    
-  //console.log(user, 'dsp de useEffect App.js');
+  // console.log(user, 'dsp de useEffect App.js');
   
   
 // ?-- End Auth
@@ -70,14 +73,18 @@ export default function App() {
   return (
      <React.Fragment>
         <div className="App">
-        <div id="signInDiv"></div>
+        {/* <div id="signInDiv"></div>
           { Object.keys(auser).length !== 0 &&
             <button onClick={ (e) => handleSignOut(e)}>Sign Out</button>
-          }
+          } */}
             <Background />
           <div className="gradient__bg">
               <Routes>
                 <Route exact path="/" element={<LandingPage />}/>
+                <Route exact path="/login" element={<LogIn handleGoogle={handleGoogle}/>} />
+                {/* <Route exact path="/login"> { !auser ? <LogIn/> : <Navigate to="/"/>}</Route>
+
+                <Route exact path="/signup"> { !auser ? <SignUp/> : <Navigate to="/"/>}</Route> */}
                 <Route exact path="/home" element={<Home />}/>
                 <Route exact path="/projects" element={<Projects />} />
               </Routes>
