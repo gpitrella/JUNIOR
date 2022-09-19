@@ -19,6 +19,11 @@
   --primaryColorLight: rgba(32, 32, 36, 1);
   --borderInside: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.2);
   --fontSmall: 14px;
+
+  --primaryColor: rgba(32, 32, 36, 1);
+  --primaryColorSub: rgb(240, 240, 240);
+  --fontColor: white;
+  --dangerColor: crimson;
 }
 
 @media (max-width: 700px) {

@@ -1,7 +1,7 @@
 import User from "../models/User.js";
 import passport from "passport";
 
-export const renderSignUpForm = (req, res) => res.render("auth/signup");
+// export const renderSignUpForm = (req, res) => res.render("auth/signup");
 
 export const singup = async (req, res) => {
   let errors = [];
@@ -39,7 +39,7 @@ export const singup = async (req, res) => {
   res.redirect("/auth/signin");
 };
 
-export const renderSigninForm = (req, res) => res.render("auth/signin");
+// export const renderSigninForm = (req, res) => res.render("auth/signin");
 
 export const signin = passport.authenticate("local", {
   successRedirect: "/notes",
