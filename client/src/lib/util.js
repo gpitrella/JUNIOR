@@ -46,12 +46,20 @@ export let generateQueryWithState = function(state) {
                       ? "All" 
                       : state.payment === "Colaborativo" 
                                 ? false : true),
-      // status: (state.status === "All" 
-      //                 ? "All" 
-      //                 : state.status === "develop" 
-      //                           ? false : true)                           
+      status: (state.status === "All" 
+                      ? "All" 
+                      : state.status === "En Desarrollo" 
+                                ? "develop" : "finish"),
+      order: (state.order === "Fecha Creación" 
+                      ? "createdAt" 
+                      : state.order === "Fecha Actualización" 
+                                ? "updatedAt" : "title"),
+      orderby: (state.orderby === "Ascendente" 
+                      ? 1
+                      : -1)
     });
 }
+
 
 
 

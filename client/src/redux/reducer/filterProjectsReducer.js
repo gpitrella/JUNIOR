@@ -6,7 +6,10 @@ import {
 const initialState = {
   allTechs: [],
   tech: "All",
-  payment: "All"
+  payment: "All",
+  status: "All",
+  order: "Fecha Creación",
+  orderby: "Ascendente"
 };
 
 const filterProjectsReducer = function(state = initialState, { type, payload }) {
