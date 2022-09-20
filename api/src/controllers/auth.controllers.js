@@ -1,5 +1,4 @@
 import User from "../models/User.js";
-import passport from "passport";
 import { compareSync, hashSync } from 'bcrypt';
 import { secret, expires, rounds } from '../auth.js';
 import jwt from 'jsonwebtoken';

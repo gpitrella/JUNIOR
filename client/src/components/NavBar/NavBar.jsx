@@ -25,7 +25,7 @@ const SignBtns = ({handleSignOut, user}) => {
 						<button className="btn" type="button">LogIn</button>
             		</Link>)
 				: ( <>
-						<p>Bienvenido {user.user.name.slice(0, user.user.name.indexOf(" "))}</p>
+						<p>Bienvenido {user?.user?.name}</p>
 						<button className="btn" type="button" onClick={(e) => handleSignOut(e)}>LogOut</button>
 				  	</>)
 			}

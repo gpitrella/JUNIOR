@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import jwt_decode from "jwt-decode";
-import { getUser, logOut } from './redux/actions/generalActions';
+import { getUser, logOut, signinGoogle } from './redux/actions/generalActions';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Background } from './containers';
 import { useLocation } from 'react-router-dom';
@@ -31,14 +31,13 @@ export default function App() {
   //const [ user, setUser ] = useState({});
   const dispatch = useDispatch()
   const location = useLocation();
-  const { auser, user } = useSelector((state) => state.homepageReducer);
+  const { user } = useSelector((state) => state.homepageReducer);
 
   function handleCallbackResponse(response) {
-    console.log("Encoded JWT ID token: " + response.credential);
     var userObject = jwt_decode(response.credential);
-    console.log(userObject);
     //setUser(userObject);
     dispatch(getUser(userObject));
+    dispatch(signinGoogle(userObject));
     // document.getElementById("signInDiv").hidden = true;
   }
 
