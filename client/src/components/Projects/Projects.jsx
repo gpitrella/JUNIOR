@@ -3,11 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 // import { useParams } from 'react-router-dom';
 import Lottie from 'react-lottie';
 import Sidebar from '../Sidebar/Sidebar.jsx';
-import { Navbar } from '..';
 import CardProject from '../CardProject/CardProject';
 import { getAllProjects, getAllTechs } from '../../redux/actions/projectsActions.js';
 import notProject from '../../assets/astronautnotproject.json';
-import Footer from '../Footer/Footer';
 import s from './Projects.module.css';
 
 export default function Projects() {
@@ -120,7 +118,6 @@ export default function Projects() {
 
   return (
         <>
-        <Navbar />
           <div className = {s.containerProjects}>
             <Sidebar />
               { allProjects?.length === 0 
@@ -138,7 +135,6 @@ export default function Projects() {
                     </div>
               }
           </div>
-      <Footer />
     </>
   );
 }
