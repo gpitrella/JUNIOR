@@ -1,51 +1,48 @@
 import User from "../models/User.js";
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const authConfig = require('../auth');
-require('dotenv').config();
+// const bcrypt = require('bcrypt');
+// const jwt = require('jsonwebtoken');
+import { compareSync, hashSync } from 'bcrypt';
+import { secret, expires, rounds } from '../auth.js';
+import jwt from 'jsonwebtoken';
+// require('dotenv').config();
 
 // const image = "https://res.cloudinary.com/techmarket/image/upload/v1657452330/rwbzsixizmehnudxgtg0.gif"
 
 // const sgMail = require('@sendgrid/mail');
 // const API_KEY = process.env.SENDGRID_API_KEY
 // sgMail.setApiKey(API_KEY)
-
-let loginWithGoogle = async function(auser) {
-  let userFound = await User.findOne({ where: { email: auser.email } });
-  let userToReturn = !userFound ? await createUserWithGoogleProfile(auser) : { ...userFound.dataValues };
-  return userWithToken(userToReturn);
+export const loginWithGoogle = async (req, res) => {
+  try {
+    const { auser } = req.body;
+    let userFound = await User.findOne({ email: auser.email });
+    let userToReturn = !userFound ? await createUserWithGoogleProfile(auser) : userFound;
+    res.json(userWithToken(userToReturn));
+  } catch (err) { 
+    res.status(500).json(err);
+  }
 }
 
 let createUserWithGoogleProfile = async function(auser) {
   //console.log('Debo crear un usuario...');
-  let password = bcrypt.hashSync('123456', Number.parseInt(authConfig.rounds));
-  let newUser = await User.create({
-    name: auser.name,
-    email: auser.email,
-    password: password,
+  let hpassword = hashSync('123456', Number.parseInt(rounds));
+  const newUser = new User({ 
+    name: auser.name, 
+    email: auser.email, 
+    password: hpassword, 
     image: auser.picture 
   });
-  // try{
-  //   const msg={
-  //     to: profile.emails[0].value,
-  //     from: "techmarketpf@gmail.com",
-  //     subject:"Successful Registration",
-  //     text:"Welcome, you have successfully registered",
-  //     html:`<h1>Welcome ${profile.name.givenName} to Techmarket</h1><img src=${image} alt="" />`
-  //   }
-  //   await sgMail.send(msg);
-  //   }catch(error){
-  //     console.log(error)
-  // }
-  return newUser;
-}
+  await newUser.save();
 
+  return ({
+    user: newUser
+  });
+};
+  
 let userWithToken = function(user) {
-  let token = jwt.sign({ user: user }, authConfig.secret, { expiresIn: authConfig.expires });
+  let token = jwt.sign({ user: user }, secret, { expiresIn: expires });
   return {
     user: user,
-    token: token
+    token: token,
+    msg: 'Google User create successfully.' 
   }
-}
-
-module.exports = loginWithGoogle;
+};

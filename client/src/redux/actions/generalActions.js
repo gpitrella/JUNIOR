@@ -7,7 +7,8 @@ import {
   LOG_OUT,
   LOG_IN_ERROR,
   BASE_URL,
-  SIGN_UP
+  SIGN_UP,
+  SIGN_IN_GOOGLE
 } from './actiontype';
 
 
@@ -42,6 +43,15 @@ export const logIn = function(email, password) {
   return function(dispatch){
     return axios.post(`${BASE_URL}/auth/signin`, {email, password})
                 .then(data => dispatch({ type: LOG_IN, payload: data.data}))
+                .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
+  }
+};
+
+// Log In User
+export const signinGoogle = function(auser) {
+  return function(dispatch){
+    return axios.post(`${BASE_URL}/auth/google`, {auser})
+                .then(data => dispatch({ type: SIGN_IN_GOOGLE, payload: data.data}))
                 .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
   }
 };
