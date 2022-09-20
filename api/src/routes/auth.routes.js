@@ -1,17 +1,21 @@
 import { Router } from "express";
+const router = Router();
 import {
-  singup,
-  signin,
-  logout,
+  signup,
+  signin
 } from "../controllers/auth.controllers.js";
 
-const router = Router();
 
 // Routes
-router.post("/signup", singup);
+router.post("/signup", signup);
 
 router.post("/signin", signin);
 
-router.get("/logout", logout);
+router.get("/logout", (req, res) => {
+  if (req.logout) { req.logout(); }
+  res.status(201).json({
+    success: true
+  })
+});
 
 export default router;
