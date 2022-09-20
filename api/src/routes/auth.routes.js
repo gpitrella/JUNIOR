@@ -11,11 +11,12 @@ router.post("/signup", signup);
 
 router.post("/signin", signin);
 
-router.get("/logout", (req, res) => {
-  if (req.logout) { req.logout(); }
-  res.status(201).json({
-    success: true
-  })
-});
+router.get('/logout', async(req, res)=>{
+  try{
+      res.json({});
+  } catch(err){
+      res.status(500).json(err);
+  }
+})
 
 export default router;

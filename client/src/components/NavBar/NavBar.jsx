@@ -16,16 +16,16 @@ const Menu = () => {
 		</>
 )}
 
-const SignBtns = ({handleSignOut, auser}) => {
+const SignBtns = ({handleSignOut, user}) => {
 	
 	return (
 		<>
-			{!auser.email 
+			{!user.user 
 				? (<Link to="/login" className="links_profile_user">
 						<button className="btn" type="button">LogIn</button>
             		</Link>)
 				: ( <>
-						<p>Bienvenido {auser.name.slice(0, auser.name.indexOf(" "))}</p>
+						<p>Bienvenido {user.user.name.slice(0, user.user.name.indexOf(" "))}</p>
 						<button className="btn" type="button" onClick={(e) => handleSignOut(e)}>LogOut</button>
 				  	</>)
 			}
@@ -40,7 +40,7 @@ const SignBtns = ({handleSignOut, auser}) => {
 export default function Navbar ({ handleSignOut }) {
 	const [toggleMenu, setToggleMenu] = useState(false) // Use for controll the mini menu
 	const [stickyNavbar, setStickyNavbar] = useState(false)
-	const { auser } = useSelector((state) => state.homepageReducer);
+	const { user } = useSelector((state) => state.homepageReducer);
 	window.onscroll = function() {scrollFunction()};
 	function scrollFunction() {
 		if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
@@ -66,7 +66,7 @@ export default function Navbar ({ handleSignOut }) {
 			</div>
 
 			<div className="navbar-sign">
-				<SignBtns handleSignOut={handleSignOut} auser={auser}/>
+				<SignBtns handleSignOut={handleSignOut} user={user}/>
 			</div>
 
 			<div className="navbar-menu">

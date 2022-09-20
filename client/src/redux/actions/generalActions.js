@@ -1,9 +1,13 @@
-// import axios from 'axios';
+import axios from 'axios';
 
 import {
   // FILTER_PROJECTS,
   GET_USER,
-  LOG_OUT
+  LOG_IN,
+  LOG_OUT,
+  LOG_IN_ERROR,
+  BASE_URL,
+  SIGN_UP
 } from './actiontype';
 
 
@@ -33,9 +37,29 @@ export const getUser = function(uauth) {
   }
 }
 
+// Log In User
+export const logIn = function(email, password) {
+  return function(dispatch){
+    return axios.post(`${BASE_URL}/auth/signin`, {email, password})
+                .then(data => dispatch({ type: LOG_IN, payload: data.data}))
+                .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
+  }
+};
+
+// SignUp User
+export const signUp = function(name, email, password, confirm_password) {
+  return function(dispatch){
+    return axios.post(`${BASE_URL}/auth/signup`, {name, email, password, confirm_password})
+                .then(data => dispatch({ type: SIGN_UP, payload: data.data}))
+                .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
+  }
+};
+
 // Log Out User
 export const logOut = function() {
-  return {
-    type: LOG_OUT
+  return function(dispatch){
+    return axios.post(`${BASE_URL}/auth/logout`)
+                .then(data => dispatch({ type: LOG_OUT, payload: data.data}))
+                .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
   }
-}
+};

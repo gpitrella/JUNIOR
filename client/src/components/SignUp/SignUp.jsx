@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from "react-redux";
-// import { signUp } from "../../redux/actions";
+import { signUp } from "../../redux/actions/generalActions";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { validateUsername, validateEmail, validatePassword, validatePassword2 } from './validate';
@@ -38,7 +38,7 @@ export default function SignUp() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // dispatch(signUp(input.username, input.email, input.password))
+        dispatch(signUp(input.username, input.email, input.password, input.password2))
         setErrors(validateUsername({...input,[e.target.name]: e.target.value}))
         setErrorsEmail(validateEmail({...input,[e.target.name]: e.target.value}))
         setErrorsPassword(validatePassword({...input,[e.target.name]: e.target.value}))

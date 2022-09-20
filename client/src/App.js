@@ -31,7 +31,7 @@ export default function App() {
   //const [ user, setUser ] = useState({});
   const dispatch = useDispatch()
   const location = useLocation();
-  const { auser } = useSelector((state) => state.homepageReducer);
+  const { auser, user } = useSelector((state) => state.homepageReducer);
 
   function handleCallbackResponse(response) {
     console.log("Encoded JWT ID token: " + response.credential);
@@ -45,7 +45,6 @@ export default function App() {
   function handleSignOut(e) {
     //setUser({}); -- aca va la accion para borrar auser
     e.preventDefault();
-    console.log('entre a logout')
     dispatch(logOut());
     // document.getElementById("signInDiv").hidden = false;
   }
@@ -81,8 +80,8 @@ export default function App() {
         <div className="gradient__bg"></div>
             <Routes>
                 <Route exact path="/" element={<LandingPage />}/>
-                <Route exact path="/login" element={!auser.email ? <LogIn handleGoogle={handleGoogle} /> : <Navigate to="/home"/>}  />
-                <Route exact path="/signup" element={!auser.email ? <SignUp/> : <Navigate to="/"/>} />
+                <Route exact path="/login" element={ user.user ? <Navigate to="/home"/> : <LogIn handleGoogle={handleGoogle} /> }  />
+                <Route exact path="/signup" element={ user.user ? <Navigate to="/home"/> : <SignUp/> } />
                 <Route exact path="/home" element={<Home />}/>
                 <Route exact path="/projects" element={<Projects />} />              
           </Routes> 

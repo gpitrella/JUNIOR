@@ -87,7 +87,7 @@
   margin: 0;
   margin-left: 10px;
   display: none;
-  color: lightgrey;
+  color: rgb(6, 6, 6);
 }
   
 .login__input-error-activo{

@@ -1,7 +1,10 @@
 // USERS ACTIONS
 export const CHANGE_THEME = 'CHANGE_THEME';
 export const GET_USER = 'GET_USER';
+export const LOG_IN = 'LOG_IN';
 export const LOG_OUT = 'LOG_OUT';
+export const SIGN_UP = 'SIGN_UP';
+export const LOG_IN_ERROR = 'LOG_IN_ERROR';
 
 // PROJECTS ACTIONS
 export const GET_ALL_PROJECTS = 'GET_ALL_PROJECTS';
