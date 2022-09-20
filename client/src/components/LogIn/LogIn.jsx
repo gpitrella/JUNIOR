@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { BASE_URL  } from '../../redux/actions/actiontype';
 import jwt_decode from "jwt-decode";
-import { getUser } from '../../redux/actions/generalActions';
+import { logIn } from '../../redux/actions/generalActions';
 import { validateEmail, validatePassword } from "./validate.jsx";
 import { Snackbar, Alert } from '@mui/material';
 import './LogIn.css'
@@ -68,7 +68,7 @@ export default function LogIn({handleGoogle}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch(logIn(input.email, input.password))
+    dispatch(logIn(input.email, input.password))
     setErrorsEmail(validateEmail({...input,[e.target.name]: e.target.value}))
     setErrorsPassword(validatePassword({...input,[e.target.name]: e.target.value}))
   }
