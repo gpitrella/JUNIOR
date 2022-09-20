@@ -3,6 +3,7 @@
 import {
   // FILTER_PROJECTS,
   GET_USER,
+  LOG_OUT
 } from './actiontype';
 
 
@@ -29,5 +30,12 @@ export const getUser = function(uauth) {
   return {
     type: GET_USER,
     payload: uauth
+  }
+}
+
+// Log Out User
+export const logOut = function() {
+  return {
+    type: LOG_OUT
   }
 }

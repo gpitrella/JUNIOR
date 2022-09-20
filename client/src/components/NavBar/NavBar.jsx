@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import { RiMenu3Line, RiCloseLine } from 'react-icons/ri'
+import React, { useState } from 'react';
+import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
+import { useSelector } from "react-redux";
 import './NavBar.css';
 import logo from '../../assets/logo.png';
-
 
 
 const Menu = () => {
@@ -16,14 +16,20 @@ const Menu = () => {
 		</>
 )}
 
-const SignBtns = () => {
+const SignBtns = ({handleSignOut, auser}) => {
+	
 	return (
 		<>
-			<p>Bienvenido</p>
-			<Link to="/login" className="links_profile_user">
-                          {/* <MenuItem onClick={handleMenuClose} >Sign In</MenuItem> */}
-				<button className="btn" type="button">Login</button>
-            </Link>
+			{!auser.email 
+				? (<Link to="/login" className="links_profile_user">
+						<button className="btn" type="button">LogIn</button>
+            		</Link>)
+				: ( <>
+						<p>Bienvenido {auser.name.slice(0, auser.name.indexOf(" "))}</p>
+						<button className="btn" type="button" onClick={(e) => handleSignOut(e)}>LogOut</button>
+				  	</>)
+			}
+	
 		</>
 )}
 
@@ -31,10 +37,10 @@ const SignBtns = () => {
  * Navigation bar
  * @return {element} App navigation bar
  */
-const Navbar = () => {
+export default function Navbar ({ handleSignOut }) {
 	const [toggleMenu, setToggleMenu] = useState(false) // Use for controll the mini menu
 	const [stickyNavbar, setStickyNavbar] = useState(false)
-
+	const { auser } = useSelector((state) => state.homepageReducer);
 	window.onscroll = function() {scrollFunction()};
 	function scrollFunction() {
 		if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
@@ -60,7 +66,7 @@ const Navbar = () => {
 			</div>
 
 			<div className="navbar-sign">
-				<SignBtns />
+				<SignBtns handleSignOut={handleSignOut} auser={auser}/>
 			</div>
 
 			<div className="navbar-menu">
@@ -84,5 +90,3 @@ const Navbar = () => {
 		</div>
 	)
 }
-
-export default Navbar

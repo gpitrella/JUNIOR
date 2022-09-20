@@ -9,7 +9,6 @@ import jwt_decode from "jwt-decode";
 import { getUser } from '../../redux/actions/generalActions';
 import { validateEmail, validatePassword } from "./validate.jsx";
 import { Snackbar, Alert } from '@mui/material';
-import imgGoogle from '../../assets/google.png';
 import './LogIn.css'
 
 import s from './Login.module.css';
@@ -73,6 +72,10 @@ export default function LogIn({handleGoogle}) {
     setErrorsEmail(validateEmail({...input,[e.target.name]: e.target.value}))
     setErrorsPassword(validatePassword({...input,[e.target.name]: e.target.value}))
   }
+
+  React.useEffect(()=> {
+    handleGoogle();
+  }, [])
 
   // React.useEffect(() => {
   //   // console.log(logInError)
@@ -154,19 +157,9 @@ export default function LogIn({handleGoogle}) {
           </div>
 
           <div className='login__google' >
-            <button type='google' className="login__btn-google" onClick={(e) => handleGoogle(e)}>
-              <img src={imgGoogle} className="logoGoogle" alt="logoGoogle" /> Login Google
-            </button>
-          <div id="signInDiv"></div>
-            {/* { Object.keys(auser).length !== 0 &&
-              <button onClick={ (e) => handleSignOut(e)}>Sign Out</button>
-            } */}
-          {/*<div className="login__btn-google " onClick={google}>
-          <img src={Google} alt="" className="icon" />
-          Google
-          </div>*/}
+              <div id="signInDiv"></div>
           </div>
-          <p className="login__text">No account yet? <Link to='/signup' className="link">Sign up here!</Link></p>
+          <p className="login__text">No tienes cuenta? <Link to='/signup' className="link">Sign up aqui!</Link></p>
 
           <Snackbar autoHideDuration={4000} open={openPassword} onClose={handleClosePassword}>
           <Alert onClose={handleClosePassword} severity="error" sx={{ width: '100%' }}>

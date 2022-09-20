@@ -1,6 +1,7 @@
 // USERS ACTIONS
 export const CHANGE_THEME = 'CHANGE_THEME';
 export const GET_USER = 'GET_USER';
+export const LOG_OUT = 'LOG_OUT';
 
 // PROJECTS ACTIONS
 export const GET_ALL_PROJECTS = 'GET_ALL_PROJECTS';
