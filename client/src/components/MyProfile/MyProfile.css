@@ -1,0 +1,84 @@
+.main_box_pyProfile {
+    padding: 10rem;
+    padding-top: 65px;
+    padding-bottom: 150px;
+    align-items: center;
+    justify-content: space-evenly;
+    justify-items: center;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#individual_box_myprofile {
+    justify-items: center;
+}
+
+.button_myprofile {
+    justify-content:center;
+}
+
+.personal_informacion {
+    margin-top: 20px;
+    margin-bottom: -22px;
+}
+
+.personal_myreview{
+    margin-left: 15px;
+    margin-top: -10px;
+    margin-bottom: 8px;
+}
+
+.title_myprofile {
+    font-size: 30px;
+    padding-top: 50px;
+    padding-bottom: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 800px) and (max-width: 1285px){
+    .main_box_pyProfile{
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+        padding: 5rem;
+        align-items: center;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 800px){
+    .main_box_pyProfile{
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 3rem;
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px){
+    .main_box_pyProfile{
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 2rem;
+        align-items: center;
+    }
+
+    #individual_box_myprofile {
+        width: 180px;
+        height: 180px;
+    }
+
+    .title_myprofile {
+        font-size: 15px;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .personal_informacion {
+        margin-top: 5px;
+        margin-bottom: -22px;
+    }
+}

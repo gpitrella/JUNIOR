@@ -28,7 +28,9 @@ const SignBtns = ({handleSignOut, user}) => {
 				: ( <>
 						<p>Bienvenido {user?.user?.name}</p>
 						<button className="btn" type="button" onClick={(e) => handleSignOut(e)}>LogOut</button>
-						<button className="btn" type="button" onClick={(e) => handleSignOut(e)}>Mi Perfil</button>
+						<Link to="/miperfil" className="links_profile_user">
+							<button className="btn" type="button">Mi Perfil</button>
+						</Link>
 				  	</>)
 			}
 	
