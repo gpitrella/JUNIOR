@@ -1,72 +1,87 @@
-import React, { useState } from 'react'
-import { RiMenu3Line, RiCloseLine } from 'react-icons/ri'
+import React, { useState } from 'react';
+import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
+import { useSelector } from "react-redux";
+import './NavBar.css';
+import logo from '../../assets/logo.png';
 
-import './NavBar.css'
-// import logo from '../assets/logo.svg'
-import logo from '../../assets/Logo-JR.jpg'
 
-/**
- * Menu where site links are
- * @return {element} site links  
- */
-const Menu = () => (
-	<>
-		<p><a href="#home">Home</a></p>
-		<p><a href="#wgpt3">Proyectos</a></p>
-		<p><a href="#features">Finalizados</a></p>
-		{/* <p><a href="#possibility">Open AI</a></p>
-		<p><a href="#blog">Library</a></p> */}
-	</>
-)
+const Menu = () => {
+	return (
+		<>
+			<Link to='/projects'><p>Proyectos</p></Link>
+			<p><a href="#features">About JR</a></p>
+			{/* <p><a href="#possibility">Open AI</a></p>
+			<p><a href="#blog">Library</a></p> */}
+		</>
+)}
 
-/**
- * Buttons for simulate signs functionalities
- * @return {element} Sign buttons 
- */
-const SignBtns = () => (
-	<>
-		<p>Sign in</p>
-		<button className="btn" type="button">Sign up</button>
-	</>
-)
+const SignBtns = ({handleSignOut, user}) => {
+	
+	return (
+		<>
+			{!user.user 
+				? (<Link to="/login" className="links_profile_user">
+						<button className="btn" type="button">LogIn</button>
+            		</Link>)
+				: ( <>
+						<p>Bienvenido {user?.user?.name}</p>
+						<button className="btn" type="button" onClick={(e) => handleSignOut(e)}>LogOut</button>
+				  	</>)
+			}
+	
+		</>
+)}
 
 /**
  * Navigation bar
  * @return {element} App navigation bar
  */
-const Navbar = () => {
+export default function Navbar ({ handleSignOut }) {
 	const [toggleMenu, setToggleMenu] = useState(false) // Use for controll the mini menu
+	const [stickyNavbar, setStickyNavbar] = useState(false)
+	const { user } = useSelector((state) => state.homepageReducer);
+	window.onscroll = function() {scrollFunction()};
+	function scrollFunction() {
+		if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+			setStickyNavbar(true);
+		} else {
+			setStickyNavbar(false);
+		}
+	  }
 
 	return (
-		<div className="gpt3__navbar">
-			<div className="gpt3__navbar-links">
-				<div className="gpt3__navbar-links_logo">
-					<img src={logo} alt="GPT3 logo" />
-				</div>
+		<div className={ stickyNavbar ? "navbarSticky" : "navbar" }>
+			<div className="navbar-links_logo">
+				<Link to='/home'>
+					<img src={logo} id="logoNavbar" alt="Logo Junior" />
+				</Link>
+			</div>
+			<div className="navbar-links">
 				<div className="navbar-links_main_container">
-					<div className="gpt3__navbar-links_container">
+					<div className="navbar-links_container">
 						<Menu />
 					</div>
 				</div>
 			</div>
 
-			<div className="gpt3__navbar-sign">
-				<SignBtns />
+			<div className="navbar-sign">
+				<SignBtns handleSignOut={handleSignOut} user={user}/>
 			</div>
 
-			<div className="gpt3__navbar-menu">
+			<div className="navbar-menu">
 				{/* Choose when and how to show the mini menu */}
 				{toggleMenu
 					? <RiCloseLine color="#fff" size={27} onClick={() => setToggleMenu(false)} />
 					: <RiMenu3Line color="#fff" size={27} onClick={() => setToggleMenu(true)} />
 				}
 				{toggleMenu && (
-					<div className="gpt3__navbar-menu_container scale-up-center">
-						<div className="gpt3__navbar-menu_container-links">
+					<div className="navbar-menu_container scale-up-center">
+						<div className="navbar-menu_container-links">
 							<Menu />
 						</div>
 
-						<div className="gpt3__navbar-menu_container-links-sign">
+						<div className="navbar-menu_container-links-sign">
 							<SignBtns />
 						</div>
 					</div>
@@ -75,5 +90,3 @@ const Navbar = () => {
 		</div>
 	)
 }
-
-export default Navbar

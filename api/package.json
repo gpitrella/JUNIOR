@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-notes-app",
+  "name": "nodejs-junior-app",
   "version": "2.0.0",
   "description": "JUNIOR App",
   "main": "index.js",
@@ -12,12 +12,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^4.6.0",
     "express": "^4.18.1",
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
+    "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
     "mongoose": "^6.3.6",
     "mongoose-findorcreate": "^3.0.0",

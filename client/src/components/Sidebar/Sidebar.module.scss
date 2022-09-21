@@ -1,0 +1,81 @@
+.container {
+  align-self: stretch;
+  min-height: 100vh;
+  min-width: 250px;
+  padding: 1.5rem;
+  background: var(--gradient-background);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  justify-items: center;
+  align-content: center;
+  box-sizing: border-box;
+  box-shadow: inset -1px 0px 0px 0px rgba(255, 255, 255, 0.1);
+  display: none;
+}
+
+.containerPagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.showSidebarResponsive {
+  display: flex;
+  position: fixed;
+  min-width: 100vw;
+  z-index: 100;
+
+  animation: showContainer 0.5s;
+  animation-fill-mode: both;
+}
+
+.btnCloseSideBarResponsive {
+
+  position: absolute;
+  bottom: 1rem;
+  width: calc(100% - 3rem);
+  height: auto;
+
+  display: block;
+
+  padding: 0.7rem 0 0.7rem 0;
+  background: var(--primaryGradientWithLessOpacity);
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  font-size: var(--fontMedium);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.btnCloseSideBarResponsive:hover {
+  box-shadow: var(--glowOutside);
+}
+
+@media (min-width: 700px) {
+  .container {
+    display: flex;
+  }
+
+  .showSidebarResponsive {
+    position: relative;
+    min-width: 250px;
+    z-index: auto;
+  }
+
+  .btnCloseSideBarResponsive {
+    display: none;
+  }
+}
+
+@keyframes showContainer {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

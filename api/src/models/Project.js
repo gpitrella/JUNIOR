@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-const { Schema } = mongoose;
 
 // const Tech = mongoose.model("Tech", TechSchema)
 const ProjectSchema = new mongoose.Schema(
@@ -24,14 +23,22 @@ const ProjectSchema = new mongoose.Schema(
       type:[{type: String, required: true}],
     },
     payment: { 
-      type: Boolean, required: true, default: false
+      type: Boolean, 
+      required: true, 
+      default: false
     },
     userId: {
       type: String,
     },
     image: {
-      type: String
-    }
+      type: String,
+      default: "https://res.cloudinary.com/djgghmpgh/image/upload/v1663185370/newproject_xeorkj.webp",
+    },
+    status: {
+      type: String,
+      enum: ['develop','finish'],
+      default: 'develop'
+    },
   },
   {
     timestamps: true,

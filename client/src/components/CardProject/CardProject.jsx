@@ -97,8 +97,8 @@ export default function MediaControlCard({ project }) {
           </IconButton>
             <Typography variant="subtitle1" color="text.secondary" component="div">
                 <span>Tech: </span>{ 
-                    project.tech.length > 0 && project.tech.map(element => {
-                    return (<span>{`${element}, `} </span>)
+                    project?.tech?.length > 0 && project?.tech.map(element => {
+                    return (<span key={project.tech.indexOf(element)}>{`${element}, `} </span>)
                   })
                 }
             </Typography>

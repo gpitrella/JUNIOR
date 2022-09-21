@@ -13,15 +13,15 @@ const Background = () => {
         <div id="stars2"></div>
         <div id="stars3"></div>
             
-        <div id="horizon">
+        {/* <div id="horizon">
             <div className="glow"></div>
         </div>
         <div id="earth">
-        </div>
+        </div> */}
             {/* <div id="title">
                 GRAVITY
             </div> */}
-            <div id="footer_link">
+            {/* <div id="footer_link">
                 <div id="subtitle">
                     <span>
                         LISTO <span></span>
@@ -40,7 +40,7 @@ const Background = () => {
                     <h5>Finalizados</h5>
                     <h5>Nosotros</h5>
                 </div>
-            </div>
+            </div> */}
         </div>
 	)
 }

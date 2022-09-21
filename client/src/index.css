@@ -7,10 +7,27 @@
 
   --gradient-text: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
   --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
+  --gradient-background: radial-gradient(rgba(0, 40, 83, 1) 25%, rgba(4, 12, 24, 1) 60%);
   
   --color-bg: #040C18;
   --color-footer : #031B34;
   --color-blog: #042c54;
   --color-text: #81AFDD;
   --color-subtext: #FF8A71;
+  --color-opacity: #040c1878;
+
+  --primaryColorLight: rgba(32, 32, 36, 1);
+  --borderInside: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.2);
+  --fontSmall: 14px;
+
+  --primaryColor: rgba(32, 32, 36, 1);
+  --primaryColorSub: rgb(240, 240, 240);
+  --fontColor: white;
+  --dangerColor: crimson;
+}
+
+@media (max-width: 700px) {
+  * {
+    --fontSmall: 11px;
+  }
 }

@@ -1,5 +1,5 @@
 
-import React, { useState, Suspense } from 'react';
+import React, { useState } from 'react';
 import Alert from "../../components/Alert";
 
 import './Header.css';
@@ -14,13 +14,9 @@ import simpleRoquet from '../../assets/simple_rocket.json';
 // // import Rocket from '../../components/Rocket/Rocket.js';
 // import Plane from '../../assets/Plane/Plane';
 
-/**
- * Page Header component
- * @return {element} Header component
- */
-const Header = () => {
+export default function Header() {
 	const [isAlertShowing, setIsAlertShowing] = useState(false) // Controll the Alert component
-	const [email, setEmail] = useState("") // Controll email input
+	// const [email, setEmail] = useState("") // Controll email input
 
 	const defaultOptions = {
 		loop: true,
@@ -30,33 +26,19 @@ const Header = () => {
 		  preserveAspectRatio: "xMidYMid slice"
 		}
 	  };
-	/**
-	 * Validate if an email is correct
-	 * @param  {string} email email to check
-	 * @return {boolean}       true if the email is correct, otherwise false
-	 */
-	const validateEmail = (email) => email.match(
-    	/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  	)
+	// /**
+	//  * Validate if an email is correct
+	//  * @param  {string} email email to check
+	//  * @return {boolean}       true if the email is correct, otherwise false
+	//  */
+	// const validateEmail = (email) => email.match(
+    // 	/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  	// )
 
 	/**
 	 * Email input controller
 	 */
-	const onEmailInputChanged = (evt) => setEmail(evt.target.value)
-
-	/**
-	 * Email button controller
-	 */
-	const onEmailBtnClicked = () => {
-		if (email && validateEmail(email)) {
-			setIsAlertShowing(true)
-
-			// Starts a time out for quit alert after 10 seconds
-			setTimeout(() => setIsAlertShowing(false), 10000);
-		} else {
-			setEmail("Bad email!")
-		}
-	}
+	// const onEmailInputChanged = (evt) => setEmail(evt.target.value)
 
 	return (
 		<>
@@ -73,7 +55,7 @@ const Header = () => {
 
 					<div className="gpt3__header-content__input">
 						{/* <input type="email" placeholder="Your Email Address" value={email} onChange={onEmailInputChanged} /> */}
-						<button className="btn btn_start" type="button" onClick={onEmailBtnClicked}>Empezar</button>
+						<button className="btn btn_start" type="button"><a href="#empezar">Empezar</a></button>
 					</div>
 
 					<div className="gpt3__header-content__people">
@@ -102,6 +84,4 @@ const Header = () => {
 			</div>
 		</>
 	)
-}
-
-export default Header
+};

@@ -1,56 +1,83 @@
 import User from "../models/User.js";
-import passport from "passport";
+import { compareSync, hashSync } from 'bcrypt';
+import { secret, expires, rounds } from '../auth.js';
+import jwt from 'jsonwebtoken';
+// require('dotenv').config();
 
-export const renderSignUpForm = (req, res) => res.render("auth/signup");
-
-export const singup = async (req, res) => {
-  let errors = [];
-  const { name, email, password, confirm_password } = req.body;
-  if (password !== confirm_password) {
-    errors.push({ text: "Passwords do not match." });
+export const signin = async (req, res) => {
+  try {
+      const { email, password } = req.body;
+      const userFound = await User.findOne({ email: email });
+      if (!userFound) {
+            res.status(404).json({ msg: "User with this email not found" });
+      } else {
+          if (compareSync(password, userFound.password)) {
+            // Creamos el token
+            let token = jwt.sign({ user: userFound }, secret, {expiresIn: expires});
+            res.json({
+                user: userFound,
+                token: token,
+                msg: 'User login successfully.' 
+            })
+          } else {
+            // Unauthorized Access
+            res.status(401).json({ msg: "Incorrect password" })
+        }        
+      }
+  } catch (err) { 
+      res.status(500).json(err);
   }
+}
 
-  if (password.length < 4) {
-    errors.push({ text: "Passwords must be at least 4 characters." });
-  }
 
-  if (errors.length > 0) {
-    return res.render("auth/signup", {
-      errors,
-      name,
-      email,
-      password,
-      confirm_password,
-    });
-  }
 
-  // Look for email coincidence
-  const userFound = await User.findOne({ email: email });
-  if (userFound) {
-    req.flash("error_msg", "The Email is already in use.");
-    return res.redirect("/auth/signup");
-  }
 
-  // Saving a New User
-  const newUser = new User({ name, email, password });
-  newUser.password = await newUser.encryptPassword(password);
-  await newUser.save();
-  req.flash("success_msg", "You are registered.");
-  res.redirect("/auth/signin");
+export const signup = async (req, res) => {
+  try {
+      const { name, email, password, confirm_password } = req.body;
+      if (password !== confirm_password) {
+        res.status(401).json({ msg: "Passwords do not match." })
+      }
+      if (password.length < 4) {
+        res.status(401).json({ msg: "Incorrect length password" })
+      }
+
+      // Look for email coincidence
+      const userFound = await User.findOne({ email: email });
+      if (userFound) {
+        res.status(404).json({ msg: "Email already used" });
+      } else {
+        // Saving a New User
+        let hpassword = hashSync(password, Number.parseInt(rounds))
+        const newUser = new User({ name, email, password: hpassword });
+        await newUser.save();
+        // newUser.password = await newUser.encryptPassword(password);
+        let token = jwt.sign({ user: newUser }, secret, {expiresIn: expires});
+
+        res.json({
+          user: newUser,
+          token: token,
+          msg: 'User create successfully.' 
+        });
+      }
+        
+    } catch (err) { 
+        res.status(500).json(err);
+    }
 };
 
-export const renderSigninForm = (req, res) => res.render("auth/signin");
+// export const renderSigninForm = (req, res) => res.render("auth/signin");
 
-export const signin = passport.authenticate("local", {
-  successRedirect: "/notes",
-  failureRedirect: "/auth/signin",
-  failureFlash: true,
-});
+// export const signin = passport.authenticate("local", {
+//   successRedirect: "/notes",
+//   failureRedirect: "/auth/signin",
+//   failureFlash: true,
+// });
 
-export const logout = async (req, res, next) => {
-  await req.logout((err) => {
-    if (err) return next(err);
-    req.flash("success_msg", "You are logged out now.");
-    res.redirect("/auth/signin");
-  });
-};
+// export const logout = async (req, res) => {
+//   if (req.logout) req.logout();
+//     res.status(201).json({
+//       success: true
+//   })
+// };
+
