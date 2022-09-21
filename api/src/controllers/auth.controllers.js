@@ -30,6 +30,25 @@ export const signin = async (req, res) => {
   }
 }
 
+// export const signin = passport.authenticate("local", 
+//   function(req, res) {
+//     console.log(req)
+//     if (req.user) {
+//       let token = jwt.sign({ user: req.user }, secret, {expiresIn: expires});
+//       res.json({
+//         success: true,
+//         message: "User login successfully.",
+//         user: req.user,
+//         token: token
+//       });
+//     }
+// });
+
+// app.post('/login', 
+//   passport.authenticate('local', { failureRedirect: '/login' }),
+//   function(req, res) {
+//     res.redirect('/');
+//   });
 
 
 
@@ -69,11 +88,7 @@ export const signup = async (req, res) => {
 
 // export const renderSigninForm = (req, res) => res.render("auth/signin");
 
-export const signinpassport = passport.authenticate("local", {
-  successRedirect: "/passport/success",
-  failureRedirect: "/auth/signin",
-  failureFlash: true,
-});
+
 
 // export const logout = async (req, res) => {
 //   if (req.logout) req.logout();
