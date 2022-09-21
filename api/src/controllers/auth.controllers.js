@@ -2,6 +2,7 @@ import User from "../models/User.js";
 import { compareSync, hashSync } from 'bcrypt';
 import { secret, expires, rounds } from '../auth.js';
 import jwt from 'jsonwebtoken';
+import passport from 'passport';
 // require('dotenv').config();
 
 export const signin = async (req, res) => {
@@ -68,11 +69,11 @@ export const signup = async (req, res) => {
 
 // export const renderSigninForm = (req, res) => res.render("auth/signin");
 
-// export const signin = passport.authenticate("local", {
-//   successRedirect: "/notes",
-//   failureRedirect: "/auth/signin",
-//   failureFlash: true,
-// });
+export const signinpassport = passport.authenticate("local", {
+  successRedirect: "/passport/success",
+  failureRedirect: "/auth/signin",
+  failureFlash: true,
+});
 
 // export const logout = async (req, res) => {
 //   if (req.logout) req.logout();
