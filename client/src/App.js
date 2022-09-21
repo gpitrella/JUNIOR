@@ -13,6 +13,8 @@ import AOS from 'aos'; // Animations on scrolling dependency
 import Navbar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import MyProfile from './components/MyProfile/MyProfile';
+import PersonalInformation from './components/MyProfile/PersonalInformation/PersonalInformation';
+import MyPurchases from './components/MyProfile/MyPurchases/MyPurchases';
 
 // For mark CSS classes I'm using the BEM (Block Element Modifier) notation 
 import './App.css';
@@ -85,6 +87,9 @@ export default function App() {
                 <Route exact path="/home" element={<Home />}/>
                 <Route exact path="/projects" element={<Projects />} />
                 <Route exact path="/miperfil" element={ user.user ? <MyProfile/> : <LogIn handleGoogle={handleGoogle} />} />             
+                <Route exact path ="/miperfil/personalinformation" element= { user.user ? <PersonalInformation /> : <LogIn handleGoogle={handleGoogle} />}/>
+                <Route exact path ="/miperfil/mypurchases" element=  { user.user ? <MyPurchases /> : <LogIn/>} />
+                <Route exact path='*' component={<Navigate to="/home"/>} />
           </Routes> 
         { location.pathname !== '/' && <Footer /> }
     </React.Fragment>
