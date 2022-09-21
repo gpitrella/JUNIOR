@@ -1,0 +1,29 @@
+.main_box_myreviews {
+    padding-top: 0px;
+    padding-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title_myreviews {
+    padding-bottom: 20px;
+}
+
+#btn_myreview {
+    margin-top: 30px;
+}
+
+#box_table_myreviews {
+    padding: 0px 5rem;
+}
+
+#avatar_product_review {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.title_myreviews_profile {
+    padding: 70px 0px;
+}
