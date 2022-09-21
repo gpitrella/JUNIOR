@@ -20,7 +20,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import { putDataUser, getUserDetail, putUpdatePassword, clearUpdateUser } from '../../../redux/actions'
+// import { putDataUser, getUserDetail, putUpdatePassword, clearUpdateUser } from '../../../redux/actions'
 import { Link } from 'react-router-dom';
 import './PersonalInformation.css'
 
@@ -30,21 +30,21 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 });
 
 export default function PersonalInformation() {
-  const { user } = useSelector((state) => state.general);
+  const { user } = useSelector((state) => state.homepageReducer);
   const { updateUser } = useSelector((state) => state.userReducer)
   const { oneuser } = useSelector((state) => state.userReducer)
   const dispatch = useDispatch();
   
-  React.useEffect(() => {
-    dispatch(getUserDetail(user?.user.id))
-    console.log(updateUser)
-    if(typeof(updateUser) === 'string'){
-      if(updateUser?.includes("successfully")){
-        setOpenSuccessEditName(true)
-        dispatch(clearUpdateUser())
-      }
-    }    
-  }, [updateUser]);
+  // React.useEffect(() => {
+  //   dispatch(getUserDetail(user?.user.id))
+  //   console.log(updateUser)
+  //   if(typeof(updateUser) === 'string'){
+  //     if(updateUser?.includes("successfully")){
+  //       setOpenSuccessEditName(true)
+  //       dispatch(clearUpdateUser())
+  //     }
+  //   }    
+  // }, [updateUser]);
       
   // Controladores de Edit Profile
   const [ openSuccessEditName, setOpenSuccessEditName ] = React.useState(false);
@@ -91,12 +91,12 @@ export default function PersonalInformation() {
   };
 
   const handleSendDataChange = () => {
-    dispatch(putDataUser(user.user.id, dataChange))
+    // dispatch(putDataUser(user.user.id, dataChange))
     handleClose()
   }
 
   const handleUpdatePassword = () => {
-    dispatch(putUpdatePassword(dataChange));
+    // dispatch(putUpdatePassword(dataChange));
     setOpenPassword(false);
   }
 
@@ -120,7 +120,7 @@ export default function PersonalInformation() {
       const file = await res.json();
       const data = { image: file.secure_url }
       setImage(file.secure_url);
-      dispatch(putDataUser(user.user.id, data));
+      // dispatch(putDataUser(user.user.id, data));
       handleClose();
   }
 
@@ -133,7 +133,7 @@ export default function PersonalInformation() {
         <ListItemAvatar>
           <Avatar
               alt="Remy Sharp"
-              src={oneuser.image}
+              src={user.image}
               sx={{ width: 75, height: 75 }}
             />
         </ListItemAvatar>
@@ -145,7 +145,7 @@ export default function PersonalInformation() {
             <AccountCircleIcon /> 
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary={`Name: ${oneuser?.name}`} />
+        <ListItemText primary={`Name: ${user?.user?.name}`} />
         <EditIcon cursor='pointer' onClick={handleClickOpen}/>
       </ListItem>
       <ListItem>
@@ -154,7 +154,7 @@ export default function PersonalInformation() {
             <EmailIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary={`E-mail: ${oneuser?.email}`} />
+        <ListItemText primary={`E-mail: ${user?.user?.email}`} />
       </ListItem>
       <ListItem>
         <ListItemAvatar>
@@ -162,7 +162,7 @@ export default function PersonalInformation() {
             <LocalPhoneIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary={`Phone: ${oneuser?.phone_number ? oneuser?.phone_number : 'WithOut Phone'}`} />
+        <ListItemText primary={`Phone: ${'WithOut Phone'}`} />
         <EditIcon cursor='pointer' onClick={handleClickOpenPhone}/>
       </ListItem>
       <ListItem>
@@ -174,14 +174,7 @@ export default function PersonalInformation() {
         <ListItemText primary="Password: ******" />
         <EditIcon cursor='pointer' onClick={handleOpenPassword}/>
       </ListItem>
-      <ListItem>
-        <ListItemAvatar>
-          <Avatar>
-            <HomeIcon />
-          </Avatar>
-        </ListItemAvatar>
-        <span className='myaddress_personalinformation'>Addresses: {(<Link to={'/myprofile/myaddress'}>See my Addresses</Link>)} </span>
-      </ListItem>
+      
     </List>
     <Link to={`/myprofile`}>
         <Button id='btn_personalinformation' variant="contained"> My Profile </Button>

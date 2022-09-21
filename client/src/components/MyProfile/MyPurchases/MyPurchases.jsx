@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { alpha } from '@mui/material/styles';
 import { useDispatch } from "react-redux";
-import { postReviewProduct } from "../../../redux/actions";
+// import { postReviewProduct } from "../../../redux/actions";
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -33,7 +33,7 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
-import { getOrderByUser, getUserReviews } from '../../../redux/actions';
+// import { getOrderByUser, getUserReviews } from '../../../redux/actions';
 import { visuallyHidden } from '@mui/utils';
 import { useSelector } from "react-redux";
 import Rating from '@mui/material/Rating';
@@ -278,13 +278,13 @@ export default function MyReviews() {
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-  React.useEffect(()=>{
-    dispatch(getOrderByUser(user?.user.id));
-  },[userReviews])
+  // React.useEffect(()=>{
+  //   dispatch(getOrderByUser(user?.user.id));
+  // },[userReviews])
 
-  React.useEffect(()=>{
-    totalOrder()
-  },[orderByUser]);
+  // React.useEffect(()=>{
+  //   totalOrder()
+  // },[orderByUser]);
 
   React.useEffect(()=>{
      totalOrderByUser.map((order) => {
@@ -346,7 +346,7 @@ export default function MyReviews() {
 
 const handleSendReview = () => {
   if(user?.user){
-    dispatch(postReviewProduct(commentReview, value, idToReview, user?.user.id));
+    // dispatch(postReviewProduct(commentReview, value, idToReview, user?.user.id));
     // dispatch(getUserReviews(user?.user.id))
     handleClickComment()
     handleCloseReview();
