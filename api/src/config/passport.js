@@ -27,15 +27,14 @@ passport.use(
       // Match Email's User
       const user = await User.findOne({ email: email });
       if (!user) {
-        return done(null, false, { message: "Not User found." });
+        return done(null, false, { msg: "User with this email not found" });
       }
-
       // Match Password's User
-      if (!compareSync(password, user.password))
-        return done(null, false, { message: "Incorrect Password." });
-      
-      // console.log('Usuario logeado correctamente:' + user)
-      return done(null, user);
+      if (!compareSync(password, user.password)){
+        return done(null, false, { msg: "Incorrect password" });
+      } else {
+        return done(null, user)
+      }
     }
   )
 );
