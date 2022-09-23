@@ -34,14 +34,6 @@ export const signin = async (req, res) => {
   }
 }
 
-// export const signin = passport.authenticate("local", async (req, res) => { 
-//   const { email, password } = req.body;
-//   return {
-//     email: email, 
-//     password: password
-//   }
-// });
-
 // router.get(
 //   "/google/callback",
 //   passport.authenticate("google", {
@@ -55,13 +47,6 @@ export const signin = async (req, res) => {
 //   failureRedirect: "/login/failed",
 //   failureFlash: true,
 // });
-
-// app.post('/login', 
-//   passport.authenticate('local', { failureRedirect: '/login' }),
-//   function(req, res) {
-//     res.redirect('/');
-//   });
-
 
 
 export const signup = async (req, res) => {
@@ -97,9 +82,6 @@ export const signup = async (req, res) => {
         res.status(500).json(err);
     }
 };
-
-// export const renderSigninForm = (req, res) => res.render("auth/signin");
-
 
 
 export const logout = async (req, res) => {
