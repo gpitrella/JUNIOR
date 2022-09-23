@@ -51,10 +51,6 @@
     transition: .3s ease all;
 }
 
-.form__input, select, textarea{
-    color: var(--primaryColorLight);
-  }
-
 .form__input:focus{
     border: 3px solid rgb(0, 117, 255);
     outline: none;
@@ -172,7 +168,7 @@
 
 .form__input {
   background-color: var(--primaryColorSub) !important;
-  color: var(--fontColor) !important;
+  color: var(black) !important;
 }
 
 .form__label,

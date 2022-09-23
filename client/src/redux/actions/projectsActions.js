@@ -5,6 +5,7 @@ import {
   GET_ALL_TECHS,
   FILTER_PROJECTS,
   UPDATE_STATUS_FILTER,
+  CREATE_PROJECTS,
   BASE_URL
 } from './actiontype';
 
@@ -47,6 +48,16 @@ export function updateStatusFilter(data){
   return function(dispatch){
     console.log('como llega al redux:', data)
       return dispatch({ type: UPDATE_STATUS_FILTER, payload: data })
+  }
+};
+
+// CreateProject
+export function createProject(dataProject){
+  return function(dispatch){
+    console.log('como llega al redux:', dataProject)
+      return axios.post(`${BASE_URL}/projects/newproject`, dataProject)
+                  .then(project => dispatch({ type: CREATE_PROJECTS, payload: project.data }))
+                  .catch(error => console.log(error))
   }
 };
 
