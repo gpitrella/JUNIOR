@@ -17,16 +17,16 @@ const Menu = () => {
 
 
 
-const SignBtns = ({handleSignOut, user, auser}) => {
+const SignBtns = ({handleSignOut, user}) => {
 	
 	return (
 		<>
-			{!user.user || auser
+			{!user.user 
 				? (<Link to="/login" className="links_profile_user">
 						<button className="btn" type="button">LogIn</button>
             		</Link>)
 				: ( <>
-						<p>Bienvenido {user?.user?.name} {auser?.name}</p>
+						<p>Bienvenido {user?.user?.name} </p>
 						<button className="btn" type="button" onClick={(e) => handleSignOut(e)}>LogOut</button>
 						<Link to="/miperfil" className="links_profile_user">
 							<button className="btn" type="button">Mi Perfil</button>
@@ -72,7 +72,7 @@ export default function Navbar ({ handleSignOut }) {
 			</div>
 
 			<div className="navbar-sign">
-				<SignBtns handleSignOut={handleSignOut} user={user} auser={auser} />
+				<SignBtns handleSignOut={handleSignOut} user={user} />
 			</div>
 
 			<div className="navbar-menu">
