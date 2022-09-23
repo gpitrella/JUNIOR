@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
-import { createProject } from '../../redux/actions/projectsActions';
+import { createProject, showModalAddImage } from '../../redux/actions/projectsActions';
 // import { postProduct, waitingResponsePost } from '../../redux/actions/storepageActions';
 // import { getCategories, getBrands } from '../../redux/actions/homepageActions';
 // import { showModalAddImage } from '../../redux/actions/generalActions';
@@ -31,6 +31,7 @@ export default function CreateProject() {
 
   // Importar imagen
   // const { modalAddImage } = useSelector(state => state.general);
+  const { modalAddImage } = useSelector(state => state.projectsReducer);
   const filterReducer = useSelector((state) => state.filterReducer);
 
   const allNameTechs = filterReducer?.allTechs.map((tech) => {
@@ -109,7 +110,7 @@ export default function CreateProject() {
   // Importar Imagen
   let handleOpenModalAddImage = function(e) {
     e.preventDefault();
-    // dispatch(showModalAddImage());
+    dispatch(showModalAddImage());
   }
 
   let handleImage = function(newImage) {
@@ -255,15 +256,15 @@ export default function CreateProject() {
             </p> 
         </div>
         <div className="form__group form__group-btn-create">
-            <button type='submit' className='form__btn' >CREAR</button>
+            <button type='submit' className='form__btn' >CREAR PROYECTO</button>
             <p className='form__msn-exito' id='form__msn-exito'
             >Product created!!
             </p>
         </div>
         </form>
-        {/* {
+        {
           modalAddImage && modalAddImage.show && <ModalAddImage handleImage = {handleImage}/>
-        } */}
+        }
         </div>
       </div>
   )

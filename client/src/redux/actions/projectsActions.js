@@ -6,6 +6,8 @@ import {
   FILTER_PROJECTS,
   UPDATE_STATUS_FILTER,
   CREATE_PROJECTS,
+  SHOW_MODAL_ADD_IMAGE,
+  CLOSE_MODAL_ADD_IMAGE,
   BASE_URL
 } from './actiontype';
 
@@ -60,6 +62,19 @@ export function createProject(dataProject){
                   .catch(error => console.log(error))
   }
 };
+
+// Modal para subir imagen:
+export function showModalAddImage() {
+  return {
+    type: SHOW_MODAL_ADD_IMAGE
+  }
+}
+
+export function closeModalAddImage() {
+  return {
+    type: CLOSE_MODAL_ADD_IMAGE
+  }
+}
 
 
 

@@ -1,7 +1,9 @@
 import {
   GET_ALL_PROJECTS,
   FILTER_PROJECTS,
-  CREATE_PROJECTS
+  CREATE_PROJECTS,
+  SHOW_MODAL_ADD_IMAGE,
+  CLOSE_MODAL_ADD_IMAGE
 } from '../actions/actiontype';
 
 const initialState = {
@@ -25,6 +27,25 @@ const projectsReducer = function(state = initialState, { type, payload }) {
       return {
         ...state,
         newProject: payload
+      }
+    case SHOW_MODAL_ADD_IMAGE:
+      return {
+        ...state,
+        modalAddImage: {
+          ...state.modalAddImage,
+          show: true,
+          uploadedImage: '',
+        }
+      }
+
+    case CLOSE_MODAL_ADD_IMAGE:
+      return {
+        ...state,
+        modalAddImage: {
+          ...state.modalAddImage,
+          show: false,
+          uploadedImage: ''
+        }
       }
     default:
       return state;

@@ -36,7 +36,6 @@ export default function App() {
   const dispatch = useDispatch()
   const location = useLocation();
   const { user } = useSelector((state) => state.homepageReducer);
-  console.log(user);
 
   function handleCallbackResponse(response) {
     // var userObject = jwt_decode(response.credential);
