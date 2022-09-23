@@ -37,10 +37,10 @@ export default function App() {
   const { user } = useSelector((state) => state.homepageReducer);
 
   function handleCallbackResponse(response) {
-    var userObject = jwt_decode(response.credential);
+    // var userObject = jwt_decode(response.credential);
     //setUser(userObject);
-    dispatch(getUser(userObject));
-    dispatch(signinGoogle(userObject));
+    // dispatch(getUser(userObject));
+    // dispatch(signinGoogle(userObject));
     // document.getElementById("signInDiv").hidden = true;
   }
 
@@ -53,17 +53,17 @@ export default function App() {
 
   function handleGoogle(){
     /* global google */
-      google.accounts.id.initialize({
-      client_id: "442763437096-mbm8s7rhocjbjg29r94k37bgm5fevm7i.apps.googleusercontent.com",
-      callback: handleCallbackResponse
-    });
+    //   google.accounts.id.initialize({
+    //   client_id: "744815306098-6j8n1eua04vepnaccbsj45crs1v7cr4b.apps.googleusercontent.com",
+    //   callback: handleCallbackResponse
+    // });
 
-    google.accounts.id.renderButton(
-      document.getElementById("signInDiv"),
-      { theme:"filled_blue", size: "large"}
-    );
+    // google.accounts.id.renderButton(
+    //   document.getElementById("signInDiv"),
+    //   { theme:"filled_blue", size: "large"}
+    // );
 
-    google.accounts.id.prompt();
+    // google.accounts.id.prompt();
     
   };
    
@@ -71,6 +71,12 @@ export default function App() {
   
   
 // ?-- End Auth
+
+
+
+  React.useEffect(() => {
+    dispatch(getUser());
+  }, []);
 
 
   return (

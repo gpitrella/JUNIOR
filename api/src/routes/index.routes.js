@@ -1,6 +1,5 @@
 import { Router } from "express";
 // import { renderIndex, renderAbout } from "../controllers/index.controller.js";
-
 import authRoutes from "./auth.routes.js";
 import filterRoutes from "./filters.routes.js";
 import techRoutes from "./tech.routes.js";

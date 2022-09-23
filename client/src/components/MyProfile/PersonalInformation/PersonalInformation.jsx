@@ -31,8 +31,9 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 
 export default function PersonalInformation() {
   const { user } = useSelector((state) => state.homepageReducer);
-  const { updateUser } = useSelector((state) => state.userReducer)
-  const { oneuser } = useSelector((state) => state.userReducer)
+  console.log(user)
+  // const { updateUser } = useSelector((state) => state.userReducer)
+  // const { oneuser } = useSelector((state) => state.userReducer)
   const dispatch = useDispatch();
   
   // React.useEffect(() => {
@@ -133,7 +134,7 @@ export default function PersonalInformation() {
         <ListItemAvatar>
           <Avatar
               alt="Remy Sharp"
-              src={user.image}
+              src={user?.user?.image}
               sx={{ width: 75, height: 75 }}
             />
         </ListItemAvatar>
@@ -176,8 +177,8 @@ export default function PersonalInformation() {
       </ListItem>
       
     </List>
-    <Link to={`/myprofile`}>
-        <Button id='btn_personalinformation' variant="contained"> My Profile </Button>
+    <Link to={`/miperfil`}>
+        <Button id='btn_personalinformation' variant="contained"> Mi Perfil </Button>
     </Link>
     <div>
       <Dialog open={open} onClose={handleClose}>

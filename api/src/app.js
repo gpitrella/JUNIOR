@@ -47,18 +47,30 @@ app.use( // Sirve para mantener una session del usuario.
     store: MongoStore.create({ mongoUrl: MONGODB_URI }),
   })
 );
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
 
-// Global Variables
-app.use((req, res, next) => {
-  res.locals.success_msg = req.flash("success_msg");
-  res.locals.error_msg = req.flash("error_msg");
-  res.locals.error = req.flash("error");
-  res.locals.user = req.user || null;
+// Enable CORS
+app.use(function (req, res, next) {
+  // res.header('Access-Control-Allow-Origin', '*, https://techmarketfront.vercel.app'); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET, HEAD, POST, OPTIONS, PUT, DELETE');
   next();
 });
+
+
+app.use(passport.initialize());
+app.use(passport.session());
+// app.use(flash());
+
+// Global Variables
+// app.use((req, res, next) => {
+//   res.locals.success_msg = req.flash("success_msg");
+//   res.locals.error_msg = req.flash("error_msg");
+//   res.locals.error = req.flash("error");
+//   res.locals.user = req.user || null;
+//   next();
+// });
 
 // Routes
 app.use(indexRoutes);
