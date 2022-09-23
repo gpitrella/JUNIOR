@@ -9,30 +9,30 @@ config();
 const CLIENT_URL = process.env.CLIENT_URL
 // require('dotenv').config();
 
-// export const signin = async (req, res) => {
-//   try {
-//       const { email, password } = req.body;
-//       const userFound = await User.findOne({ email: email });
-//       if (!userFound) {
-//             res.status(404).json({ msg: "User with this email not found" });
-//       } else {
-//           if (compareSync(password, userFound.password)) {
-//             // Creamos el token
-//             let token = jwt.sign({ user: userFound }, secret, {expiresIn: expires});
-//             res.json({
-//                 user: userFound,
-//                 token: token,
-//                 msg: 'User login successfully.' 
-//             })
-//           } else {
-//             // Unauthorized Access
-//             res.status(401).json({ msg: "Incorrect password" })
-//         }        
-//       }
-//   } catch (err) { 
-//       res.status(500).json(err);
-//   }
-// }
+export const signin = async (req, res) => {
+  try {
+      const { email, password } = req.body;
+      const userFound = await User.findOne({ email: email });
+      if (!userFound) {
+            res.status(404).json({ msg: "User with this email not found" });
+      } else {
+          if (compareSync(password, userFound.password)) {
+            // Creamos el token
+            let token = jwt.sign({ user: userFound }, secret, {expiresIn: expires});
+            res.json({
+                user: userFound,
+                token: token,
+                msg: 'User login successfully.' 
+            })
+          } else {
+            // Unauthorized Access
+            res.status(401).json({ msg: "Incorrect password" })
+        }        
+      }
+  } catch (err) { 
+      res.status(500).json(err);
+  }
+}
 
 // export const signin = passport.authenticate("local", async (req, res) => { 
 //   const { email, password } = req.body;
@@ -50,24 +50,10 @@ const CLIENT_URL = process.env.CLIENT_URL
 //   })
 // );
 
-export const signin = passport.authenticate("local", {
-  successRedirect: CLIENT_URL,
-  failureRedirect: "/login/failed",
-  failureFlash: true,
-});
-
-// export const signin = passport.authenticate("local", 
-//   function(req, res) {
-//     console.log(req)
-//     if (req.user) {
-//       let token = jwt.sign({ user: req.user }, secret, {expiresIn: expires});
-//       res.json({
-//         success: true,
-//         message: "User login successfully.",
-//         user: req.user,
-//         token: token
-//       });
-//     }
+// export const signin = passport.authenticate("local", {
+//   successRedirect: CLIENT_URL,
+//   failureRedirect: "/login/failed",
+//   failureFlash: true,
 // });
 
 // app.post('/login', 
