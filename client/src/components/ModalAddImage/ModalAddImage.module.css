@@ -1,0 +1,203 @@
+.background {
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  background-color: rgba(0, 0,0 , 0.7);
+}
+
+.modal {
+  background-color: var(--primaryColor);
+  height: 30rem;
+  width: 23rem;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.5);
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto;
+  grid-gap: 1rem;
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+
+  align-items: center;
+  justify-items: center;
+  align-content: space-between;
+}
+
+.modalTitle {
+  background-color: transparent;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  font-weight: 700;
+  font-size: var(--fontSubTitle);
+  color: var(--fontColor);
+}
+
+.title {
+  padding-left: 0.5rem;
+}
+
+.closeModal {
+  width: fit-content;
+  height: fit-content;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+
+  font-weight: 900;
+  font-size: var(--fontTitle);
+  color: var(--fontColor);
+}
+
+.closeModal:hover {
+  cursor: pointer;
+  color: var(--secondaryColor);
+}
+
+.divOptions {
+  width: 100%;
+  justify-content: space-between !important;
+}
+
+.btnCreate:disabled,
+.btnCancel:disabled,
+.btnRemove:disabled {
+  color: var(--fontColor);
+  background-color: var(--primaryColor);
+  border: 1px solid var(--fontColor);
+  cursor: default;
+}
+
+.btnCreate,
+.btnCancel,
+.btnRemove {
+  color: white;
+  font-size: var(--fontSmall);
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 1;
+  margin: 0 1rem 0 1rem;
+  width: 30%;
+  height: 2rem;
+}
+
+.btnCreate {
+  background-color: var(--successColor);
+  border: 1px solid var(--successColor);
+}
+
+.btnRemove {
+  background-color: var(--dangerColor);
+  border: 1px solid var(--dangerColor);
+}
+
+.btnCancel {
+  background-color: var(--secondaryColor);
+  border: 1px solid var(--secondaryColor);
+}
+
+.uploadZone {
+  display: grid;
+  grid-template-rows: 16rem 2rem 1.5rem;
+  grid-template-columns: 16rem;
+
+  grid-gap: 0.5rem;
+
+  justify-items: center;
+  align-items: center;
+}
+
+.image {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+
+  border-radius: 10px;
+}
+
+.containerImage {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+
+  width: 100%;
+  height: 100%;
+
+  border: 2px dashed var(--secondaryColor);
+  box-sizing: border-box;
+
+  color: var(--secondaryColor);
+
+  padding: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputFile {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+}
+
+.spanResultValidation {
+  grid-row: 3 / 4;
+  grid-column: 1 / 2;
+
+  color: var(--dangerColor);
+  font-size: var(--fontSmall);
+  font-style: italic;
+  font-weight: 700;
+
+  text-align: center;
+}
+
+.valid {
+  color: var(--successColor);
+}
+
+.inputFile {
+}
+
+.inputFile::-webkit-file-upload-button {
+  visibility: hidden;
+  width: 0;
+  position: relative;
+}
+
+.inputFile::before {
+  content: 'Seleccionar Imagen';
+  display: inline-block;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  color: var(--secondaryColor);
+  background-color: var(--primaryColor);
+  border: 1px solid var(--secondaryColor);
+  font-size: var(--fontMedium);
+  font-weight: 700;
+  border-radius: 5px;
+  width: 16rem;
+  text-align: center;
+  margin: 0;
+
+  visibility: visible;
+  position: absolute;
+
+  box-sizing: border-box;
+}
+
+.inputFile:hover::before {
+  background-color: var(--secondaryColor);
+  color: white;
+  border: 1px solid var(--secondaryColor);
+}
