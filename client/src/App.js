@@ -15,6 +15,7 @@ import Footer from './components/Footer/Footer';
 import MyProfile from './components/MyProfile/MyProfile';
 import PersonalInformation from './components/MyProfile/PersonalInformation/PersonalInformation';
 import MyPurchases from './components/MyProfile/MyPurchases/MyPurchases';
+import CreateProject from './components/CreateProject/CreateProject';
 
 // For mark CSS classes I'm using the BEM (Block Element Modifier) notation 
 import './App.css';
@@ -93,6 +94,7 @@ export default function App() {
                 <Route exact path="/signup" element={ user.user ? <Navigate to="/home"/> : <SignUp/> } />
                 <Route exact path="/home" element={<Home />}/>
                 <Route exact path="/projects" element={<Projects />} />
+                <Route exact path="/crearproyecto" element={<CreateProject />} />
                 <Route exact path="/miperfil" element={ user.user ? <MyProfile/> : <LogIn handleGoogle={handleGoogle} />} />             
                 <Route exact path ="/miperfil/personalinformation" element= { user.user ? <PersonalInformation /> : <LogIn handleGoogle={handleGoogle} />}/>
                 <Route exact path ="/miperfil/mypurchases" element=  { user.user ? <MyPurchases /> : <LogIn/>} />
