@@ -1,10 +1,12 @@
 import {
   GET_ALL_PROJECTS,
-  FILTER_PROJECTS
+  FILTER_PROJECTS,
+  CREATE_PROJECTS
 } from '../actions/actiontype';
 
 const initialState = {
-  allProjects: []
+  allProjects: [],
+  newProject: {}
 };
 
 const projectsReducer = function(state = initialState, { type, payload }) {
@@ -18,6 +20,11 @@ const projectsReducer = function(state = initialState, { type, payload }) {
       return {
         ...state,
         allProjects: payload
+      }
+    case CREATE_PROJECTS:
+      return {
+        ...state,
+        newProject: payload
       }
     default:
       return state;

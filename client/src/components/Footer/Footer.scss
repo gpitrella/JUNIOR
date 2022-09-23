@@ -93,30 +93,29 @@
     border-radius: 100% 100% 0 0;
   }
 }
-  
     
-#title {
-  position: absolute;
-  font-weight: 300;
-  top: 36%;
-  left: 0;
-  right: 0;
-  margin-top: -80px;
+// #titleFooter {
+//   position: absolute;
+//   font-weight: 300;
+//   top: 36%;
+//   left: 0;
+//   right: 0;
+//   margin-top: -80px;
   
-  font-size: 130px;
-  text-align: center;
-  letter-spacing: 20px;
-  padding-left: 20px;
+//   font-size: 130px;
+//   text-align: center;
+//   letter-spacing: 20px;
+//   padding-left: 20px;
   
-  background: -webkit-linear-gradient(white, rgb(219, 221, 224), #38495a);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+//   background: -webkit-linear-gradient(white, rgb(219, 221, 224), #38495a);
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
     
-  animation-duration: 6s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease;
-  animation-name: animGravity;
-}
+//   animation-duration: 6s;
+//   animation-iteration-count: infinite;
+//   animation-timing-function: ease;
+//   animation-name: animGravity;
+// }
     
 #footer_link {
   position: sticky;

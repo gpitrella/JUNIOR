@@ -9,16 +9,11 @@ import logo from "../../assets/logo.png"
 const Footer = () => {
 	return (
         <div>
-
-            
         <div id="horizon">
             <div className="glow"></div>
         </div>
         <div id="earth">
         </div>
-            {/* <div id="title">
-                GRAVITY
-            </div> */}
             <div id="footer_link">
                 <div id="subtitle">
                     <span>
