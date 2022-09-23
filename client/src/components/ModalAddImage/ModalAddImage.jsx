@@ -1,5 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { closeModalAddImage } from '../../redux/actions/projectsActions';
+
 // import { closeModalAddImage, uploadImage } from '../../redux/actions';
 import GeneralModal from '../GeneralModal/GeneralModal';
 // import ImageLoader from '../ImageLoader/ImageLoader';
@@ -10,8 +12,8 @@ import s from './ModalAddImage.module.css';
 export default function ModalAddImage({ handleImage }) {
 
   const dispatch = useDispatch();
-  const { uploadedImage } = useSelector(state => state.general.modalAddImage);
-
+  const { uploadedImage } = useSelector(state => state.projectsReducer.modalAddImage);
+  console.log('ESTOY EN MODAL', uploadedImage);
   const [ uploading, setUploading ] = React.useState(false);
   const [ validation , setValidation ] = React.useState('');
   const [ preview, setPreview ] = React.useState(null);
@@ -36,7 +38,7 @@ export default function ModalAddImage({ handleImage }) {
   React.useEffect(() => {
     if (uploading && uploadedImage !== '') {
       handleImage(uploadedImage);
-      // dispatch(closeModalAddImage());
+      dispatch(closeModalAddImage());
     }
   }, [uploading, uploadedImage])
 
@@ -65,7 +67,7 @@ export default function ModalAddImage({ handleImage }) {
   }
 
   let handleCancel = function() {
-    // dispatch(closeModalAddImage());
+    dispatch(closeModalAddImage());
   }
 
   let content = (
