@@ -73,9 +73,9 @@ export default function LogIn({handleGoogle}) {
     setErrorsPassword(validatePassword({...input,[e.target.name]: e.target.value}))
   }
 
-  React.useEffect(()=> {
-    handleGoogle();
-  }, [])
+  const handleGoogleLogin = () => { 
+      window.open("http://localhost:4001/auth/google", "_self");
+  }
 
   // React.useEffect(() => {
   //   // console.log(logInError)
@@ -155,7 +155,9 @@ export default function LogIn({handleGoogle}) {
           <div className="or">OR</div>
           </div>
           </div>
-
+          <div className='login__group' >
+            <button type='submit' className="login__btn" onClick={handleGoogleLogin} >Google</button>
+          </div>
           <div className='login__google' >
               <div id="signInDiv"></div>
           </div>

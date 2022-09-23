@@ -38,7 +38,7 @@ export default function MyProfile() {
     <div className='main_box_pyProfile'>
       <Card id='individual_box_myprofile' sx={{ width: 200, height: 200 }}>
         <CardActionArea >
-          <Link to='/myprofile/personalinformation'>
+          <Link to='/miperfil/personalinformation'>
             <CardMedia className='personal_informacion'
               component="img"
               height="130"
@@ -49,7 +49,7 @@ export default function MyProfile() {
           </Link>
         </CardActionArea>
         <CardActions className='button_myprofile'>
-          <Link to='/myprofile/personalinformation'>
+          <Link to='/miperfil/personalinformation'>
             <Button size="small" color="primary">
                 Información Personal
             </Button>
