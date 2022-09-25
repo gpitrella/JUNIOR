@@ -56,7 +56,7 @@
     top: 45%;
     opacity: 0;
     rotate: 20deg;
-    animation: rocketanimation 8s linear infinite;
+    animation: rocketanimation 10s linear infinite;
     animation-delay: 3s;
     animation-iteration-count: 2;
 }
@@ -191,10 +191,30 @@
         scale: 0.99;
         opacity: 1;
     }
-    100%{
+    30%{
+        box-shadow: 1px 1px 30px rgb(199, 199, 199);
+        scale: 0.99;
+        opacity: 1;
+    }
+    50%{
         box-shadow: 1px 1px 20px rgb(247, 247, 247);
         scale: 1.0;
         opacity: 0.95;
+    }
+    60%{
+        box-shadow: 1px 1px 30px rgb(199, 199, 199);
+        scale: 0.99;
+        opacity: 1;
+    }
+    80%{
+        box-shadow: 1px 1px 20px rgb(247, 247, 247);
+        scale: 1.0;
+        opacity: 0.95;
+    }
+    100%{
+        box-shadow: 1px 1px 30px rgb(199, 199, 199);
+        scale: 0.99;
+        opacity: 1;
     }
 }
 
