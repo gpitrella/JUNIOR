@@ -16,11 +16,19 @@ import MyProfile from './components/MyProfile/MyProfile';
 import PersonalInformation from './components/MyProfile/PersonalInformation/PersonalInformation';
 import MyPurchases from './components/MyProfile/MyPurchases/MyPurchases';
 import CreateProject from './components/CreateProject/CreateProject';
-
-// For mark CSS classes I'm using the BEM (Block Element Modifier) notation 
+// import { config } from "dotenv";
+import dotenv from "dotenv";
 import './App.css';
 import 'aos/dist/aos.css'; // Animations on scrolling styles
 import LandingPage from './components/LandingPage/LandingPage.jsx';
+// config();
+dotenv.config()
+
+
+// const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+const REACT_APP_GOOGLE = process.env.REACT_APP_GOOGLE;
+
+// For mark CSS classes I'm using the BEM (Block Element Modifier) notation 
 
 // Setting up animations on scrolling
 AOS.init({
@@ -32,17 +40,17 @@ AOS.init({
 
 export default function App() {
   // ?-- Auth width Google
-  //const [ user, setUser ] = useState({});
+  // const [ user, setUser ] = useState({});
   const dispatch = useDispatch()
   const location = useLocation();
   const { user } = useSelector((state) => state.homepageReducer);
 
   function handleCallbackResponse(response) {
-    // var userObject = jwt_decode(response.credential);
-    //setUser(userObject);
-    // dispatch(getUser(userObject));
-    // dispatch(signinGoogle(userObject));
-    // document.getElementById("signInDiv").hidden = true;
+    var userObject = jwt_decode(response.credential);
+    // setUser(userObject);
+    dispatch(getUser(userObject));
+    dispatch(signinGoogle(userObject));
+    document.getElementById("signInDiv").hidden = true;
   }
 
   function handleSignOut(e) {
@@ -54,17 +62,17 @@ export default function App() {
 
   function handleGoogle(){
     /* global google */
-    //   google.accounts.id.initialize({
-    //   client_id: "744815306098-6j8n1eua04vepnaccbsj45crs1v7cr4b.apps.googleusercontent.com",
-    //   callback: handleCallbackResponse
-    // });
+      google.accounts.id.initialize({
+      client_id: REACT_APP_GOOGLE,
+      callback: handleCallbackResponse
+    });
 
-    // google.accounts.id.renderButton(
-    //   document.getElementById("signInDiv"),
-    //   { theme:"filled_blue", size: "large"}
-    // );
+    google.accounts.id.renderButton(
+      document.getElementById("signInDiv"),
+      { theme:"filled_blue", size: "large"}
+    );
 
-    // google.accounts.id.prompt();
+    google.accounts.id.prompt();
     
   };
    
@@ -89,6 +97,7 @@ export default function App() {
         <div className="gradient__bg"></div>
             <Routes>
                 <Route exact path="/" element={<LandingPage />}/>
+                <Route exact path="/background" />
                 <Route exact path="/login" element={ user.user ? <Navigate to="/home"/> : <LogIn handleGoogle={handleGoogle} /> }  />
                 <Route exact path="/signup" element={ user.user ? <Navigate to="/home"/> : <SignUp/> } />
                 <Route exact path="/home" element={<Home />}/>
@@ -97,7 +106,7 @@ export default function App() {
                 <Route exact path="/miperfil" element={ user.user ? <MyProfile/> : <LogIn handleGoogle={handleGoogle} />} />             
                 <Route exact path ="/miperfil/personalinformation" element= { user.user ? <PersonalInformation /> : <LogIn handleGoogle={handleGoogle} />}/>
                 <Route exact path ="/miperfil/mypurchases" element=  { user.user ? <MyPurchases /> : <LogIn/>} />
-                <Route exact path='*' component={<Navigate to="/home"/>} />
+                <Route exact path='*' component={<Navigate to="/"/>} />
           </Routes> 
         { location.pathname !== '/' && <Footer /> }
     </React.Fragment>

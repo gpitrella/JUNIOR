@@ -59,7 +59,7 @@ export const logIn = function(email, password) {
 // Log In User
 export const signinGoogle = function(auser) {
   return function(dispatch){
-    return axios.post(`${BASE_URL}/auth/google`, {auser})
+    return axios.post(`${BASE_URL}/auth/google`, { auser })
                 .then(data => dispatch({ type: SIGN_IN_GOOGLE, payload: data.data}))
                 .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
   }

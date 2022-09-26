@@ -1,7 +1,7 @@
 import { Router } from "express";
 const router = Router();
 import { signup, signin, logout } from "../controllers/auth.controllers.js";
-// import { loginWithGoogle } from "../controllers/loginWithGoogle.js";
+import { loginWithGoogle } from "../controllers/loginWithGoogle.js";
 import { secret, expires, rounds } from '../auth.js';
 import passport from 'passport';
 import jwt from 'jsonwebtoken';
@@ -12,7 +12,7 @@ router.post("/signup", signup);
 
 router.post("/signin", signin);
 
-// router.post("/google", loginWithGoogle);
+router.post("/google", loginWithGoogle);
 
 router.get("/login/success", (req, res) => {
   if (req.user) {
