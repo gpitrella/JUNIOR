@@ -9,6 +9,7 @@ import './LandingPage.scss';
 
 export default function LandingPage() {
 
+    const [ sound, setSound ] = React.useState(true);
     const defaultOptions = {
 		loop: true,
 		autoplay: true,
@@ -17,7 +18,6 @@ export default function LandingPage() {
 		  preserveAspectRatio: "xMidYMid slice"
 		}
 	};
-
 
     return (
   
@@ -62,12 +62,3 @@ export default function LandingPage() {
       
     )
 }
-
-
-
-
-
-
-
-
-

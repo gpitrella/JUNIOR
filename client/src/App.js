@@ -84,11 +84,12 @@ export default function App() {
      <React.Fragment>
       
         <div className="App"></div>
-        { location.pathname !== '/' && <Navbar handleSignOut={handleSignOut}/> }
+        {/* { location.pathname !== '/' && <Navbar handleSignOut={handleSignOut}/> } */}
         <Background />
         <div className="gradient__bg"></div>
             <Routes>
                 <Route exact path="/" element={<LandingPage />}/>
+                {/* <Route exact path="/background" />
                 <Route exact path="/login" element={ user.user ? <Navigate to="/home"/> : <LogIn handleGoogle={handleGoogle} /> }  />
                 <Route exact path="/signup" element={ user.user ? <Navigate to="/home"/> : <SignUp/> } />
                 <Route exact path="/home" element={<Home />}/>
@@ -96,10 +97,10 @@ export default function App() {
                 <Route exact path="/crearproyecto" element={<CreateProject />} />
                 <Route exact path="/miperfil" element={ user.user ? <MyProfile/> : <LogIn handleGoogle={handleGoogle} />} />             
                 <Route exact path ="/miperfil/personalinformation" element= { user.user ? <PersonalInformation /> : <LogIn handleGoogle={handleGoogle} />}/>
-                <Route exact path ="/miperfil/mypurchases" element=  { user.user ? <MyPurchases /> : <LogIn/>} />
-                <Route exact path='*' component={<Navigate to="/home"/>} />
+                <Route exact path ="/miperfil/mypurchases" element=  { user.user ? <MyPurchases /> : <LogIn/>} /> */}
+                <Route exact path='*' component={<Navigate to="/"/>} />
           </Routes> 
-        { location.pathname !== '/' && <Footer /> }
+        {/* { location.pathname !== '/' && <Footer /> } */}
     </React.Fragment>
   );
 }
