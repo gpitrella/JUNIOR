@@ -9,8 +9,8 @@ export default function AboutView() {
   return (
     <>
     	<div className={`${s.aboutview} ${s.section__padding}`}>
-				<div className={`${s.aboutview_content}`}>
-					<h1 className={`${s.gradient__text}`}>
+				<div className={s.aboutview_content}>
+					<h1 className={s.gradient__text}>
             {detailabout.title}
 					</h1>
 					<p>
@@ -18,8 +18,11 @@ export default function AboutView() {
 					</p>
         </div>
       </div>
+      <div className={s.aboutDevelopers}>
+        <h1 className={s.gradient__text}>Developers: </h1>
 
-      <h1 className={s.titleAbout}>Developers: </h1>
+      </div>
+
 
       <div className = {s.cardsContainer}>
         {
