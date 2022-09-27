@@ -11,7 +11,7 @@ const Menu = () => {
 	return (
 		<>
 			<Link to='/projects'><p>Proyectos</p></Link>
-			<p><a href="#features">About JR</a></p>
+			<Link to='/about'><p><a href="#features">About JR</a></p></Link>
 		</>
 )}
 
