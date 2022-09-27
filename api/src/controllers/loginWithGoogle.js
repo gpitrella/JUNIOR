@@ -1,16 +1,9 @@
 import User from "../models/User.js";
-// const bcrypt = require('bcrypt');
-// const jwt = require('jsonwebtoken');
 import { compareSync, hashSync } from 'bcrypt';
 import { secret, expires, rounds } from '../auth.js';
 import jwt from 'jsonwebtoken';
 // require('dotenv').config();
 
-// const image = "https://res.cloudinary.com/techmarket/image/upload/v1657452330/rwbzsixizmehnudxgtg0.gif"
-
-// const sgMail = require('@sendgrid/mail');
-// const API_KEY = process.env.SENDGRID_API_KEY
-// sgMail.setApiKey(API_KEY)
 export const loginWithGoogle = async (req, res) => {
   try {
     const { auser } = req.body;
@@ -23,7 +16,6 @@ export const loginWithGoogle = async (req, res) => {
 }
 
 let createUserWithGoogleProfile = async function(auser) {
-  //console.log('Debo crear un usuario...');
   let hpassword = hashSync('123456', Number.parseInt(rounds));
   const newUser = new User({ 
     name: auser.name, 

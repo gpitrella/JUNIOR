@@ -16,6 +16,7 @@
     "aos": "^3.0.0-beta.6",
     "axios": "^0.27.2",
     "caniuse-lite": "^1.0.30001377",
+    "dotenv": "^16.0.2",
     "gh-pages": "^3.2.3",
     "jquery": "^3.6.0",
     "jwt-decode": "^3.1.2",

@@ -12,15 +12,15 @@ export default function Links({ showAsFooter = false }) {
     <div id="componentLinks" className = {`${showAsFooter ? s.containerAsFooter : s.container}`}>
       {
         !showAsFooter &&
-        <SidebarTitle title = {"Buscar Proyectos"} />
+        <SidebarTitle title = {"Proyectos"} />
       }
       <SectionLink
-        title = {"Hall of Fame"}
-        path = {"/home"}
+        title = {"Crear Proyecto"}
+        path = {"/crearproyecto"}
         icon = {Stars}
         showVertical = {showAsFooter}
       />
-      <SectionLink
+      {/* <SectionLink
         title = {"All Players"}
         path = {"/projects"}
         icon = {World}
@@ -31,7 +31,7 @@ export default function Links({ showAsFooter = false }) {
         path = {"/about"}
         icon = {Info}
         showVertical = {showAsFooter}
-      />
+      /> */}
     </div>
   );
 }

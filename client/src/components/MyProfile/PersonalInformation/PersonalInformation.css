@@ -1,0 +1,47 @@
+.title_myprofile {
+    font-size: 30px;
+    padding-top: 50px;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.main_box_personalinformation {
+    padding-top: 0px;
+    padding-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title_personalinformation {
+    padding-bottom: 20px;
+}
+
+.box_main_personal {
+    box-shadow: 3px 3px 5px 0px rgb(0 0 0 / 50%);
+    border-radius: 5px;
+}
+
+#btn_personalinformation {
+    margin-top: 30px;
+}
+
+#avatar_personal_information {
+    justify-content: center;
+    
+}
+
+.myaddress_personalinformation{
+    margin: 0;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    display: block;
+}
