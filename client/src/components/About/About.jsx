@@ -1,0 +1,41 @@
+import React from 'react';
+import { detailabout, developers } from '../../lib/constants';
+import CardDeveloper from '../CardDeveloper/CardDeveloper';
+
+import s from './About.module.css';
+
+export default function AboutView() {
+
+  return (
+    <>
+    	<div className={`${s.aboutview} ${s.section__padding}`}>
+				<div className={`${s.aboutview_content}`}>
+					<h1 className={`${s.gradient__text}`}>
+            {detailabout.title}
+					</h1>
+					<p>
+            {detailabout.description}
+					</p>
+        </div>
+      </div>
+
+      <h1 className={s.titleAbout}>Developers: </h1>
+
+      <div className = {s.cardsContainer}>
+        {
+          developers && developers.map(developer => 
+            <CardDeveloper 
+              key = {developer.key}
+              id = {developer.id}
+              name = {developer.name}
+              linkedin = {developer.linkedin}
+              github = {developer.github}
+              email = {developer.email}
+              img = {developer.img}
+            />
+          )
+        }
+      </div>
+    </>
+  );
+}

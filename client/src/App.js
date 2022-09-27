@@ -16,12 +16,11 @@ import MyProfile from './components/MyProfile/MyProfile';
 import PersonalInformation from './components/MyProfile/PersonalInformation/PersonalInformation';
 import MyPurchases from './components/MyProfile/MyPurchases/MyPurchases';
 import CreateProject from './components/CreateProject/CreateProject';
-// import { config } from "dotenv";
+import About from './components/About/About';
 import dotenv from "dotenv";
 import './App.css';
 import 'aos/dist/aos.css'; // Animations on scrolling styles
 import LandingPage from './components/LandingPage/LandingPage.jsx';
-// config();
 dotenv.config()
 
 
@@ -102,6 +101,7 @@ export default function App() {
                 <Route exact path="/signup" element={ user.user ? <Navigate to="/home"/> : <SignUp/> } />
                 <Route exact path="/home" element={<Home />}/>
                 <Route exact path="/projects" element={<Projects />} />
+                <Route exact path="/About" element={<About />} />
                 <Route exact path="/crearproyecto" element={<CreateProject />} />
                 <Route exact path="/miperfil" element={ user.user ? <MyProfile/> : <LogIn handleGoogle={handleGoogle} />} />             
                 <Route exact path ="/miperfil/personalinformation" element= { user.user ? <PersonalInformation /> : <LogIn handleGoogle={handleGoogle} />}/>
