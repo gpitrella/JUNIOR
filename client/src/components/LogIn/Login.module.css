@@ -5,6 +5,11 @@
 .input {
   background-color: var(--primaryColorSub);
   color: var(--fontColor);
+  
+}
+
+.input, select, textarea{
+  color: var(--primaryColorLight);
 }
 
 .errorMsg {

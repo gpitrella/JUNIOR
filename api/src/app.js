@@ -2,7 +2,6 @@ import express from "express";
 import exphbs from "express-handlebars";
 import session from "express-session";
 import methodOverride from "method-override";
-import flash from "connect-flash";
 import passport from "passport";
 import morgan from "morgan";
 import MongoStore from "connect-mongo";
@@ -10,7 +9,6 @@ import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import { MONGODB_URI, PORT } from "./config.js";
 import indexRoutes from "./routes/index.routes.js";
-// import notesRoutes from "./routes/notes.routes.js";
 import userRoutes from "./routes/auth.routes.js";
 import projectRoutes from "./routes/project.routes.js";
 import techRoutes from "./routes/project.routes.js";
@@ -47,18 +45,30 @@ app.use( // Sirve para mantener una session del usuario.
     store: MongoStore.create({ mongoUrl: MONGODB_URI }),
   })
 );
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
 
-// Global Variables
-app.use((req, res, next) => {
-  res.locals.success_msg = req.flash("success_msg");
-  res.locals.error_msg = req.flash("error_msg");
-  res.locals.error = req.flash("error");
-  res.locals.user = req.user || null;
+// Enable CORS
+app.use(function (req, res, next) {
+  // res.header('Access-Control-Allow-Origin', '*, https://techmarketfront.vercel.app'); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET, HEAD, POST, OPTIONS, PUT, DELETE');
   next();
 });
+
+
+app.use(passport.initialize());
+app.use(passport.session());
+// app.use(flash());
+
+// Global Variables
+// app.use((req, res, next) => {
+//   res.locals.success_msg = req.flash("success_msg");
+//   res.locals.error_msg = req.flash("error_msg");
+//   res.locals.error = req.flash("error");
+//   res.locals.user = req.user || null;
+//   next();
+// });
 
 // Routes
 app.use(indexRoutes);

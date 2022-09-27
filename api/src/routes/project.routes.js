@@ -4,12 +4,14 @@ import { createNewProject, getAllProyect, projectDelete, updateProject } from ".
 import { isAuthenticated } from "../helpers/auth.js";
 const router = Router();
 //GET
-router.get("/projects/allprojects", getAllProyect)
+router.get("/allprojects", getAllProyect)
 //POST
-router.post("/projects/newproject", createNewProject);
+router.post("/newproject", createNewProject);
 //PUT
-router.put("/projects/updateproject", updateProject)
+router.put("/updateproject", updateProject)
 //DELETE
-router.delete("/projects/deleteproject", projectDelete)
+router.delete("/deleteproject", projectDelete)
 
 export default router;
+
+

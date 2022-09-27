@@ -1,0 +1,95 @@
+.globalContainer {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 100;
+
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  min-height: 20rem;
+  width: 40rem;
+  display: grid;
+  grid-template-rows: 2fr 7fr 1.5fr;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-content: center;
+  background-color: var(--primaryColor);
+  grid-gap: 1rem;
+  overflow: hidden;
+  border-radius: 16px;
+
+  animation: showModal 0.5s;
+  animation-fill-mode: both;
+}
+
+.banner {
+  background-color: var(--secondaryColor);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.title,
+.btnClose {
+  font-size: var(--fontTitle);
+  font-weight: 700;
+  color: white;
+}
+
+.btnClose:hover {
+  cursor: pointer;
+  color: var(--dangerColor);
+}
+
+.mainZone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.options {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.btn {
+  height: 50%;
+  width: 10rem;
+  color: white;
+  background-color: var(--secondaryColor);
+  cursor: pointer;
+  font-size: var(--fontMedium);
+  font-weight: 700;
+  border: 1px solid var(--secondaryColor);
+
+  letter-spacing: 1px;
+}
+
+.btn[disabled] {
+  background-color: gray;
+  border: 1px solid gray;
+  cursor: default;
+}
+
+@keyframes showModal {
+  from {
+    transform: translateY(5rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

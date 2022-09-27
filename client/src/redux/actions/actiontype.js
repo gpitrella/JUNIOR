@@ -10,6 +10,11 @@ export const LOG_IN_ERROR = 'LOG_IN_ERROR';
 // PROJECTS ACTIONS
 export const GET_ALL_PROJECTS = 'GET_ALL_PROJECTS';
 export const GET_ALL_TECHS = 'GET_ALL_TECHS';
+export const CREATE_PROJECTS = 'CREATE_PROJECTS';
+
+// MODAL ADD IMAGE
+export const SHOW_MODAL_ADD_IMAGE = 'SHOW_MODAL_ADD_IMAGE';
+export const CLOSE_MODAL_ADD_IMAGE = 'CLOSE_MODAL_ADD_IMAGE';
 
 // FILTER PROJECTS ACTIONS
 export const FILTER_PROJECTS = 'FILTER_PROJECTS';
@@ -17,5 +22,6 @@ export const UPDATE_STATUS_FILTER = 'UPDATE_STATUS_FILTER';
 
 
 // BASE URL
+export const BASE_URL_FRONT = 'http://localhost:3000';
 export const BASE_URL = 'http://localhost:4001';
 

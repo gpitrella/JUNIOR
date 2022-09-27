@@ -9,6 +9,7 @@ import './LandingPage.scss';
 
 export default function LandingPage() {
 
+    const [ sound, setSound ] = React.useState(true);
     const defaultOptions = {
 		loop: true,
 		autoplay: true,
@@ -17,7 +18,6 @@ export default function LandingPage() {
 		  preserveAspectRatio: "xMidYMid slice"
 		}
 	};
-
 
     return (
   
@@ -43,10 +43,10 @@ export default function LandingPage() {
             <div>
                 <Typewriter
                     options={{
-                        strings: ['En Junior POTENCIA tu carrera como DESARROLLADOR'],
+                        strings: ['En JUNIOR potencia tu carrera como DESARROLLADOR'],
                         autoStart: true,
                         loop: true,
-                        delay: 100,
+                        delay: 50,
                         pauseFor: 20000
                     }}
                 />
@@ -62,12 +62,3 @@ export default function LandingPage() {
       
     )
 }
-
-
-
-
-
-
-
-
-

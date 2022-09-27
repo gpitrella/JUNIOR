@@ -31,12 +31,21 @@ import {
 // };
 
 // Take Auth User
-export const getUser = function(uauth) {
-  return {
-    type: GET_USER,
-    payload: uauth
+export const getUser = function() {
+  return function(dispatch){
+    return axios.get(`${BASE_URL}/auth/login/success`)
+                .then((response) => {
+                  console.log(response);
+                  if (response.status === 200) return response;
+                  throw new Error("authentication has been failed!");
+                })
+                .then((resObject) => dispatch({ type: GET_USER, payload: resObject.user}))      
+                .catch((err) => {
+                  console.log(err);
+                });
   }
-}
+};
+
 
 // Log In User
 export const logIn = function(email, password) {
@@ -50,7 +59,7 @@ export const logIn = function(email, password) {
 // Log In User
 export const signinGoogle = function(auser) {
   return function(dispatch){
-    return axios.post(`${BASE_URL}/auth/google`, {auser})
+    return axios.post(`${BASE_URL}/auth/google`, { auser })
                 .then(data => dispatch({ type: SIGN_IN_GOOGLE, payload: data.data}))
                 .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
   }
