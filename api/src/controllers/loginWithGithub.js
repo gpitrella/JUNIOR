@@ -4,8 +4,8 @@ import axios from 'axios';
 import { secret, expires, rounds } from '../auth.js';
 import jwt from 'jsonwebtoken';
 
-const client_id = "217155178f2112b69dcb";
-const client_secret = "4bde214f64234987f34a2dcc0fd0c7d93585e72b";
+const client_id = process.env.CLIENT_ID_GITHUB;
+const client_secret = process.env.CLIENT_SECRET_GITHUB;
 
 export const loginWithGithub = async (req, res) => {
     const code = req.query.code;
