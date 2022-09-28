@@ -8,7 +8,8 @@ import {
   LOG_IN_ERROR,
   BASE_URL,
   SIGN_UP,
-  SIGN_IN_GOOGLE
+  SIGN_IN_GOOGLE,
+  SIGN_IN_GITHUB
 } from './actiontype';
 
 
@@ -56,11 +57,20 @@ export const logIn = function(email, password) {
   }
 };
 
-// Log In User
+// Log In User Google Account
 export const signinGoogle = function(auser) {
   return function(dispatch){
     return axios.post(`${BASE_URL}/auth/google`, { auser })
                 .then(data => dispatch({ type: SIGN_IN_GOOGLE, payload: data.data}))
+                .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
+  }
+};
+
+// Log In User GitHub Account
+export const getUserGitHub = function(code) {
+  return function(dispatch){
+    return axios.get(`${BASE_URL}/auth/login/github/callback/?code=${code}`)
+                .then(data => dispatch({ type: SIGN_IN_GITHUB, payload: data.data}))
                 .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
   }
 };
