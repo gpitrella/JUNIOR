@@ -38,7 +38,7 @@ export const detailabout = {
         linkedin: "https://www.linkedin.com/in/federicofaraz-fullstack/",
         github: "https://github.com/cosm1co",
         email: "mailto:federicofaraz@gmail.com",
-        img: "https://avatars.githubusercontent.com/u/97068418?v=4"
+        img: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664324498/Federico_Faraz_fo3osf.jpg"
     },
     {
         id: 5,
@@ -54,6 +54,6 @@ export const detailabout = {
         linkedin: "https://www.linkedin.com/in/natalia-leiva-dev/",
         github: "https://github.com/Natti2012",
         email: "natti35443839@gmail.com",
-        img: "https://avatars.githubusercontent.com/u/17879446?v=4"
+        img: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664324498/Natalia_Leiva_sg8uvm.jpg"
     }
 ];
