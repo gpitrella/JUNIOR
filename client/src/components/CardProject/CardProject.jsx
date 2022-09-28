@@ -80,7 +80,7 @@ export default function MediaControlCard({ project }) {
             <Typography component="div" variant="h5">
               { project.title }
             </Typography>
-            { project?.payment === true ?
+            { project?.payment?
             <MonetizationOnIcon sx={{ height: 30, width: 30, margin: 1, color: '#388e3c' }}/> :
             <HandshakeIcon sx={{ height: 30, width: 30, margin: 1, color: '#2196f3' }}/>
             }
