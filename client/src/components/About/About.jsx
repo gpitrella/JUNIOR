@@ -14,7 +14,16 @@ export default function AboutView() {
             {detailabout.title}
 					</h1>
 					<p>
-            {detailabout.description}
+            {detailabout.description.p1}
+					</p>
+          <p>
+            {detailabout.description.p2}
+					</p>
+          <p>
+            {detailabout.description.p3}
+					</p>
+          <p>
+            {detailabout.description.p4}
 					</p>
         </div>
       </div>

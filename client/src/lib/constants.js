@@ -1,10 +1,20 @@
 export const detailabout = {
     title: 'JUNIOR',
-    description: `Bugs Hunters it is an RPG game where a group of players assumes the role of programmers of the new metaverse 
-    where they must destroy bugs, which in said virtual reality take the form of giant insects that 
-    devour space itself. As players progress, destroying more bugs and overcoming the challenges that 
-    will be imposed on them in the metaverse, they will earn more points, which will allow them to 
-    improve their equipment and increase their ranking.`
+    description: {
+        p1: `JUNIOR es un proyecto colaborativo que tiene como objetivo potenciar el 
+        desarrollo de programadores/as o cualquier otro profesional entusiasta, como pueden ser diseñadores, 
+        emprendedores y más.`,
+        p2: `El aporte de JUNIOR es brindar un espacio de colaboración que permita al usuario no solo 
+        ser parte de un proyecto, sino que también aportar con conocimiento, aprender de la experiencia de los demás, 
+        aprender haciendo y además tener la posibilidad de publicar un proyecto propio liderando el desarrollo. 
+        Además de este espacio de colaboración en JUNIOR se puede encontrar links a otras plataformas de aprendizaje 
+        de interés, herramientas de desarrollo y demás recursos útiles para potenciar el crecimiento profesional.`,
+        p3: `De esta forma no solo podes se potencia el aprendizaje, el trabajo en equipo y la colaboración mutua, 
+        sino que además sumando la experiencia vivida en JUNIOR al CV y se puede aspirar a mejores oportunidades 
+        laborales futuras.`,
+        p4: `¿Estás preparado/a? ¿Estás listo/a para empezar? ¿Ya sos parte?`
+    }
+    
 }
   
   export const developers = [
@@ -50,10 +60,10 @@ export const detailabout = {
     },
     {
         id: 6,
-        name: "Natalia Leiva",
-        linkedin: "https://www.linkedin.com/in/natalia-leiva-dev/",
-        github: "https://github.com/Natti2012",
-        email: "natti35443839@gmail.com",
-        img: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664324498/Natalia_Leiva_sg8uvm.jpg"
+        name: "Emilio Conde",
+        linkedin: "https://www.linkedin.com/in/emilio-rodrigo-conde-frers-827016230/",
+        github: "https://github.com/Emicon97",
+        email: "",
+        img: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664370720/Emilio_uu93ub.png"
     }
 ];
