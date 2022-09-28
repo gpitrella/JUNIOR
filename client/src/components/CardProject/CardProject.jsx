@@ -71,8 +71,17 @@ export default function MediaControlCard({ project }) {
     setExpanded(newExpanded ? panel : false);
   };
 
+//   if (screen.width < 1024) 
+//   document.write ("Pequeña") 
+// else 
+//   if (screen.width < 1280) 
+//      document.write ("Mediana") 
+//   else 
+//      document.write ("Grande")
+  const ancho = 800
+
   return (
-    <Card sx={{ display: 'flex', margin: 5, width: 800, justifyContent: "center", borderRadius: 5 }}>
+    <Card sx={{ display: 'flex', margin: 5, width: `${ancho}`, justifyContent: "center", borderRadius: 5 }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', width: 600 }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
 
