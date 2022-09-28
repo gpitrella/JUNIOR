@@ -5,7 +5,8 @@ import {
   LOG_OUT,
   LOG_IN_ERROR,
   SIGN_UP,
-  SIGN_IN_GOOGLE
+  SIGN_IN_GOOGLE,
+  SIGN_IN_GITHUB
 } from '../actions/actiontype';
 import { LocalStorage } from '../../util/localStorage';
 
@@ -41,6 +42,15 @@ const homepageReducer = function(state = initialState, { type, payload }) {
         ...state,
         user: payload,
       }
+
+    case SIGN_IN_GITHUB:
+      console.log('DENTRO DEL REDUCER', payload);
+      LocalStorage.saveItem('user', payload);      
+      return {
+        ...state,
+        user: payload,
+      }
+
     case SIGN_UP:
       LocalStorage.saveItem('user', payload);      
       return {
