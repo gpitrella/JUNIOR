@@ -11,6 +11,8 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import HandshakeIcon from '@mui/icons-material/Handshake';
 
 // Desplegable
 import { styled } from '@mui/material/styles';
@@ -18,6 +20,8 @@ import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
+
+import s from './CardProject.module.css';
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -68,12 +72,21 @@ export default function MediaControlCard({ project }) {
   };
 
   return (
-    <Card sx={{ display: 'flex', margin: 5, width: 800, justifyContent: "space-between", borderRadius: 5 }}>
+    <Card sx={{ display: 'flex', margin: 5, width: 800, justifyContent: "center", borderRadius: 5 }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', width: 600 }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
-          <Typography component="div" variant="h5">
-            { project.title }
-          </Typography>
+
+          <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+            <Typography component="div" variant="h5">
+              { project.title }
+            </Typography>
+            { project?.payment === true ?
+            <MonetizationOnIcon sx={{ height: 30, width: 30, margin: 1, color: '#388e3c' }}/> :
+            <HandshakeIcon sx={{ height: 30, width: 30, margin: 1, color: '#2196f3' }}/>
+            }
+          </Box>
+          
+
             <div>
               <Accordion onChange={handleChange('panel1')} sx={{ borderColor: 'white' }}>
                 <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: 'white' }}>
@@ -86,6 +99,13 @@ export default function MediaControlCard({ project }) {
                 </AccordionDetails>
               </Accordion>
             </div>
+
+            <Typography variant="subtitle1" color="text.secondary" component="div">
+                <span>Status: </span>{ 
+                    project?.status
+                }
+            </Typography>
+            
           
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
