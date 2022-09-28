@@ -14,15 +14,11 @@ import Github from '../../assets/github.png';
 import './LogIn.css'
 import LoginGithub from 'react-login-github';
 import dotenv from "dotenv";
-dotenv.config()
-
 import s from './Login.module.css';
+dotenv.config();
 
-const REACT_APP_GITHUB = process.env.REACT_APP_GITHUB;
-
-
-
-export default function LogIn({handleGoogle}) {
+export default function LogIn({handleGoogle, github}) {
+  
   const [redirect, setRedirect] = useState({ value: false })
   const dispatch = useDispatch();
   // const [checkMailPassword, setCheckMailPassword] = useState(false)
@@ -146,7 +142,7 @@ export default function LogIn({handleGoogle}) {
               <div id="signInDiv"></div>
           </div>
           <div className="loginButton githublogin" id="example">
-            <LoginGithub className="loginGitHub" clientId={REACT_APP_GITHUB}
+            <LoginGithub className="loginGitHub" clientId={process.env.REACT_APP_GITHUB}
               onSuccess={onSuccess}
               onFailure={onFailure}
             />
