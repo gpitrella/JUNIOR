@@ -57,7 +57,7 @@ export default function Navbar ({ handleSignOut }) {
 	}	
 
 	return (
-		<div className={ stickyNavbar ? "navbarSticky" : "navbar" }>
+		<div className={ stickyNavbar ? "navbarSticky" : "navbar" } id="navbarTop">
 			<div className="navbar-links_logo">
 				<Link to='/home'>
 					<img src={logo} id="logoNavbar" alt="Logo Junior" />
