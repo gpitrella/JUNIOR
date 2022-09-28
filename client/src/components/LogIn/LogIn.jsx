@@ -12,12 +12,13 @@ import { getUserGitHub } from '../../redux/actions/generalActions';
 import { Snackbar, Alert } from '@mui/material';
 import Github from '../../assets/github.png';
 import './LogIn.css'
-import ReactDOM from 'react-dom';
 import LoginGithub from 'react-login-github';
+import dotenv from "dotenv";
+dotenv.config()
 
 import s from './Login.module.css';
 
-
+const REACT_APP_GITHUB = process.env.REACT_APP_GITHUB;
 
 
 
@@ -144,12 +145,12 @@ export default function LogIn({handleGoogle}) {
           <div className='login__google' >
               <div id="signInDiv"></div>
           </div>
-          <div className="loginButton github" id="example">
-            <img src={Github} alt="" className="icon" />
-            <LoginGithub className="loginGitHub" clientId="217155178f2112b69dcb"
+          <div className="loginButton githublogin" id="example">
+            <LoginGithub className="loginGitHub" clientId={REACT_APP_GITHUB}
               onSuccess={onSuccess}
               onFailure={onFailure}
             />
+            <img src={Github} alt="" className="icongithublogin" />
           </div>
           {/* <div className='login__google' >
               <div id="example"></div>
