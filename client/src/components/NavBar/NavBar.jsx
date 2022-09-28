@@ -11,7 +11,7 @@ const Menu = () => {
 	return (
 		<>
 			<Link to='/projects'><p>Proyectos</p></Link>
-			<p><a href="#features">About JR</a></p>
+			<Link to='/about'><p><a href="#features">About JR</a></p></Link>
 		</>
 )}
 
@@ -57,7 +57,7 @@ export default function Navbar ({ handleSignOut }) {
 	}	
 
 	return (
-		<div className={ stickyNavbar ? "navbarSticky" : "navbar" }>
+		<div className={ stickyNavbar ? "navbarSticky" : "navbar" } id="navbarTop">
 			<div className="navbar-links_logo">
 				<Link to='/home'>
 					<img src={logo} id="logoNavbar" alt="Logo Junior" />

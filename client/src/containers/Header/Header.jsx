@@ -54,7 +54,6 @@ export default function Header() {
 					</p>
 
 					<div className="gpt3__header-content__input">
-						{/* <input type="email" placeholder="Your Email Address" value={email} onChange={onEmailInputChanged} /> */}
 						<button className="btn btn_start" type="button"><a href="#empezar">Empezar</a></button>
 					</div>
 
