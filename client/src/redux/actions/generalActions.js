@@ -11,7 +11,9 @@ import {
   SIGN_IN_GOOGLE,
   SIGN_IN_GITHUB,
   OPEN_MESSSAGE_MUST_LOGIN,
-  CLOSE_MESSSAGE_MUST_LOGIN
+  CLOSE_MESSSAGE_MUST_LOGIN,
+  OPEN_MODAL_INFO_COLLABORATOR,
+  CLOSE_MODAL_INFO_COLLABORATOR
 } from './actiontype';
 
 // Take Auth User
@@ -85,5 +87,19 @@ export function openMessageMustLogin(msg){
 export function closeMessageMustLogin(){
   return function(dispatch){
       return dispatch({ type: CLOSE_MESSSAGE_MUST_LOGIN })
+  }
+};
+
+// Open Message Must Login
+export function openModalInfoCollaborator(){
+  return function(dispatch){
+      return dispatch({ type: OPEN_MODAL_INFO_COLLABORATOR })
+  }
+}; 
+
+// Close Message Must Login
+export function closeModalInfoCollaborator(){
+  return function(dispatch){
+      return dispatch({ type: CLOSE_MODAL_INFO_COLLABORATOR })
   }
 };

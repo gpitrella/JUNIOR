@@ -108,7 +108,7 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
                           </Typography>
                       )
                         })
-                    : <Typography>"- Puntos a colaborar con Creador del Proyecto."</Typography>
+                    : <Typography>-- Puntos de colaboración a coordinar con el Creador del Proyecto.</Typography>
                 }
             </AccordionDetails>
           </Accordion>
