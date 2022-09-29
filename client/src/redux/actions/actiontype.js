@@ -24,5 +24,4 @@ export const UPDATE_STATUS_FILTER = 'UPDATE_STATUS_FILTER';
 
 // BASE URL
 export const BASE_URL_FRONT = 'http://localhost:3000';
-export const BASE_URL = 'http://localhost:4001';
-
+export const BASE_URL = 'http://localhost:5000';
