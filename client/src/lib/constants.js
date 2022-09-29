@@ -13,11 +13,10 @@ export const detailabout = {
         sino que además sumando la experiencia vivida en JUNIOR al CV y se puede aspirar a mejores oportunidades 
         laborales futuras.`,
         p4: `¿Estás preparado/a? ¿Estás listo/a para empezar? ¿Ya sos parte?`
-    }
-    
+    }    
 }
   
-  export const developers = [
+export const developers = [
     {
         id: 1,
         name: "Gabriel Pitrella",
@@ -67,3 +66,13 @@ export const detailabout = {
         img: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664370720/Emilio_uu93ub.png"
     }
 ];
+
+export const messagePopUp = {
+    createProject: `Para crear un proyecto te recomendamos registrarte o logearte para que los futuros 
+    colaboradores del proyecto puedan contactarse con facilidad con el creador del proyecto y desarrollarlo 
+    de forma colaborativa.`,
+    colaborateProject: `Para poder participar de un proyecto te recomendamos registrarte o logearte para que 
+    el creador y vos puedan comunicarse, organizarse y avanzar con el desarrollo del proyecto. Recorda ser 
+    proactivo/a y contacta al creador del proyecto, por intermedio de WhatsApp, Linkedin o Github,
+    mostrandole el interes en colaborar.`,
+};
