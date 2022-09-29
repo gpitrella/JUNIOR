@@ -3,12 +3,14 @@ import {
   FILTER_PROJECTS,
   CREATE_PROJECTS,
   SHOW_MODAL_ADD_IMAGE,
-  CLOSE_MODAL_ADD_IMAGE
+  CLOSE_MODAL_ADD_IMAGE,
+  SELECTPAG,
 } from '../actions/actiontype';
 
 const initialState = {
   allProjects: [],
-  newProject: {}
+  newProject: {},
+  pagina: 1,
 };
 
 const projectsReducer = function(state = initialState, { type, payload }) {
@@ -21,8 +23,13 @@ const projectsReducer = function(state = initialState, { type, payload }) {
     case FILTER_PROJECTS:
       return {
         ...state,
-        allProjects: payload
+        allProjects: payload,
+        pagina: 1
       }
+    
+    case SELECTPAG:
+      return { ...state, pagina: payload };
+      
     case CREATE_PROJECTS:
       return {
         ...state,
