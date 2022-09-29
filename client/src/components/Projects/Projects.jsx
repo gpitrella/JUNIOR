@@ -5,6 +5,7 @@ import Lottie from 'react-lottie';
 import Sidebar from '../Sidebar/Sidebar.jsx';
 import CardProject from '../CardProject/CardProject';
 import { getAllProjects, getAllTechs } from '../../redux/actions/projectsActions.js';
+import { closeMessageMustLogin } from '../../redux/actions/generalActions.js';
 import notProject from '../../assets/astronautnotproject.json';
 import s from './Projects.module.css';
 
@@ -19,6 +20,9 @@ export default function Projects() {
   React.useEffect(()=> {
     dispatch(getAllProjects());
     dispatch(getAllTechs());
+    return () => {
+      dispatch(closeMessageMustLogin());
+    };
   }, [])
 
   const defaultOptions = {

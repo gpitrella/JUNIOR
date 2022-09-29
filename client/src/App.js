@@ -18,9 +18,9 @@ import MyPurchases from './components/MyProfile/MyPurchases/MyPurchases';
 import CreateProject from './components/CreateProject/CreateProject';
 import About from './components/About/About';
 import dotenv from "dotenv";
+import LandingPage from './components/LandingPage/LandingPage.jsx';
 import './App.css';
 import 'aos/dist/aos.css'; // Animations on scrolling styles
-import LandingPage from './components/LandingPage/LandingPage.jsx';
 dotenv.config()
 
 const REACT_APP_GOOGLE = process.env.REACT_APP_GOOGLE;
