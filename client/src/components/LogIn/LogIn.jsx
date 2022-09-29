@@ -8,13 +8,17 @@ import { BASE_URL  } from '../../redux/actions/actiontype';
 import jwt_decode from "jwt-decode";
 import { logIn } from '../../redux/actions/generalActions';
 import { validateEmail, validatePassword } from "./validate.jsx";
+import { getUserGitHub } from '../../redux/actions/generalActions';
 import { Snackbar, Alert } from '@mui/material';
+import Github from '../../assets/github.png';
 import './LogIn.css'
-
+import LoginGithub from 'react-login-github';
+import dotenv from "dotenv";
 import s from './Login.module.css';
+dotenv.config();
 
-
-export default function LogIn({handleGoogle}) {
+export default function LogIn({handleGoogle, github}) {
+  
   const [redirect, setRedirect] = useState({ value: false })
   const dispatch = useDispatch();
   // const [checkMailPassword, setCheckMailPassword] = useState(false)
@@ -30,6 +34,12 @@ export default function LogIn({handleGoogle}) {
   const google = () => {
     window.open(`${BASE_URL}/auth/google`, "_self");
   };
+
+  const onSuccess = response => {
+    dispatch(getUserGitHub(response.code));
+    //console.log('Respuesta OK de GitHub:', response);
+  }
+  const onFailure = response => console.error('Respuesta NG de GitHub:', response);
 
   const handleClosePassword = (event, reason) => {
     if (reason === 'clickaway') {
@@ -73,42 +83,8 @@ export default function LogIn({handleGoogle}) {
     setErrorsPassword(validatePassword({...input,[e.target.name]: e.target.value}))
   }
 
-  // const handleGoogleLogin = () => { 
-  //     window.open("http://localhost:4001/auth/google", "_self");
-  // }
-
-  // React.useEffect(() => {
-  //   // console.log(logInError)
-  //   if(logInError.status === 401){
-  //     setOpenPassword(true)
-  //     errorsPassword.password = "Wrong password"
-  //     document.getElementById('password').classList.add('login__group-incorrecto')
-  //     document.getElementById('password').classList.remove('login__group-correcto')
-  //     document.querySelector('#password .login__input-error').classList.add('login__input-error-activo')
-  //   } else if(logInError.status === 404){
-  //     setOpenEmail(true)
-  //     errorsEmail.email = "Unregistered Email"
-  //     document.getElementById('email').classList.add('login__group-incorrecto')
-  //     document.getElementById('email').classList.remove('login__group-correcto')
-  //     document.querySelector('#email .login__input-error').classList.add('login__input-error-activo')
-  //   } else if(logInError.status === 405){
-  //     setOpenBanned(true)
-  //     document.getElementById('email').classList.add('login__group-incorrecto')
-  //     document.getElementById('email').classList.remove('login__group-correcto')
-  //     document.querySelector('#email .login__input-error').classList.add('login__input-error-activo')
-  //     document.getElementById('password').classList.add('login__group-incorrecto')
-  //     document.getElementById('password').classList.remove('login__group-correcto')
-  //     document.querySelector('#password .login__input-error').classList.add('login__input-error-activo')
-  //   }
-  // },[logInError]); 
-
-  
-  // React.useEffect(() => {
-  //   if (redirect && redirect.value) dispatch(openPageLoader());
-  // }, [redirect]);
-
   React.useEffect(() => { 
-    handleGoogle();
+    handleGoogle()
   }, [])
 
 
@@ -165,6 +141,18 @@ export default function LogIn({handleGoogle}) {
           <div className='login__google' >
               <div id="signInDiv"></div>
           </div>
+          <div className="loginButton githublogin" id="example">
+            <LoginGithub className="loginGitHub" clientId={process.env.REACT_APP_GITHUB}
+              onSuccess={onSuccess}
+              onFailure={onFailure}
+            />
+            <img src={Github} alt="" className="icongithublogin" />
+          </div>
+          {/* <div className='login__google' >
+              <div id="example"></div>
+          </div> */}
+          
+
           <p className="login__text">No tienes cuenta? <Link to='/signup' className="link">Sign up aqui!</Link></p>
 
           <Snackbar autoHideDuration={4000} open={openPassword} onClose={handleClosePassword}>

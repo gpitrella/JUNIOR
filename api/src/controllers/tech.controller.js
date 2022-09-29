@@ -20,7 +20,6 @@ export const createNewTech = async (req, res) => {
 export const getAllTech = async (req,res)=>{
   try {
     const findInDb = await Tech.find({})
-    console.log('entre a teches', findInDb)
     res.status(200).json(findInDb)
   } catch (error) {
     res.status(400).json(error.message)

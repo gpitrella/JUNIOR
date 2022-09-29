@@ -11,6 +11,8 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import HandshakeIcon from '@mui/icons-material/Handshake';
 
 // Desplegable
 import { styled } from '@mui/material/styles';
@@ -18,6 +20,8 @@ import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
+
+import s from './CardProject.module.css';
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -68,34 +72,50 @@ export default function MediaControlCard({ project }) {
   };
 
   return (
-    <Card sx={{ display: 'flex', margin: 5, width: 800, justifyContent: "space-between", borderRadius: 5 }}>
-      <Box sx={{ display: 'flex', flexDirection: 'column', width: 600 }}>
+    <Card sx={{ display: 'flex', margin: 5, justifyContent: "center", borderRadius: 5, backgroundColor: '#424242' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', width: 600, color: 'white' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
-          <Typography component="div" variant="h5">
-            { project.title }
-          </Typography>
+
+          <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+            <Typography component="div" variant="h5" >
+              { project.title }
+            </Typography>
+            { project?.payment?
+            <MonetizationOnIcon sx={{ height: 20, width: 20, margin: 1, color: '#388e3c' }}/> :
+            <HandshakeIcon sx={{ height: 20, width: 20, margin: 1, color: '#2196f3' }}/>
+            }
+          </Box>
+          
+
             <div>
-              <Accordion onChange={handleChange('panel1')} sx={{ borderColor: 'white' }}>
-                <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: 'white' }}>
+              <Accordion onChange={handleChange('panel1')} sx={{ borderColor: 'white', color: 'white' }}>
+                <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#424242' }}>
                   <Typography>Descripción </Typography>
                 </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>
+                <AccordionDetails sx={{ color: 'white', backgroundColor: '#424242' }}>
+                  <Typography >
                      { project.description }
                   </Typography>
                 </AccordionDetails>
               </Accordion>
             </div>
+
+            <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ color: 'white' }}>
+                <span>Status: </span>{ 
+                    project?.status
+                }
+            </Typography>
+            
           
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
           <IconButton aria-label="previous">
-            <GitHubIcon sx={{ height: 40, width: 40 }}/>
+            <GitHubIcon sx={{ height: 40, width: 40, color: 'white' }}/>
           </IconButton>
           <IconButton aria-label="next">
-            <WhatsAppIcon sx={{ height: 40, width: 40 }}/>
+            <WhatsAppIcon sx={{ height: 40, width: 40, color: 'white' }}/>
           </IconButton>
-            <Typography variant="subtitle1" color="text.secondary" component="div">
+            <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ color: 'white' }}>
                 <span>Tech: </span>{ 
                     project?.tech?.length > 0 && project?.tech.map(element => {
                     return (<span key={Math.random()}>{`${element}, `} </span>)
@@ -112,6 +132,7 @@ export default function MediaControlCard({ project }) {
           height: 200,
           borderBottomLeftRadius: 100,
           borderTopLeftRadius: 100,
+          backgroundColor: '#424242'
         }}
         src={project.image}
         alt={project.title}

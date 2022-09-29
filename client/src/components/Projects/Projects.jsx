@@ -5,6 +5,7 @@ import Lottie from 'react-lottie';
 import Sidebar from '../Sidebar/Sidebar.jsx';
 import CardProject from '../CardProject/CardProject';
 import { getAllProjects, getAllTechs } from '../../redux/actions/projectsActions.js';
+import { closeMessageMustLogin } from '../../redux/actions/generalActions.js';
 import notProject from '../../assets/astronautnotproject.json';
 import s from './Projects.module.css';
 
@@ -19,6 +20,9 @@ export default function Projects() {
   React.useEffect(()=> {
     dispatch(getAllProjects());
     dispatch(getAllTechs());
+    return () => {
+      dispatch(closeMessageMustLogin());
+    };
   }, [])
 
   const defaultOptions = {
@@ -138,3 +142,15 @@ export default function Projects() {
     </>
   );
 }
+
+// {
+//   "title": "Cuidado de Mascotas",
+//   "description": "App para ",
+//   "gitHubUrl":"https://github.com/gpitrella/PruebaTIPS",
+//   "wspUrl":"https://api.whatsapp.com/send?phone=542614607020&text=Hola, Quiero sumarme al proyecto!",
+//   "image": "https://sirenascarwash.com/assets/img/blog/p3-pet-friendly.jpg",
+//   "newtech": ["React", "Redux", "Express", "Sequelize", "PostgreSQL"],
+//   "userId": "62fa59f0a41323e6e7f40705",
+//   "payment": false,
+//   "status": "finish"
+// }
