@@ -1,20 +1,19 @@
 import User from "../models/User.js";
-import { compareSync, hashSync } from 'bcrypt';
+import { hashSync } from 'bcrypt';
 import axios from 'axios';
 import { secret, expires, rounds } from '../auth.js';
 import jwt from 'jsonwebtoken';
+import dotenv from "dotenv";
+dotenv.config()
 
-const client_id = process.env.CLIENT_ID_GITHUB;
-const client_secret = process.env.CLIENT_SECRET_GITHUB;
+const client_id = process.env.GITHUB_CLIENT_ID;
+const client_secret = process.env.GITHUB_CLIENT_SECRET;
 
 export const loginWithGithub = async (req, res) => {
     const code = req.query.code;
     const access_token = await getAccessToken({ code, client_id, client_secret });
-    //console.log(access_token, 'token');
     const user = await getGitHubUser(access_token);
-    //console.log(user, 'USER')
-    //res.json(user);
-
+    
     if (user) {
         try {
             let userFound = await User.findOne({ email: user.email });
@@ -23,7 +22,6 @@ export const loginWithGithub = async (req, res) => {
         } catch (err) { 
             res.status(500).json(err);
         }
-        //res.redirect("http://localhost:3000/home");
     } else {
         res.send("Login did not succeed!");
     }
@@ -41,10 +39,7 @@ async function getAccessToken({ code, client_id, client_secret }) {
       console.log('ERROR EN getAccessToken', err);
     });
     const data = await request.data;
-    // data: 'access_token=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&scope=user%3Aemail&token_type=bearer'
-    console.log('DATA ACCESS_TOKEN', data);
     const params = new URLSearchParams(data);
-    console.log('PARAMS getAccessToken', params.get('access_token'))
     return params.get('access_token');
 }
   

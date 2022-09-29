@@ -2,12 +2,8 @@ import User from "../models/User.js";
 import { compareSync, hashSync } from 'bcrypt';
 import { secret, expires, rounds } from '../auth.js';
 import jwt from 'jsonwebtoken';
-import passport from 'passport';
 import { config } from "dotenv";
 config();
-
-const CLIENT_URL = process.env.CLIENT_URL
-// require('dotenv').config();
 
 export const signin = async (req, res) => {
   try {
@@ -33,21 +29,6 @@ export const signin = async (req, res) => {
       res.status(500).json(err);
   }
 }
-
-// router.get(
-//   "/google/callback",
-//   passport.authenticate("google", {
-//     successRedirect: CLIENT_URL,
-//     failureRedirect: "/login/failed",
-//   })
-// );
-
-// export const signin = passport.authenticate("local", {
-//   successRedirect: CLIENT_URL,
-//   failureRedirect: "/login/failed",
-//   failureFlash: true,
-// });
-
 
 export const signup = async (req, res) => {
   try {

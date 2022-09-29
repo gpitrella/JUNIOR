@@ -44,7 +44,6 @@ const homepageReducer = function(state = initialState, { type, payload }) {
       }
 
     case SIGN_IN_GITHUB:
-      console.log('DENTRO DEL REDUCER', payload);
       LocalStorage.saveItem('user', payload);      
       return {
         ...state,
