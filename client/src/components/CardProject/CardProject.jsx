@@ -66,6 +66,13 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
     setExpanded(newExpanded ? panel : false);
   };
 
+  const mainTaskEjemplo = [
+    { task: "Realizar test Front", status: true },
+    { task: "Realizar test Back", status: true },
+    { task: "Desarrollar componente de Login", status: false },
+    { task: "Realizar Diseño Responsive en Figma", status: true },
+  ]
+
   
   return (
     <>
@@ -78,18 +85,34 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
             </Typography>
             <button className={s.btnCardProject} onClick={handleOpenMessageLogin}type="button"> Colaborar </button>
           </div>
-          <div>
-            <Accordion onChange={handleChange('panel1')} sx={{ borderColor: 'white' }}>
-              <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: 'white' }}>
-                <Typography>Descripción </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
-                    { project.description }
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          </div>
+          <Accordion onChange={handleChange('panel1')} sx={{ borderColor: 'white' }}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: 'white' }}>
+              <Typography>Descripción </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+                  { project.description }
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion onChange={handleChange('panel1')} sx={{ borderColor: 'white' }}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: 'white' }}>
+              <Typography>Tareas Pendientes: </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+                { mainTaskEjemplo.length > 0 
+                    ? mainTaskEjemplo.map((task) => {
+                      return (
+                          <Typography>
+                            { `-- ${task.task }` }
+                          </Typography>
+                      )
+                        })
+                    : <Typography>"- Puntos a colaborar con Creador del Proyecto."</Typography>
+                }
+            </AccordionDetails>
+          </Accordion>
+
           
         
         </CardContent>
