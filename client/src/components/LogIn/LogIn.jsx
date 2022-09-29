@@ -37,9 +37,9 @@ export default function LogIn({handleGoogle, github}) {
 
   const onSuccess = response => {
     dispatch(getUserGitHub(response.code));
-    //console.log('Respuesta OK de GitHub:', response);
   }
   const onFailure = response => console.error('Respuesta NG de GitHub:', response);
+
 
   const handleClosePassword = (event, reason) => {
     if (reason === 'clickaway') {
@@ -135,9 +135,7 @@ export default function LogIn({handleGoogle, github}) {
           <div className="or">OR</div>
           </div>
           </div>
-          {/* <div className='login__group' >
-            <button type='submit' className="login__btn" onClick={handleGoogle} >Google</button>
-          </div> */}
+          
           <div className='login__google' >
               <div id="signInDiv"></div>
           </div>
