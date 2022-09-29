@@ -73,7 +73,6 @@
   font-size: var(--fontMedium);
   font-weight: 700;
   border: 1px solid var(--secondaryColor);
-
   letter-spacing: 1px;
 }
 

@@ -62,6 +62,10 @@
   margin-top: 0;
 }
 
+.styleIconRocket {
+  width: 100%;
+}
+
 @media (max-width: 400px) {
   .verticalLink {
     grid-template-columns: 2rem;

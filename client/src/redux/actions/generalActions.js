@@ -9,34 +9,16 @@ import {
   BASE_URL,
   SIGN_UP,
   SIGN_IN_GOOGLE,
-  SIGN_IN_GITHUB
+  SIGN_IN_GITHUB,
+  OPEN_MESSSAGE_MUST_LOGIN,
+  CLOSE_MESSSAGE_MUST_LOGIN
 } from './actiontype';
-
-
-// Change color Theme - Night / Day:
-// export const changeTheme = function(theme) {
-//   return {
-//     type: CHANGE_THEME,
-//     payload: theme
-//   }
-// }
-
-
-// Filter Projects
-// export function filterProjects(){
-//   return function(dispatch){
-//       return axios.get(`${BASE_URL}/filters`, { teches, payment })
-//                   .then(projects => dispatch({ type: FILTER_PROJECTS, payload: product.data[0]}))
-//                   .catch(error => console.log(error))
-//   }
-// };
 
 // Take Auth User
 export const getUser = function() {
   return function(dispatch){
     return axios.get(`${BASE_URL}/auth/login/success`)
                 .then((response) => {
-                  console.log(response);
                   if (response.status === 200) return response;
                   throw new Error("authentication has been failed!");
                 })
@@ -46,7 +28,6 @@ export const getUser = function() {
                 });
   }
 };
-
 
 // Log In User
 export const logIn = function(email, password) {
@@ -90,5 +71,19 @@ export const logOut = function() {
     return axios.post(`${BASE_URL}/auth/logout`)
                 .then(data => dispatch({ type: LOG_OUT, payload: data.data}))
                 .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
+  }
+};
+
+// Open Message Must Login
+export function openMessageMustLogin(){
+  return function(dispatch){
+      return dispatch({ type: OPEN_MESSSAGE_MUST_LOGIN })
+  }
+}; 
+
+// Close Message Must Login
+export function closeMessageMustLogin(){
+  return function(dispatch){
+      return dispatch({ type: CLOSE_MESSSAGE_MUST_LOGIN })
   }
 };

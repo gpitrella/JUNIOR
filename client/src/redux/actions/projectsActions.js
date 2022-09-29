@@ -48,7 +48,6 @@ export function updateFilterProjects(filters){
 // Update Status Filter Projects
 export function updateStatusFilter(data){
   return function(dispatch){
-    console.log('como llega al redux:', data)
       return dispatch({ type: UPDATE_STATUS_FILTER, payload: data })
   }
 };
