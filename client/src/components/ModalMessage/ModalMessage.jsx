@@ -86,9 +86,6 @@ export default function ModalMessage({ message }) {
                 <button className="btnLogin" type="button" onClick={handleOpenPageLogin}>
                     LogIn
                 </button>
-                {/* <Button autoFocus onClick={handleOpenPageLogin}>
-                    Login
-                </Button> */}
             </DialogActions>
         </BootstrapDialog>
     )
