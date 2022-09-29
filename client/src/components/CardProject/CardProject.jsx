@@ -11,6 +11,7 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import s from './CardProject.module.css';
 
 // Desplegable
 import { styled } from '@mui/material/styles';
@@ -56,9 +57,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 
-
-
-export default function MediaControlCard({ project }) {
+export default function CardProject({ project, handleOpenMessageLogin }) {
   const theme = useTheme();
 
   // Desplegable:
@@ -67,26 +66,55 @@ export default function MediaControlCard({ project }) {
     setExpanded(newExpanded ? panel : false);
   };
 
+  const mainTaskEjemplo = [
+    { task: "Realizar test Front", status: true },
+    { task: "Realizar test Back", status: true },
+    { task: "Desarrollar componente de Login", status: false },
+    { task: "Realizar Diseño Responsive en Figma", status: true },
+  ]
+
+  
   return (
+    <>
     <Card sx={{ display: 'flex', margin: 5, width: 800, justifyContent: "space-between", borderRadius: 5 }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', width: 600 }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
-          <Typography component="div" variant="h5">
-            { project.title }
-          </Typography>
-            <div>
-              <Accordion onChange={handleChange('panel1')} sx={{ borderColor: 'white' }}>
-                <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: 'white' }}>
-                  <Typography>Descripción </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>
-                     { project.description }
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-            </div>
+          <div className={s.card_content_top}>
+            <Typography component="div" variant="h5">
+              { project.title }
+            </Typography>
+            <button className={s.btnCardProject} onClick={handleOpenMessageLogin}type="button"> Colaborar </button>
+          </div>
+          <Accordion onChange={handleChange('panel1')} sx={{ borderColor: 'white' }}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: 'white' }}>
+              <Typography>Descripción </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+                  { project.description }
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion onChange={handleChange('panel1')} sx={{ borderColor: 'white' }}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: 'white' }}>
+              <Typography>Tareas Pendientes: </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+                { mainTaskEjemplo.length > 0 
+                    ? mainTaskEjemplo.map((task) => {
+                      return (
+                          <Typography>
+                            { `-- ${task.task }` }
+                          </Typography>
+                      )
+                        })
+                    : <Typography>"- Puntos a colaborar con Creador del Proyecto."</Typography>
+                }
+            </AccordionDetails>
+          </Accordion>
+
           
+        
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
           <IconButton aria-label="previous">
@@ -95,13 +123,13 @@ export default function MediaControlCard({ project }) {
           <IconButton aria-label="next">
             <WhatsAppIcon sx={{ height: 40, width: 40 }}/>
           </IconButton>
-            <Typography variant="subtitle1" color="text.secondary" component="div">
-                <span>Tech: </span>{ 
-                    project?.tech?.length > 0 && project?.tech.map(element => {
-                    return (<span key={Math.random()}>{`${element}, `} </span>)
-                  })
-                }
-            </Typography>
+          <Typography variant="subtitle1" color="text.secondary" component="div">
+            <span className='titleTechs'>Techs: </span>{ 
+                project?.tech?.length > 0 && project?.tech.map(element => {
+                return (<span key={Math.random()}>{`${element.charAt(0).toUpperCase() + element.slice(1)}, `} </span>)
+              })
+            }
+        </Typography>
         </Box>
       </Box>
       <CardMedia
@@ -117,5 +145,6 @@ export default function MediaControlCard({ project }) {
         alt={project.title}
       />
     </Card>
+    </>
   );
 }

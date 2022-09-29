@@ -17,7 +17,7 @@ const initialState = {
   auser: {},
   user: {},
   logInError: {},
-  mustLoginMessage: false,
+  mustLoginMessage: { open: false, msg: 1 }
 };
 
 
@@ -76,13 +76,13 @@ const homepageReducer = function(state = initialState, { type, payload }) {
     case OPEN_MESSSAGE_MUST_LOGIN:
       return {
         ...state,
-        mustLoginMessage: true
+        mustLoginMessage: payload
       } 
       
     case CLOSE_MESSSAGE_MUST_LOGIN:
       return {
         ...state,
-        mustLoginMessage: false
+        mustLoginMessage: { open: false, msg: 1 }
       } 
 
     default:

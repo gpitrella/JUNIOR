@@ -16,7 +16,7 @@ export default function SectionLink({ title, path, icon, showVertical }) {
   }
 
   function handleOpenMessageLogin() {
-    dispatch(openMessageMustLogin());
+    dispatch(openMessageMustLogin({ open: true, msg: 1 }));
   }
 
 
