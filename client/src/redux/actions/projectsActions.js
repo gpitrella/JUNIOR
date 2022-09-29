@@ -8,7 +8,8 @@ import {
   CREATE_PROJECTS,
   SHOW_MODAL_ADD_IMAGE,
   CLOSE_MODAL_ADD_IMAGE,
-  BASE_URL
+  BASE_URL,
+  SELECTPAG
 } from './actiontype';
 
 
@@ -51,6 +52,13 @@ export function updateStatusFilter(data){
       return dispatch({ type: UPDATE_STATUS_FILTER, payload: data })
   }
 };
+
+export function selectPag(payload) {
+  return {
+    type: SELECTPAG,
+    payload,
+  };
+}
 
 // CreateProject
 export function createProject(dataProject){

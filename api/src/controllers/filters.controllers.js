@@ -54,7 +54,7 @@ export const filterByTechs = async (req,res)=>{
                 })
             }
 
-            // Filter by Payment
+            // Filter by Status
             if(status !== "All") {
                 _setfilter.forEach((project) => {
                     if(project.status !== status) _setfilter.delete(project);
