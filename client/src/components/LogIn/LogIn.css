@@ -253,7 +253,27 @@
   }
 }
 
+.loginButton{
+  width: 55%;
+  height: 45px;
+  padding: 15px 25px;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
 
+.github{
+  background-color: black;
+}
+
+.icon{
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
 
 
 
