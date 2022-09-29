@@ -5,6 +5,7 @@ import ModalMessage from '../ModalMessage/ModalMessage';
 import { useSelector } from 'react-redux';
 import { messagePopUp } from '../../lib/constants';
 import Stars from '../SVG/Stars';
+import rocketProject from '../../assets/rocketProject.png';
 import s from './Links.module.css';
 
 export default function Links({ showAsFooter = false }) {
@@ -19,7 +20,7 @@ export default function Links({ showAsFooter = false }) {
       <SectionLink
         title = {"Crear Proyecto"}
         path = {"/crearproyecto"}
-        icon = {Stars}
+        icon = {rocketProject}
         showVertical = {showAsFooter}
       />
       <ModalMessage message={messagePopUp.createProject}/>

@@ -25,13 +25,13 @@ export default function SectionLink({ title, path, icon, showVertical }) {
       { !user.user 
           ? <span onClick={handleOpenMessageLogin} style = {{textDecoration: 'none'}}>
               <div className = {`${s.containerLink} ${isActive() ? s.isActive : ''} ${showVertical ? s.verticalLink : ''}`}>
-                { icon({ style: s.styleSVG }) }
+                <img src={icon} alt='rocket Project' className={s.styleIconRocket} />
                 <h4 className = {s.label}>{title}</h4>
               </div>
             </span>
           : <Link to = {path} style = {{textDecoration: 'none'}}>
               <div className = {`${s.containerLink} ${isActive() ? s.isActive : ''} ${showVertical ? s.verticalLink : ''}`}>
-                { icon({ style: s.styleSVG }) }
+                <img src={icon} alt='rocket Project' className={s.styleIconRocket} />
                 <h4 className = {s.label}>{title}</h4>
               </div>
             </Link>
