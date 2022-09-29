@@ -131,6 +131,7 @@
 
 .form__label {
   color: var(--fontColor);
+  font-family: var(--font-family)
 }
 
 .formInputCollaborator {
