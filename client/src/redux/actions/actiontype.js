@@ -28,5 +28,4 @@ export const CLOSE_MESSSAGE_MUST_LOGIN = 'CLOSE_MESSSAGE_MUST_LOGIN';
 
 // BASE URL
 export const BASE_URL_FRONT = 'http://localhost:3000';
-export const BASE_URL = 'http://localhost:4001';
-
+export const BASE_URL = 'http://localhost:5000';
