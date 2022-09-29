@@ -20,6 +20,8 @@ import EditIcon from '@mui/icons-material/Edit';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 // import { putDataUser, getUserDetail, putUpdatePassword, clearUpdateUser } from '../../../redux/actions'
 import { Link } from 'react-router-dom';
 import './PersonalInformation.css'
@@ -129,7 +131,7 @@ export default function PersonalInformation() {
   return (
     <div className='main_box_personalinformation'>
     <h3 className='title_personalinformation'> Personal Information </h3>
-    <List className='box_main_personal' sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+    <List className='box_main_personal' sx={{ width: '100%', maxWidth: 360, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 5, padding: 10 }}>
       <ListItem id='avatar_personal_information'>
         <ListItemAvatar>
           <Avatar
@@ -165,6 +167,22 @@ export default function PersonalInformation() {
         </ListItemAvatar>
         <ListItemText primary={`Phone: ${'WithOut Phone'}`} />
         <EditIcon cursor='pointer' onClick={handleClickOpenPhone}/>
+      </ListItem>
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <GitHubIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary={`GitHub: buscar no llega`} />
+      </ListItem>
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <LinkedInIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary={`Linkedin: buscar no llega`} />
       </ListItem>
       <ListItem>
         <ListItemAvatar>

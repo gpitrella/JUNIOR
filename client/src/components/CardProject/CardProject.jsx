@@ -86,8 +86,8 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
             <button className={s.btnCardProject} onClick={handleOpenMessageLogin}type="button"> Colaborar </button>
           </div>
           <Accordion onChange={handleChange('panel1')} sx={{ borderColor: 'white' }}>
-            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: 'white' }}>
-              <Typography>Descripción </Typography>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: 'white', minHeight: 30, height: 30 }}>
+              <Typography>Descripción: </Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
@@ -96,7 +96,7 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
             </AccordionDetails>
           </Accordion>
           <Accordion onChange={handleChange('panel1')} sx={{ borderColor: 'white' }}>
-            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: 'white' }}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: 'white', minHeight: 30, height: 30 }}>
               <Typography>Tareas Pendientes: </Typography>
             </AccordionSummary>
             <AccordionDetails>
@@ -108,7 +108,7 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
                           </Typography>
                       )
                         })
-                    : <Typography>"- Puntos a colaborar con Creador del Proyecto."</Typography>
+                    : <Typography>-- Puntos de colaboración a coordinar con el Creador del Proyecto.</Typography>
                 }
             </AccordionDetails>
           </Accordion>

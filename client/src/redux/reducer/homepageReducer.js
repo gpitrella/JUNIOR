@@ -8,7 +8,9 @@ import {
   SIGN_IN_GOOGLE,
   SIGN_IN_GITHUB,
   OPEN_MESSSAGE_MUST_LOGIN,
-  CLOSE_MESSSAGE_MUST_LOGIN
+  CLOSE_MESSSAGE_MUST_LOGIN,
+  CLOSE_MODAL_INFO_COLLABORATOR,
+  OPEN_MODAL_INFO_COLLABORATOR
 } from '../actions/actiontype';
 import { LocalStorage } from '../../util/localStorage';
 
@@ -17,7 +19,8 @@ const initialState = {
   auser: {},
   user: {},
   logInError: {},
-  mustLoginMessage: { open: false, msg: 1 }
+  mustLoginMessage: { open: false, msg: 1 },
+  modalInfoCollaborator: false
 };
 
 
@@ -84,6 +87,18 @@ const homepageReducer = function(state = initialState, { type, payload }) {
         ...state,
         mustLoginMessage: { open: false, msg: 1 }
       } 
+
+    case OPEN_MODAL_INFO_COLLABORATOR:
+      return {
+        ...state,
+        modalInfoCollaborator: true
+      }
+
+    case CLOSE_MODAL_INFO_COLLABORATOR:
+      return {
+        ...state,
+        modalInfoCollaborator: false
+      }
 
     default:
       return state;
