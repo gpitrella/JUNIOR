@@ -16,18 +16,14 @@ import s from './Projects.module.css';
 export default function Projects() {
 
   const dispatch = useDispatch();
-<<<<<<< HEAD
-  const { allProjects  } = useSelector(state => state.projectsReducer);
   const { user } = useSelector((state) => state.homepageReducer);
   // const [ dispatching, setDispatching ] = React.useState(false);
   // const [ queryName, setqueryName ] = React.useState('');
   // const params = useParams();
-=======
   const { allProjects, pagina  } = useSelector(state => state.projectsReducer);
   
   let currentPage = 0;
   currentPage = pagina;
->>>>>>> 2a7a0a1403d21b56d9b8c7bacc224f3d253ec6c1
 
   React.useEffect(()=> {
     dispatch(getAllProjects());
