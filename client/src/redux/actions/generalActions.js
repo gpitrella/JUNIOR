@@ -75,9 +75,9 @@ export const logOut = function() {
 };
 
 // Open Message Must Login
-export function openMessageMustLogin(){
+export function openMessageMustLogin(msg){
   return function(dispatch){
-      return dispatch({ type: OPEN_MESSSAGE_MUST_LOGIN })
+      return dispatch({ type: OPEN_MESSSAGE_MUST_LOGIN, payload: msg})
   }
 }; 
 

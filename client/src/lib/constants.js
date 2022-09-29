@@ -70,5 +70,9 @@ export const developers = [
 export const messagePopUp = {
     createProject: `Para crear un proyecto te recomendamos registrarte o logearte para que los futuros 
     colaboradores del proyecto puedan contactarse con facilidad con el creador del proyecto y desarrollarlo 
-    de forma colaborativa.`
+    de forma colaborativa.`,
+    colaborateProject: `Para poder participar de un proyecto te recomendamos registrarte o logearte para que 
+    el creador y vos puedan comunicarse, organizarse y avanzar con el desarrollo del proyecto. Recorda ser 
+    proactivo/a y contacta al creador del proyecto, por intermedio de WhatsApp, Linkedin o Github,
+    mostrandole el interes en colaborar.`,
 };
