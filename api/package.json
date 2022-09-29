@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
@@ -23,10 +24,7 @@
     "method-override": "^3.0.0",
     "mongoose": "^6.3.6",
     "mongoose-findorcreate": "^3.0.0",
-    "morgan": "^1.10.0",
-    "passport": "^0.6.0",
-    "passport-google-oauth20": "^2.0.0",
-    "passport-local": "^1.0.0"
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "dotenv": "^16.0.1",
