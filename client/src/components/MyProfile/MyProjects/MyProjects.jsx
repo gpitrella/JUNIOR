@@ -27,7 +27,16 @@ export default function MyProjects() {
           user?.user.projects.length === 0 
              ? <h3>Todavía no creaste ningún Proyecto, ANIMATE y crea uno. 🚀 </h3>
              : user?.user.projects.map(project => {
-            return (<CardProject key={project?._id} project={project} handleOpenMessageLogin={handleOpenMessageLogin}/>)
+            return (
+              <div className='myproyectsEdit'>
+                <Link to='/miperfil/editproyecto'>
+                    <Button id='btn_personalinformationEditProject' variant="contained">
+                        Editar Proyecto
+                    </Button>
+                </Link>
+                <CardProject key={project?._id} project={project} handleOpenMessageLogin={handleOpenMessageLogin}/>
+              </div>
+              )
           })
         }
       </div>

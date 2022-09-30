@@ -2,9 +2,8 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import jwt_decode from "jwt-decode";
 import { getUser, logOut, signinGoogle } from './redux/actions/generalActions';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { Background } from './containers';
-import { useLocation } from 'react-router-dom';
 import Projects from './components/Projects/Projects';
 import LogIn from './components/LogIn/LogIn';
 import SignUp from './components/SignUp/SignUp';
@@ -17,6 +16,7 @@ import PersonalInformation from './components/MyProfile/PersonalInformation/Pers
 import MyProjects from './components/MyProfile/MyProjects/MyProjects';
 import Collaborate from './components/MyProfile/Collaborate/Collaborate';
 import CreateProject from './components/CreateProject/CreateProject';
+import EditProject from './components/EditProject/EditProject';
 import About from './components/About/About';
 import dotenv from "dotenv";
 import LandingPage from './components/LandingPage/LandingPage.jsx';
@@ -41,6 +41,7 @@ export default function App() {
   // const [ user, setUser ] = useState({});
   const dispatch = useDispatch()
   const location = useLocation();
+  const navigate = useNavigate();
   const { user } = useSelector((state) => state.homepageReducer);
 
   function handleCallbackResponse(response) {
@@ -55,7 +56,9 @@ export default function App() {
     //setUser({}); -- aca va la accion para borrar auser
     e.preventDefault();
     dispatch(logOut());
-    // document.getElementById("signInDiv").hidden = false;
+    if(location.pathname.includes("miperfil")) {
+      navigate('/home');
+    }
   }
 
   function handleGoogle(){
@@ -105,7 +108,8 @@ export default function App() {
                 <Route exact path="/miperfil" element={ user.user ? <MyProfile/> : <LogIn handleGoogle={handleGoogle} />} />             
                 <Route exact path ="/miperfil/personalinformation" element= { user.user ? <PersonalInformation /> : <LogIn handleGoogle={handleGoogle} />}/>
                 <Route exact path ="/miperfil/colaboraciones" element= { user.user ? <Collaborate /> : <LogIn handleGoogle={handleGoogle} />}/>
-                <Route exact path ="/miperfil/misproyectos" element=  { user.user ? <MyProjects /> : <LogIn/>} />
+                <Route exact path ="/miperfil/misproyectos" element=  { user.user ? <MyProjects /> : <LogIn handleGoogle={handleGoogle}/>} />
+                <Route exact path ="/miperfil/editproyecto" element=  { user.user ? <EditProject /> : <LogIn handleGoogle={handleGoogle}/>} />
                 <Route exact path='*' component={<Navigate to="/home"/>} />
           </Routes> 
         { location.pathname !== '/' && <Footer /> }

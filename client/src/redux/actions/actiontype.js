@@ -13,6 +13,7 @@ export const GET_ALL_PROJECTS = 'GET_ALL_PROJECTS';
 export const GET_ALL_TECHS = 'GET_ALL_TECHS';
 export const CREATE_PROJECTS = 'CREATE_PROJECTS';
 export const SELECTPAG = 'SELECTPAG';
+export const GET_PROJECTS_BY_USER = 'GET_PROJECTS_BY_USER';
 
 // MODAL ADD IMAGE
 export const SHOW_MODAL_ADD_IMAGE = 'SHOW_MODAL_ADD_IMAGE';
@@ -28,7 +29,7 @@ export const CLOSE_MESSSAGE_MUST_LOGIN = 'CLOSE_MESSSAGE_MUST_LOGIN';
 export const OPEN_MODAL_INFO_COLLABORATOR = 'OPEN_MODAL_INFO_COLLABORATOR';
 export const CLOSE_MODAL_INFO_COLLABORATOR = 'CLOSE_MODAL_INFO_COLLABORATOR';
 
-
 // BASE URL
 export const BASE_URL_FRONT = 'http://localhost:3000';
-export const BASE_URL = 'http://localhost:4001';
+export const BASE_URL = 'http://localhost:4005';
+// export const BASE_URL = 'https://junior-app.onrender.com';

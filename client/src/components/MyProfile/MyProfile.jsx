@@ -2,6 +2,7 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import Lottie from 'react-lottie';
+import { getProjectsByUser } from '../../redux/actions/projectsActions';
 import personalInformation from '../../assets/personalInformation.json';
 import team from '../../assets/team.json';
 import projectPersonal from '../../assets/projectPersonal.json';
@@ -20,6 +21,7 @@ export default function MyProfile() {
   // };
 
   React.useEffect(() => {
+    // dispatch(getProjectsByUser(user?.user._id))
     if(user?.user){
       if(user.user?.admin){
         setDisplayUserAdmin(true);

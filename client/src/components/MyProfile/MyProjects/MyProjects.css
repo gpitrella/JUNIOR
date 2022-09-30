@@ -46,13 +46,21 @@
     border-radius: 5px;
 }
 
-#btn_personalinformation {
-    margin-top: 30px;
+#btn_personalinformationEditProject {
+    margin-bottom: -45px;
+    margin-left: 50px;
+    font-size: 10px;
+    box-shadow: var(--mainShadow);
 }
 
 #avatar_personal_information {
     justify-content: center;
     
+}
+
+.myproyectsEdit {
+    display: flex;
+    flex-direction: column;
 }
 
 .myaddress_personalinformation{
