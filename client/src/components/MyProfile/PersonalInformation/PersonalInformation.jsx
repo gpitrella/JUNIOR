@@ -131,7 +131,7 @@ export default function PersonalInformation() {
   return (
     <div className='main_box_personalinformation'>
     <h3 className='title_personalinformation'> Personal Information </h3>
-    <List className='box_main_personal' sx={{ width: '100%', maxWidth: 360, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 5, padding: 10 }}>
+    <List className='box_main_personal' sx={{ width: '100%', maxWidth: 360, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 5, padding: 2 }}>
       <ListItem id='avatar_personal_information'>
         <ListItemAvatar>
           <Avatar

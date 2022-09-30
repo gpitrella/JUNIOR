@@ -1,5 +1,6 @@
 .loginContainer {
   background-color: var(--primaryColor);
+  box-shadow: var(--mainShadow);
 }
 
 .input {
