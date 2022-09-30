@@ -14,7 +14,8 @@ import Navbar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import MyProfile from './components/MyProfile/MyProfile';
 import PersonalInformation from './components/MyProfile/PersonalInformation/PersonalInformation';
-import MyPurchases from './components/MyProfile/MyPurchases/MyPurchases';
+import MyProjects from './components/MyProfile/MyProjects/MyProjects';
+import Collaborate from './components/MyProfile/Collaborate/Collaborate';
 import CreateProject from './components/CreateProject/CreateProject';
 import About from './components/About/About';
 import dotenv from "dotenv";
@@ -103,7 +104,8 @@ export default function App() {
                 <Route exact path="/crearproyecto" element={<CreateProject />} />
                 <Route exact path="/miperfil" element={ user.user ? <MyProfile/> : <LogIn handleGoogle={handleGoogle} />} />             
                 <Route exact path ="/miperfil/personalinformation" element= { user.user ? <PersonalInformation /> : <LogIn handleGoogle={handleGoogle} />}/>
-                <Route exact path ="/miperfil/mypurchases" element=  { user.user ? <MyPurchases /> : <LogIn/>} />
+                <Route exact path ="/miperfil/colaboraciones" element= { user.user ? <Collaborate /> : <LogIn handleGoogle={handleGoogle} />}/>
+                <Route exact path ="/miperfil/misproyectos" element=  { user.user ? <MyProjects /> : <LogIn/>} />
                 <Route exact path='*' component={<Navigate to="/home"/>} />
           </Routes> 
         { location.pathname !== '/' && <Footer /> }
