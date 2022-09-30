@@ -5,12 +5,14 @@ import {
   SHOW_MODAL_ADD_IMAGE,
   CLOSE_MODAL_ADD_IMAGE,
   SELECTPAG,
+  GET_PROJECTS_BY_USER
 } from '../actions/actiontype';
 
 const initialState = {
   allProjects: [],
   newProject: {},
   pagina: 1,
+  projectByUser: []
 };
 
 const projectsReducer = function(state = initialState, { type, payload }) {
@@ -54,6 +56,13 @@ const projectsReducer = function(state = initialState, { type, payload }) {
           uploadedImage: ''
         }
       }
+    
+    case GET_PROJECTS_BY_USER: 
+      return {
+        ...state,
+        projectUser: payload
+      }
+      
     default:
       return state;
   }

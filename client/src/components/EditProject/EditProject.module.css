@@ -1,0 +1,59 @@
+.mainbigcontainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.container {
+  margin: 0;
+  border-radius: 16px;
+  background-color: var(--primaryColor);
+  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.5);
+  color: var(--fontColor);
+}
+
+.maintitle {
+  color: var(--fontColor) !important;
+  text-align: center;
+  margin: 0.5rem;
+  cursor: default;
+}
+
+.goBack,
+.importImage {
+  color: var(--fontColor);
+  background-color: transparent;
+  border: none;
+  font-size: var(--fontSubTitle);
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.importImage {
+  font-size: var(--fontSmall);
+  border: 1px solid var(--secondaryColor);
+  color: var(--secondaryColor);
+  padding: 3px 10px 3px 10px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.goBack:hover {
+  color: var(--dangerColor);
+}
+
+.formGroudName {
+  grid-column: 1 / 3;
+}
+
+.formTextArea {
+  height: 90px;
+}
+
+.doubleLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
