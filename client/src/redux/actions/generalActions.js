@@ -11,7 +11,8 @@ import {
   SIGN_IN_GOOGLE,
   SIGN_IN_GITHUB,
   OPEN_MESSSAGE_MUST_LOGIN,
-  CLOSE_MESSSAGE_MUST_LOGIN
+  CLOSE_MESSSAGE_MUST_LOGIN,
+  GET_ALL_USERS,
 } from './actiontype';
 
 // Take Auth User
@@ -75,9 +76,9 @@ export const logOut = function() {
 };
 
 // Open Message Must Login
-export function openMessageMustLogin(){
+export function openMessageMustLogin(msg){
   return function(dispatch){
-      return dispatch({ type: OPEN_MESSSAGE_MUST_LOGIN })
+      return dispatch({ type: OPEN_MESSSAGE_MUST_LOGIN, payload: msg})
   }
 }; 
 
@@ -85,5 +86,14 @@ export function openMessageMustLogin(){
 export function closeMessageMustLogin(){
   return function(dispatch){
       return dispatch({ type: CLOSE_MESSSAGE_MUST_LOGIN })
+  }
+};
+
+// Take All Users
+export function getAllUsers(){
+  return function(dispatch){
+      return axios.get(`${BASE_URL}/user/allusers`)
+                  .then(projects => dispatch({ type: GET_ALL_USERS, payload: projects.data }))
+                  .catch(error => console.log(error))
   }
 };

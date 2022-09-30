@@ -60,9 +60,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 
-
-
-export default function MediaControlCard({ project }) {
+export default function CardProject({ project, handleOpenMessageLogin }) {
   const theme = useTheme();
 
   // Desplegable:
@@ -71,57 +69,78 @@ export default function MediaControlCard({ project }) {
     setExpanded(newExpanded ? panel : false);
   };
 
+  const mainTaskEjemplo = [
+    { task: "Realizar test Front", status: true },
+    { task: "Realizar test Back", status: true },
+    { task: "Desarrollar componente de Login", status: false },
+    { task: "Realizar Diseño Responsive en Figma", status: true },
+  ]
+
+  
   return (
-    <Card sx={{ display: 'flex', margin: 5, justifyContent: "center", borderRadius: 5, backgroundColor: '#424242' }}>
+    <>
+    <Card sx={{ display: 'flex', margin: 5, width: 800, justifyContent: "space-between", borderRadius: 5, backgroundColor: '#424242' }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', width: 600, color: 'white' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
-
-          <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-            <Typography component="div" variant="h5" >
+          <div className={s.card_content_top}>
+            <Typography component="div" variant="h5">
               { project.title }
-            </Typography>
             { project?.payment?
-            <MonetizationOnIcon sx={{ height: 20, width: 20, margin: 1, color: '#388e3c' }}/> :
-            <HandshakeIcon sx={{ height: 20, width: 20, margin: 1, color: '#2196f3' }}/>
+            <MonetizationOnIcon sx={{ height: 20, width: 20, color: '#388e3c', marginLeft: '5px' }}/> :
+            <HandshakeIcon sx={{ height: 20, width: 20, color: '#2196f3', marginLeft: '5px' }}/>
             }
-          </Box>
-          
-
-            <div>
-              <Accordion onChange={handleChange('panel1')} sx={{ borderColor: 'white', color: 'white' }}>
-                <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#424242' }}>
-                  <Typography>Descripción </Typography>
-                </AccordionSummary>
-                <AccordionDetails sx={{ color: 'white', backgroundColor: '#424242' }}>
-                  <Typography >
-                     { project.description }
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-            </div>
-
-            <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ color: 'white' }}>
-                <span>Status: </span>{ 
-                    project?.status
-                }
             </Typography>
-            
+            <button className={s.btnCardProject} onClick={handleOpenMessageLogin}type="button"> Colaborar </button>
+          </div>
+          <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#424242' }}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#424242' }}>
+              <Typography>Descripción </Typography>
+            </AccordionSummary>
+            <AccordionDetails sx={{ color: 'white', backgroundColor: '#424242' }}>
+              <Typography>
+                  { project.description }
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#424242' }}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#424242' }}>
+              <Typography>Tareas Pendientes: </Typography>
+            </AccordionSummary>
+            <AccordionDetails sx={{ color: 'white', backgroundColor: '#424242' }}>
+                { mainTaskEjemplo.length > 0 
+                    ? mainTaskEjemplo.map((task) => {
+                      return (
+                          <Typography>
+                            { `-- ${task.task }` }
+                          </Typography>
+                      )
+                        })
+                    : <Typography>"- Puntos a colaborar con Creador del Proyecto."</Typography>
+                }
+            </AccordionDetails>
+          </Accordion>
+                
+          <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ color: 'white', marginLeft: '40px' }}>
+                <span>Status: </span>{ project?.status }
+          </Typography>
           
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+
           <IconButton aria-label="previous">
             <GitHubIcon sx={{ height: 40, width: 40, color: 'white' }}/>
           </IconButton>
           <IconButton aria-label="next">
             <WhatsAppIcon sx={{ height: 40, width: 40, color: 'white' }}/>
           </IconButton>
-            <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ color: 'white' }}>
-                <span>Tech: </span>{ 
-                    project?.tech?.length > 0 && project?.tech.map(element => {
-                    return (<span key={Math.random()}>{`${element}, `} </span>)
-                  })
-                }
-            </Typography>
+
+          <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ color: 'white' }}>
+            <span className='titleTechs'>Techs: </span>{ 
+                project?.tech?.length > 0 && project?.tech.map(element => {
+                return (<span key={Math.random()}>{`${element.charAt(0).toUpperCase() + element.slice(1)}, `} </span>)
+              })
+            }
+        </Typography>
         </Box>
       </Box>
       <CardMedia
@@ -138,5 +157,6 @@ export default function MediaControlCard({ project }) {
         alt={project.title}
       />
     </Card>
+    </>
   );
 }

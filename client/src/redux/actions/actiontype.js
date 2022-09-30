@@ -7,6 +7,7 @@ export const SIGN_UP = 'SIGN_UP';
 export const SIGN_IN_GOOGLE = 'SIGN_IN_GOOGLE';
 export const SIGN_IN_GITHUB = 'SIGN_IN_GITHUB';
 export const LOG_IN_ERROR = 'LOG_IN_ERROR';
+export const GET_ALL_USERS = 'GET_ALL_USERS';
 
 // PROJECTS ACTIONS
 export const GET_ALL_PROJECTS = 'GET_ALL_PROJECTS';

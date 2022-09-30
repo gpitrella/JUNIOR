@@ -8,7 +8,8 @@ import {
   SIGN_IN_GOOGLE,
   SIGN_IN_GITHUB,
   OPEN_MESSSAGE_MUST_LOGIN,
-  CLOSE_MESSSAGE_MUST_LOGIN
+  CLOSE_MESSSAGE_MUST_LOGIN,
+  GET_ALL_USERS,
 } from '../actions/actiontype';
 import { LocalStorage } from '../../util/localStorage';
 
@@ -17,7 +18,8 @@ const initialState = {
   auser: {},
   user: {},
   logInError: {},
-  mustLoginMessage: false,
+  mustLoginMessage: { open: false, msg: 1 },
+  allUsers: [],
 };
 
 
@@ -76,14 +78,20 @@ const homepageReducer = function(state = initialState, { type, payload }) {
     case OPEN_MESSSAGE_MUST_LOGIN:
       return {
         ...state,
-        mustLoginMessage: true
+        mustLoginMessage: payload
       } 
       
     case CLOSE_MESSSAGE_MUST_LOGIN:
       return {
         ...state,
-        mustLoginMessage: false
-      } 
+        mustLoginMessage: { open: false, msg: 1 }
+      }
+      
+    case GET_ALL_USERS:
+      return {
+        ...state,
+        allUsers: payload
+      }
 
     default:
       return state;

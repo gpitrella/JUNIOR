@@ -72,23 +72,20 @@ export default function ModalMessage({ message }) {
             sx={{ borderRadius: '15px' }}
             onClose={handleCloseLogin}
             aria-labelledby="customized-dialog-title"
-            open={mustLoginMessage}
+            open={mustLoginMessage.open}
         >
             <BootstrapDialogTitle onClose={handleCloseLogin}>
                 Logeo / Registro:
             </BootstrapDialogTitle>
             <DialogContent dividers>
                 <Typography gutterBottom>
-                    {message}
+                    { mustLoginMessage.msg === 1 ? message.createProject : message.colaborateProject }
                 </Typography>
             </DialogContent>
             <DialogActions>
                 <button className="btnLogin" type="button" onClick={handleOpenPageLogin}>
                     LogIn
                 </button>
-                {/* <Button autoFocus onClick={handleOpenPageLogin}>
-                    Login
-                </Button> */}
             </DialogActions>
         </BootstrapDialog>
     )

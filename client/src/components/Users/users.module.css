@@ -1,0 +1,99 @@
+.container {
+    display: grid;
+    grid-template-columns: 10% 15% 25% 15% 15% 20%;
+    grid-template-rows: var(--rowHallOfFame);
+  
+    padding: 0.5rem;
+  
+    color: white;
+  
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+  
+    border-radius: 8px;
+  
+    background-color: var(--primaryColor);
+  
+    font-size: var(--fontMedium);
+    font-weight: 500;
+    letter-spacing: 1px;
+  
+    box-shadow:inset 0px 0px 0px 3px rgba(255, 255, 255, 0.2);
+  }
+  
+  .first,
+  .second {
+    background: var(--primaryGradientWithLessOpacity);
+  }
+  
+  .avatarContainer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  
+    height: 80%;
+    aspect-ratio: 1 / 1;
+  }
+  
+  .spanNickname {
+    text-transform: capitalize;
+  }
+  
+  .spanStatus {
+    padding: var(--paddingStatus);
+    border-radius: 8px;
+    text-transform: uppercase;
+  
+    font-size: var(--fontSmallest);
+    letter-spacing: 3px;
+    width: 80%;
+  }
+  
+  .spanRanking {
+    font-weight: 900;
+  }
+  
+  .oro {
+    background: var(--goldenGradient);
+  }
+  
+  .plata {
+    background: var(--silverGradient);
+  
+    color: grey;
+  }
+  
+  .bronce {
+    background: var(--bronzeGradient);
+  
+    color: saddlebrown;
+  }
+  
+  .containerIndex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    position: relative;
+  }
+  
+  .containerHexagon {
+  
+    width: calc(var(--rowHallOfFame) * 0.8);
+    height: calc(var(--rowHallOfFame) * 0.8);
+  
+    z-index: 3;
+  
+    position: absolute;
+  }
+  
+  .containerTrophy {
+    width: calc(var(--rowHallOfFame) * 0.5);
+    height: calc(var(--rowHallOfFame) * 0.5);
+  
+    z-index: 5;
+  
+    position: absolute;
+  }
