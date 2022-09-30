@@ -24,7 +24,7 @@
 }
 
 .box_main_personal {
-    box-shadow: 3px 3px 5px 0px rgb(0 0 0 / 50%);
+    box-shadow: var(--mainShadow);
     border-radius: 5px;
 }
 

@@ -6,7 +6,7 @@
 }
 
 .signup__wrapper {
-    width: 30vw;
+    width: 430px;
     height: 75hv;
     -webkit-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
     -moz-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
@@ -102,6 +102,7 @@
     color: #fff;
     background: rgba(0, 117, 255, 0.671);
     font-weight: bold;
+    box-shadow: var(--mainShadow);
 }
 
 .signup__msn-exito{
@@ -136,10 +137,23 @@
     color: lightgray;
     margin-top: 15px;
     margin-bottom: 40px;
-  }
+}
 
 @media (max-width: 768px){
     .signup__wrapper{
-        width: 70vw;
+        width: 380px;
+    }
+    .signup__group {
+        width: 70%;
     }
 }
+
+@media (max-width: 600px){
+    .signup__wrapper{
+        width: 350px;
+    }
+    .signup__group {
+        width: 75%;
+    }
+}
+
