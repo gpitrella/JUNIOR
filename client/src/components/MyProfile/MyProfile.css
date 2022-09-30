@@ -42,8 +42,11 @@
 }
 
 #individual_box_myprofile {
+    display: flex;
     justify-items: center;
     box-shadow: var(--mainShadow);
+    flex-direction: column;
+    align-items: center;
 }
 
 #button_myprofile {

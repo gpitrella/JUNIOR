@@ -8,6 +8,7 @@ import projectPersonal from '../../assets/projectPersonal.json';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import './MyProfile.css';
+import Links from '../Links/Links';
 
 export default function MyProfile() {
   const [displayUserAdmin, setDisplayUserAdmin] = React.useState(false);
@@ -84,32 +85,40 @@ export default function MyProfile() {
         </Card>
   
         <Card id='individual_box_myprofile' sx={{ display: 'block', width: 200, height: 200, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
-          <CardActionArea sx={{ paddingLeft: 3 }}>
-            <Lottie className='personal_informacion'
-                  options={defaultOptionsCollaborative}
-                  height={150}
-                  width={150}
-                />
-          </CardActionArea>
-          <CardActions className='button_myprofile'>
-            <Button id='button_myprofile' size="small" color="primary" >
-              Colaboraciones
-            </Button>
+          <Link to='/miperfil/colaboraciones'>
+            <CardActionArea sx={{ paddingLeft: 3 }}>
+              <Lottie className='personal_informacion'
+                    options={defaultOptionsCollaborative}
+                    height={150}
+                    width={150}
+                  />
+            </CardActionArea>
+          </Link>
+          <CardActions >
+            <Link to='/miperfil/colaboraciones'>
+              <Button id='button_myprofile' size="small" color="primary" >
+                Colaboraciones
+              </Button>
+            </Link>
           </CardActions>
         </Card>
 
         <Card id='individual_box_myprofile' sx={{ display: 'block', width: 200, height: 200, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
-          <CardActionArea sx={{ paddingTop: 2, paddingBottom: 0.5 }}>
-            <Lottie className='personal_informacion'
-                  options={defaultOptionsProyectos}
-                  height={130}
-                  width={130}
-                />
-          </CardActionArea>
-          <CardActions className='button_myprofile'>
-            <Button id='button_myprofile' size="small" color="primary" >
-              Mis Proyectos
-            </Button>
+          <Link to='/miperfil/misproyectos'>  
+            <CardActionArea sx={{ paddingTop: 2, paddingBottom: 0.5 }}>
+              <Lottie className='personal_informacion'
+                    options={defaultOptionsProyectos}
+                    height={130}
+                    width={130}
+                  />
+            </CardActionArea>
+          </Link>
+          <CardActions >
+            <Link to='/miperfil/misproyectos'>
+              <Button id='button_myprofile' size="small" color="primary" >
+                Mis Proyectos
+              </Button>
+            </Link>
           </CardActions>
         </Card>
       </div>
