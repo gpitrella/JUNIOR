@@ -1,21 +1,59 @@
 .main_box_pyProfile {
-    padding: 10rem;
+    padding: 250px;
     padding-top: 65px;
     padding-bottom: 150px;
     align-items: center;
-    justify-content: space-evenly;
     justify-items: center;
     display: grid;
-    grid-gap: 10px;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+.gradient__text {
+	background: var(--gradient-text);
+	background-clip: text;
+	-webkit-background-clop: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.myprofile_view_content {
+	display: flex;
+	flex-direction: column;
+}
+
+.myprofile_view_content h1 {
+	font-family: var(--font-family);
+	font-weight: 800;
+	font-size: 40px;
+	line-height: 75px;
+	letter-spacing: -0.04em;
+    align-self: center;
+}
+
+.myprofile_view_content p {
+	font-family: var(--font-family);
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+    padding: 0px 250px;
+	line-height: 27px;
+    text-align: justify;
+	color: var(--color-text);
+	margin-top: 1.5rem;
 }
 
 #individual_box_myprofile {
     justify-items: center;
+    box-shadow: var(--mainShadow);
 }
 
-.button_myprofile {
+#button_myprofile {
+    display: flex;
     justify-content:center;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    width: 100%;
+    align-items: center;
 }
 
 .personal_informacion {
@@ -38,12 +76,36 @@
     justify-content: center;
 }
 
-@media (min-width: 800px) and (max-width: 1285px){
+@media (min-width: 1000px) and (max-width: 1285px){
     .main_box_pyProfile{
         grid-template-columns: 1fr 1fr 1fr;
         justify-items: center;
-        padding: 5rem;
+        padding: 65px 10rem 250px;
+        grid-gap: 20px;
         align-items: center;
+    }
+
+    .myprofile_view_content p {
+        padding: 0px 10rem;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1000px){
+    .main_box_pyProfile{
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+        padding: 65px 6rem 250px;
+        grid-gap: 20px;
+        align-items: center;
+    }
+
+    .myprofile_view_content p {
+        padding: 0px 6rem;
+        font-size: 16px;
+    }
+
+    .myprofile_view_content h1 {
+        font-size: 35px;
     }
 }
 
@@ -51,8 +113,12 @@
     .main_box_pyProfile{
         grid-template-columns: 1fr;
         justify-items: center;
-        padding: 3rem;
+        padding: 65px 3rem 250px;
+        grid-gap: 20px;
         align-items: center;
+    }
+    .myprofile_view_content p {
+        padding: 0px 3rem;
     }
 }
 
@@ -60,25 +126,15 @@
     .main_box_pyProfile{
         grid-template-columns: 1fr;
         justify-items: center;
-        padding: 2rem;
+        padding: 65px 1rem 250px;
+        grid-gap: 20px;
         align-items: center;
     }
-
-    #individual_box_myprofile {
-        width: 180px;
-        height: 180px;
+    .myprofile_view_content p {
+        padding: 0px 1rem;
+        font-size: 14px;
     }
-
-    .title_myprofile {
-        font-size: 15px;
-        padding-top: 10px;
-        padding-bottom: 5px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-    .personal_informacion {
-        margin-top: 5px;
-        margin-bottom: -22px;
+    .myprofile_view_content h1 {
+        font-size: 30px;
     }
 }
