@@ -1,0 +1,32 @@
+
+.imgTools {
+    width: 180px;
+    width: 100%;
+}
+
+.detailsMainTools {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    background: var(--primaryColor);
+    border-radius: 8px;
+    box-shadow: var(--mainShadow);
+    width: 100%;
+    height: 150px;
+}
+
+#individual_box_Tool {
+    width: 150px;
+}
+
+.detailsTools {
+    width: 75%;
+    padding: 10px;
+}
+
+.detailsTools p {
+    font-family: var(--font-family);
+	color: white;
+    font-weight: 100;
+	font-size: 15px;
+}

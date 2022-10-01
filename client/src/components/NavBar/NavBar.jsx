@@ -12,6 +12,7 @@ const Menu = () => {
 		<>
 			<Link to='/projects'><p>Proyectos</p></Link>
 			<Link to='/about'><p><a href="#features">About JR</a></p></Link>
+			<Link to='/tools'><p><a href="#features">Tools</a></p></Link>
 		</>
 )}
 

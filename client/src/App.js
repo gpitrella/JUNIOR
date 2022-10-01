@@ -18,6 +18,13 @@ import Collaborate from './components/MyProfile/Collaborate/Collaborate';
 import CreateProject from './components/CreateProject/CreateProject';
 import EditProject from './components/EditProject/EditProject';
 import About from './components/About/About';
+import Tools from './components/Tools/Tools';
+import Codeo from './components/Tools/Code/Code';
+import OrganizationTool from './components/Tools/OrganizationTool/OrganizationTool';
+import DesignTool from './components/Tools/DesignTool/DesignTool';
+import YouTuveTool from './components/Tools/YouTubeTool/YouTubeTool';
+import MeetTool from './components/Tools/MeetTool/MeetTool';
+import CvTool from './components/Tools/CvTool/CvTool'
 import dotenv from "dotenv";
 import LandingPage from './components/LandingPage/LandingPage.jsx';
 import './App.css';
@@ -110,6 +117,13 @@ export default function App() {
                 <Route exact path ="/miperfil/colaboraciones" element= { user.user ? <Collaborate /> : <LogIn handleGoogle={handleGoogle} />}/>
                 <Route exact path ="/miperfil/misproyectos" element=  { user.user ? <MyProjects /> : <LogIn handleGoogle={handleGoogle}/>} />
                 <Route exact path ="/miperfil/editproyecto" element=  { user.user ? <EditProject /> : <LogIn handleGoogle={handleGoogle}/>} />
+                <Route exact path ="/tools" element= {<Tools />}  />
+                <Route exact path ="/tools/codeo" element= {<Codeo />}  />
+                <Route exact path ="/tools/organizacion" element= {<OrganizationTool />}  />
+                <Route exact path ="/tools/design" element= {<DesignTool />}  /> 
+                <Route exact path ="/tools/youtube" element= {<YouTuveTool />}  />
+                <Route exact path ="/tools/meet" element= {<MeetTool />}  /> 
+                <Route exact path ="/tools/cv" element= {<CvTool />}  />              
                 <Route exact path='*' component={<Navigate to="/home"/>} />
           </Routes> 
         { location.pathname !== '/' && <Footer /> }

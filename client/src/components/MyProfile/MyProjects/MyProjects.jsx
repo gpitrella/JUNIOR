@@ -30,9 +30,11 @@ export default function MyProjects() {
             return (
               <div className='myproyectsEdit'>
                 <Link to='/miperfil/editproyecto'>
+                  <div className='positionButtonEdit'>
                     <Button id='btn_personalinformationEditProject' variant="contained">
                         Editar Proyecto
                     </Button>
+                  </div>
                 </Link>
                 <CardProject key={project?._id} project={project} handleOpenMessageLogin={handleOpenMessageLogin}/>
               </div>

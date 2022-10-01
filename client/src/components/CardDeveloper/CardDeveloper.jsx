@@ -16,9 +16,9 @@ export default function CardDeveloper({ id, name, linkedin, github, email, img }
   }
   
   return (
-    <div class={s.card_wrapper}>
-      <div class={s.card_front}>
-          <div class={s.card_user}>
+    <div className={s.card_wrapper}>
+      <div className={s.card_front}>
+          <div className={s.card_user}>
             <img src={img} alt="Developer Junior"/>
             <span>{name}</span>
             <span id="labelFullStackDeveloper">Full Stack Developer </span>
