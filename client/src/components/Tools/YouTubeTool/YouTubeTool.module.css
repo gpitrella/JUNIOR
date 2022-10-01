@@ -1,12 +1,8 @@
-.title_myprofile {
-    font-size: 30px;
-    padding-top: 50px;
-    padding-bottom: 0px;
-    margin-bottom: 10px;
-    width: 100%;
+.main_box_code {
     display: flex;
-    flex-direction: row;
     justify-content: center;
+    flex-direction: row;
+    width: 800px;
 }
 
 .main_box_personalinformation {
@@ -29,6 +25,19 @@
     align-self: center;
 }
 
+.textDescriptionCodeTool {
+	font-family: var(--font-family);
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+    padding: 0px 250px;
+	line-height: 27px;
+    text-align: justify;
+	color: var(--color-text);
+	margin-top: 1.5rem;
+    margin-bottom: 30px;
+}
+
 .gradient__text {
 	background: var(--gradient-text);
 	background-clip: text;
@@ -39,28 +48,4 @@
 .title_personalinformation {
     padding-top: 20px;
     padding-bottom: 20px;
-}
-
-.box_main_personal {
-    box-shadow: var(--mainShadow);
-    border-radius: 5px;
-}
-
-#btn_personalinformation {
-    margin-top: 30px;
-    box-shadow: var(--mainShadow);
-}
-
-#avatar_personal_information {
-    justify-content: center;
-    
-}
-
-.myaddress_personalinformation{
-    margin: 0;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 1.5;
-    letter-spacing: 0.00938em;
-    display: block;
 }

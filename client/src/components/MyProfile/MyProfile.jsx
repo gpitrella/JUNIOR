@@ -9,7 +9,6 @@ import projectPersonal from '../../assets/projectPersonal.json';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import './MyProfile.css';
-import Links from '../Links/Links';
 
 export default function MyProfile() {
   const [displayUserAdmin, setDisplayUserAdmin] = React.useState(false);
@@ -29,33 +28,17 @@ export default function MyProfile() {
     }
   },[user]);
 
-  const defaultOptions = {
-		loop: true,
-		autoplay: true,
-		animationData: personalInformation,
-		rendererSettings: {
-		  preserveAspectRatio: "xMidYMid slice"
-		}
-	};
-
-  const defaultOptionsCollaborative = {
-		loop: true,
-		autoplay: true,
-		animationData: team,
-		rendererSettings: {
-		  preserveAspectRatio: "xMidYMid slice"
-		}
-	};
-  
-  const defaultOptionsProyectos = {
-		loop: true,
-		autoplay: true,
-		animationData: projectPersonal,
-		rendererSettings: {
-		  preserveAspectRatio: "xMidYMid slice"
-		}
-	};  
-
+  function defaultOptions(file) {
+    return {
+        loop: true,
+        autoplay: true,
+        animationData: file,
+        rendererSettings: {
+          preserveAspectRatio: "xMidYMid slice"
+        }
+    }
+  };
+ 
   return (
     <div className="myprofile_view_content">
       <h1 className="gradient__text">
@@ -71,7 +54,7 @@ export default function MyProfile() {
           <CardActionArea >
             <Link to='/miperfil/personalinformation'>
               <Lottie className='personal_informacion'
-                options={defaultOptions}
+                options={defaultOptions(personalInformation)}
                 height={130}
                 width={130}
               />
@@ -90,7 +73,7 @@ export default function MyProfile() {
           <Link to='/miperfil/colaboraciones'>
             <CardActionArea sx={{ paddingLeft: 3 }}>
               <Lottie className='personal_informacion'
-                    options={defaultOptionsCollaborative}
+                    options={defaultOptions(team)}
                     height={150}
                     width={150}
                   />
@@ -109,7 +92,7 @@ export default function MyProfile() {
           <Link to='/miperfil/misproyectos'>  
             <CardActionArea sx={{ paddingTop: 2, paddingBottom: 0.5 }}>
               <Lottie className='personal_informacion'
-                    options={defaultOptionsProyectos}
+                    options={defaultOptions(projectPersonal)}
                     height={130}
                     width={130}
                   />
