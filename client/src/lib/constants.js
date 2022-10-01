@@ -130,7 +130,7 @@ export const organizationTool = [
         description: `Trello es una herramienta visual que permite a los equipos gestionar cualquier tipo de proyecto y flujo de trabajo, 
         así como supervisar tareas. Añade archivos, checklists o incluso automatizaciones: personalízalo todo según las necesidades de tu equipo. 
         Solo tienes que registrarte, crear un tablero y ¡listo!`,
-        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664627169/aplicativo-Trello-1200x900_hcjuvo.png",
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664638493/TRELLO_hfdfmh.png",
         link: 'https://trello.com/'
     }, 
     { 
@@ -139,7 +139,7 @@ export const organizationTool = [
         description: `Notion es un organizador de tareas multiplataforma que te permite llevar tu planificación personal y laboral al siguiente nivel. 
         Ya sea que te encuentres conectado a internet o no, en desktop o desde el celular, podrás apuntar y organizar todo lo que se te ocurra y colaborar 
         con quienes necesites.`,
-        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664627382/1_bNfsuof51Lo6rFCnbnuqzA_i0bkrf.jpg",
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664638362/NOTION_lg60ak.png",
         link: 'https://www.notion.so/' 
     }
 ];
