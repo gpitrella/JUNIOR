@@ -1,8 +1,8 @@
 import validator from 'validator';
 
 export function validateUsername(input, errors) {
-//     const errors = {};
-    if (validator.isEmpty(input.username)){
+    
+        if (validator.isEmpty(input.username)){
             errors.username = "Add a username"
             document.getElementById('username').classList.add('signup__group-incorrecto')
             document.getElementById('username').classList.remove('signup__group-correcto')
@@ -24,10 +24,9 @@ export function validateUsername(input, errors) {
             document.querySelector('#username .signup__input-error').classList.remove('signup__input-error-activo')
         }    
   return errors
-}
+};
 
 export function validateEmail(input, errors) {
-        // const errosEmail = {}
 
         if (validator.isEmpty(input.email)){
                 errors.email = "Add an email"
@@ -47,10 +46,9 @@ export function validateEmail(input, errors) {
             }
     
   return errors
-}
+};
 
 export function validatePassword(input, errors) {
-        // const errosPassword = {}
 
         if (validator.isEmpty(input.password)){
                 errors.password = "Add a password"
@@ -78,7 +76,6 @@ export function validatePassword(input, errors) {
 }
 
 export function validatePassword2(input, errors) {
-        // const errosPassword2 = {}
 
         if (validator.isEmpty(input.password2)){
                 errors.password2 = "Repeat password"
@@ -98,5 +95,4 @@ export function validatePassword2(input, errors) {
             }
     
   return errors
-}
-
+};

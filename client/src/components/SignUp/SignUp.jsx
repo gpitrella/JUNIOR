@@ -11,13 +11,15 @@ import s from './SignUp.module.css';
 
 export default function SignUp() {
 
+    const dispatch = useDispatch();
+    const { logInError } = useSelector((state) => state.homepageReducer)
+    const [openEmail, setOpenEmail] = useState(false);
     const [ input, setInput ] = useState({
         username: '',
         email: '',
         password: '',
         password2:''
     })
-    const { logInError } = useSelector((state) => state.homepageReducer)
 
     const [errors, setErrors] = useState({
         username: "Add a username",
@@ -25,10 +27,6 @@ export default function SignUp() {
         password: "Add a password",
         password2: "Repeat password"
     })
-    // const [errorsEmail, setErrorsEmail] = useState({})
-    // const [errorsPasword, setErrorsPassword] = useState({})
-    // // const [errorsPassword2, setErrorsPassword2] = useState({})
-    const [openEmail, setOpenEmail] = useState(false);
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -37,10 +35,7 @@ export default function SignUp() {
         setErrors(validateEmail({...input,[e.target.name]: e.target.value}, errors))
         setErrors(validatePassword({...input,[e.target.name]: e.target.value}, errors))
         setErrors(validatePassword2({...input,[e.target.name]: e.target.value}, errors))
-        console.log(errors)
     }
-
-    const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -61,7 +56,6 @@ export default function SignUp() {
       };
 
       React.useEffect(() => {
-        // console.log(logInError)
         if(logInError.status === 404){
             setOpenEmail(true)
             errors.email = logInError?.data.msg
