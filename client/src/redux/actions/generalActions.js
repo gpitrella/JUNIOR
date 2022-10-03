@@ -36,7 +36,7 @@ export const logIn = function(email, password) {
   return function(dispatch){
     return axios.post(`${BASE_URL}/auth/signin`, {email, password})
                 .then(data => dispatch({ type: LOG_IN, payload: data.data}))
-                .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
+                .catch(error => console.log(error))
   }
 };
 

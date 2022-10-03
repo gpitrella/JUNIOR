@@ -94,22 +94,16 @@ export default function LogIn({handleGoogle, github}) {
     handleGoogle()
   }, [])
 
-  // React.useEffect(() => {
-  //   if(logInError.status === 404){
-  //       setOpenEmail(true)
-  //       errors.email = logInError?.data.msg
-  //       document.getElementById('email').classList.add('signup__group-incorrecto')
-  //       document.getElementById('email').classList.remove('signup__group-correcto')
-  //       document.querySelector('#email .signup__input-error').classList.add('signup__input-error-activo')
-  //   }
-  //   if(logInError.status === 401){
-  //       setOpenEmail(true)
-  //       errors.password = logInError?.data.msg
-  //       document.getElementById('email').classList.add('signup__group-incorrecto')
-  //       document.getElementById('email').classList.remove('signup__group-correcto')
-  //       document.querySelector('#email .signup__input-error').classList.add('signup__input-error-activo')
-  //   }
-  // },[logInError]); 
+  React.useEffect(() => {
+    // console.log(logInError)
+    if(logInError.status === 404){
+      setOpenEmail(true)
+      errors.email = logInError.data.msg
+      document.getElementById('email').classList.add('login__group-incorrecto')
+      document.getElementById('email').classList.remove('login__group-correcto')
+      document.querySelector('#email .login__input-error').classList.add('login__input-error-activo')
+    } 
+  },[logInError]); 
 
 
   return (
