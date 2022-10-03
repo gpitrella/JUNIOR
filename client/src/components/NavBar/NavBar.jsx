@@ -11,8 +11,8 @@ const Menu = ({handleSignOut, user}) => {
 	return (
 		<>
 			<Link to='/projects'><p>Proyectos</p></Link>
-			<Link to='/about'><p><a href="#features">About JR</a></p></Link>
-			<Link to='/tools'><p><a href="#features">Tools</a></p></Link>
+			<Link to='/about'><p><a href="#features">Sobre JR</a></p></Link>
+			<Link to='/tools'><p><a href="#features">Herramientas</a></p></Link>
             {user?.user && <p id='btnLogOutNavbar'><a onClick={(e) => handleSignOut(e)}>LogOut</a></p> }
 		</>
 )}

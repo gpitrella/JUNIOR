@@ -95,15 +95,16 @@ export default function LogIn({handleGoogle, github}) {
   }, [])
 
   React.useEffect(() => {
-    // console.log(logInError)
     if(logInError.status === 404){
       setOpenEmail(true)
-      errors.email = logInError.data.msg
+      errors.email = logInError.data
       document.getElementById('email').classList.add('login__group-incorrecto')
       document.getElementById('email').classList.remove('login__group-correcto')
       document.querySelector('#email .login__input-error').classList.add('login__input-error-activo')
     } 
   },[logInError]); 
+
+
 
 
   return (

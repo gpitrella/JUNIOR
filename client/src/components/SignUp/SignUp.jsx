@@ -58,14 +58,14 @@ export default function SignUp() {
       React.useEffect(() => {
         if(logInError.status === 404){
             setOpenEmail(true)
-            errors.email = logInError?.data.msg
+            errors.email = logInError?.data
             document.getElementById('email').classList.add('signup__group-incorrecto')
             document.getElementById('email').classList.remove('signup__group-correcto')
             document.querySelector('#email .signup__input-error').classList.add('signup__input-error-activo')
         }
         if(logInError.status === 401){
             setOpenEmail(true)
-            errors.password = logInError?.data.msg
+            errors.password = logInError?.data
             document.getElementById('email').classList.add('signup__group-incorrecto')
             document.getElementById('email').classList.remove('signup__group-correcto')
             document.querySelector('#email .signup__input-error').classList.add('signup__input-error-activo')

@@ -24,7 +24,10 @@ import OrganizationTool from './components/Tools/OrganizationTool/OrganizationTo
 import DesignTool from './components/Tools/DesignTool/DesignTool';
 import YouTuveTool from './components/Tools/YouTubeTool/YouTubeTool';
 import MeetTool from './components/Tools/MeetTool/MeetTool';
-import CvTool from './components/Tools/CvTool/CvTool'
+import CvTool from './components/Tools/CvTool/CvTool';
+import IdLiveTool from './components/Tools/IdLive/IdLive';
+import FrontDeploy from './components/Tools/FrontDeploy/FrontDeploy';
+import BackDeploy from './components/Tools/BackDeploy/BackDeploy';
 import dotenv from "dotenv";
 import LandingPage from './components/LandingPage/LandingPage.jsx';
 import './App.css';
@@ -123,7 +126,10 @@ export default function App() {
                 <Route exact path ="/tools/design" element= {<DesignTool />}  /> 
                 <Route exact path ="/tools/youtube" element= {<YouTuveTool />}  />
                 <Route exact path ="/tools/meet" element= {<MeetTool />}  /> 
-                <Route exact path ="/tools/cv" element= {<CvTool />}  />              
+                <Route exact path ="/tools/cv" element= {<CvTool />}  />  
+                <Route exact path ="/tools/idlive" element= {<IdLiveTool />} /> 
+                <Route exact path ="/tools/frontdeploy" element= {<FrontDeploy />} /> 
+                <Route exact path ="/tools/backdeploy" element= {<BackDeploy />} />           
                 <Route exact path='*' component={<Navigate to="/home"/>} />
           </Routes> 
         { location.pathname !== '/' && <Footer /> }
