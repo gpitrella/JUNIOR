@@ -9,10 +9,9 @@ import {
   SHOW_MODAL_ADD_IMAGE,
   CLOSE_MODAL_ADD_IMAGE,
   BASE_URL,
-  SELECTPAG
+  SELECTPAG,
+  GET_PROJECTS_BY_USER
 } from './actiontype';
-
-
 
 // Get all Projects
 export function getAllProjects(){
@@ -41,11 +40,6 @@ export function updateFilterProjects(filters){
   }
 };
 
-// {
-//   "teches": ["React"],
-//   "payment": false
-// }
-
 // Update Status Filter Projects
 export function updateStatusFilter(data){
   return function(dispatch){
@@ -53,12 +47,28 @@ export function updateStatusFilter(data){
   }
 };
 
+// Pagination
 export function selectPag(payload) {
   return {
     type: SELECTPAG,
     payload,
   };
 }
+
+// Get Projects by USER
+export function getProjectsByUser(id){
+  return function(dispatch){
+    console.log('como llega al redux:', id)
+      return axios.post(`${BASE_URL}/user/projects`, id)
+                  .then(project => dispatch({ type: GET_PROJECTS_BY_USER, payload: project.data }))
+                  .catch(error => console.log(error))
+  }
+};
+
+// axios.post(url, data, {
+//   'headers': {
+//     'Authorization': 'Bearer ' + jwtStr
+//   });
 
 // CreateProject
 export function createProject(dataProject){
@@ -76,6 +86,7 @@ export function showModalAddImage() {
     type: SHOW_MODAL_ADD_IMAGE
   }
 }
+
 
 export function closeModalAddImage() {
   return {

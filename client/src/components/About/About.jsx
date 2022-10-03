@@ -37,7 +37,7 @@ export default function AboutView() {
         {
           developers && developers.map(developer => 
             <CardDeveloper 
-              key = {developer.key}
+              key = {developer.id}
               id = {developer.id}
               name = {developer.name}
               linkedin = {developer.linkedin}
