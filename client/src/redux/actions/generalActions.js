@@ -13,6 +13,8 @@ import {
   OPEN_MESSSAGE_MUST_LOGIN,
   CLOSE_MESSSAGE_MUST_LOGIN,
   GET_ALL_USERS,
+  OPEN_MODAL_INFO_COLLABORATOR,
+  CLOSE_MODAL_INFO_COLLABORATOR,
 } from './actiontype';
 
 // Take Auth User
@@ -93,7 +95,21 @@ export function closeMessageMustLogin(){
 export function getAllUsers(){
   return function(dispatch){
       return axios.get(`${BASE_URL}/user/allusers`)
-                  .then(projects => dispatch({ type: GET_ALL_USERS, payload: projects.data }))
+                  .then(users => dispatch({ type: GET_ALL_USERS, payload: users.data }))
                   .catch(error => console.log(error))
+  }
+};
+                  
+// Open Message Must Login
+export function openModalInfoCollaborator(){
+  return function(dispatch){
+      return dispatch({ type: OPEN_MODAL_INFO_COLLABORATOR })
+  }
+}; 
+
+// Close Message Must Login
+export function closeModalInfoCollaborator(){
+  return function(dispatch){
+      return dispatch({ type: CLOSE_MODAL_INFO_COLLABORATOR })
   }
 };

@@ -1,4 +1,4 @@
-.card-wrapper{
+.card_wrapper{
   position:relative;
   width:250px;
   height:275px;
@@ -6,56 +6,37 @@
   transform-style:preserve-3d;
   transition:transform 0.3s cubic-bezier(0,1.06,.75,1.31);
 }
-.card-front,
-.card-back{
+.card_front {
   position:absolute;
   width:100%;
   height:100%;
   border-radius:0.55em;
+  box-shadow: var(--mainShadow);
+  border:2px;
 }
 
 #labelFullStackDeveloper {
   font-size: 16px;
 }
 
-.card-front{
+.card_front{
   background: var(--gradient-bar);
 }
 
-.card-front span{
+.card_front span{
   transition:700ms ease-in;
 }
 
-.card-back{
-  background:#fff;
-  box-shadow: 0 3px 20px rgba(150, 150, 150, 0.5);
-  transform:translateZ(0);
-  z-index:-1;
-}
-
-.card-links{
-  padding:10px;
-  transition: all 700ms ease-in; 
-}
-
-.card-links span{
-  color:#fff;
-  font-size:22px;
-}
-
-.card-links span:last-child{
-  float:right;
-}
-
-.card-user{
+.card_user{
   justify-content: center;
   display: flex;
   flex-direction: column;
   transform-style:preserve-3d;
   transition: all 700ms cubic-bezier(0,1.06,.75,1.31); 
+  padding-top: 20px;
 }
 
-.card-user img{
+.card_user img{
   width:100px;
   height:100px;
   border-radius:50%;
@@ -64,7 +45,7 @@
   transition: all 700ms ease-in;
 }
 
-.card-user span{
+.card_user span{
   font-size:22px;
   text-align:center;
   display:block;
@@ -72,115 +53,26 @@
   color:#fff;
 }
 
-.card-user span>i{
+.card_user span>i{
   font-family: var(--font-family);
   display:block;
   font-size:8px;
 }
 
-/* In card-user div  */
-.user-info{
+/* In card_user div  */
+.user_info{
   display:flex;
   flex-wrap:nowrap;
   padding:10px 20px;
 }
 
-.user-info span{
+.user_info span{
   flex:1;
   font-size:12px;
 }
 
-.user-info span>div{
+.user_info span>div{
   display:block;
-}
-
-
-
-
-
-
-
-.cardContainer {
-
-  margin: 1REM;
-
-  border-radius: 8px;
-
-  height: var(--cardHeight);
-  width: var(--cardWidth);
-
-  display: grid;
-  grid-template-rows: 2fr 1fr;
-  grid-template-columns: 1fr;
-
-  grid-gap: 1rem;
-
-  padding: 1rem;
-
-  background-color: var(--primaryColor);
-
-  transition: 0.2s;
-  
-}
-
-.linksDevelper {
-  color: white;
-  cursor: pointer;
-  text-decoration: none;
-
-}
-.btnDetails:hover {
-  width: 100%;
-  color: white;
-}
-
-.title {
-  font-weight: 600;
-  font-size: var(--fontLarge);
-  text-transform: capitalize;
-  color: white;
-  opacity: 0.8;
-}
-
-.subTitle,
-.infoId,
-.infoRanking {
-  font-weight: 500;
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.infoRanking,
-.infoId {
-  font-size: var(--fontSmall);
-  color: rgba(255, 255, 255, 0.4);
-  letter-spacing: 2px;
-}
-
-.subTitle {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  opacity: 0.8;
-}
-
-.gradientBorder {
-  --borderWidth: 5px;
-  position: relative;
-  border-radius: var(--borderWidth);
-}
-
-.gradientBorder:after {
-  content: '';
-  position: absolute;
-  top: calc(-1 * var(--borderWidth));
-  left: calc(-1 * var(--borderWidth));
-  height: calc(100% + var(--borderWidth) * 2);
-  width: calc(100% + var(--borderWidth) * 2);
-  background: var(--primaryGradient);
-  border-radius: calc(2 * var(--borderWidth));
-  z-index: -1;
-  
-  background-size: 300% 300%;
 }
 
 

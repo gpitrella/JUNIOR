@@ -11,8 +11,7 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-import HandshakeIcon from '@mui/icons-material/Handshake';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 // Desplegable
 import { styled } from '@mui/material/styles';
@@ -60,7 +59,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 
-export default function CardProject({ project, handleOpenMessageLogin }) {
+export default function UserCard({ user, handleOpenMessageLogin }) {
   const theme = useTheme();
 
   // Desplegable:
@@ -80,74 +79,36 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
   return (
     <>
     <Card sx={{ display: 'flex', margin: 5, width: 800, justifyContent: "space-between", borderRadius: 5, backgroundColor: '#424242' }}>
+      
       <Box sx={{ display: 'flex', flexDirection: 'column', width: 600, color: 'white' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <div className={s.card_content_top}>
             <Typography component="div" variant="h5">
-              { project.title }
-            { project?.payment?
-            <MonetizationOnIcon sx={{ height: 20, width: 20, color: '#388e3c', marginLeft: '5px' }}/> :
-            <HandshakeIcon sx={{ height: 20, width: 20, color: '#2196f3', marginLeft: '5px' }}/>
-            }
+              { user.name }
             </Typography>
             <button className={s.btnCardProject} onClick={handleOpenMessageLogin}type="button"> Colaborar </button>
           </div>
-          <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#424242' }}>
-            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#424242', minHeight: 30, height: 30 }}>
-              <Typography>Descripción: </Typography>
-
-              {/* <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#424242' }}>
-            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#424242' }}>
-              <Typography>Descripción </Typography> */}
-
-            </AccordionSummary>
-            <AccordionDetails sx={{ color: 'white', backgroundColor: '#424242' }}>
-              <Typography>
-                  { project.description }
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
-          <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#424242' }}>
-            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#424242', minHeight: 30, height: 30 }}>
-              <Typography>Tareas Pendientes: </Typography>
-            </AccordionSummary>
-            <AccordionDetails sx={{ color: 'white', backgroundColor: '#424242' }}>
-                { mainTaskEjemplo.length > 0 
-                    ? mainTaskEjemplo.map((task) => {
-                      return (
-                          <Typography>
-                            { `-- ${task.task }` }
-                          </Typography>
-                      )
-                        })
-                    : <Typography>-- Puntos de colaboración a coordinar con el Creador del Proyecto.</Typography>
-                }
-            </AccordionDetails>
-          </Accordion>
-                
-          <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ color: 'white', marginLeft: '40px' }}>
-                <span>Status: </span>{ project?.status }
-          </Typography>
-          
         </CardContent>
-        <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
 
+        <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
           <IconButton aria-label="previous">
             <GitHubIcon sx={{ height: 40, width: 40, color: 'white' }}/>
           </IconButton>
+
+          <IconButton aria-label="next">
+            <WhatsAppIcon sx={{ height: 40, width: 40, color: 'white' }}/>
+          </IconButton>
+          
           <IconButton aria-label="next">
             <WhatsAppIcon sx={{ height: 40, width: 40, color: 'white' }}/>
           </IconButton>
 
-          <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ color: 'white' }}>
-            <span className='titleTechs'>Techs: </span>{ 
-                project?.tech?.length > 0 && project?.tech.map(element => {
-                return (<span key={Math.random()}>{`${element.charAt(0).toUpperCase() + element.slice(1)}, `} </span>)
-              })
-            }
-        </Typography>
         </Box>
+
+        
+
       </Box>
+
       <CardMedia
         component="img"
         sx={{ 
@@ -158,8 +119,8 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
           borderTopLeftRadius: 100,
           backgroundColor: '#424242'
         }}
-        src={project.image}
-        alt={project.title}
+        src={user.image}
+        alt={user.name}
       />
     </Card>
     </>

@@ -17,6 +17,8 @@ import dotenv from "dotenv";
 import s from './Login.module.css';
 dotenv.config();
 
+const REACT_APP_GITHUB = process.env.REACT_APP_GITHUB;
+
 export default function LogIn({handleGoogle, github}) {
   
   const [redirect, setRedirect] = useState({ value: false })
@@ -37,9 +39,9 @@ export default function LogIn({handleGoogle, github}) {
 
   const onSuccess = response => {
     dispatch(getUserGitHub(response.code));
-    //console.log('Respuesta OK de GitHub:', response);
   }
   const onFailure = response => console.error('Respuesta NG de GitHub:', response);
+
 
   const handleClosePassword = (event, reason) => {
     if (reason === 'clickaway') {
@@ -126,8 +128,7 @@ export default function LogIn({handleGoogle, github}) {
           <button type='submit' className="login__btn" onClick={(e) => handleSubmit(e)} >Log In</button>
         </div>
         <p className="login__text"><Link to='/sendemail' className="link">Forgot password?</Link></p>
-          {/* {checkMailPassword.value ? (<p className='danger'>Something was wrong. Please check email or password.</p>) : null} */}
-          
+                    
           {redirect?.value ? <Navigate push to={'/'} underline="none" /> : null}
 
           <div className="login__group">
@@ -135,22 +136,17 @@ export default function LogIn({handleGoogle, github}) {
           <div className="or">OR</div>
           </div>
           </div>
-          {/* <div className='login__group' >
-            <button type='submit' className="login__btn" onClick={handleGoogle} >Google</button>
-          </div> */}
+          
           <div className='login__google' >
               <div id="signInDiv"></div>
           </div>
           <div className="loginButton githublogin" id="example">
-            <LoginGithub className="loginGitHub" clientId={process.env.REACT_APP_GITHUB}
+            <LoginGithub className="loginGitHub" clientId={REACT_APP_GITHUB}
               onSuccess={onSuccess}
               onFailure={onFailure}
             />
             <img src={Github} alt="" className="icongithublogin" />
           </div>
-          {/* <div className='login__google' >
-              <div id="example"></div>
-          </div> */}
           
 
           <p className="login__text">No tienes cuenta? <Link to='/signup' className="link">Sign up aqui!</Link></p>

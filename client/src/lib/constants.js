@@ -76,3 +76,4 @@ export const messagePopUp = {
     proactivo/a y contacta al creador del proyecto, por intermedio de WhatsApp, Linkedin o Github,
     mostrandole el interes en colaborar.`,
 };
+
