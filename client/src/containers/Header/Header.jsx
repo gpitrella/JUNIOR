@@ -4,19 +4,12 @@ import Alert from "../../components/Alert";
 
 import './Header.css';
 import people from '../../assets/people.png';
-// import ai from '../../assets/ai.png';
 import Lottie from 'react-lottie';
 import simpleRoquet from '../../assets/simple_rocket.json';
 
-// import { Canvas } from '@react-three/fiber';
-// import Box from '../../assets/Box/Box';
-// import { OrbitControls } from '@react-three/drei';
-// // import Rocket from '../../components/Rocket/Rocket.js';
-// import Plane from '../../assets/Plane/Plane';
 
 export default function Header() {
 	const [isAlertShowing, setIsAlertShowing] = useState(false) // Controll the Alert component
-	// const [email, setEmail] = useState("") // Controll email input
 
 	const defaultOptions = {
 		loop: true,
@@ -26,19 +19,7 @@ export default function Header() {
 		  preserveAspectRatio: "xMidYMid slice"
 		}
 	  };
-	// /**
-	//  * Validate if an email is correct
-	//  * @param  {string} email email to check
-	//  * @return {boolean}       true if the email is correct, otherwise false
-	//  */
-	// const validateEmail = (email) => email.match(
-    // 	/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  	// )
 
-	/**
-	 * Email input controller
-	 */
-	// const onEmailInputChanged = (evt) => setEmail(evt.target.value)
 
 	return (
 		<>
