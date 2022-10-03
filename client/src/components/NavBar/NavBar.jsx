@@ -7,13 +7,13 @@ import './NavBar.css';
 import logo from '../../assets/logo.png';
 
 
-const Menu = ({handleSignOut}) => {
+const Menu = ({handleSignOut, user}) => {
 	return (
 		<>
 			<Link to='/projects'><p>Proyectos</p></Link>
 			<Link to='/about'><p><a href="#features">About JR</a></p></Link>
 			<Link to='/tools'><p><a href="#features">Tools</a></p></Link>
-            <p id='btnLogOutNavbar'><a onClick={(e) => handleSignOut(e)}>LogOut</a></p>
+            {user?.user && <p id='btnLogOutNavbar'><a onClick={(e) => handleSignOut(e)}>LogOut</a></p> }
 		</>
 )}
 
@@ -63,7 +63,7 @@ export default function Navbar ({ handleSignOut }) {
 			<div className="navbar-links">
 				<div className="navbar-links_main_container">
 					<div className="navbar-links_container">
-						<Menu handleSignOut={handleSignOut}/>
+						<Menu handleSignOut={handleSignOut} user={user}/>
 					</div>
 				</div>
 			</div>
@@ -81,7 +81,7 @@ export default function Navbar ({ handleSignOut }) {
 				{toggleMenu && (
 					<div className="navbar-menu_container scale-up-center">
 						<div className="navbar-menu_container-links">
-							<Menu handleSignOut={handleSignOut}/>
+							<Menu handleSignOut={handleSignOut} user={user}/>
 						</div>
 
 						<div className="navbar-menu_container-links-sign">

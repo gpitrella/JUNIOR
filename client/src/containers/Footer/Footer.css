@@ -1,4 +1,4 @@
-.gpt3__footer {
+/* .gpt3__footer {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -111,7 +111,7 @@
 }
 
 /* === Media queries === */
-@media screen and (max-width: 850px) {
+/* @media screen and (max-width: 850px) {
     .gpt3__footer-heading h1 {
         font-size: 44px;
         line-height: 50px;
@@ -139,4 +139,4 @@
         font-size: 27px;
         line-height: 38px;
     }
-}
+} */
