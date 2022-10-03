@@ -7,28 +7,28 @@ import './NavBar.css';
 import logo from '../../assets/logo.png';
 
 
-const Menu = () => {
+const Menu = ({handleSignOut}) => {
 	return (
 		<>
 			<Link to='/projects'><p>Proyectos</p></Link>
 			<Link to='/about'><p><a href="#features">About JR</a></p></Link>
 			<Link to='/tools'><p><a href="#features">Tools</a></p></Link>
+            <p id='btnLogOutNavbar'><a onClick={(e) => handleSignOut(e)}>LogOut</a></p>
 		</>
 )}
 
 
 
-const SignBtns = ({handleSignOut, user}) => {
+const SignBtns = ({ user }) => {
 	
 	return (
 		<>
-			{!user.user 
+			{!user?.user 
 				? (<Link to="/login" className="links_profile_user">
 						<button className="btn" type="button">LogIn</button>
             		</Link>)
 				: ( <>
-						<p>Bienvenido {user?.user?.name} </p>
-						<button className="btn" type="button" onClick={(e) => handleSignOut(e)}>LogOut</button>
+						<img src={user.user.image} alt={user?.user.name} className="imageNavbarLogin"/>
 						<Link to="/miperfil" className="links_profile_user">
 							<button className="btn" type="button">Mi Perfil</button>
 						</Link>
@@ -38,14 +38,10 @@ const SignBtns = ({handleSignOut, user}) => {
 		</>
 )}
 
-/**
- * Navigation bar
- * @return {element} App navigation bar
- */
 export default function Navbar ({ handleSignOut }) {
 	const [toggleMenu, setToggleMenu] = useState(false) // Use for controll the mini menu
 	const [stickyNavbar, setStickyNavbar] = useState(false)
-	const { user, auser } = useSelector((state) => state.homepageReducer);
+	const { user } = useSelector((state) => state.homepageReducer);
 
 	
 	window.onscroll = function() {scrollFunction()};
@@ -67,13 +63,13 @@ export default function Navbar ({ handleSignOut }) {
 			<div className="navbar-links">
 				<div className="navbar-links_main_container">
 					<div className="navbar-links_container">
-						<Menu />
+						<Menu handleSignOut={handleSignOut}/>
 					</div>
 				</div>
 			</div>
 
 			<div className="navbar-sign">
-				<SignBtns handleSignOut={handleSignOut} user={user} />
+				<SignBtns user={user} />
 			</div>
 
 			<div className="navbar-menu">
@@ -85,11 +81,11 @@ export default function Navbar ({ handleSignOut }) {
 				{toggleMenu && (
 					<div className="navbar-menu_container scale-up-center">
 						<div className="navbar-menu_container-links">
-							<Menu />
+							<Menu handleSignOut={handleSignOut}/>
 						</div>
 
 						<div className="navbar-menu_container-links-sign">
-							<SignBtns />
+							<SignBtns user={user}/>
 						</div>
 					</div>
 				)}
