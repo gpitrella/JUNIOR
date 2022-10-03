@@ -1,7 +1,7 @@
 .main_box_pyProfile {
     padding: 250px;
     padding-top: 65px;
-    padding-bottom: 150px;
+    padding-bottom: 60px;
     align-items: center;
     justify-items: center;
     display: grid;
@@ -79,11 +79,32 @@
     justify-content: center;
 }
 
+.btnLogOutProfile {
+	padding: 0.5rem 1rem;
+	color: #fff;
+	background: #FF4820;
+	font-family: var(--font-family);
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 20px;
+    width: 150px;
+	border-radius: 5px;
+	border: 0;  
+}
+
+.positionBtnLoutProfile {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0px 0px 150px;
+}
+
+
 @media (min-width: 1000px) and (max-width: 1285px){
     .main_box_pyProfile{
         grid-template-columns: 1fr 1fr 1fr;
         justify-items: center;
-        padding: 65px 10rem 250px;
+        padding: 65px 10rem 60px;
         grid-gap: 20px;
         align-items: center;
     }
@@ -97,7 +118,7 @@
     .main_box_pyProfile{
         grid-template-columns: 1fr 1fr 1fr;
         justify-items: center;
-        padding: 65px 6rem 250px;
+        padding: 65px 6rem 60px;
         grid-gap: 20px;
         align-items: center;
     }
@@ -116,7 +137,7 @@
     .main_box_pyProfile{
         grid-template-columns: 1fr;
         justify-items: center;
-        padding: 65px 3rem 250px;
+        padding: 65px 3rem 50px;
         grid-gap: 20px;
         align-items: center;
     }
@@ -129,7 +150,7 @@
     .main_box_pyProfile{
         grid-template-columns: 1fr;
         justify-items: center;
-        padding: 65px 1rem 250px;
+        padding: 65px 1rem 50px;
         grid-gap: 20px;
         align-items: center;
     }

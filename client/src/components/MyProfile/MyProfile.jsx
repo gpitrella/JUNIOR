@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import './MyProfile.css';
 
-export default function MyProfile() {
+export default function MyProfile({handleSignOut}) {
   const [displayUserAdmin, setDisplayUserAdmin] = React.useState(false);
   const { user } = useSelector((state) => state.homepageReducer);
   
@@ -106,6 +106,9 @@ export default function MyProfile() {
             </Link>
           </CardActions>
         </Card>
+      </div>
+      <div className='positionBtnLoutProfile'>
+        <button className="btn btnLogOutProfile" type="button" onClick={(e) => handleSignOut(e)}>LogOut</button>
       </div>
     </div>
   );
