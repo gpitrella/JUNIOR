@@ -1,14 +1,17 @@
 import axios from 'axios';
-
+import { getHeaderWithToken } from '../../util/util';
 import {
   // FILTER_PROJECTS,
   GET_USER,
   LOG_IN,
   LOG_OUT,
   LOG_IN_ERROR,
+  CLEAN_LOG_IN_ERROR,
   BASE_URL,
   SIGN_UP,
   SEND_EMAIL,
+  CLEAN_SEND_EMAIL,
+  UPDATE_PASSWORD,
   SIGN_IN_GOOGLE,
   SIGN_IN_GITHUB,
   OPEN_MESSSAGE_MUST_LOGIN,
@@ -68,11 +71,35 @@ export const signUp = function(name, email, password, confirm_password) {
   }
 };
 
+
+// CLEAN_LOG_IN_ERROR
+export function cleanLogInError(){
+  return function(dispatch){
+    return dispatch({ type: CLEAN_LOG_IN_ERROR })
+  }
+};
+
 // Recover Email 
 export const sendEmail = function(email) {
   return function(dispatch){
     return axios.put(`${BASE_URL}/password/recoverpassword`, { email })
-                .then(data => dispatch({ type: SEND_EMAIL, payload: data.data}))
+    .then(data => dispatch({ type: SEND_EMAIL, payload: data.data}))
+    .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
+  }
+}; 
+
+// CLEAN_SEND_EMAIL
+export function cleanSendEmail(){  /// NO FUNCIONA
+  return {
+       type: CLEAN_SEND_EMAIL 
+  };
+};
+
+// Update Password 
+export const updatePassword = function(newPassword, token) {
+  return function(dispatch){
+    return axios.put(`${BASE_URL}/password/newpassword`, newPassword , getHeaderWithToken(token))
+                .then(data => console.log(data))
                 .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
   }
 };

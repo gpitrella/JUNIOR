@@ -73,7 +73,6 @@ export function getProjectsByUser(id){
 // CreateProject
 export function createProject(dataProject){
   return function(dispatch){
-    console.log('como llega al redux:', dataProject)
       return axios.post(`${BASE_URL}/projects/newproject`, dataProject)
                   .then(project => dispatch({ type: CREATE_PROJECTS, payload: project.data }))
                   .catch(error => console.log(error))
