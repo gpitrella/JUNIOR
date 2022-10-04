@@ -7,6 +7,8 @@ import { Background } from './containers';
 import Projects from './components/Projects/Projects';
 import LogIn from './components/LogIn/LogIn';
 import SignUp from './components/SignUp/SignUp';
+import SendEmail from './components/UpdatePassword/SendEmail/SendEmail';
+import UpdatePassword from './components/UpdatePassword/UpdatePassword';
 import Home from './containers/Home/Home';
 import AOS from 'aos'; // Animations on scrolling dependency
 import Navbar from './components/NavBar/NavBar';
@@ -111,6 +113,8 @@ export default function App() {
                 <Route exact path="/background" />
                 <Route exact path="/login" element={ user.user ? <Navigate to="/home"/> : <LogIn handleGoogle={handleGoogle} /> }  />
                 <Route exact path="/signup" element={ user.user ? <Navigate to="/home"/> : <SignUp/> } />
+                <Route exact path="/sendemail" element={ <SendEmail />  } />
+                <Route exact path="/updatepassword" component = {UpdatePassword} />
                 <Route exact path="/home" element={<Home />}/>
                 <Route exact path="/projects" element={<Projects />} />
                 <Route exact path="/About" element={<About />} />

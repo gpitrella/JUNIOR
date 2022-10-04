@@ -8,6 +8,7 @@ import {
   LOG_IN_ERROR,
   BASE_URL,
   SIGN_UP,
+  SEND_EMAIL,
   SIGN_IN_GOOGLE,
   SIGN_IN_GITHUB,
   OPEN_MESSSAGE_MUST_LOGIN,
@@ -66,6 +67,16 @@ export const signUp = function(name, email, password, confirm_password) {
                 .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
   }
 };
+
+// Recover Email 
+export const sendEmail = function(email) {
+  return function(dispatch){
+    return axios.put(`${BASE_URL}/password/recoverpassword`, { email })
+                .then(data => dispatch({ type: SEND_EMAIL, payload: data.data}))
+                .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
+  }
+};
+
 
 // Log Out User
 export const logOut = function() {

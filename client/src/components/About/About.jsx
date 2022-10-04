@@ -28,7 +28,7 @@ export default function AboutView() {
         </div>
       </div>
       <div className={s.aboutDevelopers}>
-        <h1 className={s.gradient__text}>Developers: </h1>
+        <h1 className={s.gradient__text}>Desarrolladores: </h1>
 
       </div>
 
