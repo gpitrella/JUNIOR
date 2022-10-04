@@ -58,14 +58,14 @@ export default function SignUp() {
       React.useEffect(() => {
         if(logInError.status === 404){
             setOpenEmail(true)
-            errors.email = logInError?.data.msg
+            errors.email = logInError?.data
             document.getElementById('email').classList.add('signup__group-incorrecto')
             document.getElementById('email').classList.remove('signup__group-correcto')
             document.querySelector('#email .signup__input-error').classList.add('signup__input-error-activo')
         }
         if(logInError.status === 401){
             setOpenEmail(true)
-            errors.password = logInError?.data.msg
+            errors.password = logInError?.data
             document.getElementById('email').classList.add('signup__group-incorrecto')
             document.getElementById('email').classList.remove('signup__group-correcto')
             document.querySelector('#email .signup__input-error').classList.add('signup__input-error-activo')
@@ -78,7 +78,7 @@ export default function SignUp() {
         <div className = {`signup__wrapper ${s.signUpContainer}`}>
 
                 <div className='signup__group'>
-                    <h1 className="signup__title">Sign Up</h1>
+                    <h1 className="signup__title">Registrarse</h1>
                 </div>
 
                 <div className='signup__group' id='username'>
@@ -132,9 +132,9 @@ export default function SignUp() {
                 </div>
                 
                 <div className='signup__group' >
-                <button type='submit' className="signup__btn" onClick={(e) => handleSubmit(e)} >Sign Up</button>
+                <button type='submit' className="signup__btn" onClick={(e) => handleSubmit(e)} >Registrarse</button>
                 </div>
-                <p className="signup__text">¿Ya tienes cuenta? <Link to='/login' className="link">Log In</Link></p>
+                <p className="signup__text">¿Ya tienes cuenta? <Link to='/login' className="link">Loguearse</Link></p>
 
                 <Snackbar autoHideDuration={4000} open={openEmail} onClose={handleCloseEmail}>
                     <Alert onClose={handleCloseEmail} severity="error" sx={{ width: '100%' }}>

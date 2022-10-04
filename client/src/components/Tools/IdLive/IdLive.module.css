@@ -1,0 +1,51 @@
+.main_box_code {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 800px;
+}
+
+.main_box_personalinformation {
+    font-family: var(--font-family);
+    padding-top: 0px;
+    padding-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.main_box_personalinformation h1 {
+    font-family: var(--font-family);
+	font-weight: 800;
+	font-size: 40px;
+	line-height: 75px;
+	letter-spacing: -0.04em;
+    align-self: center;
+}
+
+.textDescriptionCodeTool {
+	font-family: var(--font-family);
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+    padding: 0px 250px;
+	line-height: 27px;
+    text-align: justify;
+	color: var(--color-text);
+	margin-top: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.gradient__text {
+	background: var(--gradient-text);
+	background-clip: text;
+	-webkit-background-clop: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.title_personalinformation {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

@@ -27,8 +27,8 @@ export default function Footer() {
                     <h5>Contacto</h5>
                     <Link to='/projects'><h5>Proyectos</h5></Link>
                     <a href="#home"><img src={logo} alt="logo Junior footer" /></a>
-                    <Link to='/tools'><h5>Tools</h5></Link>
-                    <Link to='/about'><h5>About JR</h5></Link>
+                    <Link to='/tools'><h5>Herramientas</h5></Link>
+                    <Link to='/about'><h5>Sobre JR</h5></Link>
                 </div>
             </div>
         </div>

@@ -95,15 +95,16 @@ export default function LogIn({handleGoogle, github}) {
   }, [])
 
   React.useEffect(() => {
-    // console.log(logInError)
     if(logInError.status === 404){
       setOpenEmail(true)
-      errors.email = logInError.data.msg
+      errors.email = logInError.data
       document.getElementById('email').classList.add('login__group-incorrecto')
       document.getElementById('email').classList.remove('login__group-correcto')
       document.querySelector('#email .login__input-error').classList.add('login__input-error-activo')
     } 
   },[logInError]); 
+
+
 
 
   return (
@@ -112,7 +113,7 @@ export default function LogIn({handleGoogle, github}) {
       <div className = {`login__wrapper ${s.loginContainer}`}>
 
         <div className='login__group'>
-          <h1 className="login__title">Sign In</h1>
+          <h1 className="login__title">Logueo</h1>
         </div>
 
         <div className='login__group' id='email'>
@@ -141,9 +142,9 @@ export default function LogIn({handleGoogle, github}) {
             <p className = {`login__input-error ${s.errorMsg}`}>{errors.password}</p>
         </div>
         <div className='login__group' >
-          <button type='submit' className="login__btn" onClick={(e) => handleSubmit(e)} >Log In</button>
+          <button type='submit' className="login__btn" onClick={(e) => handleSubmit(e)} >Loguearse</button>
         </div>
-        <p className="login__text"><Link to='/sendemail' className="link">Forgot password?</Link></p>
+        <p className="login__text"><Link to='/sendemail' className="link">Olvidaste el password?</Link></p>
                     
           {redirect?.value ? <Navigate push to={'/'} underline="none" /> : null}
 

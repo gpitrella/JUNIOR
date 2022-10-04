@@ -4,6 +4,7 @@ export const GET_USER = 'GET_USER';
 export const LOG_IN = 'LOG_IN';
 export const LOG_OUT = 'LOG_OUT';
 export const SIGN_UP = 'SIGN_UP';
+export const SEND_EMAIL = 'SEND_EMAIL';
 export const SIGN_IN_GOOGLE = 'SIGN_IN_GOOGLE';
 export const SIGN_IN_GITHUB = 'SIGN_IN_GITHUB';
 export const LOG_IN_ERROR = 'LOG_IN_ERROR';

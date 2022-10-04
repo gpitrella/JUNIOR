@@ -1,27 +1,31 @@
 import * as React from 'react';
+import { CardActionArea, CardActions } from '@mui/material';
 import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
 import ModalTool from '../../ModalTool/ModalTool';
-import { designTool } from '../../../lib/constants';
+import { idLivePage } from '../../../lib/constants';
 import { Link } from 'react-router-dom';
-import s from './DesignTool.module.css';
+import s from './IdLive.module.css';
 
 
-export default function Code() {
+export default function IdLive() {
+
+
 
   return (
     <div className={s.main_box_personalinformation}>
       <h1 className={s.gradient__text}> HERRAMIENTAS </h1>
-      <h2 className={`${s.title_personalinformation} ${s.gradient__text}`}> Herramientas de Diseño </h2>
+      <h2 className={`${s.title_personalinformation} ${s.gradient__text}`}> Interfases de Desarrollo </h2>
       <p className={s.textDescriptionCodeTool}>
-          Una de las claves para que una aplicación o sitio web sea atractivo para el usuario es el diseño, la funcionacionalidad
-          y por su puesto la utilidad del mismo. Te brindamos a continuación una serie de herramientas de diseño para que 
-          puedas utilizarlas para diseñar tus proyectos o elementos del mismo.
+          Te brindamos diferentes interfases de desarrollo que te ayudaran a generar código, 
+          editarlo en línea y crear prototipos para ejecutar en el navegador web. Son herramientas ideales para crear
+          prototipos, modelos para aplicar posteriormente a tus proyectos.
 			</p>
       <div>
         {
-          designTool?.length === 0 
+          idLivePage?.length === 0 
              ? <h3>Todavía no hay Herramientas sumadas, ANIMATE y suma una. 🔧 </h3>
-             : designTool.map((tool) => {
+             : idLivePage.map((tool) => {
             return (
                 <div className={s.main_box_code} >
                   <ModalTool tool={tool} key={tool.id}/>

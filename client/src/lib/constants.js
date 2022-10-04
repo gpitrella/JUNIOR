@@ -163,7 +163,11 @@ export const designTool = [
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664629909/descarga_1_jy4dyu.png",
         link: 'https://www.canva.com/' 
     }
-];
+]; 
+
+// https://excalidraw.com/
+// https://codepen.io/
+
 
 export const youtubeTool = [
     { 
@@ -184,6 +188,14 @@ export const youtubeTool = [
         link: 'https://www.youtube.com/c/HolaMundoDev' 
     }
 ];
+
+// Fazt Code
+// https://www.youtube.com/c/VidaMRR
+// https://www.youtube.com/c/FernandoHerreraCr
+// https://www.youtube.com/c/Freecodecamp
+// https://www.youtube.com/c/CarlosAzaustre
+// https://www.youtube.com/c/midulive/videos
+
 
 export const meetTool = [
     { 
@@ -206,7 +218,99 @@ export const meetTool = [
     }
 ];
 
+// zoom gratis por 40 min
+// skype gratis
+// https://meet.jit.si/
+
 export const cvTool = [];
 
+export const idLivePage = [
+    { 
+        id: 1,
+        name: 'CodeSandbox',
+        description: `CodeSandbox es una plataforma para desarrolladores de aplicaciones. Cuenta con un editor 
+        de código en línea y una herramienta de creación de prototipos que se ejecuta en un navegador web. 
+        El código se puede compartir fácilmente con colegas y descargar rápidamente en formato zip para uso local. 
+        Es posible que varias personas trabajen en el programa al mismo tiempo con el uso de contenedores.`,
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664825297/codesandbox_ossmoh.png",
+        link: 'https://codesandbox.io/'
+    }, 
+    { 
+        id: 2,
+        name: 'Online-Ide',
+        description: `IDE en línea es una herramienta basada en la web impulsada por el editor de código ACE. 
+        Esta herramienta se puede utilizar para aprender, construir, ejecutar y probar su programa. Puede abrir 
+        el código desde su local y continuar compilando usando este IDE. El código y la salida se pueden descargar.`,
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664826308/online_c39xwy.png",
+        link: 'https://www.online-ide.com/' 
+    },
+    { 
+        id: 3,
+        name: 'Replit',
+        description: `Una de las ventajas principales por las que destaca Repl.it es su sencillo funcionamiento. Tal y 
+        como podras comprobar, tan solo es necesario seleccionar el lenguaje de programación con el que queremos trabajar 
+        y podremos empezar a programar. En concreto, la plataforma nos permite utilizar lenguajes tan populares como C#, 
+        C++, Java, JavaScript, Swift o Python, entre muchos otros.`,
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664826569/replit_crzmnb.png",
+        link: 'https://replit.com/'
+    }, 
+    { 
+        id: 4,
+        name: 'VS Code',
+        description: `Visual Studio Code es un editor de código fuente desarrollado por Microsoft. Es software 
+        libre y multiplataforma, está disponible para Windows, GNU/Linux y macOS. VS Code tiene una buena integración con 
+        Git, cuenta con soporte para depuración de código, y dispone de un sinnúmero de extensiones, que básicamente te da 
+        la posibilidad de escribir y ejecutar código en cualquier lenguaje de programación.`,
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664826792/vs_ppgmwu.png",
+        link: 'https://vscode.dev/' 
+    },
+]
 
+export const frontPage = [
+    { 
+        id: 1,
+        name: 'Vercel',
+        description: `Vercel es una plataforma en la nube para sitios estáticos y funciones sin servidor que se 
+        adapta perfectamente a su flujo de trabajo. Permite a los desarrolladores alojar sitios web y servicios 
+        web que se implementan instantáneamente, escalan automáticamente y no requieren supervisión, todo sin configuración.`,
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664827664/verc_u0q7tu.png",
+        link: 'https://vercel.com/'
+    }, 
+    { 
+        id: 2,
+        name: 'Netlify',
+        description: `Netlify es una plataforma que nace para automatizar proyectos webs estáticos. Aúna las tareas 
+        de integración continua y despliegue de infraestructura web en un solo flujo de ejecución.`,
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664827954/net_njsrse.png",
+        link: 'https://www.netlify.com/' 
+    }
+]
 
+export const backPage = [
+    { 
+        id: 1,
+        name: 'Render',
+        description: `Render hace que implementar su aplicación sea tan fácil como enviar su código al control de 
+        código fuente. Una vez que conecte su cuenta de GitHub o GitLab a su cuenta de Render, Render creará e 
+        implementará automáticamente sus servicios con cada impulso. Para obtener más información sobre cómo 
+        conectar sus cuentas de Git a Render, consulte nuestros documentos para GitHub y GitLab.`,
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664828343/rend_wgmaow.png",
+        link: 'https://render.com/'
+    }, 
+    { 
+        id: 2,
+        name: 'Fly.io',
+        description: `Fly.io es una plataforma global de distribución de aplicaciones. Ejecutan el 
+        código en microVM Firecracker en todo el mundo.`,
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664828503/fly_y7kdq2.png",
+        link: 'https://www.fly.io/' 
+    },
+    { 
+        id: 2,
+        name: 'Railway',
+        description: `Railway es una plataforma de infraestructura donde puede aprovisionar infraestructura, 
+        desarrollar con esa infraestructura localmente y luego implementar en la nube.`,
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664828683/riel_ojezyy.png",
+        link: 'https://railway.app/' 
+    },
+]
