@@ -79,7 +79,6 @@ export default function LogIn({handleGoogle, github}) {
         setErrors(validateEmail({...input,[e.target.name]: e.target.value}, errors))
         setErrors(validatePassword({...input,[e.target.name]: e.target.value}, errors))
     }
-    console.log('ERRORS',errors)
 
   const handleSubmit = (e) => {
       e.preventDefault();
@@ -113,7 +112,7 @@ export default function LogIn({handleGoogle, github}) {
       <div className = {`login__wrapper ${s.loginContainer}`}>
 
         <div className='login__group'>
-          <h1 className="login__title">Logueo</h1>
+          <h1 className="login__title">LogIn</h1>
         </div>
 
         <div className='login__group' id='email'>
@@ -170,13 +169,13 @@ export default function LogIn({handleGoogle, github}) {
 
           <Snackbar autoHideDuration={4000} open={openPassword} onClose={handleClosePassword}>
             <Alert onClose={handleClosePassword} severity="error" sx={{ width: '100%' }}>
-                Wrong password
+               Wrong Email or Password
             </Alert>
           </Snackbar>
 
           <Snackbar autoHideDuration={4000} open={openEmail} onClose={handleCloseEmail}>
             <Alert onClose={handleCloseEmail} severity="error" sx={{ width: '100%' }}>
-                Unregistered Email
+               Wrong Email or Password
             </Alert>
           </Snackbar>
 

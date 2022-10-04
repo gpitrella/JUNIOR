@@ -4,13 +4,18 @@ import {
   LOG_IN,
   LOG_OUT,
   LOG_IN_ERROR,
+  CLEAN_LOG_IN_ERROR,
   SIGN_UP,
   SIGN_IN_GOOGLE,
   SIGN_IN_GITHUB,
+  SEND_EMAIL,
+  CLEAN_SEND_EMAIL,
   OPEN_MESSSAGE_MUST_LOGIN,
   CLOSE_MESSSAGE_MUST_LOGIN,
   CLOSE_MODAL_INFO_COLLABORATOR,
-  OPEN_MODAL_INFO_COLLABORATOR
+  OPEN_MODAL_INFO_COLLABORATOR,
+  
+  
 } from '../actions/actiontype';
 import { LocalStorage } from '../../util/localStorage';
 
@@ -20,7 +25,8 @@ const initialState = {
   user: {},
   logInError: {},
   mustLoginMessage: { open: false, msg: 1 },
-  modalInfoCollaborator: false
+  modalInfoCollaborator: false,
+  passRecoveryMessage: {}
 };
 
 
@@ -74,6 +80,24 @@ const homepageReducer = function(state = initialState, { type, payload }) {
       return {
         ...state,
         logInError: payload
+      }
+
+    case CLEAN_LOG_IN_ERROR:
+      return {
+        ...state,
+        logInError: {}
+      }
+    case SEND_EMAIL: 
+      return {
+        ...state,
+        passRecoveryMessage: payload
+      }
+
+    case CLEAN_SEND_EMAIL:
+      console.log('ENTRE AL REDUCER')
+      return {
+        ...state,
+        passRecoveryMessage: {}
       }
     
     case OPEN_MESSSAGE_MUST_LOGIN:

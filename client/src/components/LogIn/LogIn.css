@@ -243,6 +243,7 @@
 .login__text{
   font-size: 16px;
   color: lightgray;
+  padding-bottom: 10px;
   /* margin-top: 15px; */
   /* margin-bottom: 40px; */
 }
@@ -278,7 +279,7 @@
 
 @media (max-width: 768px){
   .login__wrapper{
-    width: 380px;
+    width: 340px;
   }
   .login__group {
     width: 70%;
