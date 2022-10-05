@@ -20,7 +20,7 @@ export default function MyProfile({handleSignOut}) {
   // };
 
   React.useEffect(() => {
-    // dispatch(getProjectsByUser(user?.user._id))
+    dispatch(getProjectsByUser(user?.user._id, user?.token))
     if(user?.user){
       if(user.user?.admin){
         setDisplayUserAdmin(true);

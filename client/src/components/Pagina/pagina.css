@@ -10,19 +10,19 @@
        
 }
 
-.container-btn img {
-    width: 35px;
-    height: 35px;
-
-    
+.btn-page {
+    background: #5f63684f;
+    color: #fff;
+    height: 37px;
+    width: 37px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 20px;
+    padding: 0 10px;
+    letter-spacing: 0.1em;
 }
 
-.btn-page {
-    background: #000;
-	color: #fff;
-	height: 35px;
-	border-radius: 2px;
-	padding: 0 10px;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
+#nextButtonProject:hover {
+    background-color: rgba(224, 224, 224, 0.12);
+    border-radius: 20px;    
 }

@@ -1,9 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { selectPag } from "../../redux/actions/projectsActions";
-import "./pagina.css";
-import previo from "../../assets/flecha-izquierda.png";
-import siguiente from "../../assets/flecha-derecha.png";
+import IconButton from '@mui/material/IconButton';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+import "./Pagina.css";
 
 const Pagina = ({ currentPage, maxpage }) => {
   const dispatch = useDispatch();
@@ -25,15 +26,18 @@ const Pagina = ({ currentPage, maxpage }) => {
 
   return (
     <div className="container-btn">
-      <button onClick={clickPrev} type="button">
-        <img src={previo} alt="" />
-      </button>
+      <IconButton aria-label="next" variant="contained" onClick={clickPrev} >
+        <NavigateBeforeIcon id='nextButtonProject'sx={{ fontSize: 30, color: "white" }} />
+      </IconButton>
 
       <button className="btn-page">{currentPage}</button>
 
-      <button onClick={clickNext} type="button">
+      <IconButton aria-label="next" variant="contained" onClick={clickNext} >
+        <NavigateNextIcon id='nextButtonProject'sx={{ fontSize: 30, color: "white" }} />
+      </IconButton>
+      {/* <button onClick={clickNext} type="button">
         <img src={siguiente} alt="" />
-      </button>
+      </button> */}
     </div>
   );
 };
