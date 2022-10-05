@@ -107,6 +107,62 @@
   fill: var(--secondaryColor);
 }
 
+.projects_view {
+	display: flex;
+}
+
+.projects_view_content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.projects_view_content h1 {
+	font-family: var(--font-family);
+	font-weight: 800;
+	font-size: 30px;
+	line-height: 75px;
+	letter-spacing: -0.04em;
+}
+
+.projects_view_content p {
+	font-family: var(--font-family);
+	font-style: normal;
+	font-weight: normal;
+  font-size: 20px;
+	line-height: 27px;
+	color: var(--color-text);
+	margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.gradient__text {
+	background: var(--gradient-text);
+	background-clip: text;
+	-webkit-background-clop: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.detailsProjects {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px 25px;
+}
+
+.detailsProjects p {
+  font-family: var(--font-family);
+	font-style: normal;
+	font-weight: normal;
+  font-size: 16px;
+	line-height: 27px;
+  font-weight: 600;
+	color: white;
+	margin-top: 10px;
+}
+
 @keyframes rotateLoading {
   from {
     transform: rotate(0);

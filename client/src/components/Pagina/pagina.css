@@ -1,0 +1,28 @@
+.container-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 25px;
+    padding: 0px;
+    
+       
+}
+
+.btn-page {
+    background: #5f63684f;
+    color: #fff;
+    height: 37px;
+    width: 37px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 20px;
+    padding: 0 10px;
+    letter-spacing: 0.1em;
+}
+
+#nextButtonProject:hover {
+    background-color: rgba(224, 224, 224, 0.12);
+    border-radius: 20px;    
+}

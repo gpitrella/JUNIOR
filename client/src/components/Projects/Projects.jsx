@@ -1,29 +1,47 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import { useParams } from 'react-router-dom';
 import Lottie from 'react-lottie';
 import Sidebar from '../Sidebar/Sidebar.jsx';
+import Pagina from "../Pagina/Pagina.jsx";
 import CardProject from '../CardProject/CardProject';
 import { getAllProjects, getAllTechs } from '../../redux/actions/projectsActions.js';
-import { closeMessageMustLogin } from '../../redux/actions/generalActions.js';
+import { closeMessageMustLogin, openMessageMustLogin, openModalInfoCollaborator, closeModalInfoCollaborator } from '../../redux/actions/generalActions.js';
 import notProject from '../../assets/astronautnotproject.json';
+import ModalMessage from '../ModalMessage/ModalMessage';
+import ModalCollaborate from '../ModalCollaborate/ModalCollaborate';
+import { messagePopUp } from '../../lib/constants';
+
 import s from './Projects.module.css';
+import { style } from '@mui/system';
 
 export default function Projects() {
 
   const dispatch = useDispatch();
-  const { allProjects  } = useSelector(state => state.projectsReducer);
-  // const [ dispatching, setDispatching ] = React.useState(false);
-  // const [ queryName, setqueryName ] = React.useState('');
-  // const params = useParams();
+  const { user } = useSelector((state) => state.homepageReducer);
+  const { allProjects, pagina, numberAllProjects  } = useSelector(state => state.projectsReducer);
+  
+  let currentPage = 0;
+  currentPage = pagina;
 
   React.useEffect(()=> {
     dispatch(getAllProjects());
     dispatch(getAllTechs());
     return () => {
-      dispatch(closeMessageMustLogin());
+      dispatch(closeMessageMustLogin())
+      dispatch(closeModalInfoCollaborator())
     };
   }, [])
+
+  //? paginado
+  const maxpage = Math.ceil(allProjects?.length / 3);
+
+  const projectsToShow = () => {
+    const projectShow = allProjects?.slice(
+      (currentPage - 1) * 3,
+      (currentPage - 1) * 3 + 3
+    );
+    return projectShow;
+  };
 
   const defaultOptions = {
 		loop: true,
@@ -33,112 +51,49 @@ export default function Projects() {
 		  preserveAspectRatio: "xMidYMid slice"
 		}
 	};
-  // React.useEffect(() => {
 
-  //   let idTimeOut = setTimeout(() => {
-
-  //     if (params.discount) handleUpdateFilter('discount', true);
-  //     if (params.category) handleUpdateFilter('category', params.category);
-  //     if (params.brand) handleUpdateFilter('brand', [params.brand]);
-
-  //     dispatch(getBrandsToStore());
-  //     dispatch(getCategoriesToStore());
-
-  //   }, Math.random() * 400 + 1000);
-
-  //   return () => {
-  //     dispatch(closeStore());
-  //     setqueryName('');
-  //     setDispatching(false);
-  //     clearTimeout(idTimeOut);
-  //   }
-  // }, [])
-
-  // // React.useEffect(() => {
-  // //   if (params && params.name) {
-  // //     handleUpdateFilter('name', params.name);
-  // //     console.log('Actualizo el filtro por nombre.');
-  // //   }
-  // // }, [params.name]);
-
-  // // React.useEffect(() => {
-  // //   if (!showStore) return;
-  // //   console.log('Empiezo a cargar los productos con el filtro.', filter);
-  // //   dispatch(getProductsWithFiltersAndPaginate(buildFilter(filter)));
-  // //   dispatch(setShowLoading());
-  // // }, [showStore]);
-
-  // React.useEffect(() => {   
-  //   if (params.name !== queryName) setqueryName(params.name)
-  // }, [params.name])
-
-  // React.useEffect(() => {
-  //   if (!showStore || (dispatching && params.name === queryName)) return;
-
-  //   if (params && params.name) {
-  //     handleUpdateFilter('name', params.name);
-  //     dispatch(getProductsWithFiltersAndPaginate(buildFilter({
-  //       ...filter,
-  //       name: params.name,
-  //       page: 1,
-  //     })));
-  //   }
-  //   else {
-  //     dispatch(getProductsWithFiltersAndPaginate(buildFilter({
-  //       ...filter,
-  //       category: params.category ? params.category : 'None',
-  //       brand: params.brand ? [params.brand] : [],
-  //       discount: params.discount ? params.discount : false,
-  //       page: 1,
-  //       name: ''
-  //     })));
-  //   }
-  //   dispatch(setShowLoading());
-  //   setDispatching(true);
-  // }, [showStore, params.name]);
-
-  // let handleUpdateFilter = function(property, value) {
-  //   let newFilter = { 
-  //     ...filter,
-  //     [property]: value,
-  //     page: 1
-  //   }
-  //   if (property !== 'name') newFilter.name = '';
-  //   dispatch(updateFilter(newFilter));
-  // }
-
-  // if (!showStore) {
-  //   return (
-  //     <div className = {s.container}>
-  //       <div className = {s.imageContainer}>
-  //         <div className = {s.loadingContainer}>
-  //           {/* <Loading /> */} <h1>Cargando</h1>
-  //         </div>
-  //       </div>
-  //       <span className = {s.spanLoading}>Loading Store</span>
-  //     </div>
-  //   )
-  // }
+  function handleOpenMessageLogin() {
+    if(!user?.user) {
+      dispatch(openMessageMustLogin({ open: true, msg: 2 }));
+    } else {
+      dispatch(openModalInfoCollaborator())
+    }
+  }
 
   return (
         <>
           <div className = {s.containerProjects}>
             <Sidebar />
-              { allProjects?.length === 0 
+              { !projectsToShow()?.length  
                   ? <div className = {s.withoutCardsStore}>
+                    
                       <h2>Sin Proyectos con estos filtros</h2>
-                      <h2>aprovecha y crea el primero. </h2>             
+                      <h2>aprovecha y crea el primero. </h2>  
+       
                       <Lottie options={defaultOptions} height={400} width={400} />  
                     </div>
                   : <div className = {s.producCardsStore}>
+                      <div className={s.projects_view_content}>
+                        <h1 className={s.gradient__text}> PROYECTOS </h1>
+                        <p> Busca, crea y sumate a los proyectos desafiantes que más te atraigan.	</p>
+                      </div>    
+                                                 
+                      <div className={s.detailsProjects} >
+                        <p> Total Projectos: {numberAllProjects}	</p>
+                        <p> Projectos Filtrados: {allProjects.length}	</p>
+                        <Pagina currentPage={currentPage} maxpage={maxpage}></Pagina>
+
+                      </div>
                       {
-                        allProjects?.length > 0 && allProjects.map(project => {
-                          return (<CardProject key={project?._id} project={project}/>)
+                        projectsToShow()?.length > 0 && projectsToShow()?.map(project => {
+                          return (<CardProject key={project?._id} project={project} handleOpenMessageLogin={handleOpenMessageLogin}/>)
                         })
                       }
                     </div>
               }
           </div>
+          <ModalMessage message={messagePopUp}/>
+          <ModalCollaborate />
     </>
   );
 }

@@ -71,4 +71,3 @@ export const logout = async (req, res) => {
       success: true
   })
 };
-

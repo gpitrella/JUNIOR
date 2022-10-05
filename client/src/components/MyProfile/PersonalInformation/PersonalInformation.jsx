@@ -20,6 +20,8 @@ import EditIcon from '@mui/icons-material/Edit';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 // import { putDataUser, getUserDetail, putUpdatePassword, clearUpdateUser } from '../../../redux/actions'
 import { Link } from 'react-router-dom';
 import './PersonalInformation.css'
@@ -128,8 +130,9 @@ export default function PersonalInformation() {
 
   return (
     <div className='main_box_personalinformation'>
-    <h3 className='title_personalinformation'> Personal Information </h3>
-    <List className='box_main_personal' sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+      <h1 className="gradient__text"> MI PERFIL </h1>
+      <h2 className='title_personalinformation gradient__text'> Personal Information </h2>
+    <List className='box_main_personal' sx={{ width: '100%', maxWidth: 360, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 5, padding: 2 }}>
       <ListItem id='avatar_personal_information'>
         <ListItemAvatar>
           <Avatar
@@ -169,6 +172,22 @@ export default function PersonalInformation() {
       <ListItem>
         <ListItemAvatar>
           <Avatar>
+            <GitHubIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary={`GitHub: buscar no llega`} />
+      </ListItem>
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <LinkedInIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary={`Linkedin: buscar no llega`} />
+      </ListItem>
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar>
             <KeyIcon />
           </Avatar>
         </ListItemAvatar>
@@ -182,17 +201,17 @@ export default function PersonalInformation() {
     </Link>
     <div>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Edit Name:</DialogTitle>
+        <DialogTitle>Editar Nombre:</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Type your new Name.
+            Nuevo Nombre.
           </DialogContentText>
           <TextField
             autoFocus
             margin="dense"
             id="name"
             name='name'
-            label="New Name"
+            label="Nuevo Nombre"
             type="text"
             fullWidth
             variant="standard"
@@ -200,39 +219,39 @@ export default function PersonalInformation() {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleSendDataChange}>Edit</Button>
+          <Button onClick={handleClose}>Cancelar</Button>
+          <Button onClick={handleSendDataChange}>Editar</Button>
         </DialogActions>
       </Dialog>
     </div>
     <div>
       <Dialog open={openImg} onClose={handleClose}>
-        <DialogTitle>Edit Profile Image:</DialogTitle>
+        <DialogTitle>Editar Imagen Perfil:</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Select your Image.
+            Elegir Imagen
           </DialogContentText>
           <Button type="file" name="image" onChange={e => setImage(e.target.files)} variant="contained" ><input type="file" name="image"/> </Button>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={(e) => {upload(e)}}>Edit</Button>
+          <Button onClick={handleClose}>Cancelar</Button>
+          <Button onClick={(e) => {upload(e)}}>Editar</Button>
         </DialogActions>
       </Dialog>
     </div>
     <div>
       <Dialog open={openPhone} onClose={handleClose}>
-        <DialogTitle>Edit Phone Number:</DialogTitle>
+        <DialogTitle>Editar Teléfono:</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Type your new Phone Number.
+            Nuevo Número
           </DialogContentText>
           <TextField
             autoFocus
             margin="dense"
             id="phone"
             name="phone_number"
-            label="New Phone"
+            label="Nuevo Número"
             type="text"
             fullWidth
             variant="standard"
@@ -240,24 +259,24 @@ export default function PersonalInformation() {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleSendDataChange}>Edit</Button>
+          <Button onClick={handleClose}>Cancelar</Button>
+          <Button onClick={handleSendDataChange}>Editar</Button>
         </DialogActions>
       </Dialog>
     </div>
     <div>
       <Dialog open={openPassword} onClose={handleClose}>
-        <DialogTitle>Edit Password:</DialogTitle>
+        <DialogTitle>Editar Password:</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Type your new Password.
+             Nuevo Password
           </DialogContentText>
           <TextField
             autoFocus
             margin="dense"
             id="password"
             name="password"
-            label="New Password"
+            label="Nuevo Password"
             type="text"
             fullWidth
             variant="standard"
@@ -265,14 +284,14 @@ export default function PersonalInformation() {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleUpdatePassword}>Edit</Button>
+          <Button onClick={handleClose}>Cancelar</Button>
+          <Button onClick={handleUpdatePassword}>Editar</Button>
         </DialogActions>
       </Dialog>
     </div>
     <Snackbar open={openSuccessEditName} autoHideDuration={6000} onClose={handleCloseSuccessComment}>
         <Alert onClose={handleCloseSuccessComment} severity="success" sx={{ width: '100%' }}>
-            Information Update Successful!                
+            Info Actualizada Correctamente!                
         </Alert>
     </Snackbar>
 

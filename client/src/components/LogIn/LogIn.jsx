@@ -17,19 +17,25 @@ import dotenv from "dotenv";
 import s from './Login.module.css';
 dotenv.config();
 
+const REACT_APP_GITHUB = process.env.REACT_APP_GITHUB;
+
 export default function LogIn({handleGoogle, github}) {
   
   const [redirect, setRedirect] = useState({ value: false })
   const dispatch = useDispatch();
   // const [checkMailPassword, setCheckMailPassword] = useState(false)
-  const { auser } = useSelector((state) => state.homepageReducer);
-  // const { user, logInError } = useSelector((state) => state.general)
-  const [errorsEmail, setErrorsEmail] = useState({})
-  const [errorsPassword, setErrorsPassword] = useState({})
+  // const { auser } = useSelector((state) => state.homepageReducer);
+  const { logInError } = useSelector((state) => state.homepageReducer)
+  // const [errorsEmail, setErrorsEmail] = useState({})
+  // const [errorsPassword, setErrorsPassword] = useState({})
   const [openPassword, setOpenPassword] = useState(false);
   const [openEmail, setOpenEmail] = useState(false);
   const [openBanned, setOpenBanned] = useState(false);
-  
+  const [errors, setErrors] = useState({
+    email: "Add an email",
+    password: "Add a password"
+})
+ 
 
   const google = () => {
     window.open(`${BASE_URL}/auth/google`, "_self");
@@ -37,9 +43,9 @@ export default function LogIn({handleGoogle, github}) {
 
   const onSuccess = response => {
     dispatch(getUserGitHub(response.code));
-    //console.log('Respuesta OK de GitHub:', response);
   }
   const onFailure = response => console.error('Respuesta NG de GitHub:', response);
+
 
   const handleClosePassword = (event, reason) => {
     if (reason === 'clickaway') {
@@ -70,22 +76,34 @@ export default function LogIn({handleGoogle, github}) {
     const handleChange = (e) => {
         e.preventDefault();
         setInput({...input,[e.target.name]: e.target.value})
-        setErrorsEmail(validateEmail({...input,[e.target.name]: e.target.value}))
-        setErrorsPassword(validatePassword({...input,[e.target.name]: e.target.value}))
-        
+        setErrors(validateEmail({...input,[e.target.name]: e.target.value}, errors))
+        setErrors(validatePassword({...input,[e.target.name]: e.target.value}, errors))
     }
-    
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(logIn(input.email, input.password))
-    setErrorsEmail(validateEmail({...input,[e.target.name]: e.target.value}))
-    setErrorsPassword(validatePassword({...input,[e.target.name]: e.target.value}))
+      e.preventDefault();
+      setErrors(validateEmail({...input,[e.target.name]: e.target.value}, errors))
+      setErrors(validatePassword({...input,[e.target.name]: e.target.value}, errors))
+      if(Object.keys(errors).length === 0) {
+        dispatch(logIn(input.email, input.password))
+      }
   }
 
   React.useEffect(() => { 
     handleGoogle()
   }, [])
+
+  React.useEffect(() => {
+    if(logInError.status === 404){
+      setOpenEmail(true)
+      errors.email = logInError.data
+      document.getElementById('email').classList.add('login__group-incorrecto')
+      document.getElementById('email').classList.remove('login__group-correcto')
+      document.querySelector('#email .login__input-error').classList.add('login__input-error-activo')
+    } 
+  },[logInError]); 
+
+
 
 
   return (
@@ -94,7 +112,7 @@ export default function LogIn({handleGoogle, github}) {
       <div className = {`login__wrapper ${s.loginContainer}`}>
 
         <div className='login__group'>
-          <h1 className="login__title">Sign In</h1>
+          <h1 className="login__title">LogIn</h1>
         </div>
 
         <div className='login__group' id='email'>
@@ -107,7 +125,7 @@ export default function LogIn({handleGoogle, github}) {
             onChange={(e) => handleChange(e)}
             className = {`login__input ${s.input}`}
             />
-            <p className = {`login__input-error ${s.errorMsg}`}>{errorsEmail.email}</p>
+            <p className = {`login__input-error ${s.errorMsg}`}>{errors.email}</p>
         </div>
 
         <div className='login__group' id='password'>
@@ -120,14 +138,13 @@ export default function LogIn({handleGoogle, github}) {
             onChange={(e) => handleChange(e)}
             className = {`login__input ${s.input}`}
             />
-            <p className = {`login__input-error ${s.errorMsg}`}>{errorsPassword.password}</p>
+            <p className = {`login__input-error ${s.errorMsg}`}>{errors.password}</p>
         </div>
         <div className='login__group' >
-          <button type='submit' className="login__btn" onClick={(e) => handleSubmit(e)} >Log In</button>
+          <button type='submit' className="login__btn" onClick={(e) => handleSubmit(e)} >Loguearse</button>
         </div>
-        <p className="login__text"><Link to='/sendemail' className="link">Forgot password?</Link></p>
-          {/* {checkMailPassword.value ? (<p className='danger'>Something was wrong. Please check email or password.</p>) : null} */}
-          
+        <p className="login__text"><Link to='/sendemail' className="link">Olvidaste el password?</Link></p>
+                    
           {redirect?.value ? <Navigate push to={'/'} underline="none" /> : null}
 
           <div className="login__group">
@@ -135,42 +152,37 @@ export default function LogIn({handleGoogle, github}) {
           <div className="or">OR</div>
           </div>
           </div>
-          {/* <div className='login__group' >
-            <button type='submit' className="login__btn" onClick={handleGoogle} >Google</button>
-          </div> */}
+          
           <div className='login__google' >
               <div id="signInDiv"></div>
           </div>
           <div className="loginButton githublogin" id="example">
-            <LoginGithub className="loginGitHub" clientId={process.env.REACT_APP_GITHUB}
+            <LoginGithub className="loginGitHub" clientId={REACT_APP_GITHUB}
               onSuccess={onSuccess}
               onFailure={onFailure}
             />
             <img src={Github} alt="" className="icongithublogin" />
           </div>
-          {/* <div className='login__google' >
-              <div id="example"></div>
-          </div> */}
           
 
           <p className="login__text">No tienes cuenta? <Link to='/signup' className="link">Sign up aqui!</Link></p>
 
           <Snackbar autoHideDuration={4000} open={openPassword} onClose={handleClosePassword}>
-          <Alert onClose={handleClosePassword} severity="error" sx={{ width: '100%' }}>
-              Wrong password
-          </Alert>
+            <Alert onClose={handleClosePassword} severity="error" sx={{ width: '100%' }}>
+               Wrong Email or Password
+            </Alert>
           </Snackbar>
 
           <Snackbar autoHideDuration={4000} open={openEmail} onClose={handleCloseEmail}>
-          <Alert onClose={handleCloseEmail} severity="error" sx={{ width: '100%' }}>
-              Unregistered Email
-          </Alert>
+            <Alert onClose={handleCloseEmail} severity="error" sx={{ width: '100%' }}>
+               Wrong Email or Password
+            </Alert>
           </Snackbar>
 
           <Snackbar autoHideDuration={4000} open={openBanned} onClose={handleCloseBanned}>
-          <Alert onClose={handleCloseEmail} severity="error" sx={{ width: '100%' }}>
-              YOU ARE BANNED!!!
-          </Alert>
+            <Alert onClose={handleCloseEmail} severity="error" sx={{ width: '100%' }}>
+                YOU ARE BANNED!!!
+            </Alert>
           </Snackbar>
 
       </div>

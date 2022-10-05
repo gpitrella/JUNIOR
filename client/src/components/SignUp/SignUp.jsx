@@ -11,38 +11,41 @@ import s from './SignUp.module.css';
 
 export default function SignUp() {
 
+    const dispatch = useDispatch();
+    const { logInError } = useSelector((state) => state.homepageReducer)
+    const [openEmail, setOpenEmail] = useState(false);
     const [ input, setInput ] = useState({
         username: '',
         email: '',
         password: '',
         password2:''
     })
-    // const { logInError } = useSelector((state) => state.general)
 
-    const [errors, setErrors] = useState({})
-    const [errorsEmail, setErrorsEmail] = useState({})
-    const [errorsPasword, setErrorsPassword] = useState({})
-    const [errorsPassword2, setErrorsPassword2] = useState({})
-    const [openEmail, setOpenEmail] = useState(false);
+    const [errors, setErrors] = useState({
+        username: "Add a username",
+        email: "Add an email",
+        password: "Add a password",
+        password2: "Repeat password"
+    })
 
     const handleChange = (e) => {
         e.preventDefault();
         setInput({...input,[e.target.name]: e.target.value})
-        setErrors(validateUsername({...input,[e.target.name]: e.target.value}))
-        setErrorsEmail(validateEmail({...input,[e.target.name]: e.target.value}))
-        setErrorsPassword(validatePassword({...input,[e.target.name]: e.target.value}))
-        setErrorsPassword2(validatePassword2({...input,[e.target.name]: e.target.value}))
+        setErrors(validateUsername({...input,[e.target.name]: e.target.value}, errors))
+        setErrors(validateEmail({...input,[e.target.name]: e.target.value}, errors))
+        setErrors(validatePassword({...input,[e.target.name]: e.target.value}, errors))
+        setErrors(validatePassword2({...input,[e.target.name]: e.target.value}, errors))
     }
-
-    const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(signUp(input.username, input.email, input.password, input.password2))
-        setErrors(validateUsername({...input,[e.target.name]: e.target.value}))
-        setErrorsEmail(validateEmail({...input,[e.target.name]: e.target.value}))
-        setErrorsPassword(validatePassword({...input,[e.target.name]: e.target.value}))
-        setErrorsPassword2(validatePassword2({...input,[e.target.name]: e.target.value}))
+        setErrors(validateUsername({...input,[e.target.name]: e.target.value}, errors))
+        setErrors(validateEmail({...input,[e.target.name]: e.target.value}, errors))
+        setErrors(validatePassword({...input,[e.target.name]: e.target.value}, errors))
+        setErrors(validatePassword2({...input,[e.target.name]: e.target.value}, errors))
+        if(Object.keys(errors).length === 0) {
+            dispatch(signUp(input.username, input.email, input.password, input.password2))
+        }
       }
 
       const handleCloseEmail = (event, reason) => {
@@ -52,16 +55,22 @@ export default function SignUp() {
         setOpenEmail(false);
       };
 
-    //   React.useEffect(() => {
-    //     // console.log(logInError)
-    //     if(logInError.status === 404){
-    //         setOpenEmail(true)
-    //         errorsEmail.email = "Email aready used"
-    //         document.getElementById('email').classList.add('signup__group-incorrecto')
-    //         document.getElementById('email').classList.remove('signup__group-correcto')
-    //         document.querySelector('#email .signup__input-error').classList.add('signup__input-error-activo')
-    //     }
-    //   },[logInError]); 
+      React.useEffect(() => {
+        if(logInError.status === 404){
+            setOpenEmail(true)
+            errors.email = logInError?.data
+            document.getElementById('email').classList.add('signup__group-incorrecto')
+            document.getElementById('email').classList.remove('signup__group-correcto')
+            document.querySelector('#email .signup__input-error').classList.add('signup__input-error-activo')
+        }
+        if(logInError.status === 401){
+            setOpenEmail(true)
+            errors.password = logInError?.data
+            document.getElementById('email').classList.add('signup__group-incorrecto')
+            document.getElementById('email').classList.remove('signup__group-correcto')
+            document.querySelector('#email .signup__input-error').classList.add('signup__input-error-activo')
+        }
+      },[logInError]); 
     
     return (
 
@@ -69,7 +78,7 @@ export default function SignUp() {
         <div className = {`signup__wrapper ${s.signUpContainer}`}>
 
                 <div className='signup__group'>
-                    <h1 className="signup__title">Sign Up</h1>
+                    <h1 className="signup__title">Registrarse</h1>
                 </div>
 
                 <div className='signup__group' id='username'>
@@ -95,7 +104,7 @@ export default function SignUp() {
                     onChange={(e) => handleChange(e)}
                     className = {`signup__input ${s.input}`}
                     />
-                    <p className = {`signup__input-error ${s.errorMsg}`}>{errorsEmail.email}</p>
+                    <p className = {`signup__input-error ${s.errorMsg}`}>{errors.email}</p>
                 </div>
 
                 <div className='signup__group' id='password'>
@@ -107,7 +116,7 @@ export default function SignUp() {
                     onChange={(e) => handleChange(e)}
                     className = {`signup__input ${s.input}`}
                     />
-                    <p className = {`signup__input-error ${s.errorMsg}`}>{errorsPasword.password}</p>
+                    <p className = {`signup__input-error ${s.errorMsg}`}>{errors.password}</p>
                 </div>
 
                 <div className='signup__group' id='password2'>
@@ -119,13 +128,13 @@ export default function SignUp() {
                     onChange={(e) => handleChange(e)}
                     className = {`signup__input ${s.input}`}
                     />
-                    <p className = {`signup__input-error ${s.errorMsg}`}>{errorsPassword2.password2}</p>
+                    <p className = {`signup__input-error ${s.errorMsg}`}>{errors.password2}</p>
                 </div>
                 
                 <div className='signup__group' >
-                <button type='submit' className="signup__btn" onClick={(e) => handleSubmit(e)} >Sign Up</button>
+                <button type='submit' className="signup__btn" onClick={(e) => handleSubmit(e)} >Registrarse</button>
                 </div>
-                <p className="signup__text">¿Ya tienes cuenta? <Link to='/login' className="link">Log In</Link></p>
+                <p className="signup__text">¿Ya tienes cuenta? <Link to='/login' className="link">Loguearse</Link></p>
 
                 <Snackbar autoHideDuration={4000} open={openEmail} onClose={handleCloseEmail}>
                     <Alert onClose={handleCloseEmail} severity="error" sx={{ width: '100%' }}>

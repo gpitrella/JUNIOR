@@ -6,7 +6,7 @@
 }
 
 .login__wrapper {
-  width: 30vw;
+  width: 430px;
   height: 75hv;
   -webkit-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
   -moz-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
@@ -31,7 +31,8 @@
   font-weight: bold;
   cursor: pointer;
   margin: 0;
-  background-color: rgba(219, 83, 59, 0.825)
+  background-color: rgba(219, 83, 59, 0.825);
+  box-shadow: var(--mainShadow);
 }
 
 .logoGoogle {
@@ -109,7 +110,7 @@
 .login__input:focus{
   border: 3px solid rgb(0, 117, 255);
   outline: none;
-  box-shadow: 3px 0 3px rgba(163, 163, 163, 0.4);
+  box-shadow: var(--mainShadow)
 }
 
 .login__input-error{
@@ -151,6 +152,10 @@
   border-radius: 5px;
   transition: .3s ease all;
 }
+
+.signInDiv {
+  box-shadow: var(--mainShadow);
+}
   
 .login__btn{
   height: 45px;
@@ -164,6 +169,7 @@
   color: #fff;
   background: rgba(0, 117, 255, 0.671);
   font-weight: bold;
+  box-shadow: var(--mainShadow);
 }
 
 .loginTitle{
@@ -237,6 +243,7 @@
 .login__text{
   font-size: 16px;
   color: lightgray;
+  padding-bottom: 10px;
   /* margin-top: 15px; */
   /* margin-bottom: 40px; */
 }
@@ -247,10 +254,52 @@
   color: rgba(0, 117, 255, 0.671);
 }
 
+.loginButton{
+  width: 55%;
+  height: 45px;
+  padding: 15px 25px;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+  box-shadow: var(--mainShadow);
+}
+
+.github{
+  background-color: black;
+}
+
+.icon{
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
 @media (max-width: 768px){
   .login__wrapper{
-    width: 70vw;
+    width: 340px;
   }
+  .login__group {
+    width: 70%;
+  }
+  .loginButton {
+    width: 63%;
+  }
+}
+
+@media (max-width: 600px){
+  .login__wrapper{
+    width: 350px;
+  }
+  .login__group {
+    width: 75%;
+  }
+  .loginButton {
+    width: 68%;
+  }
+
 }
 
 

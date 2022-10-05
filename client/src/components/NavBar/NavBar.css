@@ -114,8 +114,19 @@
 	display: none;
 }
 
+.imageNavbarLogin {
+	width: 40px;
+	padding: 0px 5px;
+	border-radius: 20px;
+}
+
+#btnLogOutNavbar {
+	display: none;
+}
+
+
 /* === Media queries === */
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1100px) {
 
 	.navbar-links_container {
 		display: none;
@@ -124,15 +135,18 @@
 	.navbar-menu {
 		display: flex;
 	}
+	#btnLogOutNavbar {
+		display: block;
+	}
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 950px) {
 	.navbar {
 		padding: 2rem 4rem;
 	}
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 800px) {
 	.navbar {
 		padding: 2rem;
 	}

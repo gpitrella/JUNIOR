@@ -3,12 +3,17 @@ import {
   FILTER_PROJECTS,
   CREATE_PROJECTS,
   SHOW_MODAL_ADD_IMAGE,
-  CLOSE_MODAL_ADD_IMAGE
+  CLOSE_MODAL_ADD_IMAGE,
+  SELECTPAG,
+  GET_PROJECTS_BY_USER
 } from '../actions/actiontype';
 
 const initialState = {
   allProjects: [],
-  newProject: {}
+  newProject: {},
+  pagina: 1,
+  projectByUser: [],
+  numberAllProjects: 0
 };
 
 const projectsReducer = function(state = initialState, { type, payload }) {
@@ -16,13 +21,19 @@ const projectsReducer = function(state = initialState, { type, payload }) {
     case GET_ALL_PROJECTS:
       return {
         ...state,
-        allProjects: payload
+        allProjects: payload,
+        numberAllProjects: payload.length
       }
     case FILTER_PROJECTS:
       return {
         ...state,
-        allProjects: payload
+        allProjects: payload,
+        pagina: 1
       }
+    
+    case SELECTPAG:
+      return { ...state, pagina: payload };
+      
     case CREATE_PROJECTS:
       return {
         ...state,
@@ -47,6 +58,13 @@ const projectsReducer = function(state = initialState, { type, payload }) {
           uploadedImage: ''
         }
       }
+    
+    case GET_PROJECTS_BY_USER: 
+      return {
+        ...state,
+        projectUser: payload
+      }
+      
     default:
       return state;
   }

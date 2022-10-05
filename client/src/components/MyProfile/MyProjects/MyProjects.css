@@ -1,0 +1,73 @@
+.title_myprofile {
+    font-size: 30px;
+    padding-top: 50px;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.main_box_personalinformation {
+    font-family: var(--font-family);
+    padding-top: 0px;
+    padding-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.main_box_personalinformation h1 {
+    font-family: var(--font-family);
+	font-weight: 800;
+	font-size: 40px;
+	line-height: 75px;
+	letter-spacing: -0.04em;
+    align-self: center;
+}
+
+.gradient__text {
+	background: var(--gradient-text);
+	background-clip: text;
+	-webkit-background-clop: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.title_personalinformation {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.box_main_personal {
+    box-shadow: var(--mainShadow);
+    border-radius: 5px;
+}
+
+#btn_personalinformationEditProject {
+    margin-bottom: -45px;
+    margin-left: 50px;
+    font-size: 10px;
+    box-shadow: var(--mainShadow);
+}
+
+#avatar_personal_information {
+    justify-content: center;
+    
+}
+
+.myproyectsEdit {
+    display: flex;
+    flex-direction: column;
+}
+
+.myaddress_personalinformation{
+    margin: 0;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    display: block;
+}

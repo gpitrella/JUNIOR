@@ -10,25 +10,45 @@
 }
 
 .main_box_personalinformation {
+    font-family: var(--font-family);
     padding-top: 0px;
     padding-bottom: 70px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: white;
+}
+
+.main_box_personalinformation h1 {
+    font-family: var(--font-family);
+	font-weight: 800;
+	font-size: 40px;
+	line-height: 75px;
+	letter-spacing: -0.04em;
+    align-self: center;
+}
+
+.gradient__text {
+	background: var(--gradient-text);
+	background-clip: text;
+	-webkit-background-clop: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .title_personalinformation {
+    padding-top: 20px;
     padding-bottom: 20px;
 }
 
 .box_main_personal {
-    box-shadow: 3px 3px 5px 0px rgb(0 0 0 / 50%);
+    box-shadow: var(--mainShadow);
     border-radius: 5px;
 }
 
 #btn_personalinformation {
     margin-top: 30px;
+    box-shadow: var(--mainShadow);
 }
 
 #avatar_personal_information {
@@ -38,7 +58,6 @@
 
 .myaddress_personalinformation{
     margin: 0;
-    font-family: "Roboto","Helvetica","Arial",sans-serif;
     font-weight: 400;
     font-size: 1rem;
     line-height: 1.5;
