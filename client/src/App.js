@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import jwt_decode from "jwt-decode";
-import { getUser, logOut, signinGoogle } from './redux/actions/generalActions';
+import { logOut, signinGoogle } from './redux/actions/generalActions';
 import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { Background } from './containers';
 import Projects from './components/Projects/Projects';
@@ -59,7 +59,7 @@ export default function App() {
   function handleCallbackResponse(response) {
     var userObject = jwt_decode(response.credential);
     // setUser(userObject);
-    dispatch(getUser(userObject));
+    // dispatch(getUser(userObject));
     dispatch(signinGoogle(userObject));
     document.getElementById("signInDiv").hidden = true;
   }
@@ -97,9 +97,9 @@ export default function App() {
 
 
 
-  React.useEffect(() => {
-    dispatch(getUser());
-  }, []);
+  // React.useEffect(() => {
+  //   dispatch(getUser());
+  // }, []);
 
 
   return (

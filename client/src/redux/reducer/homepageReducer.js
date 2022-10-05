@@ -21,7 +21,7 @@ import { LocalStorage } from '../../util/localStorage';
 
 const initialState = {
   filterProjects: [],
-  auser: {},
+  // auser: {},
   user: {},
   logInError: {},
   mustLoginMessage: { open: false, msg: 1 },
@@ -37,11 +37,11 @@ const homepageReducer = function(state = initialState, { type, payload }) {
         ...state,
         filterProjects: payload
       }
-    case GET_USER:
-      return {
-        ...state,
-        auser: payload
-      }
+    // case GET_USER:
+    //   return {
+    //     ...state,
+    //     auser: payload
+    //   }
     case LOG_IN:
       LocalStorage.saveItem('user', payload);      
       return {
@@ -72,7 +72,7 @@ const homepageReducer = function(state = initialState, { type, payload }) {
     case LOG_OUT:
       return { 
         ...state,
-        auser: {},
+        // auser: {},
         user: {},
       }
 
