@@ -11,7 +11,12 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+
 import s from './CardProject.module.css';
+
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import HandshakeIcon from '@mui/icons-material/Handshake';
+
 
 // Desplegable
 import { styled } from '@mui/material/styles';
@@ -19,6 +24,8 @@ import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
+
+import s from './CardProject.module.css';
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -112,17 +119,17 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
                 }
             </AccordionDetails>
           </Accordion>
-
           
         
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
           <IconButton aria-label="previous">
-            <GitHubIcon sx={{ height: 40, width: 40 }}/>
+            <GitHubIcon sx={{ height: 40, width: 40, color: 'white' }}/>
           </IconButton>
           <IconButton aria-label="next">
-            <WhatsAppIcon sx={{ height: 40, width: 40 }}/>
+            <WhatsAppIcon sx={{ height: 40, width: 40, color: 'white' }}/>
           </IconButton>
+
           <Typography variant="subtitle1" color="text.secondary" component="div">
             <span className='titleTechs'>Techs: </span>{ 
                 project?.tech?.length > 0 && project?.tech.map(element => {
@@ -130,6 +137,7 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
               })
             }
         </Typography>
+
         </Box>
       </Box>
       <CardMedia
@@ -140,6 +148,7 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
           height: 200,
           borderBottomLeftRadius: 100,
           borderTopLeftRadius: 100,
+          backgroundColor: '#424242'
         }}
         src={project.image}
         alt={project.title}

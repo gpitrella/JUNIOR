@@ -10,7 +10,7 @@ export default function Sidebar() {
   
   return (
     <>
-      <div id="componentSidebar" className = {`${s.container} ${showSidebarResponsive ? s.showSidebarResponsive : ''}`}>
+      <div id="debar" className = {`${s.container} ${showSidebarResponsive ? s.showSidebarResponsive : ''}`}>
         <Links />
         <Filters />
         {
