@@ -77,6 +77,7 @@ export default function Projects() {
                         <h1 className={s.gradient__text}> PROYECTOS </h1>
                         <p> Busca, crea y sumate a los proyectos desafiantes que más te atraigan.	</p>
                       </div>    
+                                                 
                       <div className={s.detailsProjects} >
                         <p> Total Projectos: {numberAllProjects}	</p>
                         <p> Projectos Filtrados: {allProjects.length}	</p>
