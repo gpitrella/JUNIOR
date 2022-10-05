@@ -49,8 +49,9 @@ export default function UpdatePassword() {
         dispatch(cleanLogInError);
         dispatch(logOut())
         navigate('/login');
+        
       };
-
+console.log('HOLA')
   return (
     <div className="login">
         <div className = {`update__wrapper ${s.updateContainer}`}>

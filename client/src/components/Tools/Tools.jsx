@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import code from '../../assets/code.json';
 import organization from '../../assets/organization.json';
 import design from '../../assets/design.json';
