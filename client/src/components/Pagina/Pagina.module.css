@@ -1,4 +1,4 @@
-.container-btn {
+.container_btn {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -10,7 +10,7 @@
        
 }
 
-.btn-page {
+.btn_page {
     background: #5f63684f;
     color: #fff;
     height: 37px;
