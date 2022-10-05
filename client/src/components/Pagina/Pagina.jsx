@@ -4,9 +4,9 @@ import { selectPag } from "../../redux/actions/projectsActions";
 import IconButton from '@mui/material/IconButton';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import './Pagina.css';
+import s from './Pagina.module.css';
 
-const Pagina = ({ currentPage, maxpage }) => {
+export default function Pagina ({ currentPage, maxpage }) {
   const dispatch = useDispatch();
 
   // functions for change pages
@@ -25,21 +25,18 @@ const Pagina = ({ currentPage, maxpage }) => {
   };
 
   return (
-    <div className="container-btn">
-      <IconButton aria-label="next" variant="contained" onClick={clickPrev} >
+    <div className={s.container_btn}>
+      <IconButton aria-label="next" variant={s.contained} onClick={clickPrev} >
         <NavigateBeforeIcon id='nextButtonProject'sx={{ fontSize: 30, color: "white" }} />
       </IconButton>
 
-      <button className="btn-page">{currentPage}</button>
+      <button className={s.btn_page}>{currentPage}</button>
 
       <IconButton aria-label="next" variant="contained" onClick={clickNext} >
         <NavigateNextIcon id='nextButtonProject'sx={{ fontSize: 30, color: "white" }} />
       </IconButton>
-      {/* <button onClick={clickNext} type="button">
-        <img src={siguiente} alt="" />
-      </button> */}
     </div>
   );
 };
 
-export default Pagina;
+
