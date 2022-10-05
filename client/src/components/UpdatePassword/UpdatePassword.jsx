@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { validatePassword, validatePassword2 } from './validate.jsx';
 import { updatePassword } from '../../redux/actions/generalActions';
-import { cleanSendEmail, cleanLogInError } from '../../redux/actions/generalActions';
+import { cleanSendEmail, cleanLogInError, logOut } from '../../redux/actions/generalActions';
 import './UpdatePassword.css'
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -47,6 +47,7 @@ export default function UpdatePassword() {
         e.preventDefault();
         dispatch(cleanSendEmail);
         dispatch(cleanLogInError);
+        dispatch(logOut())
         navigate('/login');
       };
 

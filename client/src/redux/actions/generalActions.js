@@ -20,20 +20,20 @@ import {
   CLOSE_MODAL_INFO_COLLABORATOR
 } from './actiontype';
 
-// Take Auth User
-export const getUser = function() {
-  return function(dispatch){
-    return axios.get(`${BASE_URL}/auth/login/success`)
-                .then((response) => {
-                  if (response.status === 200) return response;
-                  throw new Error("authentication has been failed!");
-                })
-                .then((resObject) => dispatch({ type: GET_USER, payload: resObject.user}))      
-                .catch((err) => {
-                  console.log(err);
-                });
-  }
-};
+// // Take Auth User
+// export const getUser = function() {
+//   return function(dispatch){
+//     return axios.get(`${BASE_URL}/auth/login/success`)
+//                 .then((response) => {
+//                   if (response.status === 200) return response;
+//                   throw new Error("authentication has been failed!");
+//                 })
+//                 .then((resObject) => dispatch({ type: GET_USER, payload: resObject.user}))      
+//                 .catch((err) => {
+//                   console.log(err);
+//                 });
+//   }
+// };
 
 // Log In User
 export const logIn = function(email, password) {
@@ -98,7 +98,7 @@ export function cleanSendEmail(){  /// NO FUNCIONA
 // Update Password 
 export const updatePassword = function(newPassword, token) {
   return function(dispatch){
-    return axios.put(`${BASE_URL}/password/newpassword`, newPassword , getHeaderWithToken(token))
+    return axios.put(`${BASE_URL}/password/newpassword/?newPassword=${newPassword}`, getHeaderWithToken(token))
                 .then(data => console.log(data))
                 .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
   }
@@ -111,13 +111,6 @@ export const logOut = function() {
     return dispatch({ type: LOG_OUT })
   }
 };
-// export const logOut = function() {
-//   return function(dispatch){
-//     return axios.post(`${BASE_URL}/auth/logout`)
-//                 .then(data => dispatch({ type: LOG_OUT, payload: data.data}))
-//                 .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
-//   }
-// };
 
 // Open Message Must Login
 export function openMessageMustLogin(msg){
