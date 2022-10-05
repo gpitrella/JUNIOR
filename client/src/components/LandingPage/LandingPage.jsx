@@ -3,7 +3,7 @@ import $ from 'jquery';
 import { Link } from 'react-router-dom';
 import Typewriter from 'typewriter-effect';
 import logo from './logoJRremovebg.png';
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import rocketLP from '../../assets/rocketLP.json';
 import './LandingPage.scss';
 

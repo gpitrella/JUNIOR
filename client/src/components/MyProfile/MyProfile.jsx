@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import { getProjectsByUser } from '../../redux/actions/projectsActions';
 import personalInformation from '../../assets/personalInformation.json';
 import team from '../../assets/team.json';

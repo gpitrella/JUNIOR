@@ -1,6 +1,6 @@
 import React from 'react';
 import Feature from '../../components/Feature.jsx';
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import astronaut from '../../assets/astronaut-notebook.json';
 import styled from './Features.module.css';
 
