@@ -4,7 +4,7 @@ import Alert from "../../components/Alert";
 
 import './Header.css';
 import people from '../../assets/people.png';
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import simpleRoquet from '../../assets/simple_rocket.json';
 
 

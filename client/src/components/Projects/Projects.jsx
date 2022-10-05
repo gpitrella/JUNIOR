@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import Sidebar from '../Sidebar/Sidebar.jsx';
 import Pagina from "../Pagina/Pagina.jsx";
 import CardProject from '../CardProject/CardProject';
