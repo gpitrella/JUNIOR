@@ -12,7 +12,8 @@ const initialState = {
   allProjects: [],
   newProject: {},
   pagina: 1,
-  projectByUser: []
+  projectByUser: [],
+  numberAllProjects: 0
 };
 
 const projectsReducer = function(state = initialState, { type, payload }) {
@@ -20,7 +21,8 @@ const projectsReducer = function(state = initialState, { type, payload }) {
     case GET_ALL_PROJECTS:
       return {
         ...state,
-        allProjects: payload
+        allProjects: payload,
+        numberAllProjects: payload.length
       }
     case FILTER_PROJECTS:
       return {
