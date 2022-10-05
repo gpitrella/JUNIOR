@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import './MyProfile.css';
 
-export default function MyProfile({handleSignOut}) {
+export default function MyProfile({ handleSignOut }) {
   const [displayUserAdmin, setDisplayUserAdmin] = React.useState(false);
   const { user } = useSelector((state) => state.homepageReducer);
   

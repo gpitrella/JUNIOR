@@ -73,7 +73,7 @@ const homepageReducer = function(state = initialState, { type, payload }) {
       return { 
         ...state,
         auser: {},
-        user: payload
+        user: {},
       }
 
     case LOG_IN_ERROR: 

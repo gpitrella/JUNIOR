@@ -108,11 +108,16 @@ export const updatePassword = function(newPassword, token) {
 // Log Out User
 export const logOut = function() {
   return function(dispatch){
-    return axios.post(`${BASE_URL}/auth/logout`)
-                .then(data => dispatch({ type: LOG_OUT, payload: data.data}))
-                .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
+    return dispatch({ type: LOG_OUT })
   }
 };
+// export const logOut = function() {
+//   return function(dispatch){
+//     return axios.post(`${BASE_URL}/auth/logout`)
+//                 .then(data => dispatch({ type: LOG_OUT, payload: data.data}))
+//                 .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
+//   }
+// };
 
 // Open Message Must Login
 export function openMessageMustLogin(msg){
