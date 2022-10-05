@@ -67,6 +67,7 @@ export default function App() {
   function handleSignOut(e) {
     //setUser({}); -- aca va la accion para borrar auser
     e.preventDefault();
+    console.log("POR DESPACHAR LOGOUT")
     dispatch(logOut());
     if(location.pathname.includes("miperfil")) {
       navigate('/home');
