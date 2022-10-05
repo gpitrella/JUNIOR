@@ -4,7 +4,7 @@ import { selectPag } from "../../redux/actions/projectsActions";
 import IconButton from '@mui/material/IconButton';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import "./Pagina.css";
+import './Pagina.css';
 
 const Pagina = ({ currentPage, maxpage }) => {
   const dispatch = useDispatch();
