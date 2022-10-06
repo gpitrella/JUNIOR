@@ -1,5 +1,5 @@
 {
-  "name": "gpt3_lp_ex",
+  "name": "junior_app",
   "version": "2.0.0",
   "private": true,
   "dependencies": {
@@ -33,7 +33,7 @@
     "redux": "^4.1.0",
     "redux-devtools-extension": "^2.13.9",
     "sass": "^1.54.4",
-    "styled-components": "^5.3.5",
+    "styled-components": "^5.3.6",
     "three": "^0.135.0",
     "typewriter-effect": "^2.19.0",
     "validator": "^13.7.0",
