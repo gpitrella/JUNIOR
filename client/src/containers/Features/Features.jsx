@@ -1,6 +1,6 @@
 import React from 'react';
 import Feature from '../../components/Feature.jsx';
-import Lottie from 'lottie-react';
+import { useLottie } from "lottie-react";
 import astronaut from '../../assets/astronaut-notebook.json';
 import styled from './Features.module.css';
 
@@ -20,28 +20,19 @@ const featuresData = [
 	},
 ];
 
-const defaultOptions = {
-	loop: true,
-	autoplay: true,
-	animationData: astronaut,
-	rendererSettings: {
-	  preserveAspectRatio: "xMidYMid slice"
-	}
-};
 
-/**
- * Features of GPT3
- * @return {element} a component that shows GPT3 features
- */
-const Features = () => {
+export default function Features () {
+	// Lottie
+	const options = {
+		animationData: astronaut,
+		loop: true
+	};	
+	const { View } = useLottie(options);
+
 	return (
 		<div className={`${styled.features} ${styled.section__padding}`} id={styled.features}> 
 			<div id={styled.lotties_notebook_astronaut}>
-				<Lottie
-					options={defaultOptions}
-					height={300}
-					width={300}
-				/>
+				{ View }
 			</div>
 			<div className={styled.features_main}>
 				<div className={styled.features_heading}>
@@ -57,6 +48,4 @@ const Features = () => {
 			</div>
 		</div>
 	)
-}
-
-export default Features;
+};
