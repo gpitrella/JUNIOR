@@ -1,18 +1,15 @@
 import * as React from 'react';
-import { CardActionArea, CardActions } from '@mui/material';
 import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
 import ModalTool from '../../ModalTool/ModalTool';
 import { codePage } from '../../../lib/constants';
 import { Link } from 'react-router-dom';
 import s from './Code.module.css';
 
-
 export default function Code() {
 
   return (
     <div className={s.main_box_personalinformation}>
-      <h1 className={s.gradient__text}> TOOLS </h1>
+      <h1 className={s.gradient__text}> HERRAMIENTAS </h1>
       <h2 className={`${s.title_personalinformation} ${s.gradient__text}`}> Herramientas para Codear </h2>
       <p className={s.textDescriptionCodeTool}>
           Te brindamos un detalle general de diferentes plataformas gratuitas en donde puedes practicar y mejorar con el lenguaje 

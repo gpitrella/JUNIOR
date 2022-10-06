@@ -4,10 +4,14 @@ export const GET_USER = 'GET_USER';
 export const LOG_IN = 'LOG_IN';
 export const LOG_OUT = 'LOG_OUT';
 export const SIGN_UP = 'SIGN_UP';
+export const SEND_EMAIL = 'SEND_EMAIL';
+export const CLEAN_SEND_EMAIL = 'CLEAN_SEND_EMAIL';
+export const UPDATE_PASSWORD = 'UPDATE_PASSWORD';
 export const SIGN_IN_GOOGLE = 'SIGN_IN_GOOGLE';
 export const SIGN_IN_GITHUB = 'SIGN_IN_GITHUB';
 export const LOG_IN_ERROR = 'LOG_IN_ERROR';
 export const GET_ALL_USERS = 'GET_ALL_USERS';
+export const CLEAN_LOG_IN_ERROR = 'CLEAN_LOG_IN_ERROR';
 
 // PROJECTS ACTIONS
 export const GET_ALL_PROJECTS = 'GET_ALL_PROJECTS';

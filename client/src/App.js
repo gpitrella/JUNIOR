@@ -1,12 +1,14 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import jwt_decode from "jwt-decode";
-import { getUser, logOut, signinGoogle } from './redux/actions/generalActions';
+import { logOut, signinGoogle } from './redux/actions/generalActions';
 import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { Background } from './containers';
 import Projects from './components/Projects/Projects';
 import LogIn from './components/LogIn/LogIn';
 import SignUp from './components/SignUp/SignUp';
+import SendEmail from './components/UpdatePassword/SendEmail/SendEmail';
+import UpdatePassword from './components/UpdatePassword/UpdatePassword.jsx';
 import Home from './containers/Home/Home';
 import AOS from 'aos'; // Animations on scrolling dependency
 import Navbar from './components/NavBar/NavBar';
@@ -24,7 +26,10 @@ import OrganizationTool from './components/Tools/OrganizationTool/OrganizationTo
 import DesignTool from './components/Tools/DesignTool/DesignTool';
 import YouTuveTool from './components/Tools/YouTubeTool/YouTubeTool';
 import MeetTool from './components/Tools/MeetTool/MeetTool';
-import CvTool from './components/Tools/CvTool/CvTool'
+import CvTool from './components/Tools/CvTool/CvTool';
+import IdLiveTool from './components/Tools/IdLive/IdLive';
+import FrontDeploy from './components/Tools/FrontDeploy/FrontDeploy';
+import BackDeploy from './components/Tools/BackDeploy/BackDeploy';
 import dotenv from "dotenv";
 import LandingPage from './components/LandingPage/LandingPage.jsx';
 import './App.css';
@@ -55,7 +60,7 @@ export default function App() {
   function handleCallbackResponse(response) {
     var userObject = jwt_decode(response.credential);
     // setUser(userObject);
-    dispatch(getUser(userObject));
+    // dispatch(getUser(userObject));
     dispatch(signinGoogle(userObject));
     document.getElementById("signInDiv").hidden = true;
   }
@@ -63,6 +68,7 @@ export default function App() {
   function handleSignOut(e) {
     //setUser({}); -- aca va la accion para borrar auser
     e.preventDefault();
+    console.log("POR DESPACHAR LOGOUT")
     dispatch(logOut());
     if(location.pathname.includes("miperfil")) {
       navigate('/home');
@@ -92,9 +98,9 @@ export default function App() {
 
 
 
-  React.useEffect(() => {
-    dispatch(getUser());
-  }, []);
+  // React.useEffect(() => {
+  //   dispatch(getUser());
+  // }, []);
 
   return (
      <React.Fragment>
@@ -108,6 +114,8 @@ export default function App() {
                 <Route exact path="/background" />
                 <Route exact path="/login" element={ user.user ? <Navigate to="/home"/> : <LogIn handleGoogle={handleGoogle} /> }  />
                 <Route exact path="/signup" element={ user.user ? <Navigate to="/home"/> : <SignUp/> } />
+                <Route exact path="/sendemail" element={ <SendEmail />  } />
+                <Route exact path="/newpassword" element = {<UpdatePassword />} />
                 <Route exact path="/home" element={<Home />}/>
                 <Route exact path="/projects" element={<Projects />} />
                 <Route exact path="/halloffame" element={<HallOfFameView />} />
@@ -124,7 +132,10 @@ export default function App() {
                 <Route exact path ="/tools/design" element= {<DesignTool />}  /> 
                 <Route exact path ="/tools/youtube" element= {<YouTuveTool />}  />
                 <Route exact path ="/tools/meet" element= {<MeetTool />}  /> 
-                <Route exact path ="/tools/cv" element= {<CvTool />}  />              
+                <Route exact path ="/tools/cv" element= {<CvTool />}  />  
+                <Route exact path ="/tools/idlive" element= {<IdLiveTool />} /> 
+                <Route exact path ="/tools/frontdeploy" element= {<FrontDeploy />} /> 
+                <Route exact path ="/tools/backdeploy" element= {<BackDeploy />} />           
                 <Route exact path='*' component={<Navigate to="/home"/>} />
           </Routes> 
         { location.pathname !== '/' && <Footer /> }

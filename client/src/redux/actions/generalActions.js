@@ -1,13 +1,17 @@
 import axios from 'axios';
-
+import { getHeaderWithToken } from '../../util/util';
 import {
   // FILTER_PROJECTS,
   GET_USER,
   LOG_IN,
   LOG_OUT,
   LOG_IN_ERROR,
+  CLEAN_LOG_IN_ERROR,
   BASE_URL,
   SIGN_UP,
+  SEND_EMAIL,
+  CLEAN_SEND_EMAIL,
+  UPDATE_PASSWORD,
   SIGN_IN_GOOGLE,
   SIGN_IN_GITHUB,
   OPEN_MESSSAGE_MUST_LOGIN,
@@ -17,27 +21,27 @@ import {
   CLOSE_MODAL_INFO_COLLABORATOR,
 } from './actiontype';
 
-// Take Auth User
-export const getUser = function() {
-  return function(dispatch){
-    return axios.get(`${BASE_URL}/auth/login/success`)
-                .then((response) => {
-                  if (response.status === 200) return response;
-                  throw new Error("authentication has been failed!");
-                })
-                .then((resObject) => dispatch({ type: GET_USER, payload: resObject.user}))      
-                .catch((err) => {
-                  console.log(err);
-                });
-  }
-};
+// // Take Auth User
+// export const getUser = function() {
+//   return function(dispatch){
+//     return axios.get(`${BASE_URL}/auth/login/success`)
+//                 .then((response) => {
+//                   if (response.status === 200) return response;
+//                   throw new Error("authentication has been failed!");
+//                 })
+//                 .then((resObject) => dispatch({ type: GET_USER, payload: resObject.user}))      
+//                 .catch((err) => {
+//                   console.log(err);
+//                 });
+//   }
+// };
 
 // Log In User
 export const logIn = function(email, password) {
   return function(dispatch){
     return axios.post(`${BASE_URL}/auth/signin`, {email, password})
                 .then(data => dispatch({ type: LOG_IN, payload: data.data}))
-                .catch(error => console.log(error))
+                .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
   }
 };
 
@@ -68,12 +72,44 @@ export const signUp = function(name, email, password, confirm_password) {
   }
 };
 
+
+// CLEAN_LOG_IN_ERROR
+export function cleanLogInError(){
+  return function(dispatch){
+    return dispatch({ type: CLEAN_LOG_IN_ERROR })
+  }
+};
+
+// Recover Email 
+export const sendEmail = function(email) {
+  return function(dispatch){
+    return axios.put(`${BASE_URL}/password/recoverpassword`, { email })
+    .then(data => dispatch({ type: SEND_EMAIL, payload: data.data}))
+    .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
+  }
+}; 
+
+// CLEAN_SEND_EMAIL
+export function cleanSendEmail(){  /// NO FUNCIONA
+  return {
+       type: CLEAN_SEND_EMAIL 
+  };
+};
+
+// Update Password 
+export const updatePassword = function(newPassword, token) {
+  return function(dispatch){
+    return axios.put(`${BASE_URL}/password/newpassword/?newPassword=${newPassword}`, getHeaderWithToken(token))
+                .then(data => console.log(data))
+                .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
+  }
+};
+
+
 // Log Out User
 export const logOut = function() {
   return function(dispatch){
-    return axios.post(`${BASE_URL}/auth/logout`)
-                .then(data => dispatch({ type: LOG_OUT, payload: data.data}))
-                .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
+    return dispatch({ type: LOG_OUT })
   }
 };
 

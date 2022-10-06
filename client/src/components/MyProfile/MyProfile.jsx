@@ -1,47 +1,34 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-import Lottie from 'react-lottie';
+import { useLottie } from "lottie-react";
 import { getProjectsByUser } from '../../redux/actions/projectsActions';
 import personalInformation from '../../assets/personalInformation.json';
 import team from '../../assets/team.json';
 import projectPersonal from '../../assets/projectPersonal.json';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import './MyProfile.css';
+import CardProfile from './CardProfile/CardProfile';
+import s from './MyProfile.module.css';
 
-export default function MyProfile({handleSignOut}) {
-  const [displayUserAdmin, setDisplayUserAdmin] = React.useState(false);
+export default function MyProfile({ handleSignOut }) {
   const { user } = useSelector((state) => state.homepageReducer);
-  
   const dispatch = useDispatch(); 
-  // const openFavorite = () => {
-  //     dispatch(showFavs())
-  // };
-
+  
   React.useEffect(() => {
-    // dispatch(getProjectsByUser(user?.user._id))
-    if(user?.user){
-      if(user.user?.admin){
-        setDisplayUserAdmin(true);
-      }
-    }
+    dispatch(getProjectsByUser(user?.user._id, user?.token))
   },[user]);
 
-  function defaultOptions(file) {
-    return {
-        loop: true,
-        autoplay: true,
-        animationData: file,
-        rendererSettings: {
-          preserveAspectRatio: "xMidYMid slice"
-        }
-    }
-  };
- 
+  // // Lottie
+  // const optionsPersonalInformation = {
+  //   animationData: personalInformation,
+  //   loop: true
+  // };
+  // const { View } = useLottie(optionsPersonalInformation);
+  
   return (
-    <div className="myprofile_view_content">
-      <h1 className="gradient__text">
+    <div className={s.myprofile_view_content}>
+      <h1 className={s.gradient__text}>
           MI PERFIL
 			</h1>
       <p>
@@ -49,66 +36,13 @@ export default function MyProfile({handleSignOut}) {
           para que puedan comunicarse facilmente con vos para colaborar. Además tendrás acceso a los proyectos con los que estas 
           colaborando o editar proyectos que publicaste.
 			</p>
-      <div className='main_box_pyProfile'>
-        <Card id='individual_box_myprofile' sx={{ width: 200, height: 200, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
-          <CardActionArea >
-            <Link to='/miperfil/personalinformation'>
-              <Lottie className='personal_informacion'
-                options={defaultOptions(personalInformation)}
-                height={130}
-                width={130}
-              />
-            </Link>
-          </CardActionArea>
-          <CardActions >
-            <Link to='/miperfil/personalinformation'>
-              <Button id='button_myprofile' size="small" color="primary">
-                  Información Personal
-              </Button>
-            </Link>
-          </CardActions>
-        </Card>
-  
-        <Card id='individual_box_myprofile' sx={{ display: 'block', width: 200, height: 200, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
-          <Link to='/miperfil/colaboraciones'>
-            <CardActionArea sx={{ paddingLeft: 3 }}>
-              <Lottie className='personal_informacion'
-                    options={defaultOptions(team)}
-                    height={150}
-                    width={150}
-                  />
-            </CardActionArea>
-          </Link>
-          <CardActions >
-            <Link to='/miperfil/colaboraciones'>
-              <Button id='button_myprofile' size="small" color="primary" >
-                Colaboraciones
-              </Button>
-            </Link>
-          </CardActions>
-        </Card>
-
-        <Card id='individual_box_myprofile' sx={{ display: 'block', width: 200, height: 200, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
-          <Link to='/miperfil/misproyectos'>  
-            <CardActionArea sx={{ paddingTop: 2, paddingBottom: 0.5 }}>
-              <Lottie className='personal_informacion'
-                    options={defaultOptions(projectPersonal)}
-                    height={130}
-                    width={130}
-                  />
-            </CardActionArea>
-          </Link>
-          <CardActions >
-            <Link to='/miperfil/misproyectos'>
-              <Button id='button_myprofile' size="small" color="primary" >
-                Mis Proyectos
-              </Button>
-            </Link>
-          </CardActions>
-        </Card>
+      <div className={s.main_box_pyProfile}>
+        <CardProfile lottie={personalInformation} name={"Personal Information"} link={"/miperfil/personalinformation"} width={130} marginLeft={35}/>
+        <CardProfile lottie={team} name={"Colaboraciones"} link={"/miperfil/colaboraciones"} width={220} marginLeft={0}/>
+        <CardProfile lottie={projectPersonal} name={"Mis Proyectos"} link={"/miperfil/misproyectos"} width={130} marginLeft={35}/>
       </div>
-      <div className='positionBtnLoutProfile'>
-        <button className="btn btnLogOutProfile" type="button" onClick={(e) => handleSignOut(e)}>LogOut</button>
+      <div className={s.positionBtnLoutProfile}>
+        <button className={`${s.btn} ${s.btnLogOutProfile}`} type="button" onClick={(e) => handleSignOut(e)}>LogOut</button>
       </div>
     </div>
   );

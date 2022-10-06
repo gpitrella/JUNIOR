@@ -3,21 +3,20 @@ import $ from 'jquery';
 import { Link } from 'react-router-dom';
 import Typewriter from 'typewriter-effect';
 import logo from './logoJRremovebg.png';
-import Lottie from 'react-lottie';
+import { useLottie } from "lottie-react";
 import rocketLP from '../../assets/rocketLP.json';
 import './LandingPage.scss';
 
 export default function LandingPage() {
 
     const [ sound, setSound ] = React.useState(true);
-    const defaultOptions = {
-		loop: true,
-		autoplay: true,
-		animationData: rocketLP,
-		rendererSettings: {
-		  preserveAspectRatio: "xMidYMid slice"
-		}
-	};
+
+    // Lottie
+    const options = {
+        animationData: rocketLP,
+        loop: true
+      };
+    const { View } = useLottie(options);
 
     return (
   
@@ -52,11 +51,7 @@ export default function LandingPage() {
                 />
             </div>
             <span id='rocketLandingPage'>
-                <Lottie 
-						options={defaultOptions}
-						height={500}
-						width={350}
-				/>
+                { View }
             </span>
         </div>
       

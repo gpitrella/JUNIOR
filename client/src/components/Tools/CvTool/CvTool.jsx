@@ -12,7 +12,7 @@ export default function Code() {
 
   return (
     <div className={s.main_box_personalinformation}>
-      <h1 className={s.gradient__text}> TOOLS </h1>
+      <h1 className={s.gradient__text}> HERRAMIENTAS </h1>
       <h2 className={`${s.title_personalinformation} ${s.gradient__text}`}> Tips para el CV  </h2>
       <p className={s.textDescriptionCodeTool}>
           Te compartimos algunos Tips para que tengas en cuenta a la hora de redactar tu CV. Ten en cuenta que son 

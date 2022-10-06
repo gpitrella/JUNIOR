@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import { getHeaderWithToken } from '../../util/util';
 import {
   GET_ALL_PROJECTS,
   GET_ALL_TECHS,
@@ -56,10 +56,11 @@ export function selectPag(payload) {
 }
 
 // Get Projects by USER
-export function getProjectsByUser(id){
+export function getProjectsByUser(id, token){
   return function(dispatch){
     console.log('como llega al redux:', id)
-      return axios.post(`${BASE_URL}/user/projects`, id)
+    console.log('como llega al redux:', token);
+      return axios.post(`${BASE_URL}/user/projects`, id, getHeaderWithToken(token))
                   .then(project => dispatch({ type: GET_PROJECTS_BY_USER, payload: project.data }))
                   .catch(error => console.log(error))
   }
@@ -73,7 +74,6 @@ export function getProjectsByUser(id){
 // CreateProject
 export function createProject(dataProject){
   return function(dispatch){
-    console.log('como llega al redux:', dataProject)
       return axios.post(`${BASE_URL}/projects/newproject`, dataProject)
                   .then(project => dispatch({ type: CREATE_PROJECTS, payload: project.data }))
                   .catch(error => console.log(error))

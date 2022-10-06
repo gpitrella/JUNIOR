@@ -54,6 +54,10 @@
 	flex-direction: column;
 }
 
+.lottie_austronauta2 {
+	width: 500px;
+}
+
 /* === Media queries === */
 @media screen and (max-width: 990px) {
 	.features {

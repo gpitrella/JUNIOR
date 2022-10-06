@@ -1,0 +1,51 @@
+.loginContainer {
+  background-color: var(--primaryColor);
+  box-shadow: var(--mainShadow);
+  
+}
+
+.input {
+  background-color: var(--primaryColorSub);
+  color: var(--primaryColor);
+}
+
+.errorMsg {
+  color: var(--dangerColor);
+}
+
+.closePopup {
+  margin-top: 20px;
+  align-self: end;
+  margin-right: 20px;
+  position: absolute;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  text-shadow: var(--mainShadow);
+}
+
+.login__group_sendEmail {
+  width: 70%;
+}
+
+.login__group_boxSendEmail {
+  width: 90%;
+}
+
+.login__title_send{
+  padding-top: 20px;
+  font-size: 26px;
+  color:lightgray;
+  position: relative;
+  align-items: center;
+}
+
+@media (max-width: 768px){
+  .login__title_send{
+    font-size: 22px;
+    align-items: center;
+  }
+
+}

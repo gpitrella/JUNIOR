@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import Sidebar from '../Sidebar/Sidebar.jsx';
-import Pagina from "../Pagina/pagina";
+import Pagina from "../Pagina/Pagina.jsx";
 import CardProject from '../CardProject/CardProject';
 import { getAllProjects, getAllTechs } from '../../redux/actions/projectsActions.js';
 import { closeMessageMustLogin, openMessageMustLogin, openModalInfoCollaborator, closeModalInfoCollaborator } from '../../redux/actions/generalActions.js';
@@ -12,15 +12,13 @@ import ModalCollaborate from '../ModalCollaborate/ModalCollaborate';
 import { messagePopUp } from '../../lib/constants';
 
 import s from './Projects.module.css';
+import { style } from '@mui/system';
 
 export default function Projects() {
 
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.homepageReducer);
-  // const [ dispatching, setDispatching ] = React.useState(false);
-  // const [ queryName, setqueryName ] = React.useState('');
-  // const params = useParams();
-  const { allProjects, pagina  } = useSelector(state => state.projectsReducer);
+  const { allProjects, pagina, numberAllProjects  } = useSelector(state => state.projectsReducer);
   
   let currentPage = 0;
   currentPage = pagina;
@@ -68,12 +66,24 @@ export default function Projects() {
             <Sidebar />
               { !projectsToShow()?.length  
                   ? <div className = {s.withoutCardsStore}>
+                    
                       <h2>Sin Proyectos con estos filtros</h2>
-                      <h2>aprovecha y crea el primero. </h2>             
+                      <h2>aprovecha y crea el primero. </h2>  
+       
                       <Lottie options={defaultOptions} height={400} width={400} />  
                     </div>
                   : <div className = {s.producCardsStore}>
-                      <Pagina currentPage={currentPage} maxpage={maxpage}></Pagina>
+                      <div className={s.projects_view_content}>
+                        <h1 className={s.gradient__text}> PROYECTOS </h1>
+                        <p> Busca, crea y sumate a los proyectos desafiantes que más te atraigan.	</p>
+                      </div>    
+                                                 
+                      <div className={s.detailsProjects} >
+                        <p> Total Projectos: {numberAllProjects}	</p>
+                        <p> Projectos Filtrados: {allProjects.length}	</p>
+                        <Pagina currentPage={currentPage} maxpage={maxpage}></Pagina>
+
+                      </div>
                       {
                         projectsToShow()?.length > 0 && projectsToShow()?.map(project => {
                           return (<CardProject key={project?._id} project={project} handleOpenMessageLogin={handleOpenMessageLogin}/>)

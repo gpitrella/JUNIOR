@@ -12,7 +12,7 @@ export default function Code() {
 
   return (
     <div className={s.main_box_personalinformation}>
-      <h1 className={s.gradient__text}> TOOLS </h1>
+      <h1 className={s.gradient__text}> HERRAMIENTAS </h1>
       <h2 className={`${s.title_personalinformation} ${s.gradient__text}`}> Plataformas de Reunion Virtual  </h2>
       <p className={s.textDescriptionCodeTool}>
           Otra de las claves para la realización de un proyecto y una organización es la comunicación continua 

@@ -60,6 +60,7 @@
 }
 
 .personal_informacion {
+    width: 130px;
     margin-top: 20px;
     margin-bottom: -22px;
 }
@@ -82,7 +83,7 @@
 .btnLogOutProfile {
 	padding: 0.5rem 1rem;
 	color: #fff;
-	background: #FF4820;
+	background: #1976d2;
 	font-family: var(--font-family);
 	font-weight: 500;
 	font-size: 18px;
@@ -90,6 +91,13 @@
     width: 150px;
 	border-radius: 5px;
 	border: 0;  
+    cursor: pointer;
+    box-shadow: var(--mainShadow);
+}
+
+.btnLogOutProfile:hover {
+	background: #1976d2c4;
+    color: rgba(255, 255, 255, 0.798);
 }
 
 .positionBtnLoutProfile {

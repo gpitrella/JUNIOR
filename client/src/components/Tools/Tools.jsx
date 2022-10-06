@@ -1,13 +1,16 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-import Lottie from 'react-lottie';
-import code from '../../assets/code.json';
+import Lottie from 'lottie-react';
+import code from './assetsTools/code.png';
 import organization from '../../assets/organization.json';
 import design from '../../assets/design.json';
 import youtube from '../../assets/youtube.json';
 import cv from '../../assets/cv.json';
 import meet from '../../assets/meet.json';
+import interfaceLottie from '../../assets/interface.json';
+import front from '../../assets/front.json';
+import back from '../../assets/back.json';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import './Tools.css';
@@ -46,7 +49,7 @@ export default function Tools() {
   return (
     <div className="myprofile_view_content">
       <h1 className="gradient__text">
-          TOOLS
+          HERRAMIENTAS
 			</h1>
       <p>
           En esta Sección vas a poder encontrar diferentes herramientas utiles para tu desarrollo profesional, que puedes aplicarla
@@ -55,13 +58,15 @@ export default function Tools() {
 			</p>
       <div className='main_box_tools'>
         <Card id='individual_box_myprofile' sx={{ width: 200, height: 200, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
-          <CardActionArea >
-            <Link to='/tools/codeo'>
-              <Lottie className='personal_informacion'
+          <CardActionArea>
+            <Link to='/tools/codeo' className='box_img_tools'>
+              <img src={code} alt='code tool' style={{width: "100px", padding: "10px"}} />
+
+              {/* <Lottie className='personal_informacion'
                 options={defaultOptions(code)}
                 height={130}
                 width={130}
-              />
+              /> */}
             </Link>
           </CardActionArea>
           <CardActions >
@@ -163,6 +168,63 @@ export default function Tools() {
             <Link to='/tools/meet'>
               <Button id='button_myprofile' size="small" color="primary" >
                  PLATFORM MEET
+              </Button>
+            </Link>
+          </CardActions>
+        </Card>
+
+        <Card id='individual_box_myprofile' sx={{ display: 'block', width: 200, height: 200, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
+          <Link to='/tools/idlive'>  
+            <CardActionArea sx={{ paddingTop: 1 }}>
+              <Lottie className='personal_informacion'
+                    options={defaultOptions(interfaceLottie)}
+                    height={130}
+                    width={130}
+                  />
+            </CardActionArea>
+          </Link>
+          <CardActions >
+            <Link to='/tools/idlive'>
+              <Button id='button_myprofile' size="small" color="primary" >
+                 INTERFASE DE DESARROLLO
+              </Button>
+            </Link>
+          </CardActions>
+        </Card>
+
+        <Card id='individual_box_myprofile' sx={{ display: 'block', width: 200, height: 200, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
+          <Link to='/tools/frontdeploy'>  
+            <CardActionArea sx={{ paddingTop: 1 }}>
+              <Lottie className='personal_informacion'
+                    options={defaultOptions(front)}
+                    height={130}
+                    width={130}
+                  />
+            </CardActionArea>
+          </Link>
+          <CardActions >
+            <Link to='/tools/frontdeploy'>
+              <Button id='button_myprofile' size="small" color="primary" >
+                 FRONT DEPLOY
+              </Button>
+            </Link>
+          </CardActions>
+        </Card>
+
+        <Card id='individual_box_myprofile' sx={{ display: 'block', width: 200, height: 200, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
+          <Link to='/tools/backdeploy'>  
+            <CardActionArea sx={{ paddingTop: 1 }}>
+              <Lottie className='personal_informacion'
+                    options={defaultOptions(back)}
+                    height={130}
+                    width={130}
+                  />
+            </CardActionArea>
+          </Link>
+          <CardActions >
+            <Link to='/tools/backdeploy'>
+              <Button id='button_myprofile' size="small" color="primary" >
+                 BACK DEPLOY
               </Button>
             </Link>
           </CardActions>
