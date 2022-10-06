@@ -1,0 +1,22 @@
+#individual_box_myprofile {
+    display: flex;
+    justify-items: center;
+    box-shadow: var(--mainShadow);
+    flex-direction: column;
+    align-items: center;
+}
+
+.personal_informacion {
+    margin-top: 20px;
+    margin-bottom: -5px;
+}
+
+#button_myprofile {
+    display: flex;
+    justify-content:center;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    width: 100%;
+    align-items: center;
+}
