@@ -2,7 +2,7 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import Lottie from 'lottie-react';
-import code from '../../assets/code.json';
+import code from './assetsTools/code.png';
 import organization from '../../assets/organization.json';
 import design from '../../assets/design.json';
 import youtube from '../../assets/youtube.json';
@@ -58,13 +58,15 @@ export default function Tools() {
 			</p>
       <div className='main_box_tools'>
         <Card id='individual_box_myprofile' sx={{ width: 200, height: 200, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
-          <CardActionArea >
-            <Link to='/tools/codeo'>
-              <Lottie className='personal_informacion'
+          <CardActionArea>
+            <Link to='/tools/codeo' className='box_img_tools'>
+              <img src={code} alt='code tool' style={{width: "100px", padding: "10px"}} />
+
+              {/* <Lottie className='personal_informacion'
                 options={defaultOptions(code)}
                 height={130}
                 width={130}
-              />
+              /> */}
             </Link>
           </CardActionArea>
           <CardActions >
