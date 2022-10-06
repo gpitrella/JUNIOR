@@ -2,9 +2,9 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { selectPag } from "../../redux/actions/projectsActions";
 import IconButton from '@mui/material/IconButton';
+import s from './Pagina.module.css';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import s from './Pagina.module.css';
 
 export default function Pagina ({ currentPage, maxpage }) {
   const dispatch = useDispatch();
