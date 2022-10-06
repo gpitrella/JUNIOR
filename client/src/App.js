@@ -29,6 +29,7 @@ import dotenv from "dotenv";
 import LandingPage from './components/LandingPage/LandingPage.jsx';
 import './App.css';
 import 'aos/dist/aos.css'; // Animations on scrolling styles
+import HallOfFameView from './components/HallOfFameView/HallOfFameView';
 dotenv.config()
 
 const REACT_APP_GOOGLE = process.env.REACT_APP_GOOGLE;
@@ -95,7 +96,6 @@ export default function App() {
     dispatch(getUser());
   }, []);
 
-
   return (
      <React.Fragment>
       
@@ -110,6 +110,7 @@ export default function App() {
                 <Route exact path="/signup" element={ user.user ? <Navigate to="/home"/> : <SignUp/> } />
                 <Route exact path="/home" element={<Home />}/>
                 <Route exact path="/projects" element={<Projects />} />
+                <Route exact path="/halloffame" element={<HallOfFameView />} />
                 <Route exact path="/About" element={<About />} />
                 <Route exact path="/crearproyecto" element={<CreateProject />} />
                 <Route exact path="/miperfil" element={ user.user ? <MyProfile handleSignOut={handleSignOut}/> : <LogIn handleGoogle={handleGoogle} />} />             
@@ -130,3 +131,4 @@ export default function App() {
     </React.Fragment>
   );
 }
+

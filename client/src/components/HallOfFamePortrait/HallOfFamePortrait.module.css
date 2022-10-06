@@ -1,0 +1,59 @@
+.containerAvatar {
+  height: var(--avatarHallOfFame);
+  aspect-ratio: 1 / 1;
+
+  align-self: center;
+  justify-self: center;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  background: var(--silverGradient);
+  border: 5px solid transparent;
+  z-index: 5;
+}
+
+.containerAvatar.large {
+  height: var(--avatarHallOfFameLarge);
+  background: var(--goldenGradient);
+  border: 7px solid transparent;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  background-color: var(--primaryColorDark);
+}
+
+.containerNumber {
+  z-index: 5;
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+  background: var(--silverGradient);
+  color: rgba(13, 13, 13, 1.0);
+  border: 5px solid rgba(13, 13, 13, 1.0);
+
+  align-self: center;
+  justify-self: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 24px;
+  font-weight: 700;
+
+  position: relative;
+  transform: translateY(3rem);
+}
+
+.containerNumber.large {
+  background: var(--goldenGradient);
+  color: white;
+  transform: translateY(5rem);
+}

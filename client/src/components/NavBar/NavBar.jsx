@@ -8,11 +8,15 @@ import logo from '../../assets/logo.png';
 
 
 const Menu = ({handleSignOut}) => {
+
+	
+
 	return (
 		<>
 			<Link to='/projects'><p>Proyectos</p></Link>
 			<Link to='/about'><p><a href="#features">About JR</a></p></Link>
 			<Link to='/tools'><p><a href="#features">Tools</a></p></Link>
+			<Link to='/halloffame'><p><a href="#features">HOF</a></p></Link>
             <p id='btnLogOutNavbar'><a onClick={(e) => handleSignOut(e)}>LogOut</a></p>
 		</>
 )}

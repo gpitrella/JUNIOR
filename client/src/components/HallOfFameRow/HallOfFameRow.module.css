@@ -1,0 +1,151 @@
+*{
+  font-family: var(--font-family);
+}
+.container {
+  display: grid;
+  grid-template-columns: 10% 20% 15% 15% 40%;
+  grid-template-rows: var(--rowHallOfFame);
+
+  padding: 0.5rem;
+
+  color: white;
+
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+
+  border-radius: 8px;
+
+  background-color: var(--primaryColorHOF);
+
+  font-size: var(--fontMedium);
+  font-weight: 500;
+  letter-spacing: 1px;
+
+  /* box-shadow:inset 0px 0px 0px 3px rgba(255, 255, 255, 0.2); */
+}
+
+.first,
+.second {
+  background: var(--primaryGradientWithLessOpacity);
+}
+
+.avatarContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  height: 80%;
+  aspect-ratio: 1 / 1;
+}
+
+.spanNickname {
+  text-transform: capitalize;
+  font-weight: 900;
+  /* font-family: var(--font-family); */
+}
+
+.spanStatus {
+  padding: var(--paddingStatus);
+  border-radius: 8px;
+  text-transform: uppercase;
+
+  font-size: var(--fontSmallest);
+  letter-spacing: 3px;
+  width: 80%;
+}
+
+.spanContact {
+  font-weight: 900;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.oro {
+  background: var(--goldenGradient);
+}
+
+.plata {
+  background: var(--silverGradient);
+
+  color: grey;
+}
+
+.bronce {
+  background: var(--bronzeGradient);
+
+  color: saddlebrown;
+}
+
+.containerIndex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+.containerHexagon {
+
+  width: calc(var(--rowHallOfFame) * 0.8);
+  height: calc(var(--rowHallOfFame) * 0.8);
+
+  z-index: 3;
+
+  position: absolute;
+}
+
+.containerTrophy {
+  width: calc(var(--rowHallOfFame) * 0.5);
+  height: calc(var(--rowHallOfFame) * 0.5);
+
+  z-index: 5;
+
+  position: absolute;
+}
+
+.containerLink {
+  height: 10%;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+.containerLink > svg {
+  transition: 0.3s;
+  fill: white;
+  opacity: 0.7;
+  width: 55%;
+}
+
+.gradient__text {
+	background: var(--gradient-text);
+	background-clip: text;
+	-webkit-background-clop: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.cardContainer:hover > .detailsContainer > .containerRibbon > .linkedin > svg {
+  fill: rgb(8, 100, 192);
+}
+
+.cardContainer:hover > .detailsContainer > .containerRibbon > .email > svg {
+  fill: beige;
+}
+
+.github :hover{
+  fill: black;
+}
+
+.email :hover{
+  fill: violet;
+}
+
+.linkedin :hover{
+  fill: rgb(8, 100, 192);
+}

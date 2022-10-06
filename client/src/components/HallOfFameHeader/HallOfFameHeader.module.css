@@ -1,0 +1,79 @@
+.container {
+  margin-top: 3.5rem;
+  height: var(--containerHallOfFame);
+  width: 95%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: var(--containerHallOfFame);
+
+  position: relative;
+}
+
+.containerCrown {
+  position: absolute;
+
+  height: var(--crownHeight);
+  width: var(--crownWidth);
+
+  align-self: center;
+  justify-self: center;
+  transform: translateY(-5.3rem);
+}
+
+@media (min-width: 700px) {
+  .container {
+    margin-top: 3rem;
+    width: 90%;
+  }
+
+  .containerCrown {
+    transform: translateY(-6rem);
+  }
+}
+
+@media (min-width: 900px) {
+  .container {
+    margin-top: 3rem;
+    width: 80%;
+  }
+
+  .containerCrown {
+    transform: translateY(-8rem);
+  }
+}
+
+@media (min-width: 1100px) {
+  .container {
+    margin-top: 5rem;
+    width: 70%;
+  }
+}
+
+@media (min-width: 1300px) {
+  .container {
+    margin-top: 5rem;
+    width: 60%;
+  }
+}
+
+@media (min-width: 1500px) {
+  .container {
+    margin-top: 5rem;
+    width: 50%;
+  }
+}
+
+.thirdPlace {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.firstPlace {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.secondPlace {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
