@@ -3,14 +3,14 @@ import Card from '@mui/material/Card';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import Lottie from 'lottie-react';
 import code from './assetsTools/code.png';
-import organization from '../../assets/organization.json';
-import design from '../../assets/design.json';
-import youtube from '../../assets/youtube.json';
-import cv from '../../assets/cv.json';
-import meet from '../../assets/meet.json';
-import interfaceLottie from '../../assets/interface.json';
-import front from '../../assets/front.json';
-import back from '../../assets/back.json';
+import organization from './assetsTools/network.png';
+import design from './assetsTools/webDesign.png';
+import youtube from './assetsTools/youtube.png';
+import cv from './assetsTools/cv.png';
+import meet from './assetsTools/videoconference.png';
+import interfaceDevelop from './assetsTools/web-development.png';
+import front from './assetsTools/programming.png';
+import back from './assetsTools/backend.png';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import './Tools.css';
@@ -58,17 +58,11 @@ export default function Tools() {
 			</p>
       <div className='main_box_tools'>
         <Card id='individual_box_myprofile' sx={{ width: 200, height: 200, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
-          <CardActionArea>
             <Link to='/tools/codeo' className='box_img_tools'>
-              <img src={code} alt='code tool' style={{width: "100px", padding: "10px"}} />
-
-              {/* <Lottie className='personal_informacion'
-                options={defaultOptions(code)}
-                height={130}
-                width={130}
-              /> */}
+              <CardActionArea>
+                  <img src={code} alt='code tool' style={{width: "100px", padding: "10px"}} />
+              </CardActionArea>
             </Link>
-          </CardActionArea>
           <CardActions >
             <Link to='/tools/codeo'>
               <Button id='button_myprofile' size="small" color="primary">
@@ -79,13 +73,9 @@ export default function Tools() {
         </Card>
   
         <Card id='individual_box_myprofile' sx={{ display: 'block', width: 200, height: 200, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
-          <Link to='/tools/organizacion'>
+          <Link to='/tools/organizacion' className='box_img_tools'>
             <CardActionArea sx={{ paddingTop: 1 }}>
-              <Lottie className='personal_informacion'
-                    options={defaultOptions(organization)}
-                    height={120}
-                    width={120}
-                  />
+              <img src={organization} alt='organization tool' style={{width: "100px", padding: "10px"}} />
             </CardActionArea>
           </Link>
           <CardActions >
@@ -98,13 +88,9 @@ export default function Tools() {
         </Card>
 
         <Card id='individual_box_myprofile' sx={{ display: 'block', width: 200, height: 200, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
-          <Link to='/tools/design'>  
+          <Link to='/tools/design' className='box_img_tools'>  
             <CardActionArea sx={{ paddingTop: 2, paddingBottom: 0.5 }}>
-              <Lottie className='personal_informacion'
-                    options={defaultOptions(design)}
-                    height={130}
-                    width={130}
-                  />
+              <img src={design} alt='organization tool' style={{width: "100px", padding: "10px"}} />
             </CardActionArea>
           </Link>
           <CardActions >
@@ -117,15 +103,11 @@ export default function Tools() {
         </Card>
 
         <Card id='individual_box_myprofile' sx={{ width: 200, height: 200, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
-          <CardActionArea sx={{ paddingTop: 1 }}>
-            <Link to='/tools/youtube'>
-              <Lottie className='personal_informacion'
-                options={defaultOptions(youtube)}
-                height={130}
-                width={130}
-              />
+            <Link to='/tools/youtube' className='box_img_tools'>
+              <CardActionArea sx={{ paddingTop: 1 }}>
+                  <img src={youtube} alt='organization tool' style={{width: "100px", padding: "10px"}} />
+              </CardActionArea>
             </Link>
-          </CardActionArea>
           <CardActions >
             <Link to='/tools/youtube'>
               <Button id='button_myprofile' size="small" color="primary">
@@ -136,13 +118,9 @@ export default function Tools() {
         </Card>
   
         <Card id='individual_box_myprofile' sx={{ display: 'block', width: 200, height: 200, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
-          <Link to='/tools/cv'>
+          <Link to='/tools/cv' className='box_img_tools'>
             <CardActionArea sx={{ paddingTop: 2 }}>
-              <Lottie className='personal_informacion'
-                    options={defaultOptions(cv)}
-                    height={120}
-                    width={120}
-                  />
+               <img src={cv} alt='organization tool' style={{width: "100px", padding: "10px"}} />
             </CardActionArea>
           </Link>
           <CardActions >
@@ -155,13 +133,9 @@ export default function Tools() {
         </Card>
 
         <Card id='individual_box_myprofile' sx={{ display: 'block', width: 200, height: 200, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
-          <Link to='/tools/meet'>  
+          <Link to='/tools/meet' className='box_img_tools'>  
             <CardActionArea sx={{ paddingTop: 1 }}>
-              <Lottie className='personal_informacion'
-                    options={defaultOptions(meet)}
-                    height={130}
-                    width={130}
-                  />
+              <img src={meet} alt='organization tool' style={{width: "100px", padding: "10px"}} />
             </CardActionArea>
           </Link>
           <CardActions >
@@ -175,12 +149,8 @@ export default function Tools() {
 
         <Card id='individual_box_myprofile' sx={{ display: 'block', width: 200, height: 200, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
           <Link to='/tools/idlive'>  
-            <CardActionArea sx={{ paddingTop: 1 }}>
-              <Lottie className='personal_informacion'
-                    options={defaultOptions(interfaceLottie)}
-                    height={130}
-                    width={130}
-                  />
+            <CardActionArea sx={{ paddingTop: 1 }} className='box_img_tools'>
+              <img src={interfaceDevelop} alt='organization tool' style={{width: "100px", padding: "10px"}} />
             </CardActionArea>
           </Link>
           <CardActions >
@@ -193,13 +163,9 @@ export default function Tools() {
         </Card>
 
         <Card id='individual_box_myprofile' sx={{ display: 'block', width: 200, height: 200, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
-          <Link to='/tools/frontdeploy'>  
+          <Link to='/tools/frontdeploy' className='box_img_tools'>  
             <CardActionArea sx={{ paddingTop: 1 }}>
-              <Lottie className='personal_informacion'
-                    options={defaultOptions(front)}
-                    height={130}
-                    width={130}
-                  />
+               <img src={front} alt='organization tool' style={{width: "100px", padding: "10px"}} />
             </CardActionArea>
           </Link>
           <CardActions >
@@ -212,13 +178,9 @@ export default function Tools() {
         </Card>
 
         <Card id='individual_box_myprofile' sx={{ display: 'block', width: 200, height: 200, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
-          <Link to='/tools/backdeploy'>  
+          <Link to='/tools/backdeploy' className='box_img_tools'>  
             <CardActionArea sx={{ paddingTop: 1 }}>
-              <Lottie className='personal_informacion'
-                    options={defaultOptions(back)}
-                    height={130}
-                    width={130}
-                  />
+                <img src={back} alt='organization tool' style={{width: "100px", padding: "10px"}} />
             </CardActionArea>
           </Link>
           <CardActions >
