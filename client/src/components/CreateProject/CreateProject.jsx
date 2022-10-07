@@ -7,7 +7,7 @@ import { createProject, showModalAddImage } from '../../redux/actions/projectsAc
 // import { getCategories, getBrands } from '../../redux/actions/homepageActions';
 // import { showModalAddImage } from '../../redux/actions/generalActions';
 import './CreateProject.css'
-import validate from './validate'
+import validate from './validate';
 
 // Importar Imagen
 import ModalAddImage from '../ModalAddImage/ModalAddImage';
