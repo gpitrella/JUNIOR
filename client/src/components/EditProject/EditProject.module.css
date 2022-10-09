@@ -1,6 +1,8 @@
 .mainbigcontainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin-top: 60px;
 }
 
@@ -10,6 +12,7 @@
   background-color: var(--primaryColor);
   box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.5);
   color: var(--fontColor);
+  box-shadow: var(--mainShadow);
 }
 
 .maintitle {
@@ -56,4 +59,30 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.editProjectView_content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+  text-align: justify;
+  text-justify: inter-word;
+  padding: 0px 170px 30px 170px;
+}
+
+.editProjectView_content h1 {
+	font-family: var(--font-family);
+	font-weight: 800;
+	font-size: 30px;
+	line-height: 75px;
+	letter-spacing: -0.04em;
+  padding-bottom: 20px;
+}
+
+.gradient__text {
+	background: var(--gradient-text);
+	background-clip: text;
+	-webkit-background-clop: text;
+	-webkit-text-fill-color: transparent;
 }
