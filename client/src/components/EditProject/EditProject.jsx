@@ -127,9 +127,14 @@ export default function EditProject() {
 
   return (
     <div className={s.mainbigcontainer}>
+      <div className={s.editProjectView_content}>
+					<h1 className={s.gradient__text}>
+            Editar PROYECTO
+					</h1>
+      </div>
     <div className={`main ${s.container}`}>
         <Link to = {'/miperfil/misproyectos'}>
-          <button className = {s.goBack}>{'< Go Back'}</button>
+          <button className = {s.goBack}>{'< Volver'}</button>
         </Link>
         <h1 className={`form__title ${s.maintitle}`}>Editar Proyecto</h1>
     <form className='form' id='form' onSubmit={(e) => handleSubmit(e)}>
