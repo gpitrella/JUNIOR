@@ -126,9 +126,19 @@ export default function CreateProject() {
 
   return (
     <div className={s.mainbigcontainer}>
+      <div className={s.createProjectView_content}>
+					<h1 className={s.gradient__text}>
+            CREAR PROYECTO
+					</h1>
+					<p>
+            Empeza a llevar tus ideas a la realidad, suma tus proyecto, gana experiencia y ayuda a otros con su 
+            colaboración a ganar experiencia y nuevas habilidades. Te aconsejamos completar todos los campos del 
+            formulario de proyecto lo más completo posible para que sea más fácil que sumes colaboradores.
+					</p>
+      </div>
     <div className={`main ${s.container}`}>
         <Link to = {'/projects'}>
-          <button className = {s.goBack}>{'< Go Back'}</button>
+          <button className = {s.goBack}>{'< Volver'}</button>
         </Link>
         <h1 className={`form__title ${s.maintitle}`}>Crear Proyecto</h1>
     <form className='form' id='form' onSubmit={(e) => handleSubmit(e)}>
