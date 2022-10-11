@@ -60,22 +60,15 @@ export function selectPag(payload) {
 // Get Projects by USER
 export function getProjectsByUser(id, token){
   return function(dispatch){
-    console.log('como llega al redux:', id)
-    console.log('como llega al redux:', token);
       return axios.post(`${BASE_URL}/user/projects`, id, getHeaderWithToken(token))
                   .then(project => dispatch({ type: GET_PROJECTS_BY_USER, payload: project.data }))
                   .catch(error => console.log(error))
   }
 };
 
-// axios.post(url, data, {
-//   'headers': {
-//     'Authorization': 'Bearer ' + jwtStr
-//   });
 
 // Create Project 
 export function createProject(dataProject){
-  console.log(dataProject);
   return function(dispatch){
       return axios.post(`${BASE_URL}/projects/newproject`, dataProject)
                   .then(project => dispatch({ type: CREATE_PROJECTS, payload: project.data }))
@@ -98,7 +91,6 @@ export function closeModalAddImage() {
 
 export function uploadImage(formData) {
   return function(dispatch) {
-    console.log('EN REDUX POR DESPACHAR', formData)
     return fetch(`${CLOUDINARY}`, { method: 'POST', body: formData })
       .then(response => response.json())
       .then(data => dispatch({ type: UPLOAD_IMAGE, payload: data }))
