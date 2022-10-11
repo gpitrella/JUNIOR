@@ -16,14 +16,6 @@
     gap: 0px;    
 }
 
-.form__label{
-    display: block;
-    font-weight: 700;
-    padding: 10px;
-    cursor: pointer;
-    color: white;
-}
-
 .form__title{
     display: block;
     font-weight: 700;
@@ -58,9 +50,13 @@
 }
 
 .form__input-error{
-    font-size: 12px;
+    font-size: 13px;
+    padding-left: 10px;
+    font-weight: 600;
+    padding-top: 2px;
     margin-bottom: 0;
     display: none;
+    color: #bb2929;
 }
 
 .form__input-error-activo{
@@ -86,6 +82,7 @@
     line-height: 45px;
     background-color: #F66060;
     padding: 0 15px;
+    margin: 5px 35px;
     border-radius: 3px;
     display: none;
 }

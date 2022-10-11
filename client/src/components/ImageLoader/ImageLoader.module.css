@@ -1,0 +1,51 @@
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  object-fit: contain;
+}
+
+.imageNotFound {
+  fill: var(--fontColor);
+  width: 70%;
+  height: 70%;
+}
+
+.imageContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadingContainer,
+.svgContainer {
+  height: 50%;
+  aspect-ratio: 1/1;
+}
+
+.svgContainer > svg {
+  fill: var(--secondaryColor);
+}
+
+.dontShowImage {
+  display: none;
+}
+
+.loadingContainer > svg {
+  animation: rotateLoading 2s infinite;
+  animation-timing-function: linear;
+  fill: var(--secondaryColor);
+}
+
+@keyframes rotateLoading {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

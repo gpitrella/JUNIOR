@@ -26,6 +26,7 @@ export const CLOSE_MODAL_ADD_IMAGE = 'CLOSE_MODAL_ADD_IMAGE';
 // FILTER PROJECTS ACTIONS
 export const FILTER_PROJECTS = 'FILTER_PROJECTS';
 export const UPDATE_STATUS_FILTER = 'UPDATE_STATUS_FILTER';
+export const UPLOAD_IMAGE = 'UPLOAD_IMAGE';
 
 // GENERAL ACTIONS
 export const OPEN_MESSSAGE_MUST_LOGIN = 'OPEN_MESSSAGE_MUST_LOGIN';
@@ -37,3 +38,5 @@ export const CLOSE_MODAL_INFO_COLLABORATOR = 'CLOSE_MODAL_INFO_COLLABORATOR';
 export const BASE_URL_FRONT = 'http://localhost:3000';
 export const BASE_URL = 'http://localhost:4001';
 // export const BASE_URL = 'https://junior-app.onrender.com';
+export const CLOUDINARY = 'https://api.cloudinary.com/v1_1/techmarket/image/upload';
+// export const CLOUDINARY = 'https://api.cloudinary.com/v1_1/djgghmpgh/image/upload';
