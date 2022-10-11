@@ -42,24 +42,36 @@ export default function CreateProject() {
   // const navigate = Navigate()
 
   const handleChange = (e) => {
-  e.preventDefault();
-  if(e.target.name === "newtech") {
-    setInput({
-      ...input,
-      newtech: [...input.newtech, e.target.value]
-    })
-  } else {
-    setInput({
-      ...input,
-      [e.target.name]: e.target.value
-    })
-  }
-  
+      e.preventDefault();
+      if(e.target.name === "newtech") {
+        if(!input.newtech.includes(e.target.value)) {
+          setInput({
+            ...input,
+            newtech: [...input.newtech, e.target.value]
+          })
+        }
+      } else {
+        setInput({
+          ...input,
+          [e.target.name]: e.target.value
+        })
+      } 
 
     // setErrors(validate({
     //   ...input,
     //   [e.target.name]: e.target.value
     // }))
+  }
+
+  const handleDeleteTech = (e) => {
+    e.preventDefault();
+    if(input.newtech.includes(e.target.attributes[0].nodeValue)) {
+      const newTeches = input.newtech.filter((tech) => tech !== e.target.attributes[0].nodeValue);
+      setInput({
+        ...input,
+        newtech: newTeches 
+      })
+    }
   }
 
   useEffect(() => {
@@ -141,9 +153,9 @@ export default function CreateProject() {
           <button className = {s.goBack}>{'< Volver'}</button>
         </Link>
         <h1 className={`form__title ${s.maintitle}`}>Crear Proyecto</h1>
-    <form className='form' id='form' onSubmit={(e) => handleSubmit(e)}>
-        <div className={`form__group ${s.formGroudName}`} id='title'>
-          <label htmlFor="name" className='form__label'>Título: </label>
+    <form className='form_create_project' id='form' onSubmit={(e) => handleSubmit(e)}>
+        <div className={`form__group_create_p ${s.formGroudName}`} id='title'>
+          <label htmlFor="name" className='form__label'>Título: *</label>
           <div className='form__group-input'>
                 <input
                   type={'text'}
@@ -158,12 +170,12 @@ export default function CreateProject() {
           <p className='form__input-error'>{errors.name}</p>
         </div>
 
-        <div className={`form__group ${s.formGroudName}`} id='description'>
-          <label htmlFor="description" className='form__label'>Descripción</label>
+        <div className={`form__group_create_p ${s.formGroudName}`} id='description'>
+          <label htmlFor="description" className='form__label'>Descripción: *</label>
           <div className='form__group-input'>
                 <textarea
                   type={'text'}
-                  className = {`form__input ${s.formTextArea}`}
+                  className = {`form__input ${s.formTextAreaCreateProject}`}
                   id='description'
                   name = {'description'}
                   placeholder='Descripción del Proyecto (Detalla el proyecto completo)'
@@ -174,8 +186,8 @@ export default function CreateProject() {
           <p className='form__input-error'>{errors.description}</p>
         </div>
 
-        <div className={`form__group ${s.formGroudName}`} id='gitHubUrl'>
-          <label htmlFor="name" className='form__label'>GitHub Link: </label>
+        <div className={`form__group_create_p ${s.formGroudName}`} id='gitHubUrl'>
+          <label htmlFor="name" className='form__label'>GitHub Link: *</label>
           <div className='form__group-input'>
                 <input
                   type={'text'}
@@ -190,8 +202,8 @@ export default function CreateProject() {
           <p className='form__input-error'>{errors.name}</p>
         </div>
         
-        <div className='form__group' id='price'>
-          <label htmlFor="price" className='form__label'>Colaborativo o Pago</label>
+        <div className='form__group_create_p' id='price'>
+          <label htmlFor="price" className='form__label'>Colaborativo o Pago: *</label>
           <div className='form__group-input'>
               <select
                 className='form__input'
@@ -206,8 +218,8 @@ export default function CreateProject() {
           <p className='form__input-error'>{errors.price}</p>
         </div>
         
-        <div className='form__group' id='wspUrl'>
-          <label htmlFor="discount" className='form__label'>WhatsApp</label>
+        <div className='form__group_create_p' id='wspUrl'>
+          <label htmlFor="discount" className='form__label'>WhatsApp: </label>
           <div className='form__group-input'>
                 <input
                   type={'number'}
@@ -222,28 +234,39 @@ export default function CreateProject() {
           <p className='form__input-error'>{errors.discount}</p>
         </div>
 
-        <div className='form__group' id='newtech'>
-        <label htmlFor="category" className='form__label'>Tech a usar:</label>
+        <div className='form__group_create_p' id='newtech'>
+        <label htmlFor="category" className='form__label'>Tech a usar: *</label>
         <div className='form__group-input'>
             <select
               className='form__input'
               id='newtech'
               name = {'newtech'}
               onChange={(e) => handleChange(e)}
+              value={input.newtech[input.newtech.length > 0 ? input.newtech.length-1 : 0]}
             >
-                <option value={''} >Selecciona una Tech</option>
+                <option value={''} selected>Selecciona una Tech</option>
                 {allNameTechs?.map((tech) => (
-                <option value={tech} key={Math.random()}>{tech}</option>
-            )
-            )}
+                    <option value={tech} key={Math.random()}>{tech}</option>
+                    )
+                )}
             </select>
+            <div className={s.maintechselected}>
+              {input.newtech.length > 0 && input.newtech.map((tech) => (
+                <div key={Math.random()} className={s.techselected}>
+                    <div value={tech} >{tech} </div>
+                    <div value={tech} onClick={handleDeleteTech} className={s.deleteTech}>X</div>
+                </div>
+                   
+                    )
+                )}
+            </div>
         </div> 
         <p className='form__input-error'>{errors.category}</p>
         </div>
                 
-        <div className='form__group' id='image'>
+        <div className='form__group_create_p' id='image'>
           <div className = {s.doubleLabel}>
-            <label htmlFor="image" className='form__label'>Imagen</label>
+            <label htmlFor="image" className='form__label'>Imagen: *</label>
             <button className = {s.importImage} onClick = {handleOpenModalAddImage}>Importar</button>
           </div>
           <div className='form__group-input'>
@@ -265,7 +288,7 @@ export default function CreateProject() {
             <b>Error:</b> please check the boxes with errors.
             </p> 
         </div>
-        <div className="form__group form__group-btn-create">
+        <div className="form__group_create_p form__group-btn-create">
             <button type='submit' className='form__btn' >CREAR PROYECTO</button>
             <p className='form__msn-exito' id='form__msn-exito'
             >Product created!!
