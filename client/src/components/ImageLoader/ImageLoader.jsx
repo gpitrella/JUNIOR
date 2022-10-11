@@ -4,22 +4,18 @@ import s from './ImageLoader.module.css';
 import ImageNotFound from '../SVG/ImageNotFound';
 import Loading from '../SVG/Loading';
 
-export default function ImageLoader({ image, alt, setImageLoaded = null, delay = 500}) {
+export default function ImageLoader({ image, alt }) {
 
   let [ errorLoadingImage, setErrorLoadingImage ] = React.useState(false);
   let [ showImage, setShowImage ] = React.useState(false);
   let [ delayLoading, setDelayLoading ] = React.useState(true);
 
   React.useEffect(() => {
-    let idTimeOut = setTimeout(() => setDelayLoading(false), Math.random() * 100 + delay);
+    let idTimeOut = setTimeout(() => setDelayLoading(false), Math.random() * 400 + 1500);
     return (() => {
       clearTimeout(idTimeOut);
     })
   }, []);
-
-  React.useEffect(() => {
-    if (setImageLoaded && showImage && !delayLoading) setImageLoaded();
-  }, [showImage, delayLoading])
 
   let handleErrorImageNotFound = function() {
     setErrorLoadingImage(true);

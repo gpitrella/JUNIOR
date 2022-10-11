@@ -10,18 +10,10 @@
     padding: 40px;
 }
 
-.form{
+.form_create_project{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;    
-}
-
-.form__label{
-    display: block;
-    font-weight: 700;
-    padding: 10px;
-    cursor: pointer;
-    color: white;
+    gap: 0px;    
 }
 
 .form__title{
@@ -58,9 +50,13 @@
 }
 
 .form__input-error{
-    font-size: 12px;
+    font-size: 13px;
+    padding-left: 10px;
+    font-weight: 600;
+    padding-top: 2px;
     margin-bottom: 0;
     display: none;
+    color: #bb2929;
 }
 
 .form__input-error-activo{
@@ -86,6 +82,7 @@
     line-height: 45px;
     background-color: #F66060;
     padding: 0 15px;
+    margin: 5px 35px;
     border-radius: 3px;
     display: none;
 }
@@ -98,13 +95,20 @@
     margin: 0;
 }
 
+.form__group_create_p {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 35px;
+}
+
 .form__group-btn-create{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.form__btn{
+.form__btn {
     height: 45px;
     line-height: 45px;
     width: 30%;
@@ -115,6 +119,8 @@
     border-radius: 3px;
     cursor: pointer;
     transition: .1s ease all;
+    margin-top: 15px;
+    box-shadow: var(--mainShadow);
 }
 
 

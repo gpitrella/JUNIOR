@@ -114,7 +114,7 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
                 { mainTaskEjemplo.length > 0 
                     ? mainTaskEjemplo.map((task) => {
                       return (
-                          <Typography>
+                          <Typography key={Math.random()}>
                             { `-- ${task.task }` }
                           </Typography>
                       )

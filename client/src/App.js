@@ -96,12 +96,6 @@ export default function App() {
   
 // ?-- End Auth
 
-
-
-  // React.useEffect(() => {
-  //   dispatch(getUser());
-  // }, []);
-
   return (
      <React.Fragment>
       
