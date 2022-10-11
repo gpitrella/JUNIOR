@@ -14,6 +14,15 @@ import {
 } from './actiontype';
 
 // Get all Projects
+// export function getAllProjects(){
+//   return function(dispatch){
+//       return axios.get(`${BASE_URL}/projects/allprojects`)
+//                   .then(projects => dispatch({ type: GET_ALL_PROJECTS, payload: projects.data }))
+//                   .catch(error => console.log(error))
+//   }
+// };
+
+// Get all Projects
 export function getAllProjects(){
   return function(dispatch){
       return axios.get(`${BASE_URL}/projects/allprojects`)
@@ -23,6 +32,14 @@ export function getAllProjects(){
 };
 
 // Get all Techs
+// export function getAllTechs(){
+//   return function(dispatch){
+//       return axios.get(`${BASE_URL}/tech/alltechs`)
+//                   .then(projects => dispatch({ type: GET_ALL_TECHS, payload: projects.data }))
+//                   .catch(error => console.log(error))
+//   }
+// };
+
 export function getAllTechs(){
   return function(dispatch){
       return axios.get(`${BASE_URL}/tech/alltechs`)

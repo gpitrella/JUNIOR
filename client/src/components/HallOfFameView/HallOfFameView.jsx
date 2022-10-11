@@ -109,11 +109,6 @@ export default function HallOfFameView() {
 
   return (
 		<div id="componentHallOfFame"className = {s.container}>
-		<div className={s.titleUsers}>
-			<h1 className={s.gradient__text}>
-				{"USERS"}
-			</h1>
-		</div>
 		<HallOfFameRows players = {hallOfFame} />
 		</div>
   );

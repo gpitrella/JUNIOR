@@ -5,6 +5,33 @@
   grid-gap: 0.5rem;
 }
 
+.gradient__text {
+	background: var(--gradient-text);
+	background-clip: text;
+	-webkit-background-clop: text;
+	-webkit-text-fill-color: transparent;
+  font-size: xxx-large;
+}
+
+.hofrows_content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.hofrows_content p {
+	font-family: var(--font-family);
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 27px;
+	color: var(--color-text);
+	margin-top: 1.5rem;
+}
+
 
 @media (min-width: 700px) {
   .container {

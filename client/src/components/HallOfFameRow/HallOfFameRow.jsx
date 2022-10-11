@@ -20,7 +20,7 @@ export default function HallOfFameRow({ nickname, status, avatar, index, email, 
   }
 
   return (
-    <div className = {`${s.container} ${index === 1 ? s.first : index <= 3 ? s.second : ''}`}>
+    <div className = {`${s.container}`/*` ${index === 1 ? s.first : index <= 3 ? s.second : ''}`*/}>
       <div className = {s.containerIndex}>
         <span className = {s.spanIndex}>{index}</span>
       </div>

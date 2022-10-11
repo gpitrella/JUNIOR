@@ -30,11 +30,40 @@
 	background-clip: text;
 	-webkit-background-clop: text;
 	-webkit-text-fill-color: transparent;
+  font-size: xxx-large;
+}
+
+.hofview_content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.hofview_content h1 {
+	font-family: var(--font-family);
+	font-weight: 800;
+	font-size: 30px;
+	line-height: 75px;
+	letter-spacing: -0.04em;
+}
+
+.hofview_content p {
+	font-family: var(--font-family);
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 27px;
+	color: var(--color-text);
+	margin-top: 1.5rem;
 }
 
 .titleUsers {
   display: flex;
   justify-content: center;
+  font-size: x-large;
   padding: 2rem 12rem;
 }
 
