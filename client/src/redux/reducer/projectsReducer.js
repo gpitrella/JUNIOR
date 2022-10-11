@@ -5,7 +5,8 @@ import {
   SHOW_MODAL_ADD_IMAGE,
   CLOSE_MODAL_ADD_IMAGE,
   SELECTPAG,
-  GET_PROJECTS_BY_USER
+  GET_PROJECTS_BY_USER,
+  UPLOAD_IMAGE
 } from '../actions/actiontype';
 
 const initialState = {
@@ -13,7 +14,11 @@ const initialState = {
   newProject: {},
   pagina: 1,
   projectByUser: [],
-  numberAllProjects: 0
+  numberAllProjects: 0,
+  modalAddImage: {
+    show: false,
+    uploadedImage: ''
+  }
 };
 
 const projectsReducer = function(state = initialState, { type, payload }) {
@@ -56,6 +61,14 @@ const projectsReducer = function(state = initialState, { type, payload }) {
           ...state.modalAddImage,
           show: false,
           uploadedImage: ''
+        }
+      }
+    case UPLOAD_IMAGE:
+      return {
+        ...state,
+        modalAddImage: {
+          ...state.modalAddImage,
+          uploadedImage: payload.secure_url
         }
       }
     

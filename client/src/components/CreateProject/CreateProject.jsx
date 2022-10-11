@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { createProject, showModalAddImage } from '../../redux/actions/projectsActions';
@@ -17,6 +17,16 @@ import { style } from '@mui/system';
 
 export default function CreateProject() {
 
+    // title, description, gitHubUrl, wspUrl, image, newtech, userId, payment, status, emailUser
+  const [errors, setErrors] = useState({});
+  const { user } = useSelector((state) => state.homepageReducer);
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  // Importar imagen
+  const { modalAddImage } = useSelector(state => state.projectsReducer);
+  const filterReducer = useSelector((state) => state.filterReducer);
+
   const [input, setInput] = useState({
     title: '',
     description:'',
@@ -24,22 +34,14 @@ export default function CreateProject() {
     payment: 'false',
     image: '',
     wspUrl: '',
-    newtech: []
+    newtech: [],
+    userId: user.user._id,
+    emailUser: user.user.email
   })
-  const [errors, setErrors] = useState({});
-  // const {allCategories, brandsList} = useSelector((state) => state.homepage);
-
-  // Importar imagen
-  // const { modalAddImage } = useSelector(state => state.general);
-  const { modalAddImage } = useSelector(state => state.projectsReducer);
-  const filterReducer = useSelector((state) => state.filterReducer);
 
   const allNameTechs = filterReducer?.allTechs.map((tech) => {
     return tech.name.charAt(0).toUpperCase() + tech.name.slice(1);
   })
-
-  const dispatch = useDispatch()
-  // const navigate = Navigate()
 
   const handleChange = (e) => {
       e.preventDefault();
@@ -115,6 +117,7 @@ export default function CreateProject() {
         newtech: []
       })
       // dispatch(waitingResponsePost(true));
+      navigate('/projects')
       // history.push('/admin/products/list');
     // }
   }
@@ -130,10 +133,10 @@ export default function CreateProject() {
       ...input,
       image: newImage
     });
-    setErrors(validate({
-      ...input,
-      image: newImage
-    }));
+    // setErrors(validate({
+    //   ...input,
+    //   image: newImage
+    // }));
   }
 
   return (

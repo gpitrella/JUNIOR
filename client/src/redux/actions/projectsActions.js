@@ -10,7 +10,9 @@ import {
   CLOSE_MODAL_ADD_IMAGE,
   BASE_URL,
   SELECTPAG,
-  GET_PROJECTS_BY_USER
+  GET_PROJECTS_BY_USER,
+  CLOUDINARY,
+  UPLOAD_IMAGE
 } from './actiontype';
 
 // Get all Projects
@@ -71,8 +73,9 @@ export function getProjectsByUser(id, token){
 //     'Authorization': 'Bearer ' + jwtStr
 //   });
 
-// CreateProject
+// Create Project 
 export function createProject(dataProject){
+  console.log(dataProject);
   return function(dispatch){
       return axios.post(`${BASE_URL}/projects/newproject`, dataProject)
                   .then(project => dispatch({ type: CREATE_PROJECTS, payload: project.data }))
@@ -85,14 +88,23 @@ export function showModalAddImage() {
   return {
     type: SHOW_MODAL_ADD_IMAGE
   }
-}
-
+};
 
 export function closeModalAddImage() {
   return {
     type: CLOSE_MODAL_ADD_IMAGE
   }
-}
+};
+
+export function uploadImage(formData) {
+  return function(dispatch) {
+    console.log('EN REDUX POR DESPACHAR', formData)
+    return fetch(`${CLOUDINARY}`, { method: 'POST', body: formData })
+      .then(response => response.json())
+      .then(data => dispatch({ type: UPLOAD_IMAGE, payload: data }))
+      .catch(error => console.LOG(error));
+  }
+};
 
 
 
