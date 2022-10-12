@@ -75,7 +75,7 @@ const projectsReducer = function(state = initialState, { type, payload }) {
     case GET_PROJECTS_BY_USER: 
       return {
         ...state,
-        projectUser: payload
+        projectByUser: payload
       }
       
     default:

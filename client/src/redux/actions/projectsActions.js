@@ -12,17 +12,10 @@ import {
   SELECTPAG,
   GET_PROJECTS_BY_USER,
   CLOUDINARY,
-  UPLOAD_IMAGE
+  UPLOAD_IMAGE,
+  PROYECT_BY_ID
 } from './actiontype';
 
-// Get all Projects
-// export function getAllProjects(){
-//   return function(dispatch){
-//       return axios.get(`${BASE_URL}/projects/allprojects`)
-//                   .then(projects => dispatch({ type: GET_ALL_PROJECTS, payload: projects.data }))
-//                   .catch(error => console.log(error))
-//   }
-// };
 
 // Get all Projects
 export function getAllProjects(){
@@ -34,14 +27,6 @@ export function getAllProjects(){
 };
 
 // Get all Techs
-// export function getAllTechs(){
-//   return function(dispatch){
-//       return axios.get(`${BASE_URL}/tech/alltechs`)
-//                   .then(projects => dispatch({ type: GET_ALL_TECHS, payload: projects.data }))
-//                   .catch(error => console.log(error))
-//   }
-// };
-
 export function getAllTechs(){
   return function(dispatch){
       return axios.get(`${BASE_URL}/tech/alltechs`)
@@ -76,8 +61,9 @@ export function selectPag(payload) {
 
 // Get Projects by USER
 export function getProjectsByUser(id, token){
+  console.log('ID:', id, 'TOKEN:', token)
   return function(dispatch){
-      return axios.post(`${BASE_URL}/user/projects`, id, getHeaderWithToken(token))
+      return axios.get(`${BASE_URL}/user/projects/${id}`, getHeaderWithToken(token))
                   .then(project => dispatch({ type: GET_PROJECTS_BY_USER, payload: project.data }))
                   .catch(error => console.log(error))
   }

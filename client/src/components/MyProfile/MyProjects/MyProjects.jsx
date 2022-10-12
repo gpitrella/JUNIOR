@@ -8,6 +8,7 @@ import './MyProjects.css'
 
 export default function MyProjects() {
   const { user } = useSelector((state) => state.homepageReducer);
+  const { projectByUser } = useSelector((state) => state.projectsReducer);
   const dispatch = useDispatch();
   
   function handleOpenMessageLogin() {
@@ -24,9 +25,9 @@ export default function MyProjects() {
       <h2 className='title_personalinformation gradient__text'> Mis Proyectos </h2>
       <div>
         {
-          user?.user.projects.length === 0 
+          user?.user.projects.length === 0 && projectByUser?.length === 0
              ? <h3>Todavía no creaste ningún Proyecto, ANIMATE y crea uno. 🚀 </h3>
-             : user?.user.projects.map(project => {
+             : projectByUser.map(project => {
             return (
               <div className='myproyectsEdit'>
                 <Link to='/miperfil/editproyecto'>
