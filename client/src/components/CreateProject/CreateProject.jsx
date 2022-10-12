@@ -23,7 +23,8 @@ export default function CreateProject() {
     description: "Agrega una descripción a tu proyecto.",
     gitHubUrl: "Agrega un URL valida a tu proyecto de GitHub",
     newtech: "Agrega una tech de desarrollo a tu proyecto",
-    image: "Agrega una imagen URL valida a tu proyecto"
+    image: "Agrega una imagen URL valida a tu proyecto",
+    tasks: "Agrega alguna tarea para desarrollar en tu proyecto"
   });
   const { user } = useSelector((state) => state.homepageReducer);
   const dispatch = useDispatch()
@@ -96,8 +97,6 @@ export default function CreateProject() {
 
   const handleDeleteTask = (e) => {
     e.preventDefault();
-    console.log('PARA BORRAR ATRIBUTES:', e.target.attributes[0].nodeValue)
-    console.log('PARA BORRAR VALUE:', e.target.value)
     if(input.tasks.includes(e.target.attributes[0].nodeValue)) {
       const newTasks = input.tasks.filter((task) => task !== e.target.attributes[0].nodeValue);
       setInput({
@@ -141,7 +140,9 @@ export default function CreateProject() {
         payment: 'false',
         image: '',
         wspUrl: '',
-        newtech: []
+        newtech: [],
+        userId: '',
+        emailUser: ''
       })
       // dispatch(waitingResponsePost(true));
       navigate('/projects')
@@ -299,7 +300,7 @@ export default function CreateProject() {
               onChange={(e) => handleChange(e)}
               value={input.newtech[input.newtech.length > 0 ? input.newtech.length-1 : 0]}
             >
-                <option value={''} selected>Selecciona una Tech</option>
+                <option value={''} defaultValue>Selecciona una Tech</option>
                 {allNameTechs?.map((tech) => (
                     <option value={tech} key={Math.random()}>{tech}</option>
                     )

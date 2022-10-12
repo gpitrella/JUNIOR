@@ -6,7 +6,10 @@ import {
   CLOSE_MODAL_ADD_IMAGE,
   SELECTPAG,
   GET_PROJECTS_BY_USER,
-  UPLOAD_IMAGE
+  UPLOAD_IMAGE,
+  UPDATE_PROJECTS,
+  CLEAR_DATA_PROJECTS,
+  ERROS_PROJECTS
 } from '../actions/actiontype';
 
 const initialState = {
@@ -18,7 +21,9 @@ const initialState = {
   modalAddImage: {
     show: false,
     uploadedImage: ''
-  }
+  },
+  updateProjectResult: '',
+  errorsProject: '',
 };
 
 const projectsReducer = function(state = initialState, { type, payload }) {
@@ -77,7 +82,25 @@ const projectsReducer = function(state = initialState, { type, payload }) {
         ...state,
         projectByUser: payload
       }
-      
+    
+    case UPDATE_PROJECTS: 
+      return {
+        ...state,
+        updateProjectResult: payload
+      }
+    
+    case CLEAR_DATA_PROJECTS:
+      return {
+        ...state,
+        updateProjectResult: '',
+        errorsProject: '',
+      }
+    
+    case ERROS_PROJECTS:
+      return {
+        ...state,
+        errorsProject: payload,
+      }
     default:
       return state;
   }

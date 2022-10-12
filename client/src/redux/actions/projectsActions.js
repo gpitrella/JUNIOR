@@ -13,7 +13,9 @@ import {
   GET_PROJECTS_BY_USER,
   CLOUDINARY,
   UPLOAD_IMAGE,
-  PROYECT_BY_ID
+  UPDATE_PROJECTS,
+  CLEAR_DATA_PROJECTS,
+  ERROS_PROJECTS
 } from './actiontype';
 
 
@@ -61,7 +63,6 @@ export function selectPag(payload) {
 
 // Get Projects by USER
 export function getProjectsByUser(id, token){
-  console.log('ID:', id, 'TOKEN:', token)
   return function(dispatch){
       return axios.get(`${BASE_URL}/user/projects/${id}`, getHeaderWithToken(token))
                   .then(project => dispatch({ type: GET_PROJECTS_BY_USER, payload: project.data }))
@@ -101,6 +102,21 @@ export function uploadImage(formData) {
   }
 };
 
+// UPDATE PROJECTS
+export function updateProject(dataProject){
+  return function(dispatch){
+      return axios.put(`${BASE_URL}/projects/updateproject`, dataProject)
+                  .then(project => dispatch({ type: UPDATE_PROJECTS, payload: project.data }))
+                  .catch(error => dispatch({ type: ERROS_PROJECTS, payload: error }))
+  }
+};
+
+// Clear Errors and Success Messages update Project and create Project
+export function clearDataProject() {
+  return {
+    type: CLEAR_DATA_PROJECTS
+  }
+};
 
 
 
