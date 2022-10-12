@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import CardProject from '../../CardProject/CardProject';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+import { getProjectsByUser } from '../../../redux/actions/projectsActions';
 import './MyProjects.css'
 
 
@@ -19,6 +20,10 @@ export default function MyProjects() {
     // }
   }
 
+  React.useEffect(() => {
+    dispatch(getProjectsByUser(user?.user._id, user?.token))
+  },[user]);
+
   return (
     <div className='main_box_personalinformation'>
       <h1 className="gradient__text"> MI PERFIL </h1>
@@ -29,8 +34,8 @@ export default function MyProjects() {
              ? <h3>Todavía no creaste ningún Proyecto, ANIMATE y crea uno. 🚀 </h3>
              : projectByUser.map(project => {
             return (
-              <div className='myproyectsEdit'>
-                <Link to='/miperfil/editproyecto'>
+              <div className='myproyectsEdit' key={project?._id}>
+                <Link to={`/miperfil/editproyecto/${project?._id}`}>
                   <div className='positionButtonEdit'>
                     <Button id='btn_personalinformationEditProject' variant="contained">
                         Editar Proyecto
