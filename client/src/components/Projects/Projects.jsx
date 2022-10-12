@@ -52,11 +52,11 @@ export default function Projects() {
 		}
 	};
 
-  function handleOpenMessageLogin() {
+  function handleOpenMessageLogin(idProject) {
     if(!user?.user) {
       dispatch(openMessageMustLogin({ open: true, msg: 2 }));
     } else {
-      dispatch(openModalInfoCollaborator())
+      dispatch(openModalInfoCollaborator(idProject))
     }
   }
 

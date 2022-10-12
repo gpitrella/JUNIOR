@@ -120,6 +120,10 @@
     opacity: 0.8;
 }
 
+.successSend {
+    padding: 30px 70px;
+}
+
 @media screen and (max-width: 800px) {
 
 

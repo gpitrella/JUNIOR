@@ -15,7 +15,9 @@ import {
   UPLOAD_IMAGE,
   UPDATE_PROJECTS,
   CLEAR_DATA_PROJECTS,
-  ERROS_PROJECTS
+  ERROS_PROJECTS,
+  NEW_COLLABORATE,
+  ERROS_COLLABORATE
 } from './actiontype';
 
 
@@ -118,5 +120,12 @@ export function clearDataProject() {
   }
 };
 
-
+// Enviar datos para Colaborar
+export function sendCollaborate(data){
+  return function(dispatch){
+      return axios.post(`${BASE_URL}/user/collaboration`, data)
+                  .then(project => dispatch({ type: NEW_COLLABORATE, payload: project.data }))
+                  .catch(error => dispatch({ type: ERROS_COLLABORATE, payload: error }))
+  }
+};
 

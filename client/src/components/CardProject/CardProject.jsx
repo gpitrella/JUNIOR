@@ -75,6 +75,10 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
     { task: "Realizar Diseño Responsive en Figma", status: true },
   ]
 
+  const handleClickOpen = () => {
+    handleOpenMessageLogin(project._id)
+  }
+
   
   return (
     <>
@@ -89,7 +93,7 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
             <HandshakeIcon sx={{ height: 20, width: 20, color: '#2196f3', marginLeft: '5px' }}/>
             }
             </Typography>
-            <button className={s.btnCardProject} onClick={handleOpenMessageLogin}type="button"> Colaborar </button>
+            <button className={s.btnCardProject} onClick={() => handleClickOpen()} type="button"> Colaborar </button>
           </div>
           <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#424242' }}>
             <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#424242', minHeight: 30, height: 30 }}>

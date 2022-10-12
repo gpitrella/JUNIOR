@@ -28,7 +28,8 @@ const initialState = {
   mustLoginMessage: { open: false, msg: 1 },
   allUsers: [],
   modalInfoCollaborator: false,
-  passRecoveryMessage: {}
+  passRecoveryMessage: {},
+  idProject: ''
 };
 
 
@@ -123,7 +124,8 @@ const homepageReducer = function(state = initialState, { type, payload }) {
     case OPEN_MODAL_INFO_COLLABORATOR:
       return {
         ...state,
-        modalInfoCollaborator: true
+        modalInfoCollaborator: true,
+        idProject: payload
       }
 
     case CLOSE_MODAL_INFO_COLLABORATOR:

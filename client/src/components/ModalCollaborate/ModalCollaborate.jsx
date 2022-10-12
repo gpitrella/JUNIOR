@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { closeModalInfoCollaborator } from '../../redux/actions/generalActions.js';
+import { sendCollaborate } from '../../redux/actions/projectsActions.js';
 
 import { useNavigate } from "react-router-dom";
 import './ModalCollaborate.css';
@@ -19,17 +20,32 @@ export default function ModalCollaborate() {
     // Cartel desplegable de Login
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { modalInfoCollaborator } = useSelector((state) => state.homepageReducer);
+    const { modalInfoCollaborator  } = useSelector((state) => state.homepageReducer);
+    const { user, idProject } = useSelector((state) => state.homepageReducer);
+    const { newCollaborate } = useSelector((state) => state.projectsReducer);
     const [errors, setErrors] = React.useState({});
     const [infoCollaborador, setInfoCollaborador] = React.useState({
+      idProject: '',
+      idUserCollaborator: user?.user?._id,
       linkedin: '',
-      whatsApp:'',
-      coverLetter: '',
+      number:'',
+      text: '',
+      email: user?.user?.email
     });
 
+
+    // idProject, idUserCollaborator, linkedin, number, text, email
+    console.log(infoCollaborador)
+
     React.useEffect(() => {
-      return dispatch(closeModalInfoCollaborator());
-    }, []);
+      setInfoCollaborador({
+        ...infoCollaborador,
+        idProject: idProject
+      })
+      return () => {
+        dispatch(closeModalInfoCollaborator());
+      }
+    }, [idProject]);
 
     console.log(infoCollaborador);
 
@@ -90,6 +106,7 @@ export default function ModalCollaborate() {
     const handleSubmit = (e) => { 
       e.preventDefault();
       // ENVIAR INFORMAIÓN POR MAIL AL CREADOR DEL PROYECTO
+      dispatch(sendCollaborate(infoCollaborador))
     }
 
     return (
@@ -102,6 +119,8 @@ export default function ModalCollaborate() {
             <BootstrapDialogTitle onClose={handleCloseInfo}>
                👏Listo/a para Colaborar :
             </BootstrapDialogTitle>
+            { !newCollaborate.message ? 
+            <div>
             <DialogContent dividers>
                 <Typography gutterBottom>
                     Te felicitamos por tus ganas de crecer y colaborar. 🚀 Te solicitamos a continuación tu información
@@ -125,39 +144,45 @@ export default function ModalCollaborate() {
               </div>
 
               <div className={`form__group`} id='whatsApp'>
-                <label htmlFor="linkedin" className='labelInfoCollaborator'>Contacto: </label>
+                <label htmlFor="number" className='labelInfoCollaborator'>Contacto: </label>
                 <input
                   type={'text'}
                   className='formInputCollaborator'
-                  id='whatsApp'
-                  name = {'whatsApp'}
+                  id='number'
+                  name = {'number'}
                   placeholder='Numero de contacto (WhatsApp)'
-                  value = {infoCollaborador.whatsApp}
+                  value = {infoCollaborador.number}
                   onChange={(e) => handleChange(e)}
                 />                 
                 <p className='form__input-error'>{errors?.whatsApp}</p>
               </div>
 
               <div className={`form__group`} id='coverLetter'>
-                <label htmlFor="linkedin" className='labelInfoCollaborator'>Mensaje: </label>
+                <label htmlFor="text" className='labelInfoCollaborator'>Mensaje: </label>
                 <textarea 
                   rows="5" 
                   type={'textarea'}
                   className='formInputTextArea'
-                  id='linkedin'
-                  name = {'coverLetter'}
+                  id='text'
+                  name = {'text'}
                   placeholder='Comentale al Creador/a del proyecto tus ganas de colaborar, el área en el que te especializas o te gustaría trabajar, las Techs que conoces o cualquier otra información que consideres relevante.'
-                  value = {infoCollaborador.coverLetter}
+                  value = {infoCollaborador.text}
                   onChange={(e) => handleChange(e)}
                 />                 
                 <p className='form__input-error'>{errors?.coverLetter}</p>
               </div>
-            </form>
             <DialogActions>
                 <button className="btnCollaborator" type='submit' onClick={(e) => handleSubmit(e)}>
                     Quiero Colaborar
                 </button>
             </DialogActions>
+            </form>
+            </div>
+            : <div className='successSend'> 
+                ✅ Felicitaciones ya enviamos al creador del proyecto todos tus datos para que
+                puedan contactarse y puedas ser parte del proyecto. Contactalo así podes empezar
+                a sumar experiencia rápido.   
+              </div> }
         </BootstrapDialog>
     )
 };

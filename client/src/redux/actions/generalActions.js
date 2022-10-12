@@ -137,9 +137,9 @@ export function getAllUsers(){
 };
                   
 // Open Message Must Login
-export function openModalInfoCollaborator(){
+export function openModalInfoCollaborator(idProject){
   return function(dispatch){
-      return dispatch({ type: OPEN_MODAL_INFO_COLLABORATOR })
+      return dispatch({ type: OPEN_MODAL_INFO_COLLABORATOR, payload: idProject})
   }
 }; 
 
