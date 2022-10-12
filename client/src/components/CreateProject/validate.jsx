@@ -41,6 +41,18 @@ export default function validate(input, errors){
       document.querySelector('#gitHubUrl .form__input-error').classList.add('form__input-error-activo')
     };
 
+    if (input.tasks.length > 0) {
+      if(errors.tasks) { delete errors.tasks }
+      document.getElementById('tasks').classList.add('form__group-correcto')
+      document.getElementById('tasks').classList.remove('form__group-incorrecto')
+      document.querySelector('#tasks .form__input-error').classList.remove('form__input-error-activo')
+    } else {
+      errors.tasks = "Agrega alguna tarea pendiente para desarrollar en tu proyecto"
+      document.getElementById('tasks').classList.add('form__group-incorrecto')
+      document.getElementById('tasks').classList.remove('form__group-correcto')
+      document.querySelector('#tasks .form__input-error').classList.add('form__input-error-activo')
+    }
+
     if (input.newtech.length > 0) {
       if(errors.newtech) { delete errors.newtech }
       document.getElementById('newtech').classList.add('form__group-correcto')

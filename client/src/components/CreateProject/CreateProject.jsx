@@ -32,11 +32,12 @@ export default function CreateProject() {
   // Importar imagen
   const { modalAddImage } = useSelector(state => state.projectsReducer);
   const filterReducer = useSelector((state) => state.filterReducer);
-
+  const [ textTask, setTextTask ] = useState('');
   const [input, setInput] = useState({
     title: '',
     description:'',
     gitHubUrl: '',
+    tasks: [],
     payment: 'false',
     image: '',
     wspUrl: '',
@@ -64,10 +65,22 @@ export default function CreateProject() {
           [e.target.name]: e.target.value
         })
       } 
+
     setErrors(validate({
       ...input,
       [e.target.name]: e.target.value
     }, errors))
+  }
+
+  const handleTask = () => {
+      let nameTask = textTask.charAt(0).toUpperCase() + textTask.slice(1).toLowerCase();
+      if(!input.tasks.includes(nameTask)) {
+        setInput({
+          ...input,
+          tasks: [...input.tasks, nameTask]
+        })
+      }
+      setTextTask('');
   }
 
   const handleDeleteTech = (e) => {
@@ -79,7 +92,21 @@ export default function CreateProject() {
         newtech: newTeches 
       })
     }
-  }
+  };
+
+  const handleDeleteTask = (e) => {
+    e.preventDefault();
+    console.log('PARA BORRAR ATRIBUTES:', e.target.attributes[0].nodeValue)
+    console.log('PARA BORRAR VALUE:', e.target.value)
+    if(input.tasks.includes(e.target.attributes[0].nodeValue)) {
+      const newTasks = input.tasks.filter((task) => task !== e.target.attributes[0].nodeValue);
+      setInput({
+        ...input,
+        tasks: newTasks 
+      })
+    }
+  };
+
 
   useEffect(() => {
     dispatch(getAllTechs());
@@ -110,6 +137,7 @@ export default function CreateProject() {
         title: '',
         description:'',
         gitHubUrl: '',
+        tasks: [],
         payment: 'false',
         image: '',
         wspUrl: '',
@@ -157,7 +185,7 @@ export default function CreateProject() {
     <form className='form_create_project' id='form' onSubmit={(e) => handleSubmit(e)}>
         <div className={`form__group_create_p ${s.formGroudName}`} id='title'>
           <label htmlFor="title" className={s.form__label}>Título: * </label>
-          <div className='form__group-input'>
+          <div className={s.form__group_input}>
                 <input
                   type={'text'}
                   className='form__input'
@@ -173,7 +201,7 @@ export default function CreateProject() {
 
         <div className={`form__group_create_p ${s.formGroudName}`} id='description'>
           <label htmlFor="description" className={s.form__label}>Descripción: * </label>
-          <div className='form__group-input'>
+          <div className={s.form__group_input}>
                 <textarea
                   type={'text'}
                   className = {`form__input ${s.formTextAreaCreateProject}`}
@@ -188,8 +216,8 @@ export default function CreateProject() {
         </div>
 
         <div className={`form__group_create_p ${s.formGroudName}`} id='gitHubUrl'>
-          <label htmlFor="name" className={s.form__label}>GitHub Link: * </label>
-          <div className='form__group-input'>
+          <label htmlFor="gitHubUrl" className={s.form__label}>GitHub Link: * </label>
+          <div className={s.form__group_input}>
                 <input
                   type={'text'}
                   className='form__input'
@@ -202,10 +230,36 @@ export default function CreateProject() {
           </div> 
           <span className='form__input-error'>{errors.gitHubUrl}</span>          
         </div>
-        
+          <div className={`form__group_create_p ${s.formGroudName}`} id='tasks'>
+            <label htmlFor="tasks" className={s.form__label}>Tareas: * </label>
+            <div className={`${s.form__group_input} ${s.displayTasks}`}>
+                  <input
+                    type={'text'}
+                    className='form__input'
+                    id='tasks'
+                    name = {'tasks'}
+                    placeholder='Tareas pendientes de realizar'
+                    value = {textTask}
+                    onChange={(e) => setTextTask(e.target.value)}
+                  />
+                  <button className={s.form__btn_task} onClick={handleTask}>Crear Tarea</button>
+            </div> 
+            <div className={s.maintaskselected}>
+              {input.tasks.length > 0 && input.tasks.map((task) => (
+                <div key={Math.random()} className={s.techselected}>
+                    <div value={task} >🔧 {task} </div>
+                    <div value={task} onClick={handleDeleteTask} className={s.deleteTech}>X</div>
+                </div>
+                    )
+                )}
+            </div>
+            <span className='form__input-error'>{errors.tasks}</span>          
+          </div>
+
+
         <div className='form__group_create_p' id='price'>
           <label htmlFor="price" className='form__label'>Colaborativo o Pago: *</label>
-          <div className='form__group-input'>
+          <div className={s.form__group_input}>
               <select
                 className='form__input'
                 id='payment'
@@ -221,7 +275,7 @@ export default function CreateProject() {
         
         <div className='form__group_create_p' id='wspUrl'>
           <label htmlFor="discount" className={s.form__label}>WhatsApp: </label>
-          <div className='form__group-input'>
+          <div className={s.form__group_input}>
                 <input
                   type={'number'}
                   className='form__input'
@@ -237,7 +291,7 @@ export default function CreateProject() {
 
         <div className='form__group_create_p' id='newtech'>
         <label htmlFor="category" className={s.form__label}>Tech a usar: *</label>
-        <div className='form__group-input'>
+        <div className={s.form__group_input}>
             <select
               className='form__input'
               id='newtech'
@@ -252,12 +306,12 @@ export default function CreateProject() {
                 )}
             </select>
             <div className={s.maintechselected}>
-              {input.newtech.length > 0 && input.newtech.map((tech) => (
-                <div key={Math.random()} className={s.techselected}>
-                    <div value={tech} >{tech} </div>
-                    <div value={tech} onClick={handleDeleteTech} className={s.deleteTech}>X</div>
-                </div>
-                   
+             {input.newtech.length > 0 &&            
+                    input.newtech.map((tech) => (
+                    <div key={Math.random()} className={s.techselected}>
+                        <div value={tech} >{tech} </div>
+                        <div value={tech} onClick={handleDeleteTech} className={s.deleteTech}>X</div>
+                    </div>
                     )
                 )}
             </div>
@@ -270,7 +324,7 @@ export default function CreateProject() {
             <label htmlFor="image" className={s.form__label}>Imagen: *</label>
             <button className = {s.importImage} onClick = {handleOpenModalAddImage}>Importar</button>
           </div>
-          <div className='form__group-input'>
+          <div className={s.form__group_input}>
                 <input
                     type={'text'}
                     className='form__input'
@@ -278,8 +332,9 @@ export default function CreateProject() {
                     name = {'image'}
                     placeholder='Product image URL'
                     value = {input.image}
-                    onChange={(e) => handleChange(e)}
+                    // onChange={(e) => handleChange(e)}
                 />
+                <button onClick={(e) => handleChange(e)} />
           </div> 
           <p className='form__input-error'>{errors.image}</p>
         </div>
@@ -300,6 +355,7 @@ export default function CreateProject() {
           modalAddImage && modalAddImage.show && <ModalAddImage handleImage = {handleImage}/>
         }
         </div>
+        
       </div>
   )
 }
