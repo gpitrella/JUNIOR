@@ -16,8 +16,9 @@ import {
   SIGN_IN_GITHUB,
   OPEN_MESSSAGE_MUST_LOGIN,
   CLOSE_MESSSAGE_MUST_LOGIN,
+  GET_ALL_USERS,
   OPEN_MODAL_INFO_COLLABORATOR,
-  CLOSE_MODAL_INFO_COLLABORATOR
+  CLOSE_MODAL_INFO_COLLABORATOR,
 } from './actiontype';
 
 // // Take Auth User
@@ -126,6 +127,15 @@ export function closeMessageMustLogin(){
   }
 };
 
+// Take All Users
+export function getAllUsers(){
+  return function(dispatch){
+      return axios.get(`${BASE_URL}/user/allusers`)
+                  .then(users => dispatch({ type: GET_ALL_USERS, payload: users.data }))
+                  .catch(error => console.log(error))
+  }
+};
+                  
 // Open Message Must Login
 export function openModalInfoCollaborator(){
   return function(dispatch){

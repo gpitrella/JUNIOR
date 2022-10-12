@@ -1,0 +1,97 @@
+.container {
+  width: 12rem;
+  height: 12rem;
+
+  padding: 1rem;
+  box-shadow: inset 0px 0px 0px 3px rgba(255, 255, 255, 0.2);
+  background-color: var(--primaryColor);
+
+  border-radius: 8px;
+
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  grid-template-columns: 1fr;
+}
+
+.LOADING,
+.NOTFOUND,
+.RETRY {
+  height: 80%;
+  aspect-ratio: 1 / 1;
+
+  align-self: center;
+  justify-self: center;
+}
+
+.spanMessage {
+  color: white;
+  opacity: 0.7;
+  font-size: var(--fontMedium);
+  font-weight: 700;
+  letter-spacing: 3px;
+
+  align-self: center;
+  justify-self: center;
+
+  transition: 0.5s;
+}
+
+.RETRY > svg {
+  transition: 0.5s;
+  fill: white;
+}
+
+.NOTFOUND > svg {
+  animation: showNotFound 0.2s;
+  animation-timing-function: linear;
+  fill: var(--secondaryColor);
+}
+
+.LOADING > svg {
+  animation: rotateLoading 2s infinite;
+  animation-timing-function: linear;
+  fill: var(--secondaryColor);
+}
+
+.RETRY {
+  cursor: pointer;
+}
+
+.RETRY:hover > svg {
+  fill: crimson;
+  animation: rotateRetry 4s infinite;
+  animation-timing-function: linear;
+  transform-origin: center;
+}
+
+@keyframes rotateLoading {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes showNotFound {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotateRetry {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}

@@ -10,6 +10,7 @@ export const UPDATE_PASSWORD = 'UPDATE_PASSWORD';
 export const SIGN_IN_GOOGLE = 'SIGN_IN_GOOGLE';
 export const SIGN_IN_GITHUB = 'SIGN_IN_GITHUB';
 export const LOG_IN_ERROR = 'LOG_IN_ERROR';
+export const GET_ALL_USERS = 'GET_ALL_USERS';
 export const CLEAN_LOG_IN_ERROR = 'CLEAN_LOG_IN_ERROR';
 
 // PROJECTS ACTIONS

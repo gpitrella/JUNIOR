@@ -1,0 +1,50 @@
+.containerAvatar {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  height: 80%;
+  aspect-ratio: 1 / 1;
+}
+
+.large {
+  height: 100%;
+}
+
+.spanNickname {
+  width: max-content;
+  font-size: var(--fontMedium);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 3px;
+  text-transform: capitalize;
+
+  display: none;
+}
+
+.showNickName {
+  display: inline-block;
+}
+
+.container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 1fr;
+  grid-gap: 1rem;
+
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+@media (max-width: 400px) {
+  .showNickName {
+    display: none;
+  }
+}

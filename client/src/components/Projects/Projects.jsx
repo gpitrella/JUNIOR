@@ -104,7 +104,7 @@ export default function Projects() {
 //   "gitHubUrl":"https://github.com/gpitrella/PruebaTIPS",
 //   "wspUrl":"https://api.whatsapp.com/send?phone=542614607020&text=Hola, Quiero sumarme al proyecto!",
 //   "image": "https://sirenascarwash.com/assets/img/blog/p3-pet-friendly.jpg",
-//   "newtech": ["React", "Redux", "Express", "Sequelize", "PostgreSQL"],
+//   "tech": ["React", "Redux", "Express", "Sequelize", "PostgreSQL"],
 //   "userId": "62fa59f0a41323e6e7f40705",
 //   "payment": false,
 //   "status": "finish"

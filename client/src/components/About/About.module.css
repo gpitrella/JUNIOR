@@ -46,10 +46,10 @@
 	-webkit-text-fill-color: transparent;
 }
 
-.titleAbout {
+/* .titleAbout {
   background: var(--gradient-text);
   -webkit-background-clip: text;
-}
+} */
 
 .copyright {
   font-size: var(--fontMedium);
