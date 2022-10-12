@@ -89,7 +89,7 @@
 	letter-spacing: -0.04em;
 }
 
-.createProjectView_content p {
+.createProjectView_content p .titleTask {
 	font-family: var(--font-family);
 	font-style: normal;
 	font-weight: normal;
@@ -109,6 +109,12 @@
 .maintechselected {
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+
+.maintaskselected {
+    padding-top: 15px;
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 .techselected {
@@ -133,4 +139,27 @@
   padding: 10px;
   cursor: pointer;
   color: white;
+}
+
+.displayTasks {
+    display: flex;
+    align-items: center;
+}
+
+.form__group_input{
+  position: relative,
+}
+
+.form__btn_task {
+    height: 45px;
+    line-height: 45px;
+    width: 20%;
+    background: rgba(0, 117, 255, 0.671);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: .1s ease all;
+    box-shadow: var(--mainShadow);
 }

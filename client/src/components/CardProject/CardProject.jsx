@@ -111,11 +111,11 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
               <Typography>Tareas Pendientes: </Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ color: 'white', backgroundColor: '#424242' }}>
-                { mainTaskEjemplo.length > 0 
-                    ? mainTaskEjemplo.map((task) => {
+                { project.tasks.length > 0 
+                    ? project.tasks.map((task) => {
                       return (
-                          <Typography key={Math.random()}>
-                            { `-- ${task.task }` }
+                          <Typography key={Math.random()} sx={!task.status ? { fontSize: '14px', color: '#bae492' } : { fontSize: '14px' }}  >
+                            { `${task.status ? '🔧' : '✅' } ${task.task } ${task.status ? '' : '- DONE' }` }
                           </Typography>
                       )
                         })
