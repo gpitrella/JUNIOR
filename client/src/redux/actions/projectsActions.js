@@ -18,7 +18,8 @@ import {
   ERROS_PROJECTS,
   NEW_COLLABORATE,
   ERROS_COLLABORATE,
-  GET_PROYECT_COLLABORATION_BY_USER
+  GET_PROYECT_COLLABORATION_BY_USER,
+  LOADING_DATA
 } from './actiontype';
 
 
@@ -88,7 +89,14 @@ export function createProject(dataProject){
   return function(dispatch){
       return axios.post(`${BASE_URL}/projects/newproject`, dataProject)
                   .then(project => dispatch({ type: CREATE_PROJECTS, payload: project.data }))
-                  .catch(error => console.log(error))
+                  .catch(error => dispatch({ type: ERROS_PROJECTS, payload: error.response.data }))
+  }
+};
+
+// Cargando Datos 
+export function loadingData() {
+  return {
+    type: LOADING_DATA
   }
 };
 
@@ -116,7 +124,6 @@ export function uploadImage(formData) {
 
 // UPDATE PROJECTS
 export function updateProject(input){
-  console.log('INPUT EN ACTIONS REDUCER:', input)
   return function(dispatch){
       return axios.put(`${BASE_URL}/projects/updateproject`, input)
                   .then(project => dispatch({ type: UPDATE_PROJECTS, payload: project.data }))

@@ -2,7 +2,8 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
-import { updateProject, showModalAddImage, getAllTechs, clearDataProject } from '../../redux/actions/projectsActions';
+import { updateProject, showModalAddImage, getAllTechs, clearDataProject, loadingData } from '../../redux/actions/projectsActions';
+import Loading from '../SVG/Loading';
 import validate from './validate';
 import s from './EditProject.module.css';
 import './EditProject.css'
@@ -17,7 +18,7 @@ export default function EditProject() {
   const { projectByUser } = useSelector((state) => state.projectsReducer);
   const projectToEdit = projectByUser.filter(project => project._id === id)
   const { user } = useSelector((state) => state.homepageReducer);
-  const { modalAddImage, updateProjectResult, errorsProject } = useSelector(state => state.projectsReducer);
+  const { modalAddImage, updateProjectResult, errorsProject, loadingDataStatus } = useSelector(state => state.projectsReducer);
   const filterReducer = useSelector((state) => state.filterReducer);
 
   const [errors, setErrors] = useState({
@@ -135,7 +136,7 @@ export default function EditProject() {
     return () => {
       dispatch(clearDataProject())
     }
-  }, []);
+  }, [updateProjectResult, errorsProject, loadingDataStatus]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -156,7 +157,7 @@ export default function EditProject() {
       //   icon.classList.remove('form__group-correcto')
       // })
       // document.getElementById('form__msn').classList.remove('form__msn-activo')
-      console.log('ANTES DE: ', input)
+      dispatch(loadingData());
       dispatch(updateProject(input));
       setInput({
         title: '',
@@ -374,7 +375,7 @@ export default function EditProject() {
         <div className="form__group_create_p form__group-btn-create">
             <button type='submit' className='form__btn'>EDITAR PROYECTO</button>
             <p className='form__msn-exito' id='form__msn-exito'
-            >Proyecto Creado con Éxito!!
+            > Proyecto Creado con Éxito!!
             </p>
         </div>
         </form>
@@ -388,6 +389,7 @@ export default function EditProject() {
           </div>
         : <div className={s.successEdit}>
             <h3> ❌ Hubo un problema al actualizar, intentalo nuevamente. </h3>
+            <p> -- { typeof(errorsProject) === 'string' && errorsProject} </p>
           </div>
         }
         </div>
