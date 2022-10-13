@@ -144,8 +144,6 @@ export default function CreateProject() {
         userId: '',
         emailUser: ''
       })
-      // dispatch(waitingResponsePost(true));
-      navigate('/projects')
     }
   }
 
@@ -259,7 +257,7 @@ export default function CreateProject() {
 
 
         <div className='form__group_create_p' id='price'>
-          <label htmlFor="price" className='form__label'>Colaborativo o Pago: *</label>
+          <label htmlFor="payment" className={s.form__label}>Colaborativo o Pago: *</label>
           <div className={s.form__group_input}>
               <select
                 className='form__input'
