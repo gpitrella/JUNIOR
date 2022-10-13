@@ -162,6 +162,11 @@
 	color: white;
 	margin-top: 10px;
 }
+.lottieWithOutProject {
+  margin-top: 100px;
+  width: 200px;
+  animation: rotateNotProject 7s infinite;
+}
 
 @keyframes rotateLoading {
   from {
@@ -169,6 +174,19 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateNotProject {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(20deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+
   }
 }
 
