@@ -9,7 +9,9 @@ import {
   UPLOAD_IMAGE,
   UPDATE_PROJECTS,
   CLEAR_DATA_PROJECTS,
-  ERROS_PROJECTS
+  ERROS_PROJECTS,
+  ERROS_COLLABORATE,
+  NEW_COLLABORATE
 } from '../actions/actiontype';
 
 const initialState = {
@@ -24,6 +26,7 @@ const initialState = {
   },
   updateProjectResult: '',
   errorsProject: '',
+  newCollaborate: {}
 };
 
 const projectsReducer = function(state = initialState, { type, payload }) {
@@ -101,6 +104,19 @@ const projectsReducer = function(state = initialState, { type, payload }) {
         ...state,
         errorsProject: payload,
       }
+
+    case NEW_COLLABORATE:
+      return {
+        ...state,
+        newCollaborate: payload,
+      }
+
+    case ERROS_COLLABORATE:
+      return {
+        ...state,
+        errorsProject: payload,
+      }
+
     default:
       return state;
   }
