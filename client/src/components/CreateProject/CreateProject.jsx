@@ -2,22 +2,17 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
-import { createProject, showModalAddImage, getAllTechs } from '../../redux/actions/projectsActions';
-// import { postProduct, waitingResponsePost } from '../../redux/actions/storepageActions';
-// import { getCategories, getBrands } from '../../redux/actions/homepageActions';
-// import { showModalAddImage } from '../../redux/actions/generalActions';
-import './CreateProject.css'
+import { createProject, showModalAddImage, getAllTechs, clearDataProject } from '../../redux/actions/projectsActions';
 import validate from './validate';
+import s from './CreateProject.module.css';
+import './CreateProject.css';
 
 // Importar Imagen
 import ModalAddImage from '../ModalAddImage/ModalAddImage';
-
-import s from './CreateProject.module.css';
 import { style } from '@mui/system';
 
 export default function CreateProject() {
 
-    // title, description, gitHubUrl, wspUrl, image, newtech, userId, payment, status, emailUser
   const [errors, setErrors] = useState({
     title: "Agrega un Título a tu proyecto",
     description: "Agrega una descripción a tu proyecto.",
@@ -27,6 +22,7 @@ export default function CreateProject() {
     tasks: "Agrega alguna tarea para desarrollar en tu proyecto"
   });
   const { user } = useSelector((state) => state.homepageReducer);
+  const { newProject, errorsProject } = useSelector((state) => state.projectsReducer);
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -109,6 +105,9 @@ export default function CreateProject() {
 
   useEffect(() => {
     dispatch(getAllTechs());
+    return () => {
+      dispatch(clearDataProject())
+    }
   }, []);
 
   const handleSubmit = (e) => {
@@ -180,8 +179,10 @@ export default function CreateProject() {
         <Link to = {'/projects'}>
           <button className = {s.goBack}>{'< Volver'}</button>
         </Link>
+        { !newProject._id  && errorsProject === '' ? 
+      <div>
         <h1 className={`form__title ${s.maintitle}`}>Crear Proyecto</h1>
-    <form className='form_create_project' id='form' onSubmit={(e) => handleSubmit(e)}>
+        <form className='form_create_project' id='form' onSubmit={(e) => handleSubmit(e)}>
         <div className={`form__group_create_p ${s.formGroudName}`} id='title'>
           <label htmlFor="title" className={s.form__label}>Título: * </label>
           <div className={s.form__group_input}>
@@ -354,6 +355,19 @@ export default function CreateProject() {
           modalAddImage && modalAddImage.show && <ModalAddImage handleImage = {handleImage}/>
         }
         </div>
+        : newProject._id  ?
+        <div className={s.successEdit}>
+          <h3> 
+            ✅ Tu proyecto se creo correctamente. Te Felicitamos por tu iniciativa. Empeza con los colaboradores
+              a desarrollarlo y suma la experiencia a tu CV.
+          </h3>
+        </div>
+      : <div className={s.successEdit}>
+          <h3> ❌ Hubo un problema al actualizar, intentalo nuevamente. </h3>
+          <p> -- { typeof(errorsProject) === 'string' && errorsProject} </p>
+        </div>
+      }
+      </div>
         
       </div>
   )

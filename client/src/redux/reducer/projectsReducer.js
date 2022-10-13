@@ -12,7 +12,8 @@ import {
   ERROS_PROJECTS,
   ERROS_COLLABORATE,
   NEW_COLLABORATE,
-  GET_PROYECT_COLLABORATION_BY_USER
+  GET_PROYECT_COLLABORATION_BY_USER,
+  LOADING_DATA
 } from '../actions/actiontype';
 
 const initialState = {
@@ -29,6 +30,7 @@ const initialState = {
   errorsProject: '',
   newCollaborate: '',
   projectCollaborateByUser: [],
+  loadingDataStatus: false
 };
 
 const projectsReducer = function(state = initialState, { type, payload }) {
@@ -99,7 +101,8 @@ const projectsReducer = function(state = initialState, { type, payload }) {
         ...state,
         updateProjectResult: '',
         errorsProject: '',
-        newCollaborate: ''
+        newCollaborate: '',
+        loadingDataStatus: false,
       }
     
     case ERROS_PROJECTS:
@@ -124,6 +127,12 @@ const projectsReducer = function(state = initialState, { type, payload }) {
       return {
         ...state,
         projectCollaborateByUser: payload,
+      }
+    
+    case LOADING_DATA:
+      return {
+        ...state,
+        loadingDataStatus: true,
       }
 
     default:
