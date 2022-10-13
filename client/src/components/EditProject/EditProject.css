@@ -119,6 +119,17 @@
     box-shadow: var(--mainShadow);
 }
 
+.form__btn_status {
+    height: 30px;
+    width: 20%;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: .1s ease all;
+    box-shadow: var(--mainShadow);
+}
 
 .form__msn-exito{
     font-size: 14px;

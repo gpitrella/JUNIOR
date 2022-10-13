@@ -33,9 +33,9 @@ export default function EditProject() {
   // Importar imagen
   const [ textTask, setTextTask ] = useState('');
 
-  // const allNameTask = projectToEdit[0].tasks?.map((task) => {
-  //   return task.task
-  // })
+  const allNameTask = projectToEdit[0].tasks?.map((task) => {
+    return { task: task.task, statusTask: task.status }
+  })
   const allNameTechs = filterReducer?.allTechs.map((tech) => {
     return tech.name.charAt(0).toUpperCase() + tech.name.slice(1);
   })
@@ -44,7 +44,7 @@ export default function EditProject() {
     title: projectToEdit[0].title,
     description: projectToEdit[0].description,
     gitHubUrl: projectToEdit[0].gitHubUrl,
-    tasks: projectToEdit[0].tasks,
+    tasks: allNameTask,
     payment: projectToEdit[0].payment,
     image: projectToEdit[0].image,
     wspUrl: projectToEdit[0].wspUrl,
@@ -103,7 +103,6 @@ export default function EditProject() {
       e.preventDefault();
       const nameTaskToDelete = e.target.attributes[0].nodeValue;
       const newTasks = input.tasks.filter((task) => task.task !== nameTaskToDelete)
-
       setInput({
         ...input,
         tasks: newTasks
@@ -120,14 +119,14 @@ export default function EditProject() {
     const taskToChange = e.target.attributes[0].nodeValue;
     const newTasks = await input.tasks.map((task) => { 
       if(task.task === taskToChange) {
-        task.status = !task.status;
+        task.statusTask = !task.statusTask;
       } 
       return task; 
     })
     setInput({
       ...input,
       tasks: newTasks
-    })
+    })    
   }
 
 
@@ -157,7 +156,7 @@ export default function EditProject() {
       //   icon.classList.remove('form__group-correcto')
       // })
       // document.getElementById('form__msn').classList.remove('form__msn-activo')
-    
+      console.log('ANTES DE: ', input)
       dispatch(updateProject(input));
       setInput({
         title: '',
@@ -276,8 +275,8 @@ export default function EditProject() {
               {input.tasks.length > 0 && input.tasks.map((task) => (
                 <div key={Math.random()} className={s.techselected}>
                     <div value={task.task} >🔧 {task.task} </div>
-                    <div value={task.task} onClick={(e) => handleChangeStatus(e)} className={s.deleteTech}> { task?.status ? 'DEVELOPING' : 'DONE' }  </div>
-                    <div value={task.task} onClick={(e) => handleDeleteTask(e)} className={s.deleteTech}>X</div>
+                    <button value={task.task} className='form__btn_status' onClick={(e) => handleChangeStatus(e)} style={!task?.statusTask ? { background:'rgba(0, 117, 255, 0.671)'} : { background:'rgba(17, 146, 0, 0.671)'}}> { !task?.statusTask ? 'DESARROLLO' : 'COMPLETA' }  </button>
+                    <div value={task.task} onClick={(e) => handleDeleteTask(e)} className={s.deleteTech}> X </div>
                 </div>
                     )
                 )}
@@ -361,7 +360,6 @@ export default function EditProject() {
                     name = {'image'}
                     placeholder='Product image URL'
                     value = {input.image}
-                    // onChange={(e) => handleChange(e)}
                 />
                 <button onClick={(e) => handleChange(e)} />
           </div> 

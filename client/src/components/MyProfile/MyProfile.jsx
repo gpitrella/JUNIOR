@@ -1,12 +1,10 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-import { useLottie } from "lottie-react";
-import { getProjectsByUser } from '../../redux/actions/projectsActions';
+import { getProjectsByUser, getCollaborationByUser } from '../../redux/actions/projectsActions';
 import personalInformation from '../../assets/personalInformation.json';
 import team from '../../assets/team.json';
 import projectPersonal from '../../assets/projectPersonal.json';
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import CardProfile from './CardProfile/CardProfile';
 import s from './MyProfile.module.css';
@@ -16,15 +14,9 @@ export default function MyProfile({ handleSignOut }) {
   const dispatch = useDispatch(); 
   
   React.useEffect(() => {
-    dispatch(getProjectsByUser(user?.user._id, user?.token))
+    dispatch(getProjectsByUser(user?.user._id, user?.token));
+    dispatch(getCollaborationByUser(user?.user._id));
   },[user]);
-
-  // // Lottie
-  // const optionsPersonalInformation = {
-  //   animationData: personalInformation,
-  //   loop: true
-  // };
-  // const { View } = useLottie(optionsPersonalInformation);
   
   return (
     <div className={s.myprofile_view_content}>
