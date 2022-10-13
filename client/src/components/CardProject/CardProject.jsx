@@ -88,7 +88,7 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
         <CardContent sx={{ flex: '1 0 auto' }}>
           <div className={s.card_content_top}>
             <Typography component="div" variant="h5">
-              { project.title }
+              { project?.title }
               { project?.payment?
               <MonetizationOnIcon sx={{ height: 20, width: 20, color: '#388e3c', marginLeft: '5px' }}/> :
               <HandshakeIcon sx={{ height: 20, width: 20, color: '#2196f3', marginLeft: '5px' }}/>

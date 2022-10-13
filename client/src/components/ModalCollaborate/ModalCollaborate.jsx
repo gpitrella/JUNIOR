@@ -181,7 +181,8 @@ export default function ModalCollaborate() {
                 </div> 
               : <div className='successSend'> 
                 ❌ Hubo algún error al enviar la información al creador del proyecto, intentalo nuevamente.
-                Cualquier inconveniente ponete en contacto con nosotros. 
+                Cualquier inconveniente ponete en contacto con nosotros.
+                <p> -- { typeof(errorsProject) === 'string' && errorsProject} </p>
                 </div> } 
             </div>
          </div> }

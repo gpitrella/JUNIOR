@@ -120,6 +120,7 @@
 .techselected {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
     padding: 4px;
     margin: 2px;
@@ -130,6 +131,7 @@
 
 .deleteTech {
   cursor: pointer;
+  padding-right: 10px;
   text-shadow: 1px 1px 2px #d0d0d0;;
 }
 

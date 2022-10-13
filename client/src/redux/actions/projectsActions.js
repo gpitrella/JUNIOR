@@ -17,7 +17,8 @@ import {
   CLEAR_DATA_PROJECTS,
   ERROS_PROJECTS,
   NEW_COLLABORATE,
-  ERROS_COLLABORATE
+  ERROS_COLLABORATE,
+  GET_PROYECT_COLLABORATION_BY_USER
 } from './actiontype';
 
 
@@ -63,11 +64,20 @@ export function selectPag(payload) {
   };
 }
 
-// Get Projects by USER
+// Get Projects by CREATED BY USER
 export function getProjectsByUser(id, token){
   return function(dispatch){
       return axios.get(`${BASE_URL}/user/projects/${id}`, getHeaderWithToken(token))
                   .then(project => dispatch({ type: GET_PROJECTS_BY_USER, payload: project.data }))
+                  .catch(error => console.log(error))
+  }
+};
+
+// Get Projects COLABORATIVE BY USER
+export function getCollaborationByUser(id){
+  return function(dispatch){
+      return axios.post(`${BASE_URL}/user/mycollaborations`, { id })
+                  .then(project => dispatch({ type: GET_PROYECT_COLLABORATION_BY_USER, payload: project.data }))
                   .catch(error => console.log(error))
   }
 };
@@ -105,9 +115,10 @@ export function uploadImage(formData) {
 };
 
 // UPDATE PROJECTS
-export function updateProject(dataProject){
+export function updateProject(input){
+  console.log('INPUT EN ACTIONS REDUCER:', input)
   return function(dispatch){
-      return axios.put(`${BASE_URL}/projects/updateproject`, dataProject)
+      return axios.put(`${BASE_URL}/projects/updateproject`, input)
                   .then(project => dispatch({ type: UPDATE_PROJECTS, payload: project.data }))
                   .catch(error => dispatch({ type: ERROS_PROJECTS, payload: error }))
   }
@@ -126,7 +137,7 @@ export function sendCollaborate(data){
   return function(dispatch){
       return axios.post(`${BASE_URL}/user/collaboration`, data)
                   .then(project => dispatch({ type: NEW_COLLABORATE, payload: project.data }))
-                  .catch(error => dispatch({ type: ERROS_COLLABORATE, payload: error }))
+                  .catch(error => dispatch({ type: ERROS_COLLABORATE, payload: error.response.data }))
   }
 };
 
