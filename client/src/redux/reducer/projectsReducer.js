@@ -26,7 +26,7 @@ const initialState = {
   },
   updateProjectResult: '',
   errorsProject: '',
-  newCollaborate: {}
+  newCollaborate: ''
 };
 
 const projectsReducer = function(state = initialState, { type, payload }) {
@@ -97,6 +97,7 @@ const projectsReducer = function(state = initialState, { type, payload }) {
         ...state,
         updateProjectResult: '',
         errorsProject: '',
+        newCollaborate: ''
       }
     
     case ERROS_PROJECTS:
