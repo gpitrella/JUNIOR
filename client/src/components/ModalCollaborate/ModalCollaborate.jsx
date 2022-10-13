@@ -52,6 +52,7 @@ export default function ModalCollaborate() {
     const handleCloseInfo = (e) => {
         e.preventDefault();
         dispatch(closeModalInfoCollaborator());
+        dispatch(clearDataProject());
     };
 
     const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -180,7 +181,7 @@ export default function ModalCollaborate() {
                 </div> 
               : <div className='successSend'> 
                 ❌ Hubo algún error al enviar la información al creador del proyecto, intentalo nuevamente.
-                Cualquier inconveniente ponete en contacto con nosotros.    
+                Cualquier inconveniente ponete en contacto con nosotros. 
                 </div> } 
             </div>
          </div> }
