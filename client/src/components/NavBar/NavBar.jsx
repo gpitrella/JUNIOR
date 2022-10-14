@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from "react-redux";
-import MenuItem from '@mui/material/MenuItem';
+// import MenuItem from '@mui/material/MenuItem';
 import './NavBar.css';
 import logo from '../../assets/logo.png';
 
