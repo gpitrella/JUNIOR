@@ -75,21 +75,26 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
     { task: "Realizar Diseño Responsive en Figma", status: true },
   ]
 
+  const handleClickOpen = (e) => {
+    e.preventDefault();
+    handleOpenMessageLogin(project._id)
+  }
+
   
   return (
     <>
-    <Card sx={{ display: 'flex', margin: 5, width: 800, justifyContent: "space-between", borderRadius: 5, backgroundColor: '#424242' }}>
+    <Card sx={{ display: 'flex', margin: 5, width: 800, justifyContent: "space-between", borderRadius: 5, backgroundColor: '#424242', boxShadow: '2px 3px 5px #96969680' }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', width: 600, color: 'white' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <div className={s.card_content_top}>
             <Typography component="div" variant="h5">
-              { project.title }
-            { project?.payment?
-            <MonetizationOnIcon sx={{ height: 20, width: 20, color: '#388e3c', marginLeft: '5px' }}/> :
-            <HandshakeIcon sx={{ height: 20, width: 20, color: '#2196f3', marginLeft: '5px' }}/>
-            }
+              { project?.title }
+              { project?.payment?
+              <MonetizationOnIcon sx={{ height: 20, width: 20, color: '#388e3c', marginLeft: '5px' }}/> :
+              <HandshakeIcon sx={{ height: 20, width: 20, color: '#2196f3', marginLeft: '5px' }}/>
+              }
             </Typography>
-            <button className={s.btnCardProject} onClick={handleOpenMessageLogin}type="button"> Colaborar </button>
+            <button className={s.btnCardProject} onClick={(e) => handleClickOpen(e)} type="button"> Colaborar </button>
           </div>
           <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#424242' }}>
             <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#424242', minHeight: 30, height: 30 }}>
@@ -111,11 +116,11 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
               <Typography>Tareas Pendientes: </Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ color: 'white', backgroundColor: '#424242' }}>
-                { mainTaskEjemplo.length > 0 
-                    ? mainTaskEjemplo.map((task) => {
+                { project?.tasks.length > 0 
+                    ? project?.tasks.map((task) => {
                       return (
-                          <Typography key={Math.random()}>
-                            { `-- ${task.task }` }
+                          <Typography key={Math.random()} sx={task.status ? { fontSize: '14px', color: '#bae492' } : { fontSize: '14px' }}  >
+                            { `${!task.status ? '🔧' : '✅' } ${task.task} ${!task.status ? '' : '- DONE' }` }
                           </Typography>
                       )
                         })

@@ -12,17 +12,16 @@ import {
   SELECTPAG,
   GET_PROJECTS_BY_USER,
   CLOUDINARY,
-  UPLOAD_IMAGE
+  UPLOAD_IMAGE,
+  UPDATE_PROJECTS,
+  CLEAR_DATA_PROJECTS,
+  ERROS_PROJECTS,
+  NEW_COLLABORATE,
+  ERROS_COLLABORATE,
+  GET_PROYECT_COLLABORATION_BY_USER,
+  LOADING_DATA
 } from './actiontype';
 
-// Get all Projects
-// export function getAllProjects(){
-//   return function(dispatch){
-//       return axios.get(`${BASE_URL}/projects/allprojects`)
-//                   .then(projects => dispatch({ type: GET_ALL_PROJECTS, payload: projects.data }))
-//                   .catch(error => console.log(error))
-//   }
-// };
 
 // Get all Projects
 export function getAllProjects(){
@@ -34,14 +33,6 @@ export function getAllProjects(){
 };
 
 // Get all Techs
-// export function getAllTechs(){
-//   return function(dispatch){
-//       return axios.get(`${BASE_URL}/tech/alltechs`)
-//                   .then(projects => dispatch({ type: GET_ALL_TECHS, payload: projects.data }))
-//                   .catch(error => console.log(error))
-//   }
-// };
-
 export function getAllTechs(){
   return function(dispatch){
       return axios.get(`${BASE_URL}/tech/alltechs`)
@@ -74,11 +65,20 @@ export function selectPag(payload) {
   };
 }
 
-// Get Projects by USER
+// Get Projects by CREATED BY USER
 export function getProjectsByUser(id, token){
   return function(dispatch){
-      return axios.post(`${BASE_URL}/user/projects`, id, getHeaderWithToken(token))
+      return axios.get(`${BASE_URL}/user/projects/${id}`, getHeaderWithToken(token))
                   .then(project => dispatch({ type: GET_PROJECTS_BY_USER, payload: project.data }))
+                  .catch(error => console.log(error))
+  }
+};
+
+// Get Projects COLABORATIVE BY USER
+export function getCollaborationByUser(id){
+  return function(dispatch){
+      return axios.post(`${BASE_URL}/user/mycollaborations`, { id })
+                  .then(project => dispatch({ type: GET_PROYECT_COLLABORATION_BY_USER, payload: project.data }))
                   .catch(error => console.log(error))
   }
 };
@@ -89,7 +89,14 @@ export function createProject(dataProject){
   return function(dispatch){
       return axios.post(`${BASE_URL}/projects/newproject`, dataProject)
                   .then(project => dispatch({ type: CREATE_PROJECTS, payload: project.data }))
-                  .catch(error => console.log(error))
+                  .catch(error => dispatch({ type: ERROS_PROJECTS, payload: error.response.data }))
+  }
+};
+
+// Cargando Datos 
+export function loadingData() {
+  return {
+    type: LOADING_DATA
   }
 };
 
@@ -115,6 +122,29 @@ export function uploadImage(formData) {
   }
 };
 
+// UPDATE PROJECTS
+export function updateProject(input){
+  return function(dispatch){
+      return axios.put(`${BASE_URL}/projects/updateproject`, input)
+                  .then(project => dispatch({ type: UPDATE_PROJECTS, payload: project.data }))
+                  .catch(error => dispatch({ type: ERROS_PROJECTS, payload: error }))
+  }
+};
 
+// Clear Errors and Success Messages update Project and create Project
+export function clearDataProject() {
+  return {
+    type: CLEAR_DATA_PROJECTS
+  }
+};
 
+// Enviar datos para Colaborar
+export function sendCollaborate(data){
+  console.log(data);
+  return function(dispatch){
+      return axios.post(`${BASE_URL}/user/collaboration`, data)
+                  .then(project => dispatch({ type: NEW_COLLABORATE, payload: project.data }))
+                  .catch(error => dispatch({ type: ERROS_COLLABORATE, payload: error.response.data }))
+  }
+};
 

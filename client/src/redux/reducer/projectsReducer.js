@@ -6,7 +6,14 @@ import {
   CLOSE_MODAL_ADD_IMAGE,
   SELECTPAG,
   GET_PROJECTS_BY_USER,
-  UPLOAD_IMAGE
+  UPLOAD_IMAGE,
+  UPDATE_PROJECTS,
+  CLEAR_DATA_PROJECTS,
+  ERROS_PROJECTS,
+  ERROS_COLLABORATE,
+  NEW_COLLABORATE,
+  GET_PROYECT_COLLABORATION_BY_USER,
+  LOADING_DATA
 } from '../actions/actiontype';
 
 const initialState = {
@@ -18,7 +25,12 @@ const initialState = {
   modalAddImage: {
     show: false,
     uploadedImage: ''
-  }
+  },
+  updateProjectResult: '',
+  errorsProject: '',
+  newCollaborate: '',
+  projectCollaborateByUser: [],
+  loadingDataStatus: false
 };
 
 const projectsReducer = function(state = initialState, { type, payload }) {
@@ -75,9 +87,54 @@ const projectsReducer = function(state = initialState, { type, payload }) {
     case GET_PROJECTS_BY_USER: 
       return {
         ...state,
-        projectUser: payload
+        projectByUser: payload
       }
-      
+    
+    case UPDATE_PROJECTS: 
+      return {
+        ...state,
+        updateProjectResult: payload
+      }
+    
+    case CLEAR_DATA_PROJECTS:
+      return {
+        ...state,
+        updateProjectResult: '',
+        errorsProject: '',
+        newCollaborate: '',
+        loadingDataStatus: false,
+      }
+    
+    case ERROS_PROJECTS:
+      return {
+        ...state,
+        errorsProject: payload,
+      }
+
+    case NEW_COLLABORATE:
+      return {
+        ...state,
+        newCollaborate: payload,
+      }
+
+    case ERROS_COLLABORATE:
+      return {
+        ...state,
+        errorsProject: payload,
+      }
+    
+    case GET_PROYECT_COLLABORATION_BY_USER:
+      return {
+        ...state,
+        projectCollaborateByUser: payload,
+      }
+    
+    case LOADING_DATA:
+      return {
+        ...state,
+        loadingDataStatus: true,
+      }
+
     default:
       return state;
   }

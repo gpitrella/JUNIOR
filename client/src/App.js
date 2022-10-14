@@ -119,7 +119,7 @@ export default function App() {
                 <Route exact path ="/miperfil/personalinformation" element= { user.user ? <PersonalInformation /> : <LogIn handleGoogle={handleGoogle} />}/>
                 <Route exact path ="/miperfil/colaboraciones" element= { user.user ? <Collaborate /> : <LogIn handleGoogle={handleGoogle} />}/>
                 <Route exact path ="/miperfil/misproyectos" element=  { user.user ? <MyProjects /> : <LogIn handleGoogle={handleGoogle}/>} />
-                <Route exact path ="/miperfil/editproyecto" element=  { user.user ? <EditProject /> : <LogIn handleGoogle={handleGoogle}/>} />
+                <Route exact path ="/miperfil/editproyecto/:id" element=  { user.user ? <EditProject /> : <LogIn handleGoogle={handleGoogle}/>} />
                 <Route exact path ="/tools" element= {<Tools />}  />
                 <Route exact path ="/tools/codeo" element= {<Codeo />}  />
                 <Route exact path ="/tools/organizacion" element= {<OrganizationTool />}  />

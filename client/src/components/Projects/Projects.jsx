@@ -1,14 +1,14 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Lottie from 'lottie-react';
 import Sidebar from '../Sidebar/Sidebar.jsx';
 import Pagina from "../Pagina/Pagina.jsx";
 import CardProject from '../CardProject/CardProject';
 import { getAllProjects, getAllTechs } from '../../redux/actions/projectsActions.js';
 import { closeMessageMustLogin, openMessageMustLogin, openModalInfoCollaborator, closeModalInfoCollaborator } from '../../redux/actions/generalActions.js';
-import notProject from '../../assets/astronautnotproject.json';
+import loottie from '../../assets/astronaut-notebook.json'
 import ModalMessage from '../ModalMessage/ModalMessage';
 import ModalCollaborate from '../ModalCollaborate/ModalCollaborate';
+import notastronaut from '../../assets/notastronaut.png';
 import { messagePopUp } from '../../lib/constants';
 
 import s from './Projects.module.css';
@@ -43,20 +43,11 @@ export default function Projects() {
     return projectShow;
   };
 
-  const defaultOptions = {
-		loop: true,
-		autoplay: true,
-		animationData: notProject,
-		rendererSettings: {
-		  preserveAspectRatio: "xMidYMid slice"
-		}
-	};
-
-  function handleOpenMessageLogin() {
+  function handleOpenMessageLogin(idProject) {
     if(!user?.user) {
       dispatch(openMessageMustLogin({ open: true, msg: 2 }));
     } else {
-      dispatch(openModalInfoCollaborator())
+      dispatch(openModalInfoCollaborator(idProject))
     }
   }
 
@@ -66,11 +57,9 @@ export default function Projects() {
             <Sidebar />
               { !projectsToShow()?.length  
                   ? <div className = {s.withoutCardsStore}>
-                    
                       <h2>Sin Proyectos con estos filtros</h2>
                       <h2>aprovecha y crea el primero. </h2>  
-       
-                      <Lottie options={defaultOptions} height={400} width={400} />  
+                      <img className={s.lottieWithOutProject} src={notastronaut} alt='Icono sin Projectos' />    
                     </div>
                   : <div className = {s.producCardsStore}>
                       <div className={s.projects_view_content}>
@@ -96,16 +85,4 @@ export default function Projects() {
           <ModalCollaborate />
     </>
   );
-}
-
-// {
-//   "title": "Cuidado de Mascotas",
-//   "description": "App para ",
-//   "gitHubUrl":"https://github.com/gpitrella/PruebaTIPS",
-//   "wspUrl":"https://api.whatsapp.com/send?phone=542614607020&text=Hola, Quiero sumarme al proyecto!",
-//   "image": "https://sirenascarwash.com/assets/img/blog/p3-pet-friendly.jpg",
-//   "tech": ["React", "Redux", "Express", "Sequelize", "PostgreSQL"],
-//   "userId": "62fa59f0a41323e6e7f40705",
-//   "payment": false,
-//   "status": "finish"
-// }
+};
