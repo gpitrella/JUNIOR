@@ -1,5 +1,4 @@
 import React from 'react';
-
 import s from './SidebarTitle.module.css';
 
 export default function SidebarTitle({ title }) {  

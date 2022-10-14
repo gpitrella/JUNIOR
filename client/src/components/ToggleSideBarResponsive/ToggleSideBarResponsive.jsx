@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import Filter from '../SVG/Filter';
+import filterIcon from '../../assets/filterIcon.png';
 import s from './ToggleSideBarResponsive.module.css';
 
 export default function ToggleSideBarResponsive({ showSideBar, handler }) {
@@ -14,8 +14,8 @@ export default function ToggleSideBarResponsive({ showSideBar, handler }) {
   if (isActive()) return (
     <div className={showSideBar ? s.notShowSidebar : s.showSidebar }>
       <button className = {s.btnShowSidebarResponsive} onClick = {handler}>
-        <Filter />
-        <span className = {s.spanInfo}>Options</span>
+        <img src={filterIcon} alt="icon Filter" className={s.iconFilter}/>
+        <span className = {s.spanInfo}> Filtros </span>
       </button>
     </div>
   );
