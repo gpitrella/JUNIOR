@@ -11,12 +11,14 @@ export default function Sidebar() {
   return (
     <>
       <div id="debar" className = {`${s.container} ${showSidebarResponsive ? s.showSidebarResponsive : ''}`}>
-        <Links />
-        <Filters />
         {
           showSidebarResponsive && 
-          <button className = {s.btnCloseSideBarResponsive} onClick = {() => setShowSidebarResponsive(false)}>Close</button>
+          <div className = {s.mainBtnCloseSideBarResponsive}>
+            <button className = {s.btnCloseSideBarResponsive} onClick = {() => setShowSidebarResponsive(false)}>X</button>
+          </div>     
         }
+        <Links />
+        <Filters />
       </div>
       <ToggleSideBarResponsive showSideBar = {showSidebarResponsive} handler = {() => setShowSidebarResponsive(true)} />
       <Links showAsFooter = {true}/>
