@@ -2,13 +2,13 @@
   position: fixed;
   bottom: 20px;
   left: 20px;
-  height: 3.5rem;
-  width: 3.5rem;
+  height: 3rem;
+  width: 3rem;
 	color: #fff;
 	background: #FF4820;
 	font-family: var(--font-family);
 	font-weight: 500;
-	font-size: 12px;
+	font-size: 10px;
 	border-radius: 5px;
 	border: 0;
 	box-shadow: var(--mainShadow);
@@ -21,6 +21,10 @@
   z-index: 1000;
 }
 
+.btnShowSidebarResponsive:hover {
+  box-shadow: none;
+}
+
 .notShowSidebar {
   display: none;
 }
@@ -29,7 +33,7 @@
   display: block;
 }
 .iconFilter {
-  width: 25px;
+  width: 20px;
 }
 
 @media (min-width: 900px) {
