@@ -35,8 +35,7 @@ export default function SectionLink({ title, path, icon, showVertical }) {
                 <h4 className = {s.label}>{title}</h4>
               </div>
             </Link>
-      }
-      
+      }    
     
     </>
   );

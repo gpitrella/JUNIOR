@@ -23,39 +23,37 @@
 .showSidebarResponsive {
   display: flex;
   position: fixed;
-  min-width: 100vw;
+  min-width: 90vw;
   z-index: 100;
-
   animation: showContainer 0.5s;
   animation-fill-mode: both;
 }
 
 .btnCloseSideBarResponsive {
-
-  position: absolute;
-  bottom: 1rem;
-  width: calc(100% - 3rem);
-  height: auto;
-
-  display: block;
-
-  padding: 0.7rem 0 0.7rem 0;
-  background: var(--primaryGradientWithLessOpacity);
-  border-radius: 8px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  font-size: var(--fontMedium);
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  height: 30px;
+  width: 5%;
+  background: rgba(0, 117, 255, 0.671);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 3px;
   cursor: pointer;
+  transition: .1s ease all;
+  box-shadow: var(--mainShadow);
+  cursor: pointer;
+}
+
+.mainBtnCloseSideBarResponsive {
+  display: flex;
+  width: 95%;
+  justify-content: flex-end;
 }
 
 .btnCloseSideBarResponsive:hover {
   box-shadow: var(--glowOutside);
 }
 
-@media (min-width: 700px) {
+@media (min-width: 900px) {
   .container {
     display: flex;
   }

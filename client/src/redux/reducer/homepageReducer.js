@@ -12,6 +12,7 @@ import {
   CLEAN_SEND_EMAIL,
   OPEN_MESSSAGE_MUST_LOGIN,
   CLOSE_MESSSAGE_MUST_LOGIN,
+  GET_ALL_USERS,
   CLOSE_MODAL_INFO_COLLABORATOR,
   OPEN_MODAL_INFO_COLLABORATOR,
   
@@ -25,8 +26,10 @@ const initialState = {
   user: {},
   logInError: {},
   mustLoginMessage: { open: false, msg: 1 },
+  allUsers: [],
   modalInfoCollaborator: false,
-  passRecoveryMessage: {}
+  passRecoveryMessage: {},
+  idProject: ''
 };
 
 
@@ -110,12 +113,19 @@ const homepageReducer = function(state = initialState, { type, payload }) {
       return {
         ...state,
         mustLoginMessage: { open: false, msg: 1 }
-      } 
+      }
+      
+    case GET_ALL_USERS:
+      return {
+        ...state,
+        allUsers: payload
+      }
 
     case OPEN_MODAL_INFO_COLLABORATOR:
       return {
         ...state,
-        modalInfoCollaborator: true
+        modalInfoCollaborator: true,
+        idProject: payload
       }
 
     case CLOSE_MODAL_INFO_COLLABORATOR:

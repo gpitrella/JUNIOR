@@ -31,6 +31,7 @@ app.use( // Sirve para mantener una session del usuario.
 );
 
 // Enable CORS
+console.log(CLIENT_URL)
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", CLIENT_URL);
   res.header('Access-Control-Allow-Credentials', 'true');

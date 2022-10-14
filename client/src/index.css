@@ -14,22 +14,107 @@
   --color-blog: #042c54;
   --color-text: #81AFDD;
   --color-subtext: #FF8A71;
-  --color-opacity: #040c1878;
+  --color-opacity: #040c18a2;
 
   --primaryColorLight: rgba(32, 32, 36, 1);
   --borderInside: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.2);
-  --fontSmall: 14px;
-
+  
   --primaryColor: rgba(32, 32, 36, 1);
   --primaryColorSub: rgb(240, 240, 240);
+  --primaryColorDark: rgba(13, 13, 13, 1.0);
   --fontColor: white;
   --dangerColor: crimson;
 
+  --primaryColorHOF: rgb(66, 66, 66, 0.5);
+
   --mainShadow: 2px 3px 5px rgba(150, 150, 150, 0.5);
+
+  --marginTopCrown: 0;
+  /* --cardHeight: 20rem;  */
+  /* --cardWidth: 12rem;
+  --cardDetailsHeight: 25rem;
+  --cardDetailsWidth: 45rem; */
+  --containerHallOfFame: 12rem;
+  --avatarHallOfFame: 50%;
+  --avatarHallOfFameLarge: 80%;
+  --crownHeight: 6rem;
+  --crownWidth: 6rem;
+  --rowHallOfFame: 4rem;
+  --paddingStatus: 0.4rem;
+  /* --logo: 50px; */
+  /* --logoText: 165px; */
+  /* --modalPassword: 25rem; */
+
+  --fontTitle: 32px;
+  --fontSubTitle: 20px;
+  --fontLarge: 18px;
+  --fontMedium: 16px;
+  --fontSmall: 14px;
+  --fontSmallest: 12px;
+
+  --widthIcon: 30;
+
+
+  
+
+  /* --primaryGradient:
+    linear-gradient(65.58deg,
+      rgba(0, 66, 255, 1) -11.84%,
+      rgba(235, 0, 27, 1) 98.75%); */
+
+  --primaryGradientWithLessOpacity:
+    linear-gradient(65.58deg,
+      rgba(0, 66, 255, 0.5) -11.84%,
+      rgba(235, 0, 27, 0.5) 98.75%);
+
+  /* --goldenGradient: 
+    radial-gradient(ellipse farthest-corner at right bottom, 
+      #FEDB37 0%,
+      #FDB931 8%,
+      #9f7928 30%,
+      #8A6E2F 40%,
+      transparent 80%), */
+    /* radial-gradient(ellipse farthest-corner at left top, 
+      #FFFFFF 0%, 
+      #FFFFAC 8%, 
+      #D1B464 25%, 
+      #5d4a1f 62.5%, 
+      #5d4a1f 100%); */
+
+  /* --silverGradient: 
+    linear-gradient(180deg,
+      hsl(0,0%,78%) 0%, 
+      hsl(0,0%,90%) 47%, 
+      hsl(0,0%,78%) 53%,
+      hsl(0,0%,70%)100%); */
+
+  /* --bronzeGradient:
+    linear-gradient(-72deg,
+      #ca7345,
+      #ffdeca 16%,
+      #ca7345 21%,
+      #ffdeca 24%,
+      #a14521 27%,
+      #ca7345 36%,
+      #ffdeca 45%,
+      #ffdeca 60%,
+      #ca7345 72%,
+      #ffdeca 80%,
+      #ca7345 84%,
+      #732100
+    ); */
+
+  /* --glowOutside: 0px 0px 8px 0px rgba(255, 255, 255, 0.9); */
+  /* --glowInside: inset 0px 0px 0px 3px rgba(255, 255, 255, 0.2); */
+
+  /* --borderInside: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.2); */
+
+  /* --marginBottom: 5rem; */
+
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   * {
-    --fontSmall: 11px;
+    --fontSmall: 14px;
   }
 }

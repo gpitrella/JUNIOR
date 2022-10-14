@@ -34,6 +34,7 @@ import dotenv from "dotenv";
 import LandingPage from './components/LandingPage/LandingPage.jsx';
 import './App.css';
 import 'aos/dist/aos.css'; // Animations on scrolling styles
+import HallOfFameView from './components/HallOfFameView/HallOfFameView';
 dotenv.config()
 
 const REACT_APP_GOOGLE = process.env.REACT_APP_GOOGLE;
@@ -95,13 +96,6 @@ export default function App() {
   
 // ?-- End Auth
 
-
-
-  // React.useEffect(() => {
-  //   dispatch(getUser());
-  // }, []);
-
-
   return (
      <React.Fragment>
       
@@ -118,13 +112,14 @@ export default function App() {
                 <Route exact path="/newpassword" element = {<UpdatePassword />} />
                 <Route exact path="/home" element={<Home />}/>
                 <Route exact path="/projects" element={<Projects />} />
+                <Route exact path="/halloffame" element={<HallOfFameView />} />
                 <Route exact path="/About" element={<About />} />
                 <Route exact path="/crearproyecto" element={<CreateProject />} />
                 <Route exact path="/miperfil" element={ user.user ? <MyProfile handleSignOut={handleSignOut}/> : <LogIn handleGoogle={handleGoogle} />} />             
                 <Route exact path ="/miperfil/personalinformation" element= { user.user ? <PersonalInformation /> : <LogIn handleGoogle={handleGoogle} />}/>
                 <Route exact path ="/miperfil/colaboraciones" element= { user.user ? <Collaborate /> : <LogIn handleGoogle={handleGoogle} />}/>
                 <Route exact path ="/miperfil/misproyectos" element=  { user.user ? <MyProjects /> : <LogIn handleGoogle={handleGoogle}/>} />
-                <Route exact path ="/miperfil/editproyecto" element=  { user.user ? <EditProject /> : <LogIn handleGoogle={handleGoogle}/>} />
+                <Route exact path ="/miperfil/editproyecto/:id" element=  { user.user ? <EditProject /> : <LogIn handleGoogle={handleGoogle}/>} />
                 <Route exact path ="/tools" element= {<Tools />}  />
                 <Route exact path ="/tools/codeo" element= {<Codeo />}  />
                 <Route exact path ="/tools/organizacion" element= {<OrganizationTool />}  />
@@ -141,3 +136,4 @@ export default function App() {
     </React.Fragment>
   );
 }
+
