@@ -13,22 +13,20 @@
   color: rgba(255, 255, 255, 0.5);
   margin-top: 0.2rem;
   margin-bottom: 0.2rem;
-  letter-spacing: 4px;
+  letter-spacing: 1px;
   font-weight: 600;
-
   text-transform: capitalize;
-
   transition: 0.5s;
 }
 
 .containerLink:hover > svg > .styleSVG,
 .isActive > svg > .styleSVG {
-  fill: crimson;
+  fill: var(--color-subtext);
 }
 
 .containerLink:hover > .label,
 .isActive > .label {
-  color: crimson;
+  color: var(--color-subtext);
 }
 
 .styleSVG {
@@ -43,14 +41,8 @@
   grid-template-rows: 2rem auto;
   grid-template-columns: 2.5rem 2rem 2.5rem;
   grid-row-gap: 0.5rem;
-
   margin-bottom: 0;
   margin-top: 0;
-}
-
-.verticalLink > svg {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
 }
 
 .verticalLink > .label {
@@ -66,17 +58,14 @@
   width: 100%;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 900px) {
   .verticalLink {
-    grid-template-columns: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 0px;
   }
-
-  .verticalLink > svg {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-  }
-
-  .verticalLink > .label {
-    display: none;
+  .styleIconRocket {
+    width: 40px;
   }
 }

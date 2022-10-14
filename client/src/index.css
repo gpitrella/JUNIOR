@@ -113,8 +113,8 @@
 
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   * {
-    --fontSmall: 11px;
+    --fontSmall: 14px;
   }
 }
