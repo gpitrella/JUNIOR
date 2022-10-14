@@ -70,6 +70,9 @@ a {
   }
 }
 
+/* transform: translateY(-100);
+opacity: 1; */
+
 /* === Media queries === */
 @media screen and (max-width: 700px) {
 	.section__padding {

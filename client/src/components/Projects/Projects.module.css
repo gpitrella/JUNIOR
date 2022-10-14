@@ -1,6 +1,6 @@
 .containerProjects {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: row;
   box-sizing: border-box;
 }
@@ -49,7 +49,8 @@
 }
 
 .producCardsStore {
-  margin-right: 9rem;
+  z-index: 1;
+  margin-left: 4vw;
 }
 
 .withoutCardsStore {
@@ -149,7 +150,7 @@
 .detailsProjects {
   display: flex;
   justify-content: space-evenly;
-  margin: 10px 25px;
+  margin: 5px 25px;
 }
 
 .detailsProjects p {
@@ -166,6 +167,12 @@
   margin-top: 100px;
   width: 200px;
   animation: rotateNotProject 7s infinite;
+}
+
+.spanLoading {
+  font-size: var(--fontTitle);
+  font-weight: 700;
+  color: var(--secondaryColor);
 }
 
 @keyframes rotateLoading {
@@ -190,10 +197,12 @@
   }
 }
 
-.spanLoading {
-  font-size: var(--fontTitle);
-  font-weight: 700;
-  color: var(--secondaryColor);
+
+/* MEDIA QUERY */
+@media screen and (max-width: 1150px) {
+  .producCardsStore {
+    margin-left: 1vw;
+  }
 }
 
 @media (max-width: 759px) {
@@ -281,8 +290,12 @@
   }
 }
 
-@media (min-width: 1190px) {
+/* @media (min-width: 1190px) {
   .containerGrid {
     grid-template-columns: 300px 870px;
   }
-}
+} */
+
+
+
+

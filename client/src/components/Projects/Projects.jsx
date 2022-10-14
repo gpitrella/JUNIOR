@@ -64,7 +64,6 @@ export default function Projects() {
                   : <div className = {s.producCardsStore}>
                       <div className={s.projects_view_content}>
                         <h1 className={s.gradient__text}> PROYECTOS </h1>
-                        <p> Busca, crea y sumate a los proyectos desafiantes que más te atraigan.	</p>
                       </div>    
                                                  
                       <div className={s.detailsProjects} >

@@ -64,6 +64,7 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
 
   // Desplegable:
   const [expanded, setExpanded] = React.useState('panel1');
+  const [ anchorCard, SetAnchorCard ] = React.useState(800);
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
@@ -83,7 +84,7 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
   
   return (
     <>
-    <Card sx={{ display: 'flex', margin: 5, width: 800, justifyContent: "space-between", borderRadius: 5, backgroundColor: '#424242', boxShadow: '2px 3px 5px #96969680' }}>
+    <Card sx={{ display: 'flex', margin: 5, width: anchorCard, justifyContent: "space-between", zIndex: "10000", borderRadius: 5, backgroundColor: '#202024', boxShadow: '2px 3px 5px #96969680' }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', width: 600, color: 'white' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <div className={s.card_content_top}>
@@ -96,26 +97,26 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
             </Typography>
             <button className={s.btnCardProject} onClick={(e) => handleClickOpen(e)} type="button"> Colaborar </button>
           </div>
-          <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#424242' }}>
-            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#424242', minHeight: 30, height: 30 }}>
+          <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#202024' }}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#202024', minHeight: 30, height: 30 }}>
               <Typography>Descripción: </Typography>
 
-              {/* <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#424242' }}>
-            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#424242' }}>
+              {/* <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#202024' }}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#202024' }}>
               <Typography>Descripción </Typography> */}
 
             </AccordionSummary>
-            <AccordionDetails sx={{ color: 'white', backgroundColor: '#424242' }}>
+            <AccordionDetails sx={{ color: 'white', backgroundColor: '#202024' }}>
               <Typography>
                   { project.description }
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#424242' }}>
-            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#424242', minHeight: 30, height: 30 }}>
+          <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#202024' }}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#202024', minHeight: 30, height: 30 }}>
               <Typography>Tareas Pendientes: </Typography>
             </AccordionSummary>
-            <AccordionDetails sx={{ color: 'white', backgroundColor: '#424242' }}>
+            <AccordionDetails sx={{ color: 'white', backgroundColor: '#202024' }}>
                 { project?.tasks.length > 0 
                     ? project?.tasks.map((task) => {
                       return (
@@ -161,7 +162,7 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
           height: 200,
           borderBottomLeftRadius: 100,
           borderTopLeftRadius: 100,
-          backgroundColor: '#424242'
+          backgroundColor: '#202024'
         }}
         src={project.image}
         alt={project.title}
