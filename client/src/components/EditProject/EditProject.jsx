@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { updateProject, showModalAddImage, getAllTechs, clearDataProject, loadingData } from '../../redux/actions/projectsActions';
+import LoadingComponent from '../../components/LoadingComponent/LoadingComponent';
 import Loading from '../SVG/Loading';
 import validate from './validate';
 import s from './EditProject.module.css';
@@ -30,6 +31,7 @@ export default function EditProject() {
     tasks: "Agrega alguna tarea para desarrollar en tu proyecto"
   });
   const dispatch = useDispatch()
+  const navigate = useNavigate();
 
   // Importar imagen
   const [ textTask, setTextTask ] = useState('');
@@ -133,9 +135,6 @@ export default function EditProject() {
 
   useEffect(() => {
     dispatch(getAllTechs());
-    return () => {
-      dispatch(clearDataProject())
-    }
   }, [updateProjectResult, errorsProject, loadingDataStatus]);
 
   const handleSubmit = (e) => {
@@ -158,18 +157,7 @@ export default function EditProject() {
       // })
       // document.getElementById('form__msn').classList.remove('form__msn-activo')
       dispatch(loadingData());
-      dispatch(updateProject(input));
-      setInput({
-        title: '',
-        description:'',
-        gitHubUrl: '',
-        tasks: [],
-        payment: 'false',
-        image: '',
-        wspUrl: '',
-        newtech: [],
-        projectId: ''
-      })
+      dispatch(updateProject(input));      
     }
   }
 
@@ -190,6 +178,23 @@ export default function EditProject() {
     }, errors));
   }
 
+  const clearMainVariables = (e) => {
+    e.preventDefault();
+    setInput({
+      title: '',
+      description:'',
+      gitHubUrl: '',
+      tasks: [],
+      payment: 'false',
+      image: '',
+      wspUrl: '',
+      newtech: [],
+      projectId: ''
+    })
+    dispatch(clearDataProject())
+    navigate(user.user ? '/miperfil/misproyectos' : '/home');
+  }
+
   return (
     <div className={s.mainbigcontainer}>
       <div className={s.createProjectView_content}>
@@ -203,11 +208,11 @@ export default function EditProject() {
       </div>
     <div className={`main ${s.container}`}>
       <div>
-        <Link to = {user.user ? '/miperfil/misproyectos' : '/home'}>
-          <button className = {s.goBack}>{'< Volver'}</button>
+        <Link to = {user.user ? '/miperfil/misproyectos' : '/home'} onClick={(e) => clearMainVariables(e)}>
+          <button className = {s.goBack} >{'< Volver'}</button>
         </Link>
       </div>
-      { updateProjectResult === '' && errorsProject === '' ? 
+      { updateProjectResult === '' && errorsProject === '' && !loadingDataStatus ? 
       <div>
         <h1 className={`form__title ${s.maintitle}`}>Editar Proyecto</h1>
         <form className='form_create_project' id='form' onSubmit={(e) => handleSubmit(e)}>
@@ -383,14 +388,16 @@ export default function EditProject() {
           modalAddImage && modalAddImage.show && <ModalAddImage handleImage = {handleImage}/>
         }
         </div>  
-        : updateProjectResult !== '' ?
-          <div className={s.successEdit}>
-            <h3> ✅ Tu proyecto a sido actualizado correctamente. </h3>
-          </div>
-        : <div className={s.successEdit}>
-            <h3> ❌ Hubo un problema al actualizar, intentalo nuevamente. </h3>
-            <p> -- { typeof(errorsProject) === 'string' && errorsProject} </p>
-          </div>
+        : loadingDataStatus && updateProjectResult === '' && errorsProject === '' 
+            ? <div className={s.containerLoading}><LoadingComponent width={300}/> </div>
+            : updateProjectResult !== ''
+                ? <div className={s.successEdit}>
+                    <h3> ✅ Tu proyecto a sido actualizado correctamente. </h3>
+                  </div>
+                : <div className={s.successEdit}>
+                    <h3> ❌ Hubo un problema al actualizar, intentalo nuevamente. </h3>
+                    <p> -- { typeof(errorsProject) === 'string' && errorsProject} </p>
+                  </div>
         }
         </div>
       </div>
