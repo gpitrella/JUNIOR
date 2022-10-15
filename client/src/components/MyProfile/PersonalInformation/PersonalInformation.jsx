@@ -184,7 +184,7 @@ export default function PersonalInformation() {
     <div className='main_box_personalinformation'>
       <h1 className="gradient__text"> MI PERFIL </h1>
       <h2 className='title_personalinformation gradient__text'> Personal Information </h2>
-    <List className='box_main_personal' sx={{ width: '100%', maxWidth: 360, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 5, padding: 2 }}>
+    <List className='box_main_personal' sx={{ width: '100%', maxWidth: 500, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 5, padding: 2 }}>
       <ListItem id='avatar_personal_information'>
         <ListItemAvatar>
           <Avatar
