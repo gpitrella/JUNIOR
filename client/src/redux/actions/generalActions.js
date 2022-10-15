@@ -19,7 +19,8 @@ import {
   GET_ALL_USERS,
   OPEN_MODAL_INFO_COLLABORATOR,
   CLOSE_MODAL_INFO_COLLABORATOR,
-  UPDATE_DATA_USER
+  UPDATE_DATA_USER,
+  LOAD_STORAGE
 } from './actiontype';
 
 // Log In User
@@ -142,5 +143,12 @@ export function updateDataUsers(id, data){
       return axios.put(`${BASE_URL}/user/update/${id}`, data)
                   .then(users => dispatch({ type: UPDATE_DATA_USER, payload: users.data }))
                   .catch(error => console.log(error))
+  }
+};
+
+// LOAD USER STORAGE
+export const loadStorage = function() {
+  return {
+    type: LOAD_STORAGE
   }
 };

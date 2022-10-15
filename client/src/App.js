@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import jwt_decode from "jwt-decode";
-import { logOut, signinGoogle } from './redux/actions/generalActions';
+import { logOut, signinGoogle, loadStorage } from './redux/actions/generalActions';
 import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { Background } from './containers';
 import Projects from './components/Projects/Projects';
@@ -69,7 +69,6 @@ export default function App() {
   function handleSignOut(e) {
     //setUser({}); -- aca va la accion para borrar auser
     e.preventDefault();
-    console.log("POR DESPACHAR LOGOUT")
     dispatch(logOut());
     if(location.pathname.includes("miperfil")) {
       navigate('/home');
@@ -88,12 +87,13 @@ export default function App() {
       { theme:"filled_blue", size: "large"}
     );
 
-    google.accounts.id.prompt();
-    
+    google.accounts.id.prompt();    
   };
-   
-  // console.log(user, 'dsp de useEffect App.js');
-  // ?-- End Auth
+  // ?-- End Auth Google
+
+  React.useEffect(() => {
+    dispatch(loadStorage());
+  }, []);
 
   return (
      <React.Fragment>

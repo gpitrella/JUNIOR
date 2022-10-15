@@ -15,7 +15,8 @@ import {
   GET_ALL_USERS,
   CLOSE_MODAL_INFO_COLLABORATOR,
   OPEN_MODAL_INFO_COLLABORATOR,
-  UPDATE_DATA_USER  
+  UPDATE_DATA_USER,
+  LOAD_STORAGE
 } from '../actions/actiontype';
 import { LocalStorage } from '../../util/localStorage';
 
@@ -39,11 +40,7 @@ const homepageReducer = function(state = initialState, { type, payload }) {
         ...state,
         filterProjects: payload
       }
-    // case GET_USER:
-    //   return {
-    //     ...state,
-    //     auser: payload
-    //   }
+
     case LOG_IN:
       LocalStorage.saveItem('user', payload);      
       return {
@@ -72,9 +69,9 @@ const homepageReducer = function(state = initialState, { type, payload }) {
       }
 
     case LOG_OUT:
+      LocalStorage.removeItem('user');
       return { 
         ...state,
-        // auser: {},
         user: {},
       }
 
@@ -96,7 +93,6 @@ const homepageReducer = function(state = initialState, { type, payload }) {
       }
 
     case CLEAN_SEND_EMAIL:
-      console.log('ENTRE AL REDUCER')
       return {
         ...state,
         passRecoveryMessage: {}
@@ -138,6 +134,14 @@ const homepageReducer = function(state = initialState, { type, payload }) {
         ...state,
         user: payload,
         updateDataUsersMsg: payload.msg
+      }
+      
+      case LOAD_STORAGE: {
+        let user = LocalStorage.getItem('user');
+        return {
+          ...state,
+          user: user ? user : state.user,
+        }
       }
 
     default:
