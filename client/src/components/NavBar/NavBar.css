@@ -156,15 +156,15 @@
 		padding: 2rem 4rem;
 	}
 
-	.navbar-sign {
+	/* .navbar-sign {
 		display: none;
-	}
+	} */
 
 	.navbar-menu_container {
 		top: 20px;
 	}
 
-	.navbar-menu_container-links-sign {
+	/* .navbar-menu_container-links-sign {
 		display: block;
-	}
+	} */
 }

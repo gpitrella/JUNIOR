@@ -12,10 +12,6 @@ export default function HallOfFameRow({ name, collaborations, image, index, emai
     window.open(link, '_blank');
   }
 
-  let handleClickEmail = function() {
-    window.open(email);
-  }
-
   return (
     <div className = {`${s.container}`/*` ${index === 1 ? s.first : index <= 3 ? s.second : ''}`*/}>
       <div className = {s.containerIndex}>
@@ -26,9 +22,9 @@ export default function HallOfFameRow({ name, collaborations, image, index, emai
       {/* <span className = {s.spanId}>{id}</span> */}
       <span className = {s.spanNickname}>{collaborations.length > 0 ? "WORKING" : "FREE"}</span>
       <span className = {s.spanContact}>
-        <div className = {`${s.containerLink} ${s.email}`} onClick = {() => handleClickEmail(email)}>
+        <a href={`mailto:${email}`} className = {`${s.containerLink} ${s.email}`}>
           <Email />
-        </div>  
+        </a>
         <div className = {`${s.containerLink} ${s.linkedin}`} onClick = {() => handleClick(linkedin)}>
           <Linkedin />
         </div>
