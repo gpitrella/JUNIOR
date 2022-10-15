@@ -6,9 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-// import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
-// import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-// import SkipNextIcon from '@mui/icons-material/SkipNext';
+import Popover from '@mui/material/Popover';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
@@ -22,6 +20,7 @@ import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 
+// CSS Material UI
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -63,26 +62,22 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
   const theme = useTheme();
 
   // Desplegable:
-  const [expanded, setExpanded] = React.useState('panel1');
+  const [ expanded, setExpanded] = React.useState('panel1');
   const [ anchorCard, setAnchorCard ] = React.useState(window.screen.width > 1150 ? 800 : window.screen.width <= 550 ? 380 : 650);
   const [ fontSize, setFontSize ] = React.useState(window.screen.width > 1150 ? 25 : 20);
   const [ anchorImg, setAnchorImg ] = React.useState(window.screen.width > 700 ? 200 : 100)
   const [ displayImg, setDisplayImg ] = React.useState(window.screen.width > 550 ? true : false)
+  const [anchorEl, setAnchorEl] = React.useState(null); // Desplegable WhatsApp
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
-
-  const mainTaskEjemplo = [
-    { task: "Realizar test Front", status: true },
-    { task: "Realizar test Back", status: true },
-    { task: "Desarrollar componente de Login", status: false },
-    { task: "Realizar Diseño Responsive en Figma", status: true },
-  ]
 
   const handleClickOpen = (e) => {
     e.preventDefault();
     handleOpenMessageLogin(project._id)
   }
+
+  // Window Resize Events
   window.addEventListener('resize', () => {
     if(window.screen.width > 1150) {
       if(anchorCard < 800) {
@@ -118,6 +113,18 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
       }  
     }
   });
+
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const idWathsApp = open ? 'simple-popover' : undefined;
 
   
   return (
@@ -170,13 +177,28 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
           
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+          <a href={ project?.gitHubUrl } target="_blank" rel="noopener noreferrer">
+            <IconButton aria-label="previous">
+              <GitHubIcon sx={{ height: window.screen.width < 500 ? 30 : 40, width: window.screen.width < 500 ? 30 : 40, color: 'white' }}/>
+            </IconButton>
+          </a>
 
-          <IconButton aria-label="previous">
-            <GitHubIcon sx={{ height: window.screen.width < 500 ? 30 : 40, width: window.screen.width < 500 ? 30 : 40, color: 'white' }}/>
-          </IconButton>
-          <IconButton aria-label="next">
+          <IconButton aria-label="next" aria-describedby={idWathsApp} onClick={handleClick}>
             <WhatsAppIcon sx={{ height: window.screen.width < 500 ? 30 : 40, width: window.screen.width < 500 ? 30 : 40, color: 'white' }}/>
           </IconButton>
+          <Popover
+            id={idWathsApp}
+            open={open}
+            anchorEl={anchorEl}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'center',
+            }}
+            sx={{ fontSize: 10 }}
+          >
+            <Typography sx={{ p: 2 }}>Contacto Creador: { project.wspUrl }</Typography>
+          </Popover>
 
           <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ color: 'white' }}>
             <span className='titleTechs'>Techs: </span>{ 
