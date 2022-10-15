@@ -149,7 +149,7 @@ export default function PersonalInformation() {
             <AccountCircleIcon /> 
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary={`Name: ${user?.user?.name}`} />
+        <ListItemText primary={`Name: ${user?.user?.name }`} />
         <EditIcon cursor='pointer' onClick={handleClickOpen}/>
       </ListItem>
       <ListItem>

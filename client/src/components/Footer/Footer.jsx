@@ -24,7 +24,7 @@ export default function Footer() {
                     </span>
                 </div>
                 <div id="footer_main_links">
-                    <h5>Contacto</h5>
+                    <Link to='/contactus'><h5>Contacto</h5></Link>
                     <Link to='/projects'><h5>Proyectos</h5></Link>
                     <a href="#home"><img src={logo} alt="logo Junior footer" /></a>
                     <Link to='/tools'><h5>Herramientas</h5></Link>

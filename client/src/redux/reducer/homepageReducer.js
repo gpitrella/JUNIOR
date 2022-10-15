@@ -15,21 +15,20 @@ import {
   GET_ALL_USERS,
   CLOSE_MODAL_INFO_COLLABORATOR,
   OPEN_MODAL_INFO_COLLABORATOR,
-  
-  
+  UPDATE_DATA_USER  
 } from '../actions/actiontype';
 import { LocalStorage } from '../../util/localStorage';
 
 const initialState = {
   filterProjects: [],
-  // auser: {},
   user: {},
   logInError: {},
   mustLoginMessage: { open: false, msg: 1 },
   allUsers: [],
   modalInfoCollaborator: false,
   passRecoveryMessage: {},
-  idProject: ''
+  idProject: '',
+  updateDataUsers: ''
 };
 
 
@@ -132,6 +131,12 @@ const homepageReducer = function(state = initialState, { type, payload }) {
       return {
         ...state,
         modalInfoCollaborator: false
+      }
+    
+    case UPDATE_DATA_USER:
+      return {
+        ...state,
+        updateDataUsers: payload
       }
 
     default:
