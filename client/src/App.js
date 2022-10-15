@@ -34,6 +34,7 @@ import dotenv from "dotenv";
 import LandingPage from './components/LandingPage/LandingPage.jsx';
 import './App.css';
 import 'aos/dist/aos.css'; // Animations on scrolling styles
+import FAQs from './components/FAQs/FAQs';
 dotenv.config()
 
 const REACT_APP_GOOGLE = process.env.REACT_APP_GOOGLE;
@@ -134,8 +135,10 @@ export default function App() {
                 <Route exact path ="/tools/cv" element= {<CvTool />}  />  
                 <Route exact path ="/tools/idlive" element= {<IdLiveTool />} /> 
                 <Route exact path ="/tools/frontdeploy" element= {<FrontDeploy />} /> 
-                <Route exact path ="/tools/backdeploy" element= {<BackDeploy />} />           
+                <Route exact path ="/tools/backdeploy" element= {<BackDeploy />} />   
+                <Route exact path="/faqs" element= {<FAQs />} />       
                 <Route exact path='*' component={<Navigate to="/home"/>} />
+
           </Routes> 
         { location.pathname !== '/' && <Footer /> }
     </React.Fragment>
