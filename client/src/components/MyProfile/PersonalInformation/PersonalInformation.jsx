@@ -1,6 +1,7 @@
 import * as React from 'react';
 import List from '@mui/material/List';
 import { useSelector, useDispatch } from 'react-redux';
+import { getAllTechs, clearDataProject } from '../../../redux/actions/projectsActions';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
@@ -22,6 +23,10 @@ import MuiAlert from '@mui/material/Alert';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import FormControl from '@mui/material/FormControl';
 // import { putDataUser, getUserDetail, putUpdatePassword, clearUpdateUser } from '../../../redux/actions'
 import { Link } from 'react-router-dom';
 import './PersonalInformation.css'
@@ -56,7 +61,27 @@ export default function PersonalInformation() {
   const [ openImg, setOpenImg ] = React.useState(false);
   const [ openPhone, setOpenPhone] = React.useState(false);
   const [ openPassword, setOpenPassword] = React.useState(false);
-  const [ dataChange, setDataChange ] = React.useState({});
+  const [ openTechs, setOpenTechs ] = React.useState(false);
+  const [ dataChange, setDataChange ] = React.useState({
+    techs: user?.user.techs,
+  });
+
+  const filterReducer = useSelector((state) => state.filterReducer);
+
+  const allNameTechs = filterReducer?.allTechs.map((tech) => {
+    return tech.name.charAt(0).toUpperCase() + tech.name.slice(1);
+  })
+
+  React.useEffect(() => {
+    dispatch(getAllTechs());
+    return () => {
+      dispatch(clearDataProject())
+    }
+  }, []);
+
+  const [age, setAge] = React.useState('');
+  
+
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -68,6 +93,23 @@ export default function PersonalInformation() {
 
   const handleClickOpenPhone = () => {
     setOpenPhone(true)
+  };
+
+  const handleClickOpenTechs = () => {
+    setOpenTechs(true)
+  };
+
+  const handleDeleteTech = (e) => {
+    e.preventDefault();
+    console.log(e.target.attributes[0].nodeValue)
+    console.log(e.target.value)
+    if(dataChange.techs.includes(e.target.attributes[0].nodeValue)) {
+      const newTechs = dataChange.techs.filter((tech) => tech !== e.target.attributes[0].nodeValue);
+      setDataChange({
+        ...dataChange,
+        techs: newTechs 
+      })
+    }
   };
 
   const handleOpenPassword = () => {
@@ -83,6 +125,7 @@ export default function PersonalInformation() {
     setOpenImg(false);
     setOpenPhone(false);
     setOpenPassword(false);
+    setOpenTechs(false);
   };
 
   const handleDataChange = (e) => {
@@ -92,6 +135,19 @@ export default function PersonalInformation() {
       [e.target.name]: e.target.value
     })
   };
+
+  const handleTech = (e) => {
+      e.preventDefault()
+      console.log(e.target.value)
+
+        if(!dataChange.techs.includes(e.target.value)) {
+        setDataChange({
+          ...dataChange,
+          techs: [...dataChange.techs, e.target.value]
+        })
+      
+  }
+ }
 
   const handleSendDataChange = () => {
     // dispatch(putDataUser(user.user.id, dataChange))
@@ -177,6 +233,7 @@ export default function PersonalInformation() {
         </ListItemAvatar>
         <ListItemText primary={`GitHub: buscar no llega`} />
       </ListItem>
+
       <ListItem>
         <ListItemAvatar>
           <Avatar>
@@ -185,6 +242,17 @@ export default function PersonalInformation() {
         </ListItemAvatar>
         <ListItemText primary={`Linkedin: buscar no llega`} />
       </ListItem>
+
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <LocalPhoneIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary={`Techs: ${"without techs"}`} />
+        <EditIcon cursor='pointer' onClick={handleClickOpenTechs}/>
+      </ListItem>
+
       <ListItem>
         <ListItemAvatar>
           <Avatar>
@@ -264,6 +332,49 @@ export default function PersonalInformation() {
         </DialogActions>
       </Dialog>
     </div>
+
+    <div>
+      <Dialog open={openTechs} onClose={handleClose}>
+        <DialogTitle>Editar Tecnologías:</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Nuevas Tecnologías
+          </DialogContentText>
+           <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+          <InputLabel id="techs">Techs</InputLabel>
+          <Select
+          labelId="techs"
+          id="techs"
+          value={dataChange.techs.length > 0 ? dataChange.techs.length-1 : 0}
+          onChange={(e) => handleTech(e)}
+          label="Techs"
+        >
+          <MenuItem value=""><em>None</em></MenuItem>
+          {allNameTechs?.map((tech) => (
+                    <MenuItem value={tech} key={Math.random()}>{tech}</MenuItem>
+                    )
+                )}
+        </Select>
+        <div className={'s.maintechselected'}>
+             {dataChange.techs.length > 0 &&            
+                    dataChange.techs.map((tech) => (
+                    <div key={Math.random()} className={'s.techselected'}>
+                        <div value={tech} >{tech} </div>
+                        <div value={tech} onClick={handleDeleteTech} className={'s.deleteTech'}>X</div>
+                    </div>
+                    )
+                )}
+            </div>
+        </FormControl>
+
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancelar</Button>
+          <Button onClick={handleSendDataChange}>Editar</Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+
     <div>
       <Dialog open={openPassword} onClose={handleClose}>
         <DialogTitle>Editar Password:</DialogTitle>
@@ -289,6 +400,7 @@ export default function PersonalInformation() {
         </DialogActions>
       </Dialog>
     </div>
+
     <Snackbar open={openSuccessEditName} autoHideDuration={6000} onClose={handleCloseSuccessComment}>
         <Alert onClose={handleCloseSuccessComment} severity="success" sx={{ width: '100%' }}>
             Info Actualizada Correctamente!                
