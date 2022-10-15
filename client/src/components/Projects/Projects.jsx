@@ -58,7 +58,7 @@ export default function Projects() {
               { !projectsToShow()?.length  
                   ? <div className = {s.withoutCardsStore}>
                       <h2>Sin Proyectos con estos filtros</h2>
-                      <h2>aprovecha y crea el primero. </h2>  
+                      <h2>aprovecha y crea el primero. </h2> 
                       <img className={s.lottieWithOutProject} src={notastronaut} alt='Icono sin Projectos' />    
                     </div>
                   : <div className = {s.producCardsStore}>
@@ -67,8 +67,10 @@ export default function Projects() {
                       </div>    
                                                  
                       <div className={s.detailsProjects} >
-                        <p> Total Projectos: {numberAllProjects}	</p>
-                        <p> Projectos Filtrados: {allProjects.length}	</p>
+                         <div className = {s.totalandfilterproject}>
+                            <p> Total Projectos: {numberAllProjects}	</p>
+                            <p> Projectos Filtrados: {allProjects.length}	</p>
+                        </div>
                         <Pagina currentPage={currentPage} maxpage={maxpage}></Pagina>
 
                       </div>

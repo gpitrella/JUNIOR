@@ -13,7 +13,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import HandshakeIcon from '@mui/icons-material/Handshake';
-import s from './CardProject.module.css';
+import s from './CardProject.module.scss';
 
 // Desplegable
 import { styled } from '@mui/material/styles';
@@ -64,7 +64,10 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
 
   // Desplegable:
   const [expanded, setExpanded] = React.useState('panel1');
-  const [ anchorCard, SetAnchorCard ] = React.useState(800);
+  const [ anchorCard, setAnchorCard ] = React.useState(window.screen.width > 1150 ? 800 : window.screen.width <= 550 ? 380 : 650);
+  const [ fontSize, setFontSize ] = React.useState(window.screen.width > 1150 ? 25 : 20);
+  const [ anchorImg, setAnchorImg ] = React.useState(window.screen.width > 700 ? 200 : 100)
+  const [ displayImg, setDisplayImg ] = React.useState(window.screen.width > 550 ? true : false)
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
@@ -80,6 +83,41 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
     e.preventDefault();
     handleOpenMessageLogin(project._id)
   }
+  window.addEventListener('resize', () => {
+    if(window.screen.width > 1150) {
+      if(anchorCard < 800) {
+        setAnchorCard(800)
+        setFontSize(25)
+        setAnchorImg(200)
+        setDisplayImg(true)
+      }  
+    }
+
+    if( 700 < window.screen.width < 1150) {
+      if(anchorCard > 650) {
+        setAnchorCard(650)
+        setFontSize(20)
+        setAnchorImg(200)
+        setDisplayImg(true)
+      } 
+    }
+
+    if(550 < window.screen.width < 700) {
+      if(anchorCard > 550) {
+        setAnchorCard(550)
+        setFontSize(18)
+        setAnchorImg(100)
+        setDisplayImg(true)
+      }  
+    }
+    if(window.screen.width < 550) {
+      if(anchorCard > 380) {
+        setAnchorCard(380)
+        setFontSize(16)
+        setDisplayImg(false)
+      }  
+    }
+  });
 
   
   return (
@@ -88,22 +126,18 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
       <Box sx={{ display: 'flex', flexDirection: 'column', width: 600, color: 'white' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <div className={s.card_content_top}>
-            <Typography component="div" variant="h5">
-              { project?.title }
+            <Typography component="div" variant="h5" sx={{ fontSize: fontSize }}>
+              { project?.title.charAt(0).toUpperCase() + project?.title.toLowerCase().slice(1) }
               { project?.payment?
-              <MonetizationOnIcon sx={{ height: 20, width: 20, color: '#388e3c', marginLeft: '5px' }}/> :
-              <HandshakeIcon sx={{ height: 20, width: 20, color: '#2196f3', marginLeft: '5px' }}/>
+                <MonetizationOnIcon sx={{ height: 20, width: 20, color: '#388e3c', marginLeft: '5px' }}/> :
+                <HandshakeIcon sx={{ height: 20, width: 20, color: '#2196f3', marginLeft: '5px' }}/>
               }
             </Typography>
             <button className={s.btnCardProject} onClick={(e) => handleClickOpen(e)} type="button"> Colaborar </button>
           </div>
-          <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#202024' }}>
-            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#202024', minHeight: 30, height: 30 }}>
+          <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#202024', backgroundColor: '#202024' }}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: 'none', minHeight: 30, height: 30 }}>
               <Typography>Descripción: </Typography>
-
-              {/* <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#202024' }}>
-            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#202024' }}>
-              <Typography>Descripción </Typography> */}
 
             </AccordionSummary>
             <AccordionDetails sx={{ color: 'white', backgroundColor: '#202024' }}>
@@ -112,7 +146,7 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#202024' }}>
+          <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#202024', backgroundColor: '#202024' }}>
             <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#202024', minHeight: 30, height: 30 }}>
               <Typography>Tareas Pendientes: </Typography>
             </AccordionSummary>
@@ -138,10 +172,10 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
 
           <IconButton aria-label="previous">
-            <GitHubIcon sx={{ height: 40, width: 40, color: 'white' }}/>
+            <GitHubIcon sx={{ height: window.screen.width < 500 ? 30 : 40, width: window.screen.width < 500 ? 30 : 40, color: 'white' }}/>
           </IconButton>
           <IconButton aria-label="next">
-            <WhatsAppIcon sx={{ height: 40, width: 40, color: 'white' }}/>
+            <WhatsAppIcon sx={{ height: window.screen.width < 500 ? 30 : 40, width: window.screen.width < 500 ? 30 : 40, color: 'white' }}/>
           </IconButton>
 
           <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ color: 'white' }}>
@@ -153,20 +187,22 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
         </Typography>
 
         </Box>
-      </Box>
-      <CardMedia
-        component="img"
-        sx={{ 
-          position: "right",
-          width: 200,
-          height: 200,
-          borderBottomLeftRadius: 100,
-          borderTopLeftRadius: 100,
-          backgroundColor: '#202024'
-        }}
-        src={project.image}
-        alt={project.title}
-      />
+      </Box> 
+      { displayImg &&
+        <CardMedia
+          component="img"
+          sx={{ 
+            position: "right",
+            width: anchorImg,
+            height: anchorImg,
+            borderBottomLeftRadius: 100,
+            borderTopLeftRadius: 100,
+            backgroundColor: '#202024'
+          }}
+          src={project.image}
+          alt={project.title}
+        />
+      }
     </Card>
     </>
   );
