@@ -14,8 +14,10 @@ export default function MyProfile({ handleSignOut }) {
   const dispatch = useDispatch(); 
   
   React.useEffect(() => {
-    dispatch(getProjectsByUser(user?.user._id, user?.token));
-    dispatch(getCollaborationByUser(user?.user._id));
+    if(user?.user) {
+      dispatch(getProjectsByUser(user?.user._id, user?.token));
+      dispatch(getCollaborationByUser(user?.user._id));
+    }
   },[user]);
   
   return (

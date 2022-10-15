@@ -27,7 +27,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
-// import { putDataUser, getUserDetail, putUpdatePassword, clearUpdateUser } from '../../../redux/actions'
+import { updateDataUsers } from '../../../redux/actions/generalActions';
 import { Link } from 'react-router-dom';
 import './PersonalInformation.css'
 
@@ -37,29 +37,17 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 });
 
 export default function PersonalInformation() {
-  const { user } = useSelector((state) => state.homepageReducer);
-  console.log(user)
-  // const { updateUser } = useSelector((state) => state.userReducer)
-  // const { oneuser } = useSelector((state) => state.userReducer)
+  const { user, updateDataUsersMsg } = useSelector((state) => state.homepageReducer);
   const dispatch = useDispatch();
-  
-  // React.useEffect(() => {
-  //   dispatch(getUserDetail(user?.user.id))
-  //   console.log(updateUser)
-  //   if(typeof(updateUser) === 'string'){
-  //     if(updateUser?.includes("successfully")){
-  //       setOpenSuccessEditName(true)
-  //       dispatch(clearUpdateUser())
-  //     }
-  //   }    
-  // }, [updateUser]);
-      
+
   // Controladores de Edit Profile
   const [ openSuccessEditName, setOpenSuccessEditName ] = React.useState(false);
   const [ image, setImage ] = React.useState("")
   const [ open, setOpen ] = React.useState(false);
   const [ openImg, setOpenImg ] = React.useState(false);
   const [ openPhone, setOpenPhone] = React.useState(false);
+  const [ openGithub, setOpenGithub] = React.useState(false);
+  const [ openLinkedin, setOpenLinkedin] = React.useState(false);
   const [ openPassword, setOpenPassword] = React.useState(false);
   const [ openTechs, setOpenTechs ] = React.useState(false);
   const [ dataChange, setDataChange ] = React.useState({
@@ -74,13 +62,12 @@ export default function PersonalInformation() {
 
   React.useEffect(() => {
     dispatch(getAllTechs());
+
+
     return () => {
       dispatch(clearDataProject())
     }
-  }, []);
-
-  const [age, setAge] = React.useState('');
-  
+  }, [updateDataUsersMsg, user]);
 
 
   const handleClickOpen = () => {
@@ -95,14 +82,20 @@ export default function PersonalInformation() {
     setOpenPhone(true)
   };
 
+  const handleClickOpenGithub = () => {
+    setOpenGithub(true)
+  };
+
+  const handleClickOpenLinkedin = () => {
+    setOpenLinkedin(true)
+  };
+
   const handleClickOpenTechs = () => {
     setOpenTechs(true)
   };
 
   const handleDeleteTech = (e) => {
     e.preventDefault();
-    console.log(e.target.attributes[0].nodeValue)
-    console.log(e.target.value)
     if(dataChange.techs.includes(e.target.attributes[0].nodeValue)) {
       const newTechs = dataChange.techs.filter((tech) => tech !== e.target.attributes[0].nodeValue);
       setDataChange({
@@ -124,6 +117,8 @@ export default function PersonalInformation() {
     setOpen(false);
     setOpenImg(false);
     setOpenPhone(false);
+    setOpenGithub(false);
+    setOpenLinkedin(false);
     setOpenPassword(false);
     setOpenTechs(false);
   };
@@ -138,8 +133,6 @@ export default function PersonalInformation() {
 
   const handleTech = (e) => {
       e.preventDefault()
-      console.log(e.target.value)
-
         if(!dataChange.techs.includes(e.target.value)) {
         setDataChange({
           ...dataChange,
@@ -149,9 +142,12 @@ export default function PersonalInformation() {
   }
  }
 
-  const handleSendDataChange = () => {
-    // dispatch(putDataUser(user.user.id, dataChange))
-    handleClose()
+  const handleSendDataChange = (e) => {
+    e.preventDefault();
+    if(user?.user) {
+      dispatch(updateDataUsers(user.user._id, dataChange))
+      handleClose()
+    }
   }
 
   const handleUpdatePassword = () => {
@@ -205,7 +201,7 @@ export default function PersonalInformation() {
             <AccountCircleIcon /> 
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary={`Name: ${user?.user?.name}`} />
+        <ListItemText primary={`Name: ${user?.user?.name }`} />
         <EditIcon cursor='pointer' onClick={handleClickOpen}/>
       </ListItem>
       <ListItem>
@@ -222,7 +218,7 @@ export default function PersonalInformation() {
             <LocalPhoneIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary={`Phone: ${'WithOut Phone'}`} />
+        <ListItemText primary={`Phone: ${user?.user?.phone === "No especificado" ? "-------" : user?.user?.phone }`} />
         <EditIcon cursor='pointer' onClick={handleClickOpenPhone}/>
       </ListItem>
       <ListItem>
@@ -231,7 +227,8 @@ export default function PersonalInformation() {
             <GitHubIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary={`GitHub: buscar no llega`} />
+        <ListItemText primary={`GitHub: ${user?.user?.github === "No especificado" ? "-------" : user?.user?.github }`} />
+        <EditIcon cursor='pointer' onClick={handleClickOpenGithub}/>
       </ListItem>
 
       <ListItem>
@@ -240,17 +237,8 @@ export default function PersonalInformation() {
             <LinkedInIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary={`Linkedin: buscar no llega`} />
-      </ListItem>
-
-      <ListItem>
-        <ListItemAvatar>
-          <Avatar>
-            <LocalPhoneIcon />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText primary={`Techs: ${"without techs"}`} />
-        <EditIcon cursor='pointer' onClick={handleClickOpenTechs}/>
+        <ListItemText primary={`Linkedin: ${user?.user?.linkedin === "No especificado" ? "-------" : user?.user?.linkedin }`} />
+        <EditIcon cursor='pointer' onClick={handleClickOpenLinkedin}/>
       </ListItem>
 
       <ListItem>
@@ -262,6 +250,25 @@ export default function PersonalInformation() {
         <ListItemText primary="Password: ******" />
         <EditIcon cursor='pointer' onClick={handleOpenPassword}/>
       </ListItem>
+
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <LocalPhoneIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary={`Tus Tecnologías: `} />
+        <EditIcon cursor='pointer' onClick={handleClickOpenTechs}/>
+      </ListItem>
+      <div className='maintechselected'>
+             {dataChange.techs.length > 0 &&            
+                    dataChange.techs.map((tech) => (
+                    <div key={Math.random()} className='techselected'>
+                        <div value={tech} >{tech} </div>
+                    </div>
+                    )
+                )}
+        </div>
       
     </List>
     <Link to={`/miperfil`}>
@@ -288,7 +295,7 @@ export default function PersonalInformation() {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancelar</Button>
-          <Button onClick={handleSendDataChange}>Editar</Button>
+          <Button onClick={(e) => handleSendDataChange(e)}>Editar</Button>
         </DialogActions>
       </Dialog>
     </div>
@@ -318,8 +325,33 @@ export default function PersonalInformation() {
             autoFocus
             margin="dense"
             id="phone"
-            name="phone_number"
+            name="phone"
             label="Nuevo Número"
+            type="text"
+            fullWidth
+            variant="standard"
+            onChange={handleDataChange}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancelar</Button>
+          <Button onClick={handleSendDataChange}>Editar</Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+    <div>
+      <Dialog open={openGithub} onClose={handleClose}>
+        <DialogTitle>Editar GitHub:</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Nuevo GitHub
+          </DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="github"
+            name="github"
+            label="Nuevo GitHub"
             type="text"
             fullWidth
             variant="standard"
@@ -334,37 +366,64 @@ export default function PersonalInformation() {
     </div>
 
     <div>
+      <Dialog open={openLinkedin} onClose={handleClose}>
+        <DialogTitle>Editar Linkedin:</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Nuevo Linkedin
+          </DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="linkedin"
+            name="linkedin"
+            label="Nuevo Linkedin"
+            type="text"
+            fullWidth
+            variant="standard"
+            onChange={handleDataChange}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancelar</Button>
+          <Button onClick={handleSendDataChange}>Editar</Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+
+
+    <div>
       <Dialog open={openTechs} onClose={handleClose}>
         <DialogTitle>Editar Tecnologías:</DialogTitle>
         <DialogContent>
           <DialogContentText>
             Nuevas Tecnologías
           </DialogContentText>
-           <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-          <InputLabel id="techs">Techs</InputLabel>
+           <FormControl variant="standard" sx={{ m: 1, minWidth: 400 }}>
+          <InputLabel id="techs">Agregar Nueva Techs</InputLabel>
           <Select
-          labelId="techs"
-          id="techs"
-          value={dataChange.techs.length > 0 ? dataChange.techs.length-1 : 0}
-          onChange={(e) => handleTech(e)}
-          label="Techs"
-        >
+            labelId="techs"
+            id="techs"
+            value={dataChange.techs.length > 0 ? dataChange.techs.length[dataChange.techs.length-1] : 0}
+            onChange={(e) => handleTech(e)}
+            label="Techs"
+          >
           <MenuItem value=""><em>None</em></MenuItem>
           {allNameTechs?.map((tech) => (
                     <MenuItem value={tech} key={Math.random()}>{tech}</MenuItem>
                     )
                 )}
         </Select>
-        <div className={'s.maintechselected'}>
+        <div className='maintechselected'>
              {dataChange.techs.length > 0 &&            
                     dataChange.techs.map((tech) => (
-                    <div key={Math.random()} className={'s.techselected'}>
+                    <div key={Math.random()} className='techselectedModal'>
                         <div value={tech} >{tech} </div>
-                        <div value={tech} onClick={handleDeleteTech} className={'s.deleteTech'}>X</div>
+                        <div value={tech} onClick={handleDeleteTech} className='deleteTech'>X</div>
                     </div>
                     )
                 )}
-            </div>
+          </div>
         </FormControl>
 
         </DialogContent>

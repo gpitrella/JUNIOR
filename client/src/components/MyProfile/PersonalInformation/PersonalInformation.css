@@ -64,3 +64,34 @@
     letter-spacing: 0.00938em;
     display: block;
 }
+
+.maintechselected {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.techselected {
+    text-align: center;
+    padding: 4px;
+    margin: 4px;
+    background-color: #ffffff21;
+    border-radius: 4px;
+    border-color: black;
+}
+.techselectedModal {
+    width: 155px;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    padding: 4px;
+    margin: 4px;
+    background-color: #19191921;
+    border-radius: 4px;
+    border-color: black;
+}
+
+.deleteTech {
+    cursor: pointer;
+    padding-right: 10px;
+    text-shadow: 1px 1px 2px #d0d0d0;;
+}
