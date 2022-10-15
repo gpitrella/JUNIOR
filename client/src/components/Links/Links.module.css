@@ -3,16 +3,12 @@
   bottom: 0;
   left: 0;
   width: 100%;
-
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   align-items: center;
-
   background: #131313;
   box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.1);
-
-  padding: 1rem 0 1rem 0;
-
+  padding: 1rem 6rem 1rem 0;
   z-index: 50;
 }
 
@@ -20,12 +16,18 @@
   display: none;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 950px) {
   .container {
     display: block;
   }
 
   .containerAsFooter {
     display: none;
+  }
+}
+
+@media (min-width: 500px) {
+  .containerAsFooter {
+    padding: 1rem 3rem 1rem 0;
   }
 }

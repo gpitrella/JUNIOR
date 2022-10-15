@@ -58,18 +58,19 @@ export default function Projects() {
               { !projectsToShow()?.length  
                   ? <div className = {s.withoutCardsStore}>
                       <h2>Sin Proyectos con estos filtros</h2>
-                      <h2>aprovecha y crea el primero. </h2>  
+                      <h2>aprovecha y crea el primero. </h2> 
                       <img className={s.lottieWithOutProject} src={notastronaut} alt='Icono sin Projectos' />    
                     </div>
                   : <div className = {s.producCardsStore}>
                       <div className={s.projects_view_content}>
                         <h1 className={s.gradient__text}> PROYECTOS </h1>
-                        <p> Busca, crea y sumate a los proyectos desafiantes que más te atraigan.	</p>
                       </div>    
                                                  
                       <div className={s.detailsProjects} >
-                        <p> Total Projectos: {numberAllProjects}	</p>
-                        <p> Projectos Filtrados: {allProjects.length}	</p>
+                         <div className = {s.totalandfilterproject}>
+                            <p> Total Projectos: {numberAllProjects}	</p>
+                            <p> Projectos Filtrados: {allProjects.length}	</p>
+                        </div>
                         <Pagina currentPage={currentPage} maxpage={maxpage}></Pagina>
 
                       </div>

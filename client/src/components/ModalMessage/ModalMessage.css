@@ -3,7 +3,8 @@
 }
 
 .btnLogin {
-    padding: 0.4rem 1rem;
+    padding: 8px 15px;
+    width: 100px;
     color: #fff;
     background: #FF4820;
     font-family: var(--font-family);

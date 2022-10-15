@@ -3,6 +3,7 @@ import React from 'react';
 import s from './ImageLoader.module.css';
 import ImageNotFound from '../SVG/ImageNotFound';
 import Loading from '../SVG/Loading';
+import LoadingComponent from '../../components/LoadingComponent/LoadingComponent'
 
 export default function ImageLoader({ image, alt }) {
 
