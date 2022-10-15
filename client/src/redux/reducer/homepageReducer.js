@@ -28,7 +28,7 @@ const initialState = {
   modalInfoCollaborator: false,
   passRecoveryMessage: {},
   idProject: '',
-  updateDataUsers: ''
+  updateDataUsersMsg: ''
 };
 
 
@@ -136,7 +136,8 @@ const homepageReducer = function(state = initialState, { type, payload }) {
     case UPDATE_DATA_USER:
       return {
         ...state,
-        updateDataUsers: payload
+        user: payload,
+        updateDataUsersMsg: payload.msg
       }
 
     default:

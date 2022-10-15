@@ -14,7 +14,9 @@ export default function Collaborate() {
   
 
   React.useEffect(() => {
-    dispatch(getCollaborationByUser(user?.user._id));
+    if(user?.user){
+      dispatch(getCollaborationByUser(user?.user._id));
+    }
   },[user]);
 
   function handleOpenMessageLogin() {
