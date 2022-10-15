@@ -1,13 +1,20 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ShowLoading from '../../components/ShowLoading/ShowLoading';
-import HallOfFameHeader from '../../components/HallOfFameHeader/HallOfFameHeader';
 import HallOfFameRows from '../../components/HallOfFameRows/HallOfFameRows';
+import { getAllUsers } from '../../redux/actions/generalActions';
 // import { clearHallOfFame, getHallOfFame } from '../../redux/action/hallOfFameActions';
 
 import s from './HallOfFameView.module.css';
 
 export default function HallOfFameView() {
+
+	const dispatch = useDispatch();
+  	const { allUsers } = useSelector(state => state.homepageReducer);
+
+	  React.useEffect(()=> {
+		dispatch(getAllUsers());
+	  }, [])
 
   // const dispatch = useDispatch();
   // const { hallOfFame, loading } = useSelector((state) => state.hallOfFame);
@@ -27,10 +34,8 @@ export default function HallOfFameView() {
 			ranking: 2.5,
 			avatar: 'https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=555',
 			tech: ["React", "Redux", "Express", "Sequelize", "PostgreSQL"],
-			linkedin: "https://www.linkedin.com/in/federicofaraz-fullstack/",
 			github: "https://github.com/cosm1co",
 			linkedin: "https://www.linkedin.com/in/federicofaraz-fullstack/",
-        	github: "https://github.com/cosm1co",
         	email: "federicofaraz@gmail.com",
 		},
 		{
@@ -109,7 +114,7 @@ export default function HallOfFameView() {
 
   return (
 		<div id="componentHallOfFame"className = {s.container}>
-		<HallOfFameRows players = {hallOfFame} />
+		<HallOfFameRows users = {allUsers} />
 		</div>
   );
 }
