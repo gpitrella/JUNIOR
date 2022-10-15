@@ -1,3 +1,24 @@
+.main_modal_collaborador {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vw;
+    right: 0;
+    background-color: rgba(185, 185, 185, 0.315);
+}
+
+.container_modal_collaborador {
+    background-color: white;
+    border-radius: 5px;
+    margin: 150px 25rem;
+    width: 600px;
+}
+
+.button_close_collaborate {
+    display: flex;
+    justify-content: space-between;
+}
+
 .formCollaborator {
     display: flex;
     justify-content: space-evenly;
@@ -102,7 +123,8 @@
 }
 
 .btnCollaborator {
-    padding: 0.4rem 1rem;
+    padding: 8px 15px;
+    width: 100px;
     color: #fff;
     background: #FF4820;
     font-family: var(--font-family);
@@ -120,10 +142,8 @@
     opacity: 0.8;
 }
 
-@media screen and (max-width: 800px) {
-
-
-    
+.successSend {
+    padding: 30px 50px 70px;
 }
 
 

@@ -64,6 +64,7 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
 
   // Desplegable:
   const [expanded, setExpanded] = React.useState('panel1');
+  const [ anchorCard, SetAnchorCard ] = React.useState(800);
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
@@ -75,38 +76,52 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
     { task: "Realizar Diseño Responsive en Figma", status: true },
   ]
 
+  const handleClickOpen = (e) => {
+    e.preventDefault();
+    handleOpenMessageLogin(project._id)
+  }
+
   
   return (
     <>
-    <Card sx={{ display: 'flex', margin: 5, width: 800, justifyContent: "space-between", borderRadius: 5 }}>
-      <Box sx={{ display: 'flex', flexDirection: 'column', width: 600 }}>
+    <Card sx={{ display: 'flex', margin: 5, width: anchorCard, justifyContent: "space-between", zIndex: "10000", borderRadius: 5, backgroundColor: '#202024', boxShadow: '2px 3px 5px #96969680' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', width: 600, color: 'white' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <div className={s.card_content_top}>
             <Typography component="div" variant="h5">
-              { project.title }
+              { project?.title }
+              { project?.payment?
+              <MonetizationOnIcon sx={{ height: 20, width: 20, color: '#388e3c', marginLeft: '5px' }}/> :
+              <HandshakeIcon sx={{ height: 20, width: 20, color: '#2196f3', marginLeft: '5px' }}/>
+              }
             </Typography>
-            <button className={s.btnCardProject} onClick={handleOpenMessageLogin}type="button"> Colaborar </button>
+            <button className={s.btnCardProject} onClick={(e) => handleClickOpen(e)} type="button"> Colaborar </button>
           </div>
-          <Accordion onChange={handleChange('panel1')} sx={{ borderColor: 'white' }}>
-            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: 'white', minHeight: 30, height: 30 }}>
+          <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#202024' }}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#202024', minHeight: 30, height: 30 }}>
               <Typography>Descripción: </Typography>
+
+              {/* <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#202024' }}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#202024' }}>
+              <Typography>Descripción </Typography> */}
+
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ color: 'white', backgroundColor: '#202024' }}>
               <Typography>
                   { project.description }
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion onChange={handleChange('panel1')} sx={{ borderColor: 'white' }}>
-            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: 'white', minHeight: 30, height: 30 }}>
+          <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#202024' }}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#202024', minHeight: 30, height: 30 }}>
               <Typography>Tareas Pendientes: </Typography>
             </AccordionSummary>
-            <AccordionDetails>
-                { mainTaskEjemplo.length > 0 
-                    ? mainTaskEjemplo.map((task) => {
+            <AccordionDetails sx={{ color: 'white', backgroundColor: '#202024' }}>
+                { project?.tasks.length > 0 
+                    ? project?.tasks.map((task) => {
                       return (
-                          <Typography>
-                            { `-- ${task.task }` }
+                          <Typography key={Math.random()} sx={task.status ? { fontSize: '14px', color: '#bae492' } : { fontSize: '14px' }}  >
+                            { `${!task.status ? '🔧' : '✅' } ${task.task} ${!task.status ? '' : '- DONE' }` }
                           </Typography>
                       )
                         })
@@ -114,10 +129,14 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
                 }
             </AccordionDetails>
           </Accordion>
+                
+          <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ color: 'white', marginLeft: '40px' }}>
+                <span>Status: </span>{ project?.status }
+          </Typography>
           
-        
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+
           <IconButton aria-label="previous">
             <GitHubIcon sx={{ height: 40, width: 40, color: 'white' }}/>
           </IconButton>
@@ -125,7 +144,7 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
             <WhatsAppIcon sx={{ height: 40, width: 40, color: 'white' }}/>
           </IconButton>
 
-          <Typography variant="subtitle1" color="text.secondary" component="div">
+          <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ color: 'white' }}>
             <span className='titleTechs'>Techs: </span>{ 
                 project?.tech?.length > 0 && project?.tech.map(element => {
                 return (<span key={Math.random()}>{`${element.charAt(0).toUpperCase() + element.slice(1)}, `} </span>)
@@ -143,7 +162,7 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
           height: 200,
           borderBottomLeftRadius: 100,
           borderTopLeftRadius: 100,
-          backgroundColor: '#424242'
+          backgroundColor: '#202024'
         }}
         src={project.image}
         alt={project.title}

@@ -10,8 +10,18 @@ import {
   CLOSE_MODAL_ADD_IMAGE,
   BASE_URL,
   SELECTPAG,
-  GET_PROJECTS_BY_USER
+  GET_PROJECTS_BY_USER,
+  CLOUDINARY,
+  UPLOAD_IMAGE,
+  UPDATE_PROJECTS,
+  CLEAR_DATA_PROJECTS,
+  ERROS_PROJECTS,
+  NEW_COLLABORATE,
+  ERROS_COLLABORATE,
+  GET_PROYECT_COLLABORATION_BY_USER,
+  LOADING_DATA
 } from './actiontype';
+
 
 // Get all Projects
 export function getAllProjects(){
@@ -55,28 +65,38 @@ export function selectPag(payload) {
   };
 }
 
-// Get Projects by USER
+// Get Projects by CREATED BY USER
 export function getProjectsByUser(id, token){
   return function(dispatch){
-    console.log('como llega al redux:', id)
-    console.log('como llega al redux:', token);
-      return axios.post(`${BASE_URL}/user/projects`, id, getHeaderWithToken(token))
+      return axios.get(`${BASE_URL}/user/projects/${id}`, getHeaderWithToken(token))
                   .then(project => dispatch({ type: GET_PROJECTS_BY_USER, payload: project.data }))
                   .catch(error => console.log(error))
   }
 };
 
-// axios.post(url, data, {
-//   'headers': {
-//     'Authorization': 'Bearer ' + jwtStr
-//   });
+// Get Projects COLABORATIVE BY USER
+export function getCollaborationByUser(id){
+  return function(dispatch){
+      return axios.post(`${BASE_URL}/user/mycollaborations`, { id })
+                  .then(project => dispatch({ type: GET_PROYECT_COLLABORATION_BY_USER, payload: project.data }))
+                  .catch(error => console.log(error))
+  }
+};
 
-// CreateProject
+
+// Create Project 
 export function createProject(dataProject){
   return function(dispatch){
       return axios.post(`${BASE_URL}/projects/newproject`, dataProject)
                   .then(project => dispatch({ type: CREATE_PROJECTS, payload: project.data }))
-                  .catch(error => console.log(error))
+                  .catch(error => dispatch({ type: ERROS_PROJECTS, payload: error.response.data }))
+  }
+};
+
+// Cargando Datos 
+export function loadingData() {
+  return {
+    type: LOADING_DATA
   }
 };
 
@@ -85,15 +105,46 @@ export function showModalAddImage() {
   return {
     type: SHOW_MODAL_ADD_IMAGE
   }
-}
-
+};
 
 export function closeModalAddImage() {
   return {
     type: CLOSE_MODAL_ADD_IMAGE
   }
-}
+};
 
+export function uploadImage(formData) {
+  return function(dispatch) {
+    return fetch(`${CLOUDINARY}`, { method: 'POST', body: formData })
+      .then(response => response.json())
+      .then(data => dispatch({ type: UPLOAD_IMAGE, payload: data }))
+      .catch(error => console.LOG(error));
+  }
+};
 
+// UPDATE PROJECTS
+export function updateProject(input){
+  return function(dispatch){
+      return axios.put(`${BASE_URL}/projects/updateproject`, input)
+                  .then(project => dispatch({ type: UPDATE_PROJECTS, payload: project.data }))
+                  .catch(error => dispatch({ type: ERROS_PROJECTS, payload: error }))
+  }
+};
 
+// Clear Errors and Success Messages update Project and create Project
+export function clearDataProject() {
+  return {
+    type: CLEAR_DATA_PROJECTS
+  }
+};
+
+// Enviar datos para Colaborar
+export function sendCollaborate(data){
+  console.log(data);
+  return function(dispatch){
+      return axios.post(`${BASE_URL}/user/collaboration`, data)
+                  .then(project => dispatch({ type: NEW_COLLABORATE, payload: project.data }))
+                  .catch(error => dispatch({ type: ERROS_COLLABORATE, payload: error.response.data }))
+  }
+};
 

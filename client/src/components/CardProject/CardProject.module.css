@@ -9,7 +9,8 @@
 }
 
 .btnCardProject {
-    padding: 0.5rem 1rem;
+    padding: 8px 15px;
+    width: 120px;
     color: #fff;
     background: #FF4820;
     font-family: var(--font-family);
@@ -19,6 +20,7 @@
     border-radius: 5px;
     border: 0;
     cursor: pointer;
+    box-shadow: var(--mainShadow);
 }
 
 .btnCardProject:hover {
