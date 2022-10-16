@@ -1,9 +1,12 @@
-.section__padding {
-	padding: 4rem 12rem;
+.main_container_features{
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin: 70px 0px;
 }
 
 .features {
-	width: 100%;
+	width: 1000px;
 	display: flex;
 	flex-direction: row;
 }
@@ -26,7 +29,7 @@
 .features_main {
 	display: flex;
 	flex-direction: column;
-	width: 70%;
+	width: 90%;
 }
 
 .features_heading h1 {
@@ -55,23 +58,82 @@
 }
 
 .lottie_austronauta2 {
-	width: 500px;
+	width: 40%;
 }
 
 /* === Media queries === */
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 1150px) {
 	.features {
-		flex-direction: column;
+		width: 800px;
 	}
-
-	.features_heading {
-		margin: 0 0 2rem 0;
+	.features_heading h1 {
+		font-size: 30px;
+	}
+	.lottie_austronauta2 {
+		width: 40%;
+		opacity: 0.3;
+		position: absolute;
+		left: 150px;
+	}	
+	.features_main {
+		width: 100%;
 	}
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 900px) {
+	.features {
+		width: 750px;
+	}
+	.lottie_austronauta2 {
+		width: 40%;
+		opacity: 0.3;
+		position: absolute;
+		left: 150px;
+	}
 	.features_heading h1 {
-		font-size: 28px;
-		line-height: 38px;
+		font-size: 25px;
+	}
+	.features_heading p {
+		font-size: 12px;
+	}
+	.features_main {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 750px) {
+	.features {
+		width: 450px;
+	}
+	.features_heading h1 {
+		font-size: 22px;
+	}
+	.features_main {
+		width: 100%;
+	}
+	.lottie_austronauta2 {
+		width: 35%;
+		opacity: 0.3;
+		position: absolute;
+		left: 70px;
+	}
+
+}
+
+@media screen and (max-width: 500px) {
+	.features {
+		width: 350px;
+	}
+	.features_heading h1 {
+		font-size: 18px;
+	}
+	.features_main {
+		width: 100%;
+	}
+	.lottie_austronauta2 {
+		width: 35%;
+		opacity: 0.3;
+		position: absolute;
+		left: 50px;
 	}
 }
