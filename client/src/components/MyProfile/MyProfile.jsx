@@ -2,9 +2,10 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { getProjectsByUser, getCollaborationByUser } from '../../redux/actions/projectsActions';
-import personalInformation from '../../assets/personalInformation.json';
-import team from '../../assets/team.json';
-import projectPersonal from '../../assets/projectPersonal.json';
+// import personalInformation from '../../assets/personalInformation.json';
+import personalInformation from '../../assets/personalInformation.png';
+import team from '../../assets/team.png';
+import projectPersonal from '../../assets/projectPersonal.png';
 import { useDispatch, useSelector } from "react-redux";
 import CardProfile from './CardProfile/CardProfile';
 import s from './MyProfile.module.css';
@@ -31,9 +32,9 @@ export default function MyProfile({ handleSignOut }) {
           colaborando o editar proyectos que publicaste.
 			</p>
       <div className={s.main_box_pyProfile}>
-        <CardProfile lottie={personalInformation} name={"Personal Information"} link={"/miperfil/personalinformation"} width={130} marginLeft={35}/>
-        <CardProfile lottie={team} name={"Colaboraciones"} link={"/miperfil/colaboraciones"} width={220} marginLeft={0}/>
-        <CardProfile lottie={projectPersonal} name={"Mis Proyectos"} link={"/miperfil/misproyectos"} width={130} marginLeft={35}/>
+        <CardProfile img={personalInformation} name={"Personal Information"} link={"/miperfil/personalinformation"} width={100} /> 
+        <CardProfile img={team} name={"Colaboraciones"} link={"/miperfil/colaboraciones"} width={100} />
+        <CardProfile img={projectPersonal} name={"Mis Proyectos"} link={"/miperfil/misproyectos"} width={100} />
       </div>
       <div className={s.positionBtnLoutProfile}>
         <button className={`${s.btn} ${s.btnLogOutProfile}`} type="button" onClick={(e) => handleSignOut(e)}>LogOut</button>
