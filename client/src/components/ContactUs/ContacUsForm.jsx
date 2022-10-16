@@ -19,9 +19,9 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-const serviceID = process.env.serviceID;
-const templateID = process.env.templateID; 
-const publicKey = process.env.publicKey;
+const serviceID = process.env.REACT_APP_SERVICEID;
+const templateID = process.env.REACT_APP_TEMPLATEID; 
+const publicKey = process.env.REACT_APP_PUBLICKEY;
 
 export default function ContacUsForm () {
 

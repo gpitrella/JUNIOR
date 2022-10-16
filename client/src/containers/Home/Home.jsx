@@ -1,9 +1,7 @@
 
 import React from 'react';
-import {
-    Header,
-    Possibility, 
-  } from '../../containers';
+import Header from '../Header/Header';
+import Possibility from '../Possibility/Possibility.jsx';
 import Features from '../../containers/Features/Features';
 import Features2 from '../../containers/Features2/Features2';
 import styled from './Home.module.css';
