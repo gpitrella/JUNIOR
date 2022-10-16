@@ -130,7 +130,7 @@ export const organizationTool = [
         description: `Trello es una herramienta visual que permite a los equipos gestionar cualquier tipo de proyecto y flujo de trabajo, 
         así como supervisar tareas. Añade archivos, checklists o incluso automatizaciones: personalízalo todo según las necesidades de tu equipo. 
         Solo tienes que registrarte, crear un tablero y ¡listo!`,
-        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664638493/TRELLO_hfdfmh.png",
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1665861610/TRELLO300_stjft8.png",        
         link: 'https://trello.com/'
     }, 
     { 
@@ -175,7 +175,7 @@ export const youtubeTool = [
         name: 'Soy Dalto',
         description: `Lucas Dalto es la cara detrás de Soy Dalto, el canal de Youtube dedicado a enseñar programación de mayor audiencia 
         en la Argentina. Sostiene que aprender código permite cambiar la vida de la gente, sin importar de dónde vengan.`,
-        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664634738/dalto_zyuctm.png",
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1665861817/dalto300_anr5jy.png",
         link: 'https://www.youtube.com/c/soydalto'
     }, 
     { 
@@ -184,7 +184,7 @@ export const youtubeTool = [
         description: `Es uno de los canales más vistos en Español dedicado al aprendizaje de diferentes lenguajes de programación,
         en donde podrás aprender desde Javascript, Docker, Phyton, entre otras herramientas utiles.
         `,
-        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664634899/mundo_s1z0e3.png",
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1665861751/holamundo300_cgrqoa.png",
         link: 'https://www.youtube.com/c/HolaMundoDev' 
     }
 ];
@@ -232,7 +232,7 @@ export const idLivePage = [
         de código en línea y una herramienta de creación de prototipos que se ejecuta en un navegador web. 
         El código se puede compartir fácilmente con colegas y descargar rápidamente en formato zip para uso local. 
         Es posible que varias personas trabajen en el programa al mismo tiempo con el uso de contenedores.`,
-        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664825297/codesandbox_ossmoh.png",
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1665861924/codesandbox300_emmisw.png",
         link: 'https://codesandbox.io/'
     }, 
     { 
@@ -241,7 +241,7 @@ export const idLivePage = [
         description: `IDE en línea es una herramienta basada en la web impulsada por el editor de código ACE. 
         Esta herramienta se puede utilizar para aprender, construir, ejecutar y probar su programa. Puede abrir 
         el código desde su local y continuar compilando usando este IDE. El código y la salida se pueden descargar.`,
-        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664826308/online_c39xwy.png",
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1665861984/online300_zea9ku.png",
         link: 'https://www.online-ide.com/' 
     },
     { 
@@ -251,7 +251,7 @@ export const idLivePage = [
         como podras comprobar, tan solo es necesario seleccionar el lenguaje de programación con el que queremos trabajar 
         y podremos empezar a programar. En concreto, la plataforma nos permite utilizar lenguajes tan populares como C#, 
         C++, Java, JavaScript, Swift o Python, entre muchos otros.`,
-        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664826569/replit_crzmnb.png",
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1665862045/replit300_mjeep6.png",
         link: 'https://replit.com/'
     }, 
     { 
@@ -273,7 +273,7 @@ export const frontPage = [
         description: `Vercel es una plataforma en la nube para sitios estáticos y funciones sin servidor que se 
         adapta perfectamente a su flujo de trabajo. Permite a los desarrolladores alojar sitios web y servicios 
         web que se implementan instantáneamente, escalan automáticamente y no requieren supervisión, todo sin configuración.`,
-        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664827664/verc_u0q7tu.png",
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1665862231/vercel300_s30ww4.png",
         link: 'https://vercel.com/'
     }, 
     { 
@@ -294,7 +294,7 @@ export const backPage = [
         código fuente. Una vez que conecte su cuenta de GitHub o GitLab a su cuenta de Render, Render creará e 
         implementará automáticamente sus servicios con cada impulso. Para obtener más información sobre cómo 
         conectar sus cuentas de Git a Render, consulte nuestros documentos para GitHub y GitLab.`,
-        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664828343/rend_wgmaow.png",
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1665862473/render300_qxr3du.png",
         link: 'https://render.com/'
     }, 
     { 
@@ -302,7 +302,7 @@ export const backPage = [
         name: 'Fly.io',
         description: `Fly.io es una plataforma global de distribución de aplicaciones. Ejecutan el 
         código en microVM Firecracker en todo el mundo.`,
-        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664828503/fly_y7kdq2.png",
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1665862531/fly300_eaps8s.png",
         link: 'https://www.fly.io/' 
     },
     { 
@@ -310,7 +310,7 @@ export const backPage = [
         name: 'Railway',
         description: `Railway es una plataforma de infraestructura donde puede aprovisionar infraestructura, 
         desarrollar con esa infraestructura localmente y luego implementar en la nube.`,
-        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664828683/riel_ojezyy.png",
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1665862654/riel300_v8h4a6.png",
         link: 'https://railway.app/' 
     },
 ]

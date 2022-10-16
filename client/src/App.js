@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import jwt_decode from "jwt-decode";
-import { logOut, signinGoogle } from './redux/actions/generalActions';
+import { logOut, signinGoogle, loadStorage } from './redux/actions/generalActions';
 import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { Background } from './containers';
 import Projects from './components/Projects/Projects';
@@ -30,11 +30,12 @@ import CvTool from './components/Tools/CvTool/CvTool';
 import IdLiveTool from './components/Tools/IdLive/IdLive';
 import FrontDeploy from './components/Tools/FrontDeploy/FrontDeploy';
 import BackDeploy from './components/Tools/BackDeploy/BackDeploy';
-import dotenv from "dotenv";
 import LandingPage from './components/LandingPage/LandingPage.jsx';
+import ContactUsForm from './components/ContactUs/ContacUsForm.jsx';
 import './App.css';
 import 'aos/dist/aos.css'; // Animations on scrolling styles
 import HallOfFameView from './components/HallOfFameView/HallOfFameView';
+import dotenv from "dotenv";
 dotenv.config()
 
 const REACT_APP_GOOGLE = process.env.REACT_APP_GOOGLE;
@@ -68,7 +69,6 @@ export default function App() {
   function handleSignOut(e) {
     //setUser({}); -- aca va la accion para borrar auser
     e.preventDefault();
-    console.log("POR DESPACHAR LOGOUT")
     dispatch(logOut());
     if(location.pathname.includes("miperfil")) {
       navigate('/home');
@@ -87,14 +87,13 @@ export default function App() {
       { theme:"filled_blue", size: "large"}
     );
 
-    google.accounts.id.prompt();
-    
+    google.accounts.id.prompt();    
   };
-   
-  // console.log(user, 'dsp de useEffect App.js');
-  
-  
-// ?-- End Auth
+  // ?-- End Auth Google
+
+  React.useEffect(() => {
+    dispatch(loadStorage());
+  }, []);
 
   return (
      <React.Fragment>
@@ -115,6 +114,7 @@ export default function App() {
                 <Route exact path="/halloffame" element={<HallOfFameView />} />
                 <Route exact path="/About" element={<About />} />
                 <Route exact path="/crearproyecto" element={<CreateProject />} />
+                <Route exact path="/contactus" element={<ContactUsForm />} />
                 <Route exact path="/miperfil" element={ user.user ? <MyProfile handleSignOut={handleSignOut}/> : <LogIn handleGoogle={handleGoogle} />} />             
                 <Route exact path ="/miperfil/personalinformation" element= { user.user ? <PersonalInformation /> : <LogIn handleGoogle={handleGoogle} />}/>
                 <Route exact path ="/miperfil/colaboraciones" element= { user.user ? <Collaborate /> : <LogIn handleGoogle={handleGoogle} />}/>

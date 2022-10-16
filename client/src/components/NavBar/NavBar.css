@@ -78,7 +78,11 @@
 	line-height: 25px;
 	border-radius: 5px;
 	border: 0;
+	cursor: pointer;
 	box-shadow: var(--mainShadow);
+}
+.navbar-menu_container button:hover {
+	box-shadow: none;
 }
 
 .navbar-menu {
@@ -118,7 +122,6 @@
 
 .imageNavbarLogin {
 	width: 40px;
-	padding: 0px 5px;
 	border-radius: 20px;
 }
 
@@ -157,15 +160,15 @@
 		padding: 2rem 4rem;
 	}
 
-	.navbar-sign {
+	/* .navbar-sign {
 		display: none;
-	}
+	} */
 
 	.navbar-menu_container {
 		top: 20px;
 	}
 
-	.navbar-menu_container-links-sign {
+	/* .navbar-menu_container-links-sign {
 		display: block;
-	}
+	} */
 }

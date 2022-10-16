@@ -2,7 +2,7 @@ import React from 'react';
 import HallOfFameRow from '../HallOfFameRow/HallOfFameRow';
 import s from './HallOfFameRows.module.css';
 
-export default function HallOfFameRows({ players }) {
+export default function HallOfFameRows({ users }) {
   
   
   return (
@@ -19,19 +19,18 @@ export default function HallOfFameRows({ players }) {
       </div>
       {
         
-        players && players.length > 0 && players.map((player, index) => 
+        users && users.length > 0 && users.map((user, index) => 
 
           <HallOfFameRow
-            id = {player.id}
-            nickname = {player.nickname}
-            status = {player.status}
-            ranking = {player.ranking}
-            avatar = {player.avatar}
+            id = {user.id}
+            name = {user.name}
+            collaborations = {user.collaborations}
+            image = {user.image}
             index = {index + 1}
-            github = {player.github}
-            email = {player.email}
-            linkedin = {player.linkedin}
-            key = {`hall-of-fame-player-${player.nickname}-${index}`}
+            email = {user.email}
+            linkedin = {user.linkedin}
+            github = {user.github}
+            key = {`hall-of-fame-user-${user.name}-${index}`}
           />
 
         )

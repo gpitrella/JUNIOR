@@ -42,6 +42,7 @@ export default function EditProject() {
   const allNameTechs = filterReducer?.allTechs.map((tech) => {
     return tech.name.charAt(0).toUpperCase() + tech.name.slice(1);
   })
+  
   // { task: element, status: false}
   const [input, setInput] = useState({
     title: projectToEdit[0].title,

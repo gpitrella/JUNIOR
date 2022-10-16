@@ -1,5 +1,5 @@
 import React from 'react';
-import Feature from '../../components/Feature.jsx';
+import Feature from '../../components/Feature/Feature.jsx';
 import { useLottie } from "lottie-react";
 import astronaut2 from '../../assets/astronaut.json';
 import styled from './Features2.module.css';
@@ -30,23 +30,24 @@ export default function Features2 () {
 	const { View } = useLottie(options);
 
 	return (
-		<div className={`${styled.features} ${styled.section__padding}`} id={styled.features}>
-			<div className={styled.features_main}>
-				<div className={styled.features_heading}>
-					<h1 className={styled.gradient__text}>
-						Tenes una idea / proyecto para desarrollar, perfecto seguí estos pasos:
-					</h1>
+		<div className={styled.main_container_features}>
+			<div className={styled.features} id='features'>
+				<div className={styled.features_main}>
+					<div className={styled.features_heading}>
+						<h1 className={styled.gradient__text}>
+							Tenes una idea / proyecto para desarrollar, perfecto seguí estos pasos:
+						</h1>
+					</div>
+					<div className={styled.features_container}>
+						{featuresData.map((feature, idx) => (
+							<Feature title={feature.title} text={feature.text} key={idx} />	
+						))}
+					</div>
 				</div>
-				<div className={styled.features_container}>
-					{featuresData.map((feature, idx) => (
-						<Feature title={feature.title} text={feature.text} key={idx} />	
-					))}
+				<div className={styled.lottie_austronauta2} >
+					{ View }
 				</div>
 			</div>
-			<div className={styled.lottie_austronauta2} >
-				{ View }
-			</div>
-
 		</div>
 	)
 };

@@ -8,13 +8,15 @@ import { Link } from 'react-router-dom';
  */
 const CTA = () => {
 	return (
-		<div className={styled.cta} id="empezar">
-			<div className={styled.ctacontent}>
-				<p>Empeza ya a sumar Experiencia.</p>
-			    <h3>Busca los proyectos & sumate a las ideas más atractivas.</h3>
-			</div>
-			<div className={styled.ctabtn} data-aos="zoom-out" data-aos-delay="100">
-				<Link to="/projects"><button className={styled.btn} type="button" >Buscar</button></Link>
+		<div className={styled.main_container_cta}>
+			<div className={styled.cta} id="empezar">
+				<div className={styled.ctacontent}>
+					<p>Empeza ya a sumar Experiencia.</p>
+					<h3>Busca los proyectos & sumate a las ideas más atractivas.</h3>
+				</div>
+				<div className={styled.ctabtn} data-aos="zoom-out" data-aos-delay="100">
+					<Link to="/projects"><button className={styled.btn} type="button" >Buscar</button></Link>
+				</div>
 			</div>
 		</div>
 	)
