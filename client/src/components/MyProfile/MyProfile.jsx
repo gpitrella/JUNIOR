@@ -32,7 +32,7 @@ export default function MyProfile({ handleSignOut }) {
           colaborando o editar proyectos que publicaste.
 			</p>
       <div className={s.main_box_pyProfile}>
-        <CardProfile img={personalInformation} name={"Personal Information"} link={"/miperfil/personalinformation"} width={100} /> 
+        <CardProfile img={personalInformation} name={"Información Personal"} link={"/miperfil/personalinformation"} width={100} /> 
         <CardProfile img={team} name={"Colaboraciones"} link={"/miperfil/colaboraciones"} width={100} />
         <CardProfile img={projectPersonal} name={"Mis Proyectos"} link={"/miperfil/misproyectos"} width={100} />
       </div>

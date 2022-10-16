@@ -45,18 +45,35 @@
 }
 
 /* === Media queries === */
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 1150px) {
     .featurescontainer__featuretitle h1 {
-        font-size: 14px;
-        line-height: 22px;
+        font-size: 18px;
     }
+}
 
+@media screen and (max-width: 900px) {
+    .featurescontainer__featuretitle h1 {
+        font-size: 18px;
+    }
     .featurescontainer_featuretext p {
-        font-size: 12px;
-        line-height: 20px;
+        font-size: 16px;
     }
+}
 
-    .featurescontainer__feature {
-        margin: 1rem 0;
+@media screen and (max-width: 750px) {
+    .featurescontainer__featuretitle h1 {
+        font-size: 16px;
+    }
+    .featurescontainer_featuretext p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .featurescontainer__featuretitle h1 {
+        font-size: 16px;
+    }
+    .featurescontainer_featuretext p {
+        font-size: 14px;
     }
 }
