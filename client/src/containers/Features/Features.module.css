@@ -48,7 +48,7 @@
 .features_heading p {
     color: var(--color-subtext);
     font-size: 14px;
-    line-height: 30px;
+    line-height: 10px;
     font-weight: 500;
     font-family: var(--font-family);
     margin-top: 2rem;
@@ -113,10 +113,11 @@
 		width: 100%;
 	}
 	.lotties_notebook_astronaut {
-		width: 30%;
+		width: 35%;
+		top: 1100px;
 		opacity: 0.3;
 		position: absolute;
-		right: 25px;
+		left: 320px;
 	}
 
 }
@@ -132,9 +133,10 @@
 		width: 100%;
 	}
 	.lotties_notebook_astronaut {
-		width: 30%;
+		width: 35%;
+		top: 1200px;
 		opacity: 0.3;
 		position: absolute;
-		left: 40px;
+		left: 250px;
 	}
 }

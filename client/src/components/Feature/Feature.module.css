@@ -71,7 +71,7 @@
 
 @media screen and (max-width: 500px) {
     .featurescontainer__featuretitle h1 {
-        font-size: 16px;
+        font-size: 14px;
     }
     .featurescontainer_featuretext p {
         font-size: 14px;
