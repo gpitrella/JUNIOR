@@ -78,7 +78,11 @@
 	line-height: 25px;
 	border-radius: 5px;
 	border: 0;
+	cursor: pointer;
 	box-shadow: var(--mainShadow);
+}
+.navbar-menu_container button:hover {
+	box-shadow: none;
 }
 
 .navbar-menu {

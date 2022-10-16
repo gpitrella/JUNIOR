@@ -1,10 +1,17 @@
+.main_container_cta {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
+
 .cta {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	flex-direction: row;
 	padding: 2rem;
-	margin: 2rem 10rem;
+    width: 1100px;
+	margin: 30px 0px;
 	border-radius: 1rem;
 	background: var(--gradient-bar);
 }
@@ -12,7 +19,6 @@
 .ctacontent {
 	display: flex;
 	flex-direction: column;
-
 	text-align: left;
 	color: #fff;
 }
@@ -20,7 +26,7 @@
 .ctacontent p {
     font-family: var(--font-family);
     font-size: 12px;
-    line-height: 30px;
+    line-height: 10px;
     font-weight: 500;
 }
 
@@ -50,34 +56,80 @@
     min-width: 150px;
 	cursor: pointer;
 	&:hover {
-		box-shadow: 0px 0px 5px rgba(0,0, 0,0.6);
+		box-shadow: 2px 3px 10px rgba(255, 255, 255, 0.5);;
 	}
 }
 
 
 /* === Media queries === */
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 1150px) {
 	.cta {
-		flex-direction: column;
+		width: 870px;
 	}
-
-	.ctabtn {
-		margin: 2rem 0 0;
+	.ctacontent h3 {
+		font-size: 20px;
+	}
+	.ctabtn button {
+		font-size: 16px;
+		min-width: 140px;
 	}
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 900px) {
 	.cta {
-		margin: 4rem 2rem;
+		width: 800px;
+		margin: 50px 0px;
 	}
-
 	.ctacontent h3 {
 		font-size: 18px;
-		line-height: 32px;
 	}
-
 	.ctabtn button {
 		font-size: 14px;
-		line-height: 28px;
-	}	
+		min-width: 130px;
+	}
+	.ctacontent p {
+		font-size: 10px;
+	}
+}
+
+@media screen and (max-width: 750px) {
+	.cta {
+		flex-direction: column;
+		padding: 1rem;
+		width: 490px;
+		margin: 40px 0px;
+	}
+	.ctacontent h3 {
+		font-size: 14px;
+	}
+	.ctabtn button {
+		font-size: 12px;
+		margin-top: 5px;
+		min-width: 100px;
+		padding: 0.4rem 2rem;
+	}
+	.ctacontent p {
+		font-size: 8px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.cta {
+		flex-direction: column;
+		padding: 1rem 0.5rem;
+		width: 390px;
+		margin: 40px 0px;
+	}
+	.ctacontent h3 {
+		font-size: 12px;
+	}
+	.ctabtn button {
+		font-size: 12px;
+		margin-top: 5px;
+		min-width: 100px;
+		padding: 0.4rem 2rem;
+	}
+	.ctacontent p {
+		font-size: 8px;
+	}
 }

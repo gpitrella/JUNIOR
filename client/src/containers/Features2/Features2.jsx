@@ -1,5 +1,5 @@
 import React from 'react';
-import Feature from '../../components/Feature.jsx';
+import Feature from '../../components/Feature/Feature.jsx';
 import { useLottie } from "lottie-react";
 import astronaut2 from '../../assets/astronaut.json';
 import styled from './Features2.module.css';
