@@ -1,5 +1,13 @@
+.main_container_tools {
+    display: flex;
+	padding-top: 70px;
+	padding-bottom: 50px;
+	justify-content: center;
+	width: 100%;
+}
+
 .main_box_tools {
-    padding: 250px;
+    width: 900px;
     padding-top: 65px;
     padding-bottom: 150px;
     align-items: center;
@@ -85,30 +93,21 @@
     display: flex;
     justify-content: center;
 }
-
-@media (min-width: 1000px) and (max-width: 1285px){
-    .main_box_pyProfile{
-        grid-template-columns: 1fr 1fr 1fr;
-        justify-items: center;
-        padding: 65px 10rem 250px;
-        grid-gap: 20px;
-        align-items: center;
-    }
-
+/* MEDIA QUERY */
+@media screen and (max-width: 1150px) {
     .myprofile_view_content p {
         padding: 0px 10rem;
     }
 }
 
-@media (min-width: 800px) and (max-width: 1000px){
-    .main_box_pyProfile{
+@media screen and (max-width: 900px) {
+    .main_box_tools{
         grid-template-columns: 1fr 1fr 1fr;
         justify-items: center;
-        padding: 65px 6rem 250px;
         grid-gap: 20px;
         align-items: center;
+        width: 750px;
     }
-
     .myprofile_view_content p {
         padding: 0px 6rem;
         font-size: 16px;
@@ -119,24 +118,27 @@
     }
 }
 
-@media (min-width: 600px) and (max-width: 800px){
-    .main_box_pyProfile{
-        grid-template-columns: 1fr;
+@media screen and (max-width: 750px) {
+    .main_box_tools{
+        grid-template-columns: 1fr 1fr;
         justify-items: center;
-        padding: 65px 3rem 250px;
         grid-gap: 20px;
         align-items: center;
+        width: 500px;
     }
     .myprofile_view_content p {
         padding: 0px 3rem;
     }
+    .myprofile_view_content h1 {
+        font-size: 30px;
+    }
 }
 
-@media (max-width: 600px){
-    .main_box_pyProfile{
+@media screen and (max-width: 500px) {
+    .main_box_tools{
         grid-template-columns: 1fr;
         justify-items: center;
-        padding: 65px 1rem 250px;
+        padding: 65px 1rem 65px;
         grid-gap: 20px;
         align-items: center;
     }

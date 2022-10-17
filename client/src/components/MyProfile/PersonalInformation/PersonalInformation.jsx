@@ -62,8 +62,6 @@ export default function PersonalInformation() {
 
   React.useEffect(() => {
     dispatch(getAllTechs());
-
-
     return () => {
       dispatch(clearDataProject())
     }
@@ -134,13 +132,12 @@ export default function PersonalInformation() {
   const handleTech = (e) => {
       e.preventDefault()
         if(!dataChange.techs.includes(e.target.value)) {
-        setDataChange({
-          ...dataChange,
-          techs: [...dataChange.techs, e.target.value]
-        })
-      
+          setDataChange({
+            ...dataChange,
+            techs: [...dataChange.techs, e.target.value]
+          })      
+        }
   }
- }
 
   const handleSendDataChange = (e) => {
     e.preventDefault();
@@ -174,8 +171,8 @@ export default function PersonalInformation() {
       );
       const file = await res.json();
       const data = { image: file.secure_url }
+      dispatch(updateDataUsers(user.user._id, data))  
       setImage(file.secure_url);
-      // dispatch(putDataUser(user.user.id, data));
       handleClose();
   }
 
@@ -306,11 +303,11 @@ export default function PersonalInformation() {
           <DialogContentText>
             Elegir Imagen
           </DialogContentText>
-          <Button type="file" name="image" onChange={e => setImage(e.target.files)} variant="contained" ><input type="file" name="image"/> </Button>
+          <Button type="file" name="image" onChange={(e) => setImage(e.target.files)} variant="contained" ><input type="file" name="image"/> </Button>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancelar</Button>
-          <Button onClick={(e) => {upload(e)}}>Editar</Button>
+          <Button onClick={(e) => upload(e)}>Editar</Button>
         </DialogActions>
       </Dialog>
     </div>
