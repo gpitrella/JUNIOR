@@ -1,7 +1,6 @@
 
 .imgTools {
-    width: 180px;
-    width: 100%;
+    width: 150px;
 }
 
 .detailsMainTools {
@@ -11,12 +10,16 @@
     background: var(--primaryColor);
     border-radius: 8px;
     box-shadow: var(--mainShadow);
-    width: 100%;
+    width: 850px;
     height: 150px;
+}
+.main_box_code {
+    width: 850px;
 }
 
 #individual_box_Tool {
     width: 150px;
+    height: 150px;
 }
 
 .detailsTools {
@@ -29,4 +32,48 @@
 	color: white;
     font-weight: 100;
 	font-size: 15px;
+}
+
+/* === Media queries === */
+@media screen and (max-width: 900px) {
+    .detailsMainTools {
+        width: 700px;
+    }
+    .main_box_code {
+        width: 700px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .detailsMainTools {
+        width: 450px;
+        height: 200px;
+    }
+    .main_box_code {
+        width: 450px;
+    }
+    #individual_box_Tool {
+        width: 120px;
+        height: 120px;
+    }
+    .imgTools {
+        width: 120px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .detailsMainTools {
+        width: 350px;
+        height: 250px;
+    }
+    .main_box_code {
+        width: 350px;
+    }
+    #individual_box_Tool {
+        width: 80px;
+        height: 80px;
+    }
+    .imgTools {
+        width: 80px;
+    }
 }

@@ -49,6 +49,7 @@ export default function PersonalInformation() {
   const [ openGithub, setOpenGithub] = React.useState(false);
   const [ openLinkedin, setOpenLinkedin] = React.useState(false);
   const [ openPassword, setOpenPassword] = React.useState(false);
+  const [ newPassword, setNewPassword] = React.useState('');
   const [ openTechs, setOpenTechs ] = React.useState(false);
   const [ dataChange, setDataChange ] = React.useState({
     techs: user?.user.techs,
@@ -62,8 +63,6 @@ export default function PersonalInformation() {
 
   React.useEffect(() => {
     dispatch(getAllTechs());
-
-
     return () => {
       dispatch(clearDataProject())
     }
@@ -107,10 +106,6 @@ export default function PersonalInformation() {
 
   const handleOpenPassword = () => {
     setOpenPassword(true)
-    setDataChange({
-      ...dataChange,
-      token: user.token
-    })
   };
 
   const handleClose = () => {
@@ -129,18 +124,23 @@ export default function PersonalInformation() {
       ...dataChange,
       [e.target.name]: e.target.value
     })
+  };  
+
+  const handleDataChangePassword = (e) => {
+    e.preventDefault();
+    setNewPassword(e.target.value)
   };
+
 
   const handleTech = (e) => {
       e.preventDefault()
         if(!dataChange.techs.includes(e.target.value)) {
-        setDataChange({
-          ...dataChange,
-          techs: [...dataChange.techs, e.target.value]
-        })
-      
+          setDataChange({
+            ...dataChange,
+            techs: [...dataChange.techs, e.target.value]
+          })      
+        }
   }
- }
 
   const handleSendDataChange = (e) => {
     e.preventDefault();
@@ -151,7 +151,7 @@ export default function PersonalInformation() {
   }
 
   const handleUpdatePassword = () => {
-    // dispatch(putUpdatePassword(dataChange));
+    //dispatch(putUpdatePassword(dataChange));
     setOpenPassword(false);
   }
 
@@ -174,8 +174,8 @@ export default function PersonalInformation() {
       );
       const file = await res.json();
       const data = { image: file.secure_url }
+      dispatch(updateDataUsers(user.user._id, data))  
       setImage(file.secure_url);
-      // dispatch(putDataUser(user.user.id, data));
       handleClose();
   }
 
@@ -248,7 +248,8 @@ export default function PersonalInformation() {
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="Password: ******" />
-        <EditIcon cursor='pointer' onClick={handleOpenPassword}/>
+        <Link to='/newpassword' className="link"><EditIcon cursor='pointer' /></Link>
+        {/* <EditIcon cursor='pointer' onClick={handleOpenPassword}/> */}
       </ListItem>
 
       <ListItem>
@@ -306,11 +307,11 @@ export default function PersonalInformation() {
           <DialogContentText>
             Elegir Imagen
           </DialogContentText>
-          <Button type="file" name="image" onChange={e => setImage(e.target.files)} variant="contained" ><input type="file" name="image"/> </Button>
+          <Button type="file" name="image" onChange={(e) => setImage(e.target.files)} variant="contained" ><input type="file" name="image"/> </Button>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancelar</Button>
-          <Button onClick={(e) => {upload(e)}}>Editar</Button>
+          <Button onClick={(e) => upload(e)}>Editar</Button>
         </DialogActions>
       </Dialog>
     </div>
@@ -450,7 +451,7 @@ export default function PersonalInformation() {
             type="text"
             fullWidth
             variant="standard"
-            onChange={handleDataChange}
+            onChange={handleDataChangePassword}
           />
         </DialogContent>
         <DialogActions>
