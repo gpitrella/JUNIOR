@@ -83,12 +83,14 @@
 		margin-top: 60px;
 		width: 450px;
 	}
-	.possibilityImage img {
+	.possibilityImage {
 		width: 30%;
-		opacity: 0.3;
 		position: absolute;
 		left: 350px;
-        top: 1940px;
+        top: 2050px;
+	}
+	.possibilityImage img {
+		opacity: 0.3;
 	}
 	.possibility_content h1 {
 		font-size: 22px;

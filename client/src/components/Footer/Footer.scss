@@ -1,52 +1,3 @@
-// MEDIA QUERY MANAGER
-/*
-0 - 600px:          Phone
-600px - 900px       Table Portrait
-900px - 1200px      Table Landscape
-1024px - 1366px     iPad Pro
-[1200px - 1800px]   Desktop Normal Styles
-1800px +            Big Desktop
-1em = 16px
-*/
-@mixin respond($breakpoint) {
-  // Phone-xs
-  @if $breakpoint == phone-xs {
-    @media (max-width: 31em) {
-      @content;
-    } //0 - 500px
-  }
-  // Phone
-  @if $breakpoint == phone {
-    @media (max-width: 45em) {
-      @content;
-    } //0 - 700px
-  }
-  // Table Portrait
-  @if $breakpoint == tab-port {
-    @media (max-width: 56.25em) {
-      @content;
-    } //900px
-  }
-  // iPad Pro
-  @if $breakpoint == pad-pro {
-    @media (max-width: 71em) {
-      @content;
-    } //1150px
-  }
-  // Table Landscape
-  @if $breakpoint == tab-land {
-    @media (max-width: 75em) {
-      @content;
-    } //1200px
-  }
-  // Big Desktop
-  // @if $breakpoint == big-desktop {
-  //   @media (min-width: 112.5em) {
-  //     @content;
-  //   } //1800px +
-  // }
-}
-
 #horizon {
     position: sticky;
     width: 100%;
@@ -127,10 +78,16 @@
   }
 }
     
-   
+.main_footer_links {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
 #footer_link {
   font-family: var(--font-family);
   position: sticky;
+  width: 1100px;
   top: 70%;
   left: 0;
   right: 0;
@@ -143,7 +100,6 @@
   #footer_main_links {
     color: #fff;
     font-family: var(--font-family);
-    margin: 0 12rem;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -205,8 +161,73 @@
   }
 }
 
-@include respond(pad-pro) {
-  #footer_main_links {
-    margin: 0 10rem;
+/* === Media queries === */
+@media screen and (max-width: 1150px) {
+	#footer_link {
+		width: 900px;
+	}
+
+}
+
+@media screen and (max-width: 900px) {
+	#footer_link {
+		width: 750px;
+	}
+}
+
+@media screen and (max-width: 750px) {
+	#footer_link {
+    width: 450px;
+	}
+  #footer_link img {
+    width: 70px;
+  }
+  .footer_leftside h4 {
+    font-size: 14px;
+  }
+  .footer_leftside h5 {
+    font-size: 12px;
+  }
+  .footer_copyrigth {
+    font-size: 10px;
+  }
+  #earth {
+    border-radius: 35% 35% 0 0;      
+    &:before {
+      border-radius: 35% 35% 0 0;
+    }      
+    &:after {
+      border-radius: 35% 35% 0 0;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+	#footer_link {
+    width: 350px;
+	}
+  #footer_link img {
+    width: 90px;
+		opacity: 0.3;
+		position: absolute;
+		right: 50px;
+  }
+  .footer_leftside h4 {
+    font-size: 12px;
+  }
+  .footer_leftside h5 {
+    font-size: 12px;
+  }
+  .footer_copyrigth {
+    font-size: 10px;
+  }
+  #earth {
+    border-radius: 25% 25% 0 0;      
+    &:before {
+      border-radius: 25% 25% 0 0;
+    }      
+    &:after {
+      border-radius: 25% 25% 0 0;
+    }
   }
 }
