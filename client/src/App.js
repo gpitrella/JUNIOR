@@ -113,7 +113,7 @@ export default function App() {
                 <Route exact path="/projects" element={<Projects />} />
                 <Route exact path="/halloffame" element={<HallOfFameView />} />
                 <Route exact path="/About" element={<About />} />
-                <Route exact path="/crearproyecto" element={<CreateProject />} />
+                <Route exact path="/crearproyecto" element={ user.user ? <CreateProject /> : <LogIn handleGoogle={handleGoogle} /> } />
                 <Route exact path="/contactus" element={<ContactUsForm />} />
                 <Route exact path="/miperfil" element={ user.user ? <MyProfile handleSignOut={handleSignOut}/> : <LogIn handleGoogle={handleGoogle} />} />             
                 <Route exact path ="/miperfil/personalinformation" element= { user.user ? <PersonalInformation /> : <LogIn handleGoogle={handleGoogle} />}/>
