@@ -6,6 +6,7 @@ import { TextField, CardContent, Card, Grid, Button } from "@mui/material";
 import emailjs from "@emailjs/browser";
 import { useNavigate } from "react-router-dom";
 import dotenv from "dotenv";
+import s from './Contactus.module.css';
 dotenv.config()
 
 const style = {
@@ -14,7 +15,8 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
-  bgcolor: "background.paper",
+  // bgcolor: "background.paper",
+  color: "white",
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
@@ -39,7 +41,7 @@ export default function ContacUsForm () {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
-    return setOpen(false), navigate("/");
+    return setOpen(false), navigate("/home");
   };
 
   const handleInput = (e) => {
@@ -50,10 +52,6 @@ export default function ContacUsForm () {
     });
   };
 
-  const templateParams = {
-    name: 'Junior',
-    notes: 'Nuevo Consulta!'
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -66,30 +64,11 @@ export default function ContacUsForm () {
       phone: phone,
       notes: msg
     };
-    // init(`${KEY}`);
-    console.log(serviceID)
-    console.log(templateID)
-    console.log(templateParams)
-    console.log(process.env.publicKey)
 
     emailjs.send(serviceID, templateID, templateParams, publicKey).then((response) => {
-          console.log(response.status, response.text);
           setOpen(true);
         });
-    // send(
-    //   "service_h4stj4s",
-    //   "template_c38r8ts",
-    //   { name, lastName, subject, email, phone, msg },
-    //   "NPC49Hu7bfisw1Zjw"
-    // )
-    //   .then((response) => {
-    //     console.log(response.status, response.text);
-    //     setOpen(true);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-
+    
     setInput({
       name: "",
       lastName: "",
@@ -102,6 +81,14 @@ export default function ContacUsForm () {
   
   return (
     <div>
+      <div className={s.contactus_content}>
+					<h1 className='gradient__text'>
+            CONTACTANOS
+					</h1>
+					<p>
+            Completa todos los datos del formulario y en breve nos pondremos en contacto.
+					</p>
+      </div>
       <div className="App">
        <br />
        <br />
@@ -109,10 +96,15 @@ export default function ContacUsForm () {
        <br />
         <Grid>
           <Card
-            style={{ maxWidth: 450, padding: "20px 5px", margin: "0 auto" }}
+            sx={{ 
+              maxWidth: 450, 
+              padding: "20px 5px", 
+              margin: "0 auto", 
+              backgroundColor: "rgba(32, 32, 36, 1)",
+              boxShadow: "2px 3px 5px rgba(150, 150, 150, 0.5)" }}
           >
-            <CardContent>
-              <Typography gutterBottom variant="h5">
+            <CardContent >
+              {/* <Typography gutterBottom variant="h5" sx={{ color: 'white' }}>
                 Contactanos
               </Typography>
               <Typography
@@ -120,42 +112,83 @@ export default function ContacUsForm () {
                 color="textSecondary"
                 component="p"
                 gutterBottom
+                sx={{ color: 'white' }}
               >
                 Completa todos los datos del formulario y en breve nos pondremos en contacto.
-              </Typography>
+              </Typography> */}
               <form onSubmit={handleSubmit}>
                 <Grid container spacing={1}>
-                  <Grid xs={12} sm={6} item>
+                  <Grid xs={12} sm={6} item id={s.input_contactus}>
                     <TextField
                       name="name"
                       value={input.name}
                       placeholder="Nombre"
-                      label="First Name"
+                      label="Nombre"
                       variant="outlined"
                       fullWidth
                       required
                       onChange={handleInput}
+                      sx={{ color: 'white' }}
                     />
                   </Grid>
-                  <Grid xs={12} sm={6} item>
+                  <Grid xs={12} sm={6} item id={s.input_contactus}>
                     <TextField
                       name="lastName"
                       value={input.lastName}
                       placeholder="Apellido"
-                      label="Last Name"
+                      label="Apellido"
                       variant="outlined"
                       fullWidth
                       required
                       onChange={handleInput}
+                      sx={{ color: 'white' }}
                     />
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid item xs={12} id={s.input_contactus}>
                     <TextField
                       name="email"
                       value={input.email}
                       type="email"
                       placeholder="Ingresar Email"
-                      label="Email"
+                      label="Ingresar Email"
+                      variant="outlined"
+                      fullWidth
+                      required
+                      onChange={handleInput}
+                    />
+                  </Grid>
+                  <Grid item xs={12} id={s.input_contactus}>
+                    <TextField
+                      name="subject"
+                      value={input.subject}
+                      placeholder="Ingresar Asunto"
+                      label="Ingresar Asunto"
+                      variant="outlined"
+                      fullWidth
+                      required
+                      onChange={handleInput}
+                    />
+                  </Grid>
+                  <Grid item xs={12} id={s.input_contactus}>
+                    <TextField
+                      name="phone"
+                      type="number"
+                      value={input.phone}
+                      placeholder="Número de Contacto"
+                      label="Número de Contacto"
+                      variant="outlined"
+                      fullWidth
+                      onChange={handleInput}
+                    />
+                  </Grid>
+                  <Grid item xs={12} id={s.input_contactus}>
+                    <TextField
+                      name="msg"
+                      label="Escribi tu consulta o duda"
+                      value={input.msg}
+                      multiline
+                      rows={4}
+                      placeholder="Escribi tu consulta o duda"
                       variant="outlined"
                       fullWidth
                       required
@@ -163,44 +196,6 @@ export default function ContacUsForm () {
                     />
                   </Grid>
                   <Grid item xs={12} >
-                    <TextField
-                      name="subject"
-                      value={input.subject}
-                      placeholder="Ingresar Asunto"
-                      label="subject"
-                      variant="outlined"
-                      fullWidth
-                      required
-                      onChange={handleInput}
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      name="phone"
-                      type="number"
-                      value={input.phone}
-                      placeholder="Número de Teléfono"
-                      label="Phone"
-                      variant="outlined"
-                      fullWidth
-                      onChange={handleInput}
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      name="msg"
-                      label="Message"
-                      value={input.msg}
-                      multiline
-                      rows={4}
-                      placeholder="Escribi tu consulta o duda."
-                      variant="outlined"
-                      fullWidth
-                      required
-                      onChange={handleInput}
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
                     <Button
                       type="submit"
                       variant="contained"
@@ -225,7 +220,12 @@ export default function ContacUsForm () {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          <Typography id="modal-modal-description" sx={{ 
+                    mt: 2, 
+                    borderRadius: 5, 
+                    backgroundColor: "rgba(32, 32, 36, 1)",
+                    boxShadow: "2px 3px 5px rgba(150, 150, 150, 0.5)", 
+                    color: "white"}}>
             Tu Email ha sido enviado correctamente. En breve te contactamos!
           </Typography>
           <Button onClick={handleClose}> X </Button>
