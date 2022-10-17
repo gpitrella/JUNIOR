@@ -4,17 +4,16 @@ import { useState } from "react";
 import { validatePassword, validatePassword2 } from './validate.jsx';
 import { updatePassword } from '../../redux/actions/generalActions';
 import { cleanSendEmail, cleanLogInError, logOut } from '../../redux/actions/generalActions';
-import './UpdatePassword.css'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import './UpdatePassword.css';
 
 import s from './UpdatePassword.module.css';
 
 export default function UpdatePassword() {
-    const [redirect, setRedirect] = useState({ value: false })
+    const { user } = useSelector((state) => state.homepageReducer);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const search = useLocation().search;
-    const token = new URLSearchParams(search).get('token');
+    const token = user?.token;
     const [ input, setInput ] = useState({
         password: '',
         password2:''
@@ -38,7 +37,7 @@ export default function UpdatePassword() {
         e.preventDefault();
         if(Object.keys(errors).length === 0) {
             dispatch(updatePassword(input.password, token))
-            navigate('/login');
+            navigate('/miperfil/personalinformation');
         }
         
     }
@@ -48,10 +47,9 @@ export default function UpdatePassword() {
         dispatch(cleanSendEmail);
         dispatch(cleanLogInError);
         dispatch(logOut())
-        navigate('/login');
-        
+        navigate('/login');        
       };
-console.log('HOLA')
+
   return (
     <div className="login">
         <div className = {`update__wrapper ${s.updateContainer}`}>
