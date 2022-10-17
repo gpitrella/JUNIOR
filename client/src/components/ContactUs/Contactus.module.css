@@ -1,0 +1,58 @@
+#input_contactus label{
+    color: white;
+}
+
+#input_contactus div{
+    border: 0.5px solid white;
+    border-radius: 5px;
+}
+
+.contactus_content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.contactus_content h1 {
+	font-family: var(--font-family);
+	font-weight: 800;
+	font-size: 30px;
+	line-height: 75px;
+	letter-spacing: -0.04em;
+}
+
+.contactus_content p {
+	font-family: var(--font-family);
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 27px;
+	color: var(--color-text);
+	margin-top: 1.5rem;
+    padding: 0px 25px;
+}
+
+
+@media (min-width: 600px) { 
+    .contactus_content p {
+      font-size: 16px;
+    }
+  
+    .contactus_content h1 {
+      font-size: 35px;
+    }
+  }
+  
+@media (min-width: 900px) { 
+.contactus_content p {
+    font-size: 20px;
+}
+
+.contactus_content h1 {
+    font-size: 40px;
+}
+}
+  
