@@ -1,3 +1,11 @@
+.container_component_main {
+	display: flex;
+	padding-top: 70px;
+	padding-bottom: 50px;
+	justify-content: center;
+	width: 100%;
+}
+
 .main_box_code {
     display: flex;
     justify-content: center;
@@ -13,6 +21,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 1000px;
     color: white;
 }
 
@@ -30,7 +39,6 @@
 	font-style: normal;
 	font-weight: normal;
 	font-size: 18px;
-    padding: 0px 250px;
 	line-height: 27px;
     text-align: justify;
 	color: var(--color-text);
@@ -48,4 +56,41 @@
 .title_personalinformation {
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+/* === Media queries === */
+@media screen and (max-width: 1150px) {
+    .main_box_personalinformation {
+        width: 850px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .main_box_personalinformation {
+        width: 700px;
+    }
+    .textDescriptionCodeTool {
+        font-size: 18px;
+    }
+    .main_box_personalinformation h1 {
+        font-size: 35px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+	.main_box_personalinformation {
+		width: 450px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+    .main_box_personalinformation {
+		width: 350px;
+	}
+    .textDescriptionCodeTool {
+        font-size: 14px;
+    }
+    .main_box_personalinformation h1 {
+        font-size: 30px;
+    }
 }

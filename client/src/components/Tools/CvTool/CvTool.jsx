@@ -11,6 +11,7 @@ import s from './CvTool.module.css';
 export default function Code() {
 
   return (
+    <div className={s.container_component_main} >
     <div className={s.main_box_personalinformation}>
       <h1 className={s.gradient__text}> HERRAMIENTAS </h1>
       <h2 className={`${s.title_personalinformation} ${s.gradient__text}`}> Tips para el CV  </h2>
@@ -35,6 +36,7 @@ export default function Code() {
       <Link to={`/tools`}>
         <Button id='btn_personalinformation' variant="contained"> Tools </Button>
       </Link>
+    </div>
     </div>
   );
 }
