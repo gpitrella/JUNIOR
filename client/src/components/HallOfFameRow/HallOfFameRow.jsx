@@ -20,7 +20,7 @@ export default function HallOfFameRow({ name, collaborations, image, index, emai
       <PlayerIcon avatar = {image} name = {name} />
       <span className = {s.spanNickname}>{name}</span>
       {/* <span className = {s.spanId}>{id}</span> */}
-      <span className = {s.spanNickname}>{collaborations.length > 0 ? "WORKING" : "FREE"}</span>
+      <span className = {s.spanNickname}>{collaborations?.length > 0 ? "WORKING" : "FREE"}</span>
       <span className = {s.spanContact}>
         <a href={`mailto:${email}`} className = {`${s.containerLink} ${s.email}`}>
           <Email />
