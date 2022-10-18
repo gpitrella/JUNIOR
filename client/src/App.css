@@ -23,8 +23,9 @@ a {
 }
 
 .btn:hover {
-	opacity: 0.7;
+	opacity: 0.8;
 	transition: all 0.1.5s linear;
+	box-shadow: none;
 }
 
 .gradient__text {

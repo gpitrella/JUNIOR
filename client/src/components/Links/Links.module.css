@@ -16,7 +16,7 @@
   display: none;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 950px) {
   .container {
     display: block;
   }

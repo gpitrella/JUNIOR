@@ -4,19 +4,12 @@ import Linkedin from '../SVG/Linkedin';
 import Github from '../SVG/Github';
 import Email from '../SVG/Email';
 
-
-import { numberWithCommas } from '../../lib/util';
-
 import s from './HallOfFameRow.module.css';
 
-export default function HallOfFameRow({ nickname, status, avatar, index, email, github, linkedin }) {
+export default function HallOfFameRow({ name, collaborations, image, index, email, github, linkedin, techs }) {
 
   let handleClick = function(link) {
     window.open(link, '_blank');
-  }
-
-  let handleClickEmail = function() {
-    window.open(email);
   }
 
   return (
@@ -24,17 +17,17 @@ export default function HallOfFameRow({ nickname, status, avatar, index, email, 
       <div className = {s.containerIndex}>
         <span className = {s.spanIndex}>{index}</span>
       </div>
-      <PlayerIcon avatar = {avatar} name = {nickname} />
-      <span className = {s.spanNickname}>{nickname}</span>
+      <PlayerIcon avatar = {image} name = {name} />
+      <span className = {s.spanNickname}>{name}</span>
       {/* <span className = {s.spanId}>{id}</span> */}
-      <span className = {s.spanNickname}>{status}</span>
+      <span className = {s.spanNickname}>{collaborations.length > 0 ? "WORKING" : "FREE"}</span>
       <span className = {s.spanContact}>
-        <div className = {`${s.containerLink} ${s.email}`} onClick = {() => handleClickEmail(email)}>
+        <a href={`mailto:${email}`} className = {`${s.containerLink} ${s.email}`}>
           <Email />
-        </div>  
+        </a>
         <div className = {`${s.containerLink} ${s.linkedin}`} onClick = {() => handleClick(linkedin)}>
           <Linkedin />
-        </div>   
+        </div>
         <div className = {`${s.containerLink} ${s.github}`} onClick = {() => handleClick(github)}>
           <Github />
         </div>  

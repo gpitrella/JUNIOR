@@ -19,22 +19,9 @@ import {
   GET_ALL_USERS,
   OPEN_MODAL_INFO_COLLABORATOR,
   CLOSE_MODAL_INFO_COLLABORATOR,
+  UPDATE_DATA_USER,
+  LOAD_STORAGE
 } from './actiontype';
-
-// // Take Auth User
-// export const getUser = function() {
-//   return function(dispatch){
-//     return axios.get(`${BASE_URL}/auth/login/success`)
-//                 .then((response) => {
-//                   if (response.status === 200) return response;
-//                   throw new Error("authentication has been failed!");
-//                 })
-//                 .then((resObject) => dispatch({ type: GET_USER, payload: resObject.user}))      
-//                 .catch((err) => {
-//                   console.log(err);
-//                 });
-//   }
-// };
 
 // Log In User
 export const logIn = function(email, password) {
@@ -147,5 +134,21 @@ export function openModalInfoCollaborator(idProject){
 export function closeModalInfoCollaborator(){
   return function(dispatch){
       return dispatch({ type: CLOSE_MODAL_INFO_COLLABORATOR })
+  }
+};
+
+// Update Data USER 
+export function updateDataUsers(id, data){
+  return function(dispatch){
+      return axios.put(`${BASE_URL}/user/update/${id}`, data)
+                  .then(users => dispatch({ type: UPDATE_DATA_USER, payload: users.data }))
+                  .catch(error => console.log(error))
+  }
+};
+
+// LOAD USER STORAGE
+export const loadStorage = function() {
+  return {
+    type: LOAD_STORAGE
   }
 };

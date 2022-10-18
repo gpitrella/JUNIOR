@@ -1,3 +1,52 @@
+// MEDIA QUERY MANAGER
+/*
+0 - 600px:          Phone
+600px - 900px       Table Portrait
+900px - 1200px      Table Landscape
+1024px - 1366px     iPad Pro
+[1200px - 1800px]   Desktop Normal Styles
+1800px +            Big Desktop
+1em = 16px
+*/
+@mixin respond($breakpoint) {
+  // Phone-xs
+  @if $breakpoint == phone-xs {
+    @media (max-width: 31em) {
+      @content;
+    } //0 - 500px
+  }
+  // Phone
+  @if $breakpoint == phone {
+    @media (max-width: 45em) {
+      @content;
+    } //0 - 700px
+  }
+  // Table Portrait
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      @content;
+    } //900px
+  }
+  // iPad Pro
+  @if $breakpoint == pad-pro {
+    @media (max-width: 71em) {
+      @content;
+    } //1150px
+  }
+  // Table Landscape
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) {
+      @content;
+    } //1200px
+  }
+  // Big Desktop
+  // @if $breakpoint == big-desktop {
+  //   @media (min-width: 112.5em) {
+  //     @content;
+  //   } //1800px +
+  // }
+}
+
 #horizon {
     position: sticky;
     width: 100%;
@@ -45,23 +94,7 @@
     opacity: 0.7;
     top: -10%;
   }
-
-  // .black_earth {
-  //   background: black;
-  //   width: 100%;
-  //   height: 350px;
-  //   top: 0;
-  // }
 }
-
-// position: absolute;
-//     width: 100%;
-//     height: 400px;
-//     background: black;
-//     border-radius: 100%/100%;
-//     left: 50%;
-//     bottom: -20%;
-//     margin-left: -45%;
 
 #earth {
   position: sticky;
@@ -110,11 +143,7 @@
   #footer_main_links {
     color: #fff;
     font-family: var(--font-family);
-    font-weight: 500;
-    line-height: 25px;
-    text-transform: capitalize;
-    margin: 0 8rem;
-    cursor: pointer;
+    margin: 0 12rem;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -148,5 +177,36 @@
     &:nth-child(3) {
       animation-name: animGo;
     }
+  }
+}
+
+.footer_copyrigth {
+  color: white;
+  padding: 15px;
+  margin-top: 40px;
+  font-size: 12px;
+  font-weight: 200;
+  padding: 5px;
+}
+
+.title_footer_leftside {
+  font-weight: 600;
+}
+.footer_leftside {
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  align-self: flex-start;
+  font-size: 18px;
+  gap: 6px;
+  h5 {
+    cursor: pointer;
+    font-weight: 100;
+  }
+}
+
+@include respond(pad-pro) {
+  #footer_main_links {
+    margin: 0 10rem;
   }
 }

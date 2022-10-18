@@ -158,10 +158,9 @@
 	font-style: normal;
 	font-weight: normal;
   font-size: 16px;
-	line-height: 27px;
   font-weight: 600;
 	color: white;
-	margin-top: 10px;
+	margin: 10px 0px;
 }
 .lottieWithOutProject {
   margin-top: 100px;
@@ -201,7 +200,7 @@
 /* MEDIA QUERY */
 @media screen and (max-width: 1150px) {
   .producCardsStore {
-    margin-left: 1vw;
+    margin-left: 0;
   }
 }
 
@@ -267,7 +266,6 @@
   .subHeaderZone {
     grid-row: 2 / 3;
     grid-column: 2 / 3;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -290,11 +288,22 @@
   }
 }
 
-/* @media (min-width: 1190px) {
-  .containerGrid {
-    grid-template-columns: 300px 870px;
+@media (max-width: 550px) {
+  .detailsProjects {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 50px;
   }
-} */
+  .detailsProjects p {
+    font-size: 14px;
+    color: white;
+    margin: 6px 0px;
+  }
+  .totalandfilterproject {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
 
 
 
