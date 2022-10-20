@@ -9,9 +9,11 @@ import Typography from '@mui/material/Typography';
 import Popover from '@mui/material/Popover';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-import HandshakeIcon from '@mui/icons-material/Handshake';
+// import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+// import HandshakeIcon from '@mui/icons-material/Handshake';
 import s from './CardProject.module.scss';
+import iconpayment from '../../assets/money.png';
+import teamwork from '../../assets/teamwork.png';
 
 // Desplegable
 import { styled } from '@mui/material/styles';
@@ -135,12 +137,14 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
           <div className={s.card_content_top}>
             <Typography component="div" variant="h5" sx={{ fontSize: fontSize }}>
               { project?.title.charAt(0).toUpperCase() + project?.title.toLowerCase().slice(1) }
-              { project?.payment?
-                <MonetizationOnIcon sx={{ height: 20, width: 20, color: '#388e3c', marginLeft: '5px' }}/> :
-                <HandshakeIcon sx={{ height: 20, width: 20, color: '#2196f3', marginLeft: '5px' }}/>
-              }
-            </Typography>
-            <button className={s.btnCardProject} onClick={(e) => handleClickOpen(e)} type="button"> Colaborar </button>
+              </Typography>
+              <div className={s.buttonandprojecttype} >
+                { project?.payment               
+                    ? <span><img src={teamwork} alt="collaborate project" style={{width: "30px", margin: "0px 10px"}}/> <img src={iconpayment} alt="collaborate project" style={{width: "30px", margin: "0px 10px"}} /> </span>
+                    : <img src={teamwork} alt="collaborate project" style={{width: "30px", margin: "0px 10px"}}/>
+                }
+                <button className={s.btnCardProject} onClick={(e) => handleClickOpen(e)} type="button"> Colaborar </button>
+              </div>
           </div>
           <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#202024', backgroundColor: '#202024' }}>
             <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: 'none', minHeight: 30, height: 30 }}>
