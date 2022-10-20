@@ -8,7 +8,6 @@ import {
   CREATE_PROJECTS,
   SHOW_MODAL_ADD_IMAGE,
   CLOSE_MODAL_ADD_IMAGE,
-  BASE_URL,
   SELECTPAG,
   GET_PROJECTS_BY_USER,
   CLOUDINARY,
@@ -21,6 +20,10 @@ import {
   GET_PROYECT_COLLABORATION_BY_USER,
   LOADING_DATA
 } from './actiontype';
+import dotenv from "dotenv";
+dotenv.config()
+
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 
 // Get all Projects

@@ -1,11 +1,10 @@
 import React from 'react';
-import Google from "./google.png";
 import { useDispatch, useSelector } from "react-redux";
 // import { logIn, openPageLoader } from "../../redux/actions";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
-import { BASE_URL  } from '../../redux/actions/actiontype';
-import jwt_decode from "jwt-decode";
+// import { BASE_URL  } from '../../redux/actions/actiontype';
+// import jwt_decode from "jwt-decode";
 import { logIn } from '../../redux/actions/generalActions';
 import { validateEmail, validatePassword } from "./validate.jsx";
 import { getUserGitHub } from '../../redux/actions/generalActions';
@@ -17,6 +16,8 @@ import dotenv from "dotenv";
 import s from './Login.module.css';
 dotenv.config();
 
+
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 const REACT_APP_GITHUB = process.env.REACT_APP_GITHUB;
 
 export default function LogIn({handleGoogle, github}) {
