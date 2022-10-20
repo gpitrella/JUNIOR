@@ -46,7 +46,5 @@ export const CLOSE_MODAL_INFO_COLLABORATOR = 'CLOSE_MODAL_INFO_COLLABORATOR';
 
 // BASE URL
 export const BASE_URL_FRONT = 'http://localhost:3000';
-export const BASE_URL = 'http://localhost:4001';
-// export const BASE_URL = 'https://junior-app.onrender.com';
 export const CLOUDINARY = 'https://api.cloudinary.com/v1_1/techmarket/image/upload';
 // export const CLOUDINARY = 'https://api.cloudinary.com/v1_1/djgghmpgh/image/upload';
