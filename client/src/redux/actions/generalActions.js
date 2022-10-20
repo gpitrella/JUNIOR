@@ -7,7 +7,6 @@ import {
   LOG_OUT,
   LOG_IN_ERROR,
   CLEAN_LOG_IN_ERROR,
-  BASE_URL,
   SIGN_UP,
   SEND_EMAIL,
   CLEAN_SEND_EMAIL,
@@ -22,6 +21,11 @@ import {
   UPDATE_DATA_USER,
   LOAD_STORAGE
 } from './actiontype';
+import dotenv from "dotenv";
+dotenv.config()
+
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 
 // Log In User
 export const logIn = function(email, password) {
