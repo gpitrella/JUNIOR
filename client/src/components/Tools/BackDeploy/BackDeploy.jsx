@@ -9,6 +9,7 @@ import s from './BackDeploy.module.css';
 export default function BackDeploy() {
 
   return (
+    <div className={s.container_component_main} >
     <div className={s.main_box_personalinformation}>
       <h1 className={s.gradient__text}> HERRAMIENTAS </h1>
       <h2 className={`${s.title_personalinformation} ${s.gradient__text}`}> Deployado de Back End </h2>
@@ -31,6 +32,7 @@ export default function BackDeploy() {
       <Link to={`/tools`}>
         <Button id='btn_personalinformation' variant="contained"> Tools </Button>
       </Link>
+    </div>
     </div>
   );
 }

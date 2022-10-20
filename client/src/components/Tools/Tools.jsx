@@ -22,12 +22,8 @@ export default function Tools() {
   const { user } = useSelector((state) => state.homepageReducer);
   
   const dispatch = useDispatch(); 
-  // const openFavorite = () => {
-  //     dispatch(showFavs())
-  // };
 
   React.useEffect(() => {
-    // dispatch(getProjectsByUser(user?.user._id))
     if(user?.user){
       if(user.user?.admin){
         setDisplayUserAdmin(true);
@@ -56,6 +52,7 @@ export default function Tools() {
           a los diferentes proyectos o te serviran de ayuda para potenciar tus conocimientos. Si conoces alguna herramienta 
           que pueda servir a otros y no se encuentra en esta sección, ponte en contacto con los desarrolladores de JUNIOR y la agregamos.
 			</p>
+      <div className='main_container_tools'>
       <div className='main_box_tools'>
         <Card id='individual_box_myprofile' sx={{ width: 200, height: 200, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
             <Link to='/tools/codeo' className='box_img_tools'>
@@ -191,6 +188,7 @@ export default function Tools() {
             </Link>
           </CardActions>
         </Card>
+      </div>
       </div>
     </div>
   );

@@ -84,9 +84,9 @@ export function cleanSendEmail(){  /// NO FUNCIONA
 };
 
 // Update Password 
-export const updatePassword = function(newPassword, token) {
+export const updatePassword = function(newpassword, token) {
   return function(dispatch){
-    return axios.put(`${BASE_URL}/password/newpassword/?newPassword=${newPassword}`, getHeaderWithToken(token))
+    return axios.put(`${BASE_URL}/password/newpassword/${newpassword}?token=${token}`, getHeaderWithToken(token))
                 .then(data => console.log(data))
                 .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
   }
