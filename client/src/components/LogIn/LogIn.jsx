@@ -17,7 +17,7 @@ import s from './Login.module.css';
 dotenv.config();
 
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+const BASE_URL = process.env.REACT_APP_BASE_URL_FLY;
 const REACT_APP_GITHUB = process.env.REACT_APP_GITHUB;
 
 export default function LogIn({handleGoogle, github}) {
