@@ -24,7 +24,7 @@ export default function CreateProject() {
   const { user } = useSelector((state) => state.homepageReducer);
   const { newProject, errorsProject } = useSelector((state) => state.projectsReducer);
   const dispatch = useDispatch()
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   // Importar imagen
   const { modalAddImage } = useSelector(state => state.projectsReducer);
@@ -107,6 +107,18 @@ export default function CreateProject() {
     dispatch(getAllTechs());
     return () => {
       dispatch(clearDataProject())
+      setInput({
+        title: '',
+        description:'',
+        gitHubUrl: '',
+        tasks: [],
+        payment: 'false',
+        image: '',
+        wspUrl: '',
+        newtech: [],
+        userId: user.user._id,
+        emailUser: user.user.email
+      })
     }
   }, []);
 
@@ -131,18 +143,6 @@ export default function CreateProject() {
       // document.getElementById('form__msn').classList.remove('form__msn-activo')
     
       dispatch(createProject(input));
-      setInput({
-        title: '',
-        description:'',
-        gitHubUrl: '',
-        tasks: [],
-        payment: 'false',
-        image: '',
-        wspUrl: '',
-        newtech: [],
-        userId: '',
-        emailUser: ''
-      })
     }
   }
 

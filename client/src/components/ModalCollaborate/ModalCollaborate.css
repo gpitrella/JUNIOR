@@ -5,6 +5,7 @@
     height: 100vw;
     right: 0;
     background-color: rgba(185, 185, 185, 0.315);
+    z-index: 1;
 }
 
 .container_modal_collaborador {
