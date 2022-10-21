@@ -103,6 +103,7 @@ const projectsReducer = function(state = initialState, { type, payload }) {
         errorsProject: '',
         newCollaborate: '',
         loadingDataStatus: false,
+        newProject: {}
       }
     
     case ERROS_PROJECTS:

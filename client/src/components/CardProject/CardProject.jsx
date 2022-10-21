@@ -143,7 +143,7 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
                     ? <span><img src={teamwork} alt="collaborate project" style={{width: "30px", margin: "0px 10px"}}/> <img src={iconpayment} alt="collaborate project" style={{width: "30px", margin: "0px 10px"}} /> </span>
                     : <img src={teamwork} alt="collaborate project" style={{width: "30px", margin: "0px 10px"}}/>
                 }
-                <button className={s.btnCardProject} onClick={(e) => handleClickOpen(e)} type="button"> Colaborar </button>
+                { project?.status === 'develop' ? <button className={s.btnCardProject} onClick={(e) => handleClickOpen(e)} type="button"> Colaborar </button> : '' }
               </div>
           </div>
           <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#202024', backgroundColor: '#202024' }}>
@@ -176,7 +176,7 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
           </Accordion>
                 
           <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ color: 'white', marginLeft: '40px' }}>
-                <span>Status: </span>{ project?.status }
+                <span>Status: </span><span style={project?.status === "finish" ? { fontSize: '14px', color: '#8dde40' } : { fontSize: '14px', color: '#ffff00' }}>{ project?.status === "finish" ? 'Terminado' : 'En Desarrollo' }</span>
           </Typography>
           
         </CardContent>

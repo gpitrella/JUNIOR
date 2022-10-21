@@ -143,7 +143,6 @@ export function clearDataProject() {
 
 // Enviar datos para Colaborar
 export function sendCollaborate(data){
-  console.log(data);
   return function(dispatch){
       return axios.post(`${BASE_URL}/user/collaboration`, data)
                   .then(project => dispatch({ type: NEW_COLLABORATE, payload: project.data }))
