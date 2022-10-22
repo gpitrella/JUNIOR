@@ -67,6 +67,9 @@ export default function CreateProject() {
       ...input,
       [e.target.name]: e.target.value
     }, errors))
+    if (!errors.title || !errors.description || !errors.image || !errors.gitHubUrl || !errors.newtech) {
+      document.getElementById('form__msn').classList.remove('form__msn-activo')
+    }
   }
 
   const handleTask = () => {
@@ -78,6 +81,9 @@ export default function CreateProject() {
         })
       }
       setTextTask('');
+      if (!errors.title || !errors.description || !errors.image || !errors.gitHubUrl || !errors.newtech) {
+        document.getElementById('form__msn').classList.remove('form__msn-activo')
+      }
   }
 
   const handleDeleteTech = (e) => {
@@ -111,6 +117,7 @@ export default function CreateProject() {
         title: '',
         description:'',
         gitHubUrl: '',
+        deployment: '',
         tasks: [],
         payment: 'false',
         image: '',
@@ -134,6 +141,7 @@ export default function CreateProject() {
     }
     else if (!errors.title || !errors.description || !errors.image || !errors.gitHubUrl || !errors.newtech) {
       document.getElementById('form__msn-exito').classList.add('form__msn-exito-activo')
+      document.getElementById('form__msn').classList.remove('form__msn-activo')
       // setTimeout(()=>{
       //   document.getElementById('form__msn-exito').classList.remove('form__msn-exito-activo')
       // }, 4000)
@@ -161,6 +169,9 @@ export default function CreateProject() {
       ...input,
       image: newImage
     }, errors));
+    if (!errors.title || !errors.description || !errors.image || !errors.gitHubUrl || !errors.newtech) {
+      document.getElementById('form__msn').classList.remove('form__msn-activo')
+    }
   }
 
   return (
@@ -230,6 +241,23 @@ export default function CreateProject() {
           </div> 
           <span className='form__input-error'>{errors.gitHubUrl}</span>          
         </div>
+
+        <div className={`form__group_create_p_create ${s.formGroudName}`} id='deployment'>
+          <label htmlFor="deployment" className={s.form__label}>Deployment Link: </label>
+          <div className={s.form__group_input}>
+                <input
+                  type={'text'}
+                  className='form__input'
+                  id='deployment'
+                  name = {'deployment'}
+                  placeholder='Link a Live versión o versión Deploy'
+                  value = {input.deployment}
+                  onChange={(e) => handleChange(e)}
+                />
+          </div> 
+          <span className='form__input-error'>{errors.gitHubUrl}</span>          
+        </div>
+
           <div className={`form__group_create_p_create ${s.formGroudName}`} id='tasks'>
             <label htmlFor="tasks" className={s.form__label}>Tareas: * </label>
             <div className={`${s.form__group_input} ${s.displayTasks}`}>

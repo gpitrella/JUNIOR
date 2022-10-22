@@ -9,8 +9,7 @@ import Typography from '@mui/material/Typography';
 import Popover from '@mui/material/Popover';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-// import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-// import HandshakeIcon from '@mui/icons-material/Handshake';
+import LiveTvIcon from '@mui/icons-material/LiveTv';
 import s from './CardProject.module.scss';
 import iconpayment from '../../assets/money.png';
 import teamwork from '../../assets/teamwork.png';
@@ -147,9 +146,8 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
               </div>
           </div>
           <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#202024', backgroundColor: '#202024' }}>
-            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: 'none', minHeight: 30, height: 30 }}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ color: 'white', backgroundColor: 'none', minHeight: 30, height: 30 }}>
               <Typography>Descripción: </Typography>
-
             </AccordionSummary>
             <AccordionDetails sx={{ color: 'white', backgroundColor: '#202024' }}>
               <Typography>
@@ -158,7 +156,7 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
             </AccordionDetails>
           </Accordion>
           <Accordion onChange={handleChange('panel1')} sx={{ color: 'white', borderColor: '#202024', backgroundColor: '#202024' }}>
-            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: '#202024', minHeight: 30, height: 30 }}>
+            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" className='svgiconCardProject' sx={{ color: 'white', backgroundColor: '#202024', minHeight: 30, height: 30 }}>
               <Typography>Tareas Pendientes: </Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ color: 'white', backgroundColor: '#202024' }}>
@@ -183,12 +181,12 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
           <a href={ project?.gitHubUrl } target="_blank" rel="noopener noreferrer">
             <IconButton aria-label="previous">
-              <GitHubIcon sx={{ height: window.screen.width < 500 ? 30 : 40, width: window.screen.width < 500 ? 30 : 40, color: 'white' }}/>
+              <GitHubIcon sx={{ height: window.screen.width < 500 ? 25 : 35, width: window.screen.width < 500 ? 25 : 35, color: 'white' }}/>
             </IconButton>
           </a>
 
           <IconButton aria-label="next" aria-describedby={idWathsApp} onClick={handleClick}>
-            <WhatsAppIcon sx={{ height: window.screen.width < 500 ? 30 : 40, width: window.screen.width < 500 ? 30 : 40, color: 'white' }}/>
+            <WhatsAppIcon sx={{ height: window.screen.width < 500 ? 25 : 35, width: window.screen.width < 500 ? 25 : 35, color: 'white' }}/>
           </IconButton>
           <Popover
             id={idWathsApp}
@@ -203,6 +201,12 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
           >
             <Typography sx={{ p: 2 }}>Contacto Creador: { project.wspUrl }</Typography>
           </Popover>
+
+          <a href={ project?.deployment } target="_blank" rel="noopener noreferrer">
+            <IconButton aria-label="previous">
+              <LiveTvIcon sx={{ height: window.screen.width < 500 ? 25 : 35, width: window.screen.width < 500 ? 25 : 35, color: 'white' }}/>
+            </IconButton>
+          </a>
 
           <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ color: 'white' }}>
             <span className='titleTechs'>Techs: </span>{ 
