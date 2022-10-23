@@ -1,4 +1,9 @@
 .main_modal_collaborador {
+    display: flex;
+	padding-top: 70px;
+	padding-bottom: 50px;
+	justify-content: center;
+	width: 100%;
     position: absolute;
     top: 0;
     left: 0;
@@ -11,7 +16,9 @@
 .container_modal_collaborador {
     background-color: white;
     border-radius: 5px;
-    margin: 150px 25rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     width: 600px;
 }
 
@@ -166,3 +173,22 @@
 }
 
 /* FIN DE EDICION */
+/* === Media queries === */
+@media screen and (max-width: 1150px) {
+
+}
+
+@media screen and (max-width: 900px) {
+}
+
+@media screen and (max-width: 750px) {
+    .container_modal_collaborador {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container_modal_collaborador {
+        width: 350px;
+    }
+}
