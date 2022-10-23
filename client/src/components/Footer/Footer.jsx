@@ -26,7 +26,8 @@ export default function Footer() {
                             <h4 className='title_footer_leftside'>Links</h4>
                             <Link to='/contactus'><h5>Contact Us</h5></Link>
                             <Link to='/about'><h5>Sobre JR</h5></Link>
-                            <Link to='/halloffame'><h5>Usuarios</h5></Link>
+                            <Link to='/developers'><h5>Developers</h5></Link>
+                            <Link to='/faqs'><h5>FAQs</h5></Link>
                         </div>
                         <div className="footer_leftside">
                             <h4 className='title_footer_leftside'>Perfil Personal</h4>
