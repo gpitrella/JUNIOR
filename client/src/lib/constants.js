@@ -162,11 +162,26 @@ export const designTool = [
         extremadamente intuitiva y fácil de utilizar, con centenares de plantillas y elementos multimedia que puedes agregar.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664629909/descarga_1_jy4dyu.png",
         link: 'https://www.canva.com/' 
+    },
+    { 
+        id: 3,
+        name: 'Excalidraw',
+        description: `Excalidraw es una herramienta de dibujo online, sencilla pero potente. A veces, los equipos o proyectos sólo necesitan 
+        una imagen rápida y no un diagrama formal. Para los equipos trabajando en remoto, Excalidraw proporciona una forma rápida de
+         crear y compartir diagramas.`,
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666527623/skalydraw_e5ngms.png",
+        link: 'https://excalidraw.com'
+    }, 
+    { 
+        id: 4,
+        name: 'Codepen',
+        description: `CodePen es un ambiente de desarollo y al mismo tiempo una red social, lo que significa que, más allá 
+        de poder seguir a las personas, dar like en los códigos y dejar comentarios, también tenemos en las manos un 
+        editor de código online, donde las personas que ya saben o que quieren aprender programación, pueden escribir sus códigos.`,
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666527938/codepen_ozbnnj.png",
+        link: 'https://codepen.io/' 
     }
 ]; 
-
-// https://excalidraw.com/
-// https://codepen.io/
 
 
 export const youtubeTool = [
@@ -175,26 +190,72 @@ export const youtubeTool = [
         name: 'Soy Dalto',
         description: `Lucas Dalto es la cara detrás de Soy Dalto, el canal de Youtube dedicado a enseñar programación de mayor audiencia 
         en la Argentina. Sostiene que aprender código permite cambiar la vida de la gente, sin importar de dónde vengan.`,
-        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1665861817/dalto300_anr5jy.png",
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666531106/dalto1_opkqg7.png",
         link: 'https://www.youtube.com/c/soydalto'
     }, 
     { 
         id: 2,
         name: 'Hola Mundo',
         description: `Es uno de los canales más vistos en Español dedicado al aprendizaje de diferentes lenguajes de programación,
-        en donde podrás aprender desde Javascript, Docker, Phyton, entre otras herramientas utiles.
-        `,
-        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1665861751/holamundo300_cgrqoa.png",
+        en donde podrás aprender desde Javascript, Docker, Phyton, entre otras herramientas utiles.`,
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666531031/holamundo1_gfgxk3.png",
         link: 'https://www.youtube.com/c/HolaMundoDev' 
+    },
+    { 
+        id: 3,
+        name: 'Fazt Code',
+        description: `Creado por Fazt es un canal en donde puedes encontrar todo sobre Programación, Desarrollo Web. Desde hacer 
+        tu propio logo de Marca hasta subir tu sitio y aplicación a la web, con las mejores prácticas. Cuenta con varios canales
+        similares como Fazt Tech, Fazt Code, entre otros.`,
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666528237/fazt_a3qyp3.png",
+        link: 'https://www.youtube.com/c/FaztCode'
+    }, 
+    { 
+        id: 4,
+        name: 'VidaMRR',
+        description: `Vida MRR es un canal de diseño y desarrollo web, donde puedes encontrar contenido de Javascript, Bootstrap,
+         TailwindCSS, Node.js, PHP y MySQL y más recursos necesarios para ser el mejor desarrollador web.`,
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666528494/vida_cll9q5.png",
+        link: 'https://www.youtube.com/c/VidaMRR' 
+    },
+    { 
+        id: 5,
+        name: 'Fernando Herrera',
+        description: `Canal creado por Fernando Herrera, Fullstack developer y profesor en línea a quien le encanta programar y 
+        enseñar. En este canal de YouTube podes encontrar información sobre diferentes lenguajes de programación que podría 
+        interesarte.`,
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666528772/fernando_ya82em.png",
+        link: 'https://www.youtube.com/c/FernandoHerreraCr'
+    }, 
+    { 
+        id: 6,
+        name: 'Free Code Camp',
+        description: `Free Code Camp es una organización sin fines de lucro[2] que consta de una plataforma web de aprendizaje 
+        interactivo, un foro comunitario en línea, salas de chat, publicaciones en línea y organizaciones locales que pretenden 
+        hacer que el desarrollo web de aprendizaje sea accesible para cualquiera.`,
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666529016/free_hpdh4a.png",
+        link: 'https://www.youtube.com/c/Freecodecamp' 
+    },
+    { 
+        id: 7,
+        name: 'Carlos Azaustre',
+        description: `Carlos Azaustre se dedica al Desarrollo Web desde hace más de 10 años. En su canal podrás encontrar 
+        tutoriales de programación y desarrollo web con tecnologías como JAVASCRIPT, REACT, NODEJS, FIREBASE, y más. `,
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666530600/carlos_hoju3a.png",
+        link: 'https://www.youtube.com/c/CarlosAzaustre'
+    }, 
+    { 
+        id: 8,
+        name: 'Midulive',
+        description: `En este canal vas a poder encontrar streamings sobre Desarrollo FullStack con JavaScript de midudev en Twitch. 
+        Directos completos y extracto de los mejores momentos.`,
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666530858/midu_ans7to.png",
+        link: 'https://www.youtube.com/c/midulive/videos' 
     }
 ];
 
-// Fazt Code
-// https://www.youtube.com/c/VidaMRR
-// https://www.youtube.com/c/FernandoHerreraCr
-// https://www.youtube.com/c/Freecodecamp
-// https://www.youtube.com/c/CarlosAzaustre
-// https://www.youtube.com/c/midulive/videos
+// 
+// 
 
 
 export const meetTool = [
@@ -215,12 +276,35 @@ export const meetTool = [
         comunicación profesionales como Slack.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664636064/discord_qrsjec.png",
         link: 'https://discord.com/' 
+    },
+    { 
+        id: 3,
+        name: 'Skype',
+        description: `Skype es una aplicación patentada y operada por Skype Technologies (división de Microsoft), 
+        mejor conocida por videotelefonía, videoconferencias y llamadas de voz basadas en VoIP. También cuenta con 
+        mensajería instantánea, transferencia de archivos, llamadas con débito a teléfonos fijos y móviles, y otras funciones.`,
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666534529/skype_an2hjn.png",
+        link: 'https://www.skype.com/en/'
+    }, 
+    { 
+        id: 4,
+        name: 'Jitsi',
+        description: `Jitsi es una colección de aplicaciones de mensajería instantánea, videoconferencia y voz multiplataforma
+         gratuitas y de código abierto para la plataforma web, Windows, Linux, macOS, iOS y Android. El proyecto Jitsi comenzó 
+         con Jitsi Desktop.`,
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666534664/jitsi_mbnfqm.png",
+        link: 'https://meet.jit.si/' 
+    }, 
+    { 
+        id: 5,
+        name: 'Zoom',
+        description: `Zoom es una de las principales aplicaciones de software de videoconferencia. Permite interactuar 
+        virtualmente con los compañeros de trabajo cuando no es posible celebrar reuniones en persona, y también ha tenido 
+        un gran éxito en los eventos sociales. (40 minutos gratis)`,
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666534959/zoom_xoku0e.png",
+        link: 'https://zoom.us/' 
     }
 ];
-
-// zoom gratis por 40 min
-// skype gratis
-// https://meet.jit.si/
 
 export const cvTool = [];
 
@@ -306,7 +390,7 @@ export const backPage = [
         link: 'https://www.fly.io/' 
     },
     { 
-        id: 2,
+        id: 3,
         name: 'Railway',
         description: `Railway es una plataforma de infraestructura donde puede aprovisionar infraestructura, 
         desarrollar con esa infraestructura localmente y luego implementar en la nube.`,

@@ -113,7 +113,7 @@ export default function ModalCollaborate() {
             <div className='container_modal_collaborador' >
             <BootstrapDialogTitle className='button_close_collaborate'>
                👏Listo/a para Colaborar :
-               <button className="btnCollaborator" onClick={(e) => handleCloseInfo(e)}> X </button>
+               <button className="btnCollaboratorClose" onClick={(e) => handleCloseInfo(e)}> X </button>
             </BootstrapDialogTitle>
             { !newCollaborate.message && errorsProject === '' ? 
             <div>
