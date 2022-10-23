@@ -9,10 +9,10 @@ export default function HallOfFameRows({ users }) {
     <div className = {s.container}>
       <div className={s.hofrows_content}>
       <h1 className={s.gradient__text}>
-          USERS
+          DEVELOPERS
 			</h1>
       <p>
-          En la sección de USUARIOS podrás encontrar a todos los Desarrolladores inscriptos a JUNIOR e identificarlos
+          En la sección de DEVELOPERS podrás encontrar a todos los Desarrolladores inscriptos a JUNIOR e identificarlos
           por su nombre, las tecnologías que usa y si se encuentra activo en algún proyecto dentro de la plataforma
           y también su contacto para poder ubicarlos fuera de la aplicación.
 			</p>
