@@ -65,7 +65,10 @@ export const developers = [
         email: "",
         img: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664370720/Emilio_uu93ub.png"
     }
-];
+]; 
+
+// Joan Quispe Cusi
+// Natalia leiva
 
 export const messagePopUp = {
     createProject: `Para crear un proyecto te recomendamos registrarte o logearte para que los futuros 
@@ -305,6 +308,10 @@ export const meetTool = [
         link: 'https://zoom.us/' 
     }
 ];
+
+// plaformas de colaboración 
+// freecodecamp
+// https://frontend.cafe/mentorias?especialidad=67ec1201-07de-49ae-b8b9-30cbcb07d746
 
 export const cvTool = [];
 
