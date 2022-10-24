@@ -157,13 +157,13 @@ export default function LogIn({handleGoogle, github}) {
           <div className='login__google' >
               <div id="signInDiv"></div>
           </div>
-          <div className="loginButton githublogin" id="example">
+          {/* <div className="loginButton githublogin" id="example">
             <LoginGithub className="loginGitHub" clientId={REACT_APP_GITHUB}
               onSuccess={onSuccess}
               onFailure={onFailure}
             />
             <img src={Github} alt="" className="icongithublogin" />
-          </div>
+          </div> */}
           
 
           <p className="login__text">No tienes cuenta? <Link to='/signup' className="link">Sign up aqui!</Link></p>
