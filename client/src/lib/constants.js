@@ -64,6 +64,22 @@ export const developers = [
         github: "https://github.com/Emicon97",
         email: "",
         img: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664370720/Emilio_uu93ub.png"
+    }, 
+    {
+        id: 7,
+        name: "Joan Quispe Cusi",
+        linkedin: "https://www.linkedin.com/in/joanquispedev/",
+        github: "https://github.com/joanQ95",
+        email: "joan.quispec@gmail.com",
+        img: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666635335/joan_hmntgi.jpg"
+    }, 
+    {
+        id: 8,
+        name: "Natalia Leiva",
+        linkedin: "https://www.linkedin.com/in/natalia-leiva-dev/",
+        github: "https://github.com/Natti2012",
+        email: "natti35443839@gmail.com",
+        img: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664324498/Natalia_Leiva_sg8uvm.jpg"
     }
 ]; 
 

@@ -20,9 +20,9 @@ export default function FAQs() {
             <br />
             <br />
             <Grid>
-                <Card style={{ maxWidth: 1000, padding: "20px 5px", margin: "0 auto" }}>
-                    <Typography gutterBottom variant="h5">
-                        Frequently Asqued Questions
+                <Card style={{ maxWidth: 1000, padding: "20px 20px", margin: "0 auto", backgroundColor: 'var(--primaryColor)' }}>
+                    <Typography gutterBottom variant="h5" style={{ color: 'white', padding: "5px 20px"}}>
+                        Preguntas Frecuentes - FAQs
                     </Typography>
                     <CardContent>
                         <Accordion
