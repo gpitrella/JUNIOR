@@ -2,10 +2,10 @@ import React from 'react';
 
 import s from './ModalPickOption.module.css';
 
-export default function ModalPickOption({ style, values, show, handleClose, handlePickOption }) {
+export default function ModalPickOption({ name, style, values, show, handleClose, handlePickOption }) {
   return (
     <>
-      <div className = {`${s.containerOptions} ${show ? s.showOptions : ''} ${style}`}>
+      <div className = {`${name === 'tech' ? s.optionDropdown : ''} ${s.containerOptions} ${show ? s.showOptions : ''} ${style}`}>
       {
         values && values.length > 0 && values.map((value, index) => 
           <span
