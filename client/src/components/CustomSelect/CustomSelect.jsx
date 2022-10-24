@@ -25,6 +25,7 @@ export default function CustomSelect({valueSelected, values, handleValue, name, 
         </div>
       </div>
       <ModalPickOption 
+        name = { name }
         style = {s.modalPickOptionStyle}
         values = {values}
         show = {showOptions}

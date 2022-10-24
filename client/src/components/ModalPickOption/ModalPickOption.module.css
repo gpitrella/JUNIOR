@@ -9,6 +9,11 @@
   border-radius: 8px;
   box-shadow: var(--borderInside);
 }
+.optionDropdown {
+  height: 300px;
+  max-width: 400px;
+  overflow:auto;
+}
 
 .showOptions {
   display: grid;
