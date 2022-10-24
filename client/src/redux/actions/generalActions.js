@@ -7,7 +7,6 @@ import {
   LOG_OUT,
   LOG_IN_ERROR,
   CLEAN_LOG_IN_ERROR,
-  BASE_URL,
   SIGN_UP,
   SEND_EMAIL,
   CLEAN_SEND_EMAIL,
@@ -22,6 +21,11 @@ import {
   UPDATE_DATA_USER,
   LOAD_STORAGE
 } from './actiontype';
+import dotenv from "dotenv";
+dotenv.config()
+
+const BASE_URL = process.env.REACT_APP_BASE_URL_FLY;
+
 
 // Log In User
 export const logIn = function(email, password) {
@@ -35,6 +39,7 @@ export const logIn = function(email, password) {
 // Log In User Google Account
 export const signinGoogle = function(auser) {
   return function(dispatch){
+    console.log('AUSER ACTIONS:', auser)
     return axios.post(`${BASE_URL}/auth/google`, { auser })
                 .then(data => dispatch({ type: SIGN_IN_GOOGLE, payload: data.data}))
                 .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
@@ -84,9 +89,9 @@ export function cleanSendEmail(){  /// NO FUNCIONA
 };
 
 // Update Password 
-export const updatePassword = function(newPassword, token) {
+export const updatePassword = function(newpassword, token) {
   return function(dispatch){
-    return axios.put(`${BASE_URL}/password/newpassword/?newPassword=${newPassword}`, getHeaderWithToken(token))
+    return axios.put(`${BASE_URL}/password/newpassword/${newpassword}?token=${token}`, getHeaderWithToken(token))
                 .then(data => console.log(data))
                 .catch(error => dispatch({ type: LOG_IN_ERROR, payload: error.response}))
   }

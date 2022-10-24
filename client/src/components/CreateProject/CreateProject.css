@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-.main{
+.mainCreateProyect{
     box-sizing: border-box;
     max-width: 800px;
     width: 800px;
@@ -91,7 +91,7 @@
     margin: 0;
 }
 
-.form__group_create_p {
+.form__group_create_p_create {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -179,3 +179,27 @@
 }
 
 /* FIN DE EDICION */
+@media screen and (max-width: 900px) {
+    .mainCreateProyect{
+        width: 700px;
+        padding: 20px;
+    }
+  }
+  
+  @media screen and (max-width: 750px) {
+    .mainCreateProyect{
+        width: 550px;
+        padding: 5px 10px;
+    }
+
+  }
+  
+  @media screen and (max-width: 500px) {
+    .mainCreateProyect{
+        width: 350px;
+        padding: 5px 10px;
+    }
+    .form__group_create_p_create {
+        padding: 0px;
+    }
+  }

@@ -12,7 +12,7 @@ const Menu = ({handleSignOut, user}) => {
 			<Link to='/projects'><p>Proyectos</p></Link>
 			<Link to='/about'><p>Sobre JR</p></Link>
 			<Link to='/tools'><p>Herramientas</p></Link>
-			<Link to='/halloffame'><p>Users</p></Link>
+			<Link to='/developers'><p>Developers</p></Link>
             {user?.user && <p id='btnLogOutNavbar'><a onClick={(e) => handleSignOut(e)}>LogOut</a></p> }
 		</>
 )}

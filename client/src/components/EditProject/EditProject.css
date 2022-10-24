@@ -2,12 +2,13 @@
     box-sizing: border-box;
 }
 
-.main{
+.mainEditProyect {
     box-sizing: border-box;
     max-width: 800px;
     width: 800px;
     margin: auto;
     padding: 40px;
+    margin-top: 50px;
 }
 
 .form_create_project{
@@ -34,7 +35,7 @@
     background-color: #fff;
     border: 3px solid transparent;
     border-radius: 5px;
-    line-height: 45px;
+    line-height: 25px;
     padding: 0 40px 0 10px;
     transition: .3s ease all;
 }
@@ -91,7 +92,7 @@
     margin: 0;
 }
 
-.form__group_create_p {
+.form__group_create_p_edit {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -190,3 +191,28 @@
 }
 
 /* FIN DE EDICION */
+
+@media screen and (max-width: 900px) {
+    .mainEditProyect{
+        width: 700px;
+        padding: 20px;
+    }
+  }
+  
+  @media screen and (max-width: 750px) {
+    .mainEditProyect{
+        width: 550px;
+        padding: 5px 10px;
+    }
+
+  }
+  
+  @media screen and (max-width: 500px) {
+    .mainEditProyect{
+        width: 350px;
+        padding: 5px 10px;
+    }
+    .form__group_create_p_edit {
+        padding: 0px;
+    }
+  }

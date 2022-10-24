@@ -24,7 +24,7 @@ export default function CreateProject() {
   const { user } = useSelector((state) => state.homepageReducer);
   const { newProject, errorsProject } = useSelector((state) => state.projectsReducer);
   const dispatch = useDispatch()
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   // Importar imagen
   const { modalAddImage } = useSelector(state => state.projectsReducer);
@@ -67,6 +67,9 @@ export default function CreateProject() {
       ...input,
       [e.target.name]: e.target.value
     }, errors))
+    if (!errors.title || !errors.description || !errors.image || !errors.gitHubUrl || !errors.newtech) {
+      document.getElementById('form__msn').classList.remove('form__msn-activo')
+    }
   }
 
   const handleTask = () => {
@@ -78,6 +81,9 @@ export default function CreateProject() {
         })
       }
       setTextTask('');
+      if (!errors.title || !errors.description || !errors.image || !errors.gitHubUrl || !errors.newtech) {
+        document.getElementById('form__msn').classList.remove('form__msn-activo')
+      }
   }
 
   const handleDeleteTech = (e) => {
@@ -107,6 +113,19 @@ export default function CreateProject() {
     dispatch(getAllTechs());
     return () => {
       dispatch(clearDataProject())
+      setInput({
+        title: '',
+        description:'',
+        gitHubUrl: '',
+        deployment: '',
+        tasks: [],
+        payment: 'false',
+        image: '',
+        wspUrl: '',
+        newtech: [],
+        userId: user.user._id,
+        emailUser: user.user.email
+      })
     }
   }, []);
 
@@ -122,6 +141,7 @@ export default function CreateProject() {
     }
     else if (!errors.title || !errors.description || !errors.image || !errors.gitHubUrl || !errors.newtech) {
       document.getElementById('form__msn-exito').classList.add('form__msn-exito-activo')
+      document.getElementById('form__msn').classList.remove('form__msn-activo')
       // setTimeout(()=>{
       //   document.getElementById('form__msn-exito').classList.remove('form__msn-exito-activo')
       // }, 4000)
@@ -131,18 +151,6 @@ export default function CreateProject() {
       // document.getElementById('form__msn').classList.remove('form__msn-activo')
     
       dispatch(createProject(input));
-      setInput({
-        title: '',
-        description:'',
-        gitHubUrl: '',
-        tasks: [],
-        payment: 'false',
-        image: '',
-        wspUrl: '',
-        newtech: [],
-        userId: '',
-        emailUser: ''
-      })
     }
   }
 
@@ -161,6 +169,9 @@ export default function CreateProject() {
       ...input,
       image: newImage
     }, errors));
+    if (!errors.title || !errors.description || !errors.image || !errors.gitHubUrl || !errors.newtech) {
+      document.getElementById('form__msn').classList.remove('form__msn-activo')
+    }
   }
 
   return (
@@ -175,7 +186,7 @@ export default function CreateProject() {
             formulario de proyecto lo más completo posible para que sea más fácil que sumes colaboradores.
 					</p>
       </div>
-    <div className={`main ${s.container}`}>
+    <div className={`mainCreateProyect ${s.container}`}>
         <Link to = {'/projects'}>
           <button className = {s.goBack}>{'< Volver'}</button>
         </Link>
@@ -183,7 +194,7 @@ export default function CreateProject() {
       <div>
         <h1 className={`form__title ${s.maintitle}`}>Crear Proyecto</h1>
         <form className='form_create_project' id='form' onSubmit={(e) => handleSubmit(e)}>
-        <div className={`form__group_create_p ${s.formGroudName}`} id='title'>
+        <div className={`form__group_create_p_create ${s.formGroudName}`} id='title'>
           <label htmlFor="title" className={s.form__label}>Título: * </label>
           <div className={s.form__group_input}>
                 <input
@@ -199,7 +210,7 @@ export default function CreateProject() {
           <span className='form__input-error'>{errors.title}</span>
         </div>
 
-        <div className={`form__group_create_p ${s.formGroudName}`} id='description'>
+        <div className={`form__group_create_p_create ${s.formGroudName}`} id='description'>
           <label htmlFor="description" className={s.form__label}>Descripción: * </label>
           <div className={s.form__group_input}>
                 <textarea
@@ -215,7 +226,7 @@ export default function CreateProject() {
           <span className='form__input-error'>{errors.description}</span>        
         </div>
 
-        <div className={`form__group_create_p ${s.formGroudName}`} id='gitHubUrl'>
+        <div className={`form__group_create_p_create ${s.formGroudName}`} id='gitHubUrl'>
           <label htmlFor="gitHubUrl" className={s.form__label}>GitHub Link: * </label>
           <div className={s.form__group_input}>
                 <input
@@ -230,7 +241,24 @@ export default function CreateProject() {
           </div> 
           <span className='form__input-error'>{errors.gitHubUrl}</span>          
         </div>
-          <div className={`form__group_create_p ${s.formGroudName}`} id='tasks'>
+
+        <div className={`form__group_create_p_create ${s.formGroudName}`} id='deployment'>
+          <label htmlFor="deployment" className={s.form__label}>Deployment Link: </label>
+          <div className={s.form__group_input}>
+                <input
+                  type={'text'}
+                  className='form__input'
+                  id='deployment'
+                  name = {'deployment'}
+                  placeholder='Link a Live versión o versión Deploy'
+                  value = {input.deployment}
+                  onChange={(e) => handleChange(e)}
+                />
+          </div> 
+          <span className='form__input-error'>{errors.gitHubUrl}</span>          
+        </div>
+
+          <div className={`form__group_create_p_create ${s.formGroudName}`} id='tasks'>
             <label htmlFor="tasks" className={s.form__label}>Tareas: * </label>
             <div className={`${s.form__group_input} ${s.displayTasks}`}>
                   <input
@@ -257,7 +285,7 @@ export default function CreateProject() {
           </div>
 
 
-        <div className='form__group_create_p' id='price'>
+        <div className='form__group_create_p_create' id='price'>
           <label htmlFor="payment" className={s.form__label}>Colaborativo o Pago: *</label>
           <div className={s.form__group_input}>
               <select
@@ -273,7 +301,7 @@ export default function CreateProject() {
           <p className='form__input-error'>{errors.price}</p>
         </div>
         
-        <div className='form__group_create_p' id='wspUrl'>
+        <div className='form__group_create_p_create' id='wspUrl'>
           <label htmlFor="discount" className={s.form__label}>WhatsApp: </label>
           <div className={s.form__group_input}>
                 <input
@@ -289,7 +317,7 @@ export default function CreateProject() {
           {/* <p className='form__input-error'>{errors.discount}</p> */}
         </div>
 
-        <div className='form__group_create_p' id='newtech'>
+        <div className='form__group_create_p_create' id='newtech'>
         <label htmlFor="category" className={s.form__label}>Tech a usar: *</label>
         <div className={s.form__group_input}>
             <select
@@ -319,7 +347,7 @@ export default function CreateProject() {
         <p className='form__input-error'>{errors.newtech}</p>
         </div>
                 
-        <div className='form__group_create_p' id='image'>
+        <div className='form__group_create_p_create' id='image'>
           <div className = {s.doubleLabel}>
             <label htmlFor="image" className={s.form__label}>Imagen: *</label>
             <button className = {s.importImage} onClick = {handleOpenModalAddImage}>Importar</button>
@@ -344,7 +372,7 @@ export default function CreateProject() {
             <b>Error:</b> Por favor chequea todos los campos con errores.
             </p> 
         </div>
-        <div className="form__group_create_p form__group-btn-create">
+        <div className="form__group_create_p_create form__group-btn-create">
             <button type='submit' className='form__btn'>CREAR PROYECTO</button>
             <p className='form__msn-exito' id='form__msn-exito'
             >Proyecto Creado con Éxito!!

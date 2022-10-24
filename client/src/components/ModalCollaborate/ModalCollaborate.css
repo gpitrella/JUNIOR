@@ -1,16 +1,25 @@
 .main_modal_collaborador {
+    display: flex;
+	padding-top: 100px;
+	padding-bottom: 50px;
+	justify-content: center;
+	width: 100%;
     position: absolute;
     top: 0;
     left: 0;
     height: 100vw;
     right: 0;
     background-color: rgba(185, 185, 185, 0.315);
+    z-index: 1;
 }
 
 .container_modal_collaborador {
     background-color: white;
     border-radius: 5px;
-    margin: 150px 25rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 620px;
     width: 600px;
 }
 
@@ -124,7 +133,7 @@
 
 .btnCollaborator {
     padding: 8px 15px;
-    width: 100px;
+    width: 200px;
     color: #fff;
     background: #FF4820;
     font-family: var(--font-family);
@@ -136,10 +145,34 @@
     cursor: pointer;
     margin-bottom: 10px;
     margin-right: 30px;
+    box-shadow: var(--mainShadow);
 }
 
 .btnCollaborator:hover {
     opacity: 0.8;
+    box-shadow: none;
+}
+
+.btnCollaboratorClose {
+    padding: 8px 15px;
+    width: 50px;
+    color: #000;
+    background: #ededed;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 25px;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-right: 30px;
+    box-shadow: var(--mainShadow);
+}
+
+.btnCollaboratorClose:hover {
+    opacity: 0.8;
+    box-shadow: none;
 }
 
 .successSend {
@@ -165,3 +198,22 @@
 }
 
 /* FIN DE EDICION */
+/* === Media queries === */
+@media screen and (max-width: 1150px) {
+
+}
+
+@media screen and (max-width: 900px) {
+}
+
+@media screen and (max-width: 750px) {
+    .container_modal_collaborador {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container_modal_collaborador {
+        width: 350px;
+    }
+}

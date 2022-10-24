@@ -207,7 +207,7 @@ export default function EditProject() {
             proyecto. Podes ademas agregar mas tareas para los colaboradores.
 					</p>
       </div>
-    <div className={`main ${s.container}`}>
+    <div className={`mainEditProyect ${s.container}`}>
       <div>
         <Link to = {user.user ? '/miperfil/misproyectos' : '/home'} onClick={(e) => clearMainVariables(e)}>
           <button className = {s.goBack} >{'< Volver'}</button>
@@ -217,7 +217,7 @@ export default function EditProject() {
       <div>
         <h1 className={`form__title ${s.maintitle}`}>Editar Proyecto</h1>
         <form className='form_create_project' id='form' onSubmit={(e) => handleSubmit(e)}>
-        <div className={`form__group_create_p ${s.formGroudName}`} id='title'>
+        <div className={`form__group_create_p_edit ${s.formGroudName}`} id='title'>
           <label htmlFor="title" className={s.form__label}>Título: * </label>
           <div className={s.form__group_input}>
                 <input
@@ -233,7 +233,7 @@ export default function EditProject() {
           <span className='form__input-error'>{errors.title}</span>
         </div>
 
-        <div className={`form__group_create_p ${s.formGroudName}`} id='description'>
+        <div className={`form__group_create_p_edit ${s.formGroudName}`} id='description'>
           <label htmlFor="description" className={s.form__label}>Descripción: * </label>
           <div className={s.form__group_input}>
                 <textarea
@@ -249,7 +249,7 @@ export default function EditProject() {
           <span className='form__input-error'>{errors.description}</span>        
         </div>
 
-        <div className={`form__group_create_p ${s.formGroudName}`} id='gitHubUrl'>
+        <div className={`form__group_create_p_edit ${s.formGroudName}`} id='gitHubUrl'>
           <label htmlFor="gitHubUrl" className={s.form__label}>GitHub Link: * </label>
           <div className={s.form__group_input}>
                 <input
@@ -264,7 +264,7 @@ export default function EditProject() {
           </div> 
           <span className='form__input-error'>{errors.gitHubUrl}</span>          
         </div>
-          <div className={`form__group_create_p ${s.formGroudName}`} id='tasks'>
+          <div className={`form__group_create_p_edit ${s.formGroudName}`} id='tasks'>
             <label htmlFor="tasks" className={s.form__label}>Tareas: * </label>
             <div className={`${s.form__group_input} ${s.displayTasks}`}>
                   <input
@@ -292,7 +292,7 @@ export default function EditProject() {
           </div>
 
 
-        <div className='form__group_create_p' id='price'>
+        <div className='form__group_create_p_edit' id='price'>
           <label htmlFor="price" className='form__label'>Colaborativo o Pago: *</label>
           <div className={s.form__group_input}>
               <select
@@ -308,7 +308,7 @@ export default function EditProject() {
           <p className='form__input-error'>{errors.price}</p>
         </div>
         
-        <div className='form__group_create_p' id='wspUrl'>
+        <div className='form__group_create_p_edit' id='wspUrl'>
           <label htmlFor="discount" className={s.form__label}>WhatsApp: </label>
           <div className={s.form__group_input}>
                 <input
@@ -324,7 +324,7 @@ export default function EditProject() {
           {/* <p className='form__input-error'>{errors.discount}</p> */}
         </div>
 
-        <div className='form__group_create_p' id='newtech'>
+        <div className='form__group_create_p_edit' id='newtech'>
         <label htmlFor="category" className={s.form__label}>Tech a usar: *</label>
         <div className={s.form__group_input}>
             <select
@@ -354,7 +354,7 @@ export default function EditProject() {
         <p className='form__input-error'>{errors.newtech}</p>
         </div>
                 
-        <div className='form__group_create_p' id='image'>
+        <div className='form__group_create_p_edit' id='image'>
           <div className = {s.doubleLabel}>
             <label htmlFor="image" className={s.form__label}>Imagen: *</label>
             <button className = {s.importImage} onClick = {handleOpenModalAddImage}>Importar</button>
@@ -378,7 +378,7 @@ export default function EditProject() {
             <b>Error:</b> Por favor chequea todos los campos con errores.
             </p> 
         </div>
-        <div className="form__group_create_p form__group-btn-create">
+        <div className="form__group_create_p_edit form__group-btn-create">
             <button type='submit' className='form__btn'>EDITAR PROYECTO</button>
             <p className='form__msn-exito' id='form__msn-exito'
             > Proyecto Creado con Éxito!!

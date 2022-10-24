@@ -8,7 +8,7 @@ export default function ModalTool({ tool }) {
 
     return (
         <div className={s.detailsMainTools}>
-            <Card id='individual_box_Tool' sx={{ width: 150, height: 150, bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
+            <Card id='individual_box_Tool' sx={{ bgcolor: "rgba(32, 32, 36, 0.8)", borderRadius: 3 }}>
                 <CardActionArea >
                     <a href={tool.link} target="_blank">
                         <img src={ tool.image } alt={ tool.name } className={s.imgTools} />
