@@ -18,7 +18,7 @@ export default function IdLive() {
       <h1 className={s.gradient__text}> HERRAMIENTAS </h1>
       <h2 className={`${s.title_personalinformation} ${s.gradient__text}`}> Interfases de Desarrollo </h2>
       <p className={s.textDescriptionCodeTool}>
-          Te brindamos diferentes interfases de desarrollo que te ayudaran a generar código, 
+          Te brindamos diferentes Interfaz de Desarrollo que te ayudaran a generar código, 
           editarlo en línea y crear prototipos para ejecutar en el navegador web. Son herramientas ideales para crear
           prototipos, modelos para aplicar posteriormente a tus proyectos.
 			</p>
