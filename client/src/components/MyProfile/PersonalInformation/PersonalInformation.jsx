@@ -262,8 +262,8 @@ export default function PersonalInformation() {
         <EditIcon cursor='pointer' onClick={handleClickOpenTechs}/>
       </ListItem>
       <div className='maintechselected'>
-             {dataChange.techs.length > 0 &&            
-                    dataChange.techs.map((tech) => (
+             {dataChange?.techs?.length > 0 &&            
+                    dataChange?.techs?.map((tech) => (
                     <div key={Math.random()} className='techselected'>
                         <div value={tech} >{tech} </div>
                     </div>
