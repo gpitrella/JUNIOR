@@ -19,7 +19,7 @@ export default function MyProfile({ handleSignOut }) {
       dispatch(getProjectsByUser(user?.user._id, user?.token));
       dispatch(getCollaborationByUser(user?.user._id));
     }
-  },[user]);
+  },[]);
   
   return (
     <div className={s.myprofile_view_content}>
