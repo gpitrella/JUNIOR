@@ -6,6 +6,7 @@ import {
   CLOSE_MODAL_ADD_IMAGE,
   SELECTPAG,
   GET_PROJECTS_BY_USER,
+  GET_PROJECT_DETAIL,
   UPLOAD_IMAGE,
   UPDATE_PROJECTS,
   CLEAR_DATA_PROJECTS,
@@ -19,6 +20,7 @@ import {
 const initialState = {
   allProjects: [],
   newProject: {},
+  project: {},
   pagina: 1,
   projectByUser: [],
   numberAllProjects: 0,
@@ -41,6 +43,11 @@ const projectsReducer = function(state = initialState, { type, payload }) {
         allProjects: payload,
         numberAllProjects: payload.length
       }
+    case GET_PROJECT_DETAIL:
+      return {
+        ...state,
+        project: payload
+      }  
     case FILTER_PROJECTS:
       return {
         ...state,

@@ -9,6 +9,7 @@ import {
   SHOW_MODAL_ADD_IMAGE,
   CLOSE_MODAL_ADD_IMAGE,
   SELECTPAG,
+  GET_PROJECT_DETAIL,
   GET_PROJECTS_BY_USER,
   CLOUDINARY,
   UPLOAD_IMAGE,
@@ -23,7 +24,7 @@ import {
 import dotenv from "dotenv";
 dotenv.config()
 
-const BASE_URL = process.env.REACT_APP_BASE_URL_FLY;
+const BASE_URL = process.env.REACT_APP_BASE_URL_FLY || "http://localhost:4001";
 
 
 // Get all Projects
@@ -31,6 +32,15 @@ export function getAllProjects(){
   return function(dispatch){
       return axios.get(`${BASE_URL}/projects/allprojects`)
                   .then(projects => dispatch({ type: GET_ALL_PROJECTS, payload: projects.data }))
+                  .catch(error => console.log(error))
+  }
+};
+
+// Get Projects by ID
+export function getProjectById(id){
+  return function(dispatch){
+      return axios.get(`${BASE_URL}/projects/${id}`)
+                  .then(project => dispatch({ type: GET_PROJECT_DETAIL, payload: project.data }))
                   .catch(error => console.log(error))
   }
 };

@@ -5,6 +5,7 @@ import { logOut, signinGoogle, loadStorage } from './redux/actions/generalAction
 import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { Background } from './containers';
 import Projects from './components/Projects/Projects';
+import ProjectDetails from './components/ProjectDetails/ProjectDetails';
 import LogIn from './components/LogIn/LogIn';
 import SignUp from './components/SignUp/SignUp';
 import SendEmail from './components/UpdatePassword/SendEmail/SendEmail';
@@ -53,7 +54,7 @@ AOS.init({
 
 export default function App() {
   // ?-- Auth width Google
-  // const [ user, setUser ] = useState({});
+  
   const dispatch = useDispatch()
   const location = useLocation();
   const navigate = useNavigate();
@@ -61,14 +62,12 @@ export default function App() {
 
   function handleCallbackResponse(response) {
     var userObject = jwt_decode(response.credential);
-    // setUser(userObject);
-    // dispatch(getUser(userObject));
     dispatch(signinGoogle(userObject));
     document.getElementById("signInDiv").hidden = true;
   }
 
   function handleSignOut(e) {
-    //setUser({}); -- aca va la accion para borrar auser
+    
     e.preventDefault();
     dispatch(logOut());
     if(location.pathname.includes("miperfil")) {
@@ -112,6 +111,7 @@ export default function App() {
                 <Route exact path="/newpassword" element = { user.user ? <UpdatePassword /> : <LogIn handleGoogle={handleGoogle} /> } />
                 <Route exact path="/home" element={<Home />}/>
                 <Route exact path="/projects" element={<Projects />} />
+                <Route exact path="/projects/:id" element={<ProjectDetails />} />
                 <Route exact path="/developers" element={<HallOfFameView />} />
                 <Route exact path="/About" element={<About />} />
                 <Route exact path="/crearproyecto" element={ user.user ? <CreateProject /> : <LogIn handleGoogle={handleGoogle} /> } />
@@ -138,4 +138,3 @@ export default function App() {
     </React.Fragment>
   );
 }
-

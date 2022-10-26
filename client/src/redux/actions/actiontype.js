@@ -14,6 +14,7 @@ export const GET_ALL_USERS = 'GET_ALL_USERS';
 export const CLEAN_LOG_IN_ERROR = 'CLEAN_LOG_IN_ERROR';
 export const UPDATE_DATA_USER = 'UPDATE_DATA_USER';
 export const LOAD_STORAGE = 'LOAD_STORAGE';
+export const GET_USER_BY_ID = 'GET_USER_BY_ID';
 
 // PROJECTS ACTIONS
 export const GET_ALL_PROJECTS = 'GET_ALL_PROJECTS';
@@ -21,6 +22,7 @@ export const GET_ALL_TECHS = 'GET_ALL_TECHS';
 export const CREATE_PROJECTS = 'CREATE_PROJECTS';
 export const SELECTPAG = 'SELECTPAG';
 export const GET_PROJECTS_BY_USER = 'GET_PROJECTS_BY_USER';
+export const GET_PROJECT_DETAIL = 'GET_PROJECT_DETAIL';
 export const UPDATE_PROJECTS = 'UPDATE_PROJECTS';
 export const CLEAR_DATA_PROJECTS = 'CLEAR_DATA_PROJECTS';
 export const ERROS_PROJECTS = 'ERROS_PROJECTS';
@@ -45,6 +47,7 @@ export const OPEN_MODAL_INFO_COLLABORATOR = 'OPEN_MODAL_INFO_COLLABORATOR';
 export const CLOSE_MODAL_INFO_COLLABORATOR = 'CLOSE_MODAL_INFO_COLLABORATOR';
 
 // BASE URL
-export const BASE_URL_FRONT = 'http://localhost:3000';
+//export const BASE_URL_FRONT = 'http://localhost:3000';
+//export const BASE_URL = 'http://localhost:3001';
 export const CLOUDINARY = 'https://api.cloudinary.com/v1_1/techmarket/image/upload';
 // export const CLOUDINARY = 'https://api.cloudinary.com/v1_1/djgghmpgh/image/upload';
