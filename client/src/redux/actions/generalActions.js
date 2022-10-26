@@ -24,7 +24,7 @@ import {
 import dotenv from "dotenv";
 dotenv.config()
 
-const BASE_URL = process.env.REACT_APP_BASE_URL_FLY;
+const BASE_URL = process.env.REACT_APP_BASE_URL_FLY || "http://localhost:4001";
 
 
 // Log In User

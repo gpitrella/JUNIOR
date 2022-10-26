@@ -13,7 +13,7 @@ import LiveTvIcon from '@mui/icons-material/LiveTv';
 import s from './CardProject.module.scss';
 import iconpayment from '../../assets/money.png';
 import teamwork from '../../assets/teamwork.png';
-
+import { Link } from 'react-router-dom';
 // Desplegable
 import { styled } from '@mui/material/styles';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
@@ -134,9 +134,11 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
       <Box sx={{ display: 'flex', flexDirection: 'column', width: 600, color: 'white' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <div className={s.card_content_top}>
+          <Link to={`/projects/${project._id}`}>
             <Typography component="div" variant="h5" sx={{ fontSize: fontSize }}>
               { project?.title.charAt(0).toUpperCase() + project?.title.toLowerCase().slice(1) }
               </Typography>
+          </Link>    
               <div className={s.buttonandprojecttype} >
                 { project?.payment               
                     ? <span><img src={teamwork} alt="collaborate project" style={{width: "30px", margin: "0px 10px"}}/> <img src={iconpayment} alt="collaborate project" style={{width: "30px", margin: "0px 10px"}} /> </span>
