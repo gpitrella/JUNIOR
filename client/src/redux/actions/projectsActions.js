@@ -19,7 +19,8 @@ import {
   NEW_COLLABORATE,
   ERROS_COLLABORATE,
   GET_PROYECT_COLLABORATION_BY_USER,
-  LOADING_DATA
+  LOADING_DATA,
+  GET_PROJECT_COLLABORATORS
 } from './actiontype';
 import dotenv from "dotenv";
 dotenv.config()
@@ -41,6 +42,15 @@ export function getProjectById(id){
   return function(dispatch){
       return axios.get(`${BASE_URL}/projects/${id}`)
                   .then(project => dispatch({ type: GET_PROJECT_DETAIL, payload: project.data }))
+                  .catch(error => console.log(error))
+  }
+};
+
+// GET PROJECT COLLABORATORS
+export function getProjectCollaborators(id){
+  return function(dispatch){
+      return axios.get(`${BASE_URL}/projects/collaborator/${id}`)
+                  .then(project => dispatch({ type: GET_PROJECT_COLLABORATORS, payload: project.data }))
                   .catch(error => console.log(error))
   }
 };

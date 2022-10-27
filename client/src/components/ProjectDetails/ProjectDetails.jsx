@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
-import { getProjectById } from '../../redux/actions/projectsActions';
+import { getProjectById, getProjectCollaborators } from '../../redux/actions/projectsActions';
 import { getUserById } from '../../redux/actions/usersActions';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -77,12 +77,19 @@ useEffect(() => {
   },[dispatch, id]);
   
   const { project } = useSelector(state => state.projectsReducer);
-console.log(project)
+
   useEffect(() => {
     dispatch(getUserById(project.userId))
   }, [dispatch, project.userId]);
 
   const { user } = useSelector(state => state.usersReducer);
+  
+  // traigo usuarios colaboradores
+  useEffect(() => {
+    dispatch(getProjectCollaborators(id))
+  }, [dispatch, id]);
+
+  const { projectCollaborators } = useSelector(state => state.projectsReducer)
 
   // Desplegable:
   const [expanded, setExpanded] = React.useState('panel1');
@@ -117,8 +124,25 @@ console.log(project)
               
               <br/>
               <Stack sx={{ bgcolor: 'white', borderRadius: 5, width:'100%' }}>
-                <Typography component="div" padding={2}>Colaboradores: </Typography>
-                <Typography component="div" padding={2}>Lista de Colaboradors Aqui</Typography>
+                {/* <Typography component="div" padding={2}>Colaboradores: </Typography>
+                <Typography component="div" padding={2}>Lista de Colaboradors Aqui</Typography> */}
+                <Accordion onChange={handleChange('panel1')} sx={{backgroundColor: 'gray'}}>
+                  <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: 'gray', minHeight: 30, height: 30 }}>
+                    <Typography sx={{backgroundColor: 'gray'}}>Colaboradores: </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails sx={{ color: 'white', backgroundColor: '#424242' }}>
+                      { projectCollaborators?.length > 0 
+                          ? projectCollaborators?.map((coder) => {
+                            return (
+                                <Typography key={Math.random()} sx={coder.status ? { fontSize: '14px', color: '#bae492' } : { fontSize: '14px' }}  >
+                                  { `${!coder.status ? '🔧' : '✅' } ${coder.name} ${!coder.status ? '' : '- CODING' }` }
+                                </Typography>
+                            )
+                              })
+                          : <Typography>-- Colaboradores coordinan con el Creador del Proyecto.</Typography>
+                      }
+                  </AccordionDetails>
+              </Accordion>
               </Stack>
               
               <br/>
