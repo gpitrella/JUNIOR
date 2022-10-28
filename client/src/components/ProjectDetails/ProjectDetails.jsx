@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
-import { getProjectById, getProjectCollaborators } from '../../redux/actions/projectsActions';
+import { clearProject, getProjectById, getProjectCollaborators } from '../../redux/actions/projectsActions';
 import { getUserById } from '../../redux/actions/usersActions';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -96,6 +96,10 @@ useEffect(() => {
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
+
+  const handlegoback = () => {
+    dispatch(clearProject())
+  }
 
   return (
     <>
@@ -197,7 +201,7 @@ useEffect(() => {
                 <Stack sx={{ borderRadius: 1}} direction="row" spacing={2} width="100%">
 
                   <Box display='flex' width="100%" height="70%" alignItems='end' justifyContent='center' padding={2}>
-                      <Button variant='contained' color='info' startIcon={<ArrowBackIosNewIcon/>} href="/projects">Volver</Button>
+                      <Button variant='contained' color='info' startIcon={<ArrowBackIosNewIcon/>} onClick={handlegoback} href="/projects">Volver</Button>
                   </Box>       
                   
                   <Box display='flex'>
