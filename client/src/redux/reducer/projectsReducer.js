@@ -15,7 +15,8 @@ import {
   NEW_COLLABORATE,
   GET_PROYECT_COLLABORATION_BY_USER,
   LOADING_DATA,
-  GET_PROJECT_COLLABORATORS
+  GET_PROJECT_COLLABORATORS,
+  CLEAR_PROJECT
 } from '../actions/actiontype';
 
 const initialState = {
@@ -54,7 +55,12 @@ const projectsReducer = function(state = initialState, { type, payload }) {
       return {
         ...state,
         projectCollaborators: payload
-      }   
+      }
+    case CLEAR_PROJECT:
+      return {
+        ...state,
+        project: {}
+      }     
     case FILTER_PROJECTS:
       return {
         ...state,
