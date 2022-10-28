@@ -20,7 +20,8 @@ import {
   ERROS_COLLABORATE,
   GET_PROYECT_COLLABORATION_BY_USER,
   LOADING_DATA,
-  GET_PROJECT_COLLABORATORS
+  GET_PROJECT_COLLABORATORS,
+  CLEAR_PROJECT
 } from './actiontype';
 import dotenv from "dotenv";
 dotenv.config()
@@ -54,6 +55,13 @@ export function getProjectCollaborators(id){
                   .catch(error => console.log(error))
   }
 };
+
+// CLEAR PROJECT
+export function clearProject() {
+  return function (dispatch) {
+    dispatch({ type: CLEAR_PROJECT });
+  };
+}
 
 // Get all Techs
 export function getAllTechs(){

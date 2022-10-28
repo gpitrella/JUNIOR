@@ -405,7 +405,7 @@ export default function PersonalInformation() {
           <Select
             labelId="techs"
             id="techs"
-            value={dataChange.techs.length > 0 ? dataChange.techs.length[dataChange.techs.length-1] : 0}
+            value={dataChange?.techs?.length > 0 ? dataChange?.techs?.length[dataChange?.techs?.length-1] : 0}
             onChange={(e) => handleTech(e)}
             label="Techs"
           >
