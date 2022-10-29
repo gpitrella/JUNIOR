@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import {
   GET_ALL_USERS,
   GET_USER_BY_ID,
+  GET_COMMENTS_USER
 } from './actiontype';
 dotenv.config();
 
@@ -24,3 +25,11 @@ export function getAllUsers(){
                     .catch(error => console.log(error))
     }
   };
+
+export function getAllCommentsUser (userId) {
+  return function(dispatch){
+    return axios.get(`${BASE_URL}/comments/byuser/${userId}`)
+                .then( commentUser => dispatch({ type: GET_COMMENTS_USER, payload: commentUser.data }))
+                .catch(error => console.log(error))
+}
+}  
