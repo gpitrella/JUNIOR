@@ -135,8 +135,8 @@ export default function CardProject({ project, handleOpenMessageLogin }) {
         <CardContent sx={{ flex: '1 0 auto' }}>
           <div className={s.card_content_top}>
           <Link to={`/projects/${project._id}`}>
-            <Typography component="div" variant="h5" sx={{ fontSize: fontSize }}>
-              { project?.title.charAt(0).toUpperCase() + project?.title.toLowerCase().slice(1) }
+              <Typography component="div" variant="h5" sx={{ fontSize: fontSize }}>
+                { project?.title.charAt(0).toUpperCase() + project?.title.toLowerCase().slice(1) }
               </Typography>
           </Link>    
               <div className={s.buttonandprojecttype} >

@@ -1,3 +1,14 @@
+.container_details {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+  text-align: center;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+}
+
 .titleTechs {
     font-weight: 900;
 }
