@@ -38,6 +38,7 @@ import 'aos/dist/aos.css'; // Animations on scrolling styles
 import FAQs from './components/FAQs/FAQs';
 import HallOfFameView from './components/HallOfFameView/HallOfFameView';
 import dotenv from "dotenv";
+import MyComments from './components/MyProfile/MyComments';
 dotenv.config()
 
 const REACT_APP_GOOGLE = process.env.REACT_APP_GOOGLE;
@@ -121,6 +122,7 @@ export default function App() {
                 <Route exact path ="/miperfil/colaboraciones" element= { user.user ? <Collaborate /> : <LogIn handleGoogle={handleGoogle} />}/>
                 <Route exact path ="/miperfil/misproyectos" element=  { user.user ? <MyProjects /> : <LogIn handleGoogle={handleGoogle}/>} />
                 <Route exact path ="/miperfil/editproyecto/:id" element=  { user.user ? <EditProject /> : <LogIn handleGoogle={handleGoogle}/>} />
+                <Route exact path ="/miperfil/miscomentarios" element=  { user.user ? <MyComments /> : <LogIn handleGoogle={handleGoogle}/>} />
                 <Route exact path ="/tools" element= {<Tools />}  />
                 <Route exact path ="/tools/codeo" element= {<Codeo />}  />
                 <Route exact path ="/tools/organizacion" element= {<OrganizationTool />}  />
