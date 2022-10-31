@@ -18,7 +18,6 @@ import './ModalCollaborate.css';
 
 export default function ModalCollaborate() {
     // Cartel desplegable de Login
-    // const navigate = useNavigate();
     const dispatch = useDispatch();
     const { modalInfoCollaborator  } = useSelector((state) => state.homepageReducer);
     const { user, idProject } = useSelector((state) => state.homepageReducer);
@@ -30,11 +29,9 @@ export default function ModalCollaborate() {
       email: user?.user?.email,
       linkedin: '',
       text: '',
-      number: ''
+      number: '',
+      github: ''
     });
-
-
-    // idProject, idUserCollaborator, linkedin, number, text, email
 
     React.useEffect(() => {
       if(infoCollaborador.idProject === '') {
@@ -137,6 +134,20 @@ export default function ModalCollaborate() {
                   onChange={(e) => handleChange(e)}
                 />                 
                 <p className='form__input-error'>{errors?.linkedin}</p>
+              </div>
+
+              <div className={`form__group`} id='linkedin'>
+                <label htmlFor="linkedin" className='labelInfoCollaborator'>GitHub: </label>
+                <input
+                  type={'text'}
+                  className='formInputCollaborator'
+                  id='github'
+                  name = {'github'}
+                  placeholder='Ingresar GitHub'
+                  value = {infoCollaborador.github}
+                  onChange={(e) => handleChange(e)}
+                />                 
+                <p className='form__input-error'>{errors?.github}</p>
               </div>
 
               <div className={`form__group`} id='whatsApp'>

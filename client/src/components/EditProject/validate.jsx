@@ -40,7 +40,6 @@ export default function validate(input, errors){
       document.getElementById('gitHubUrl').classList.remove('form__group-correcto')
       document.querySelector('#gitHubUrl .form__input-error').classList.add('form__input-error-activo')
     };
-    console.log('EN VALIDATOR: ', input.tasks)
     if (input.tasks.length > 0) {
       if(errors.tasks) { delete errors.tasks }
       document.getElementById('tasks').classList.add('form__group-correcto')
