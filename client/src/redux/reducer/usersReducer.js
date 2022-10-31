@@ -1,12 +1,14 @@
 import {
     GET_ALL_USERS,
-    GET_USER_BY_ID
+    GET_USER_BY_ID,
+    GET_COMMENTS_USER
   } from '../actions/actiontype';
   
   const initialState = {
     allUsers: [],
     newUser: {},
     user: {},
+    commentsUser:[]
   };
   
   const usersReducer = function(state = initialState, { type, payload }) {
@@ -24,7 +26,12 @@ import {
           ...state,
           user: payload
         }
-        
+             
+      case GET_COMMENTS_USER: 
+      return {
+        ...state,
+        commentsUser: payload
+      }
       default:
         return state;
     }

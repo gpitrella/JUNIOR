@@ -30,7 +30,7 @@ export default function MyProjects() {
       <h2 className='title_personalinformation gradient__text'> Mis Proyectos </h2>
       <div>
         {
-          user?.user.projects.length === 0 && projectByUser?.length === 0
+          user?.user.projects?.length === 0 && projectByUser?.length === 0
              ? <h3>Todavía no creaste ningún Proyecto, ANIMATE y crea uno. 🚀 </h3>
              : projectByUser.map(project => {
             return (

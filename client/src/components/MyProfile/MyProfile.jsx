@@ -6,6 +6,7 @@ import { getProjectsByUser, getCollaborationByUser } from '../../redux/actions/p
 import personalInformation from '../../assets/personalInformation.png';
 import team from '../../assets/team.png';
 import projectPersonal from '../../assets/projectPersonal.png';
+import comments from '../../assets/comments.png'
 import { useDispatch, useSelector } from "react-redux";
 import CardProfile from './CardProfile/CardProfile';
 import s from './MyProfile.module.css';
@@ -35,6 +36,7 @@ export default function MyProfile({ handleSignOut }) {
         <CardProfile img={personalInformation} name={"Información Personal"} link={"/miperfil/personalinformation"} width={100} /> 
         <CardProfile img={team} name={"Colaboraciones"} link={"/miperfil/colaboraciones"} width={100} />
         <CardProfile img={projectPersonal} name={"Mis Proyectos"} link={"/miperfil/misproyectos"} width={100} />
+        <CardProfile img={comments} name={"Mis Comentarios"} link={"/miperfil/miscomentarios"} width={100} />
       </div>
       <div className={s.positionBtnLoutProfile}>
         <button className={`${s.btn} ${s.btnLogOutProfile}`} type="button" onClick={(e) => handleSignOut(e)}>LogOut</button>

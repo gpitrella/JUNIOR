@@ -1,0 +1,38 @@
+.container {
+  /* min-height: calc(100vh - 400px - 120px); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+}
+
+@media screen and (max-width:900px){
+  .container{
+    width: 80vw;
+  }
+}
+
+.comment {
+  font-size: 1.2rem;
+}
+
+.titleProject{
+  font-size: 1.2rem;
+}
+
+.answer{
+  margin: 2% 1%;
+}
+
+.loading{
+  /* min-height: calc(100vh - 400px - 284px); */
+  width:80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading h3{
+  color:white;
+}

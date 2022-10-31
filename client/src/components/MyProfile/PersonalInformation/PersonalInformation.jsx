@@ -405,7 +405,7 @@ export default function PersonalInformation() {
           <Select
             labelId="techs"
             id="techs"
-            value={dataChange.techs.length > 0 ? dataChange.techs.length[dataChange.techs.length-1] : 0}
+            value={dataChange?.techs?.length > 0 ? dataChange?.techs?.length[dataChange?.techs?.length-1] : 0}
             onChange={(e) => handleTech(e)}
             label="Techs"
           >
@@ -416,7 +416,7 @@ export default function PersonalInformation() {
                 )}
         </Select>
         <div className='maintechselected'>
-             {dataChange.techs.length > 0 &&            
+             {dataChange.techs?.length > 0 &&            
                     dataChange.techs.map((tech) => (
                     <div key={Math.random()} className='techselectedModal'>
                         <div value={tech} >{tech} </div>
