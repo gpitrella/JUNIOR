@@ -2,8 +2,8 @@ import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import CardProject from '../../CardProject/CardProject';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
-import { getProjectsByUser } from '../../../redux/actions/projectsActions';
+import { Link, useNavigate } from 'react-router-dom';
+import { getProjectsByUser, sendInvitationToProject } from '../../../redux/actions/projectsActions.js';
 import './MyProjects.css'
 
 
@@ -11,6 +11,7 @@ export default function MyProjects() {
   const { user } = useSelector((state) => state.homepageReducer);
   const { projectByUser } = useSelector((state) => state.projectsReducer);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   
   function handleOpenMessageLogin() {
     // if(!user?.user) {
@@ -18,6 +19,12 @@ export default function MyProjects() {
     // } else {
     //   dispatch(openModalInfoCollaborator())
     // }
+  }
+
+  function handleInvitation(e) {
+    e.preventDefault();
+    dispatch(sendInvitationToProject())
+    navigate('/developers')
   }
 
   React.useEffect(() => {
@@ -35,13 +42,16 @@ export default function MyProjects() {
              : projectByUser.map(project => {
             return (
               <div className='myproyectsEdit' key={project?._id}>
-                <Link to={`/miperfil/editproyecto/${project?._id}`}>
                   <div className='positionButtonEdit'>
-                    <Button id='btn_personalinformationEditProject' variant="contained">
-                        Editar Proyecto
+                    <Link to={`/miperfil/editproyecto/${project?._id}`}>
+                        <Button id='btn_personalinformationEditProject' variant="contained">
+                            Editar Proyecto
+                        </Button>
+                    </Link>
+                    <Button id='btn_personalinformationEditProject' variant="contained" onClick={(e) => handleInvitation(e)}>
+                        Invitar Colaboradores
                     </Button>
                   </div>
-                </Link>
                 <CardProject key={project?._id} project={project} handleOpenMessageLogin={handleOpenMessageLogin}/>
               </div>
               )
