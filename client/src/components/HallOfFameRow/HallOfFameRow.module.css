@@ -5,20 +5,14 @@
   display: grid;
   grid-template-columns: 10% 20% 15% 15% 40%;
   grid-template-rows: var(--rowHallOfFame);
-
   padding: 0.5rem;
-
   color: white;
-
   align-content: center;
   justify-content: center;
   align-items: center;
   justify-items: center;
-
   border-radius: 8px;
-
   background-color: var(--primaryColorHOF);
-
   font-size: var(--fontMedium);
   font-weight: 500;
   letter-spacing: 1px;
@@ -29,6 +23,23 @@
 .first,
 .second {
   background: var(--primaryGradientWithLessOpacity);
+}
+
+#btn_invitation {
+  font-size: 12px;
+  height: 30px;
+  box-shadow: var(--mainShadow);
+  margin-right: 10px;
+}
+#btn_invitation:hover {
+  box-shadow: none;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .avatarContainer {
