@@ -21,8 +21,10 @@ import {
   GET_PROYECT_COLLABORATION_BY_USER,
   LOADING_DATA,
   GET_PROJECT_COLLABORATORS,
-  CLEAR_PROJECT
+  CLEAR_PROJECT,
+  SEND_INVITATION_TO_PROJECT
 } from './actiontype';
+
 import dotenv from "dotenv";
 dotenv.config()
 
@@ -177,4 +179,12 @@ export function sendCollaborate(data){
                   .catch(error => dispatch({ type: ERROS_COLLABORATE, payload: error.response.data }))
   }
 };
+
+export function sendInvitationToProject() {
+  return {
+    type: SEND_INVITATION_TO_PROJECT
+  }
+};
+
+
 
