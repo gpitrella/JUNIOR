@@ -111,7 +111,8 @@ useEffect(() => {
 
         <Card sx={{ display: 'flex',
                     flexWrap: 'wrap',
-                     backgroundColor: 'gray',
+                     backgroundColor: '#202024',
+                     boxShadow: '2px 3px 5px #96969680',
                      width: {
                       xs: 250, 
                       sm: 450, 
@@ -124,43 +125,50 @@ useEffect(() => {
             <CardContent sx={{
                               display: 'flex',
                               width: '10%',
-                              margin: '2rem',
-                              padding: '1rem',
+                              
+                              
                               flexBbasis: '0',
                               flexGrow: '99',
                               backgroundCcolor: 'white',
                               gap: '0.5rem',
                               flexWrap: 'wrap',
                             }}>
-              <Stack sx={{ bgcolor: 'white', borderRadius: 5, width:'100%' }}>
+              <Box sx={{ bgcolor: 'white', borderRadius: 5, width:'100%' }}>
                   
-                  <Typography component="div" variant="h5" padding={1}>
+                  <Typography component="div"
+                              
+                              padding={1}
+                              sx={{ fontSize: {xs: "0.6rem", sm: "1rem", md: "1.5rem" }}}
+                              >
                     { project?.title }
                   </Typography>
 
-                  <Typography component="div" variant="h6" padding={1}>
+                  <Typography component="div" variant="h6" padding={1}
+                              sx={{ fontSize: {xs: "0.6rem", sm: "1rem", md: "1.25rem" }}}>
                     Autor: {user?.name}
                   </Typography>
-              </Stack>
+              </Box>
               
               <br/>
-              <Stack sx={{ bgcolor: 'white', borderRadius: 5, width:'100%' }}>
-                <Typography padding={2}>{ project?.description }</Typography>
-              </Stack>
+              <Box sx={{ bgcolor: 'white', borderRadius: 5, width:'100%' }}>
+                <Typography padding={1} sx={{ fontSize: {xs: "0.6rem", sm: "1rem", md: "1.25rem" }}}>
+                  { project?.description }
+                </Typography>
+              </Box>
               
               <br/>
-              <Stack sx={{ bgcolor: 'white', borderRadius: 5, width:'100%' }}>
-                {/* <Typography component="div" padding={2}>Colaboradores: </Typography>
-                <Typography component="div" padding={2}>Lista de Colaboradors Aqui</Typography> */}
+              <Box sx={{ bgcolor: 'gray', borderRadius: 5, width:'100%' }}>
                 <Accordion onChange={handleChange('panel1')} sx={{backgroundColor: 'gray'}}>
                   <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: 'gray', minHeight: 30, height: 30 }}>
-                    <Typography sx={{backgroundColor: 'gray'}}>Colaboradores: </Typography>
+                    <Typography sx={{backgroundColor: 'gray', fontSize: {xs: "0.6rem", sm: "0.8rem", md: "1rem"}}}>
+                      Colaboradores: 
+                    </Typography>
                   </AccordionSummary>
                   <AccordionDetails sx={{ color: 'white', backgroundColor: '#424242' }}>
                       { projectCollaborators?.length > 0 
                           ? projectCollaborators?.map((coder) => {
                             return (
-                                <Typography key={Math.random()} sx={coder.status ? { fontSize: '14px', color: '#bae492' } : { fontSize: '14px' }}  >
+                                <Typography key={Math.random()} sx={coder.status ? { fontSize: {xs: "0.6rem", sm: "0.8rem", md: "0.9rem"}, color: '#bae492' } : { fontSize: '14px' }}  >
                                   { `${!coder.status ? '🔧' : '✅' } ${coder.name} ${!coder.status ? '' : '- CODING' }` }
                                 </Typography>
                             )
@@ -169,18 +177,20 @@ useEffect(() => {
                       }
                   </AccordionDetails>
               </Accordion>
-              </Stack>
+              </Box>
               
-              <Stack sx={{ bgcolor: 'white', borderRadius: 5, width:'100%' }}>
+              <Box sx={{ bgcolor: 'gray', borderRadius: 5, width:'100%' }}>
               <Accordion onChange={handleChange('panel1')} sx={{backgroundColor: 'gray'}}>
                   <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" sx={{ backgroundColor: 'gray', minHeight: 30, height: 30 }}>
-                    <Typography sx={{backgroundColor: 'gray'}}>Tareas Pendientes: </Typography>
+                    <Typography sx={{backgroundColor: 'gray', fontSize: {xs: "0.6rem", sm: "0.8rem", md: "1rem"}}}>
+                      Tareas Pendientes:
+                    </Typography>
                   </AccordionSummary>
                   <AccordionDetails sx={{ color: 'white', backgroundColor: '#424242' }}>
                       { project?.tasks?.length > 0 
                           ? project?.tasks?.map((task) => {
                             return (
-                                <Typography key={Math.random()} sx={task.status ? { fontSize: '14px', color: '#bae492' } : { fontSize: '14px' }}  >
+                                <Typography key={Math.random()} sx={task.status ? { fontSize: {xs: "0.6rem", sm: "0.8rem", md: "0.9rem"}, color: '#bae492' } : { fontSize: '14px' }}  >
                                   { `${!task.status ? '🔧' : '✅' } ${task.task} ${!task.status ? '' : '- DONE' }` }
                                 </Typography>
                             )
@@ -189,61 +199,76 @@ useEffect(() => {
                       }
                   </AccordionDetails>
               </Accordion>
-              </Stack>
+              </Box>
               <Stack direction="row"
                      justifyContent="center"
                      alignItems="center"
                      spacing={1}
                      padding="0.2rem"
-                      sx={{ bgcolor: 'white', borderRadius: 5, width:'100%' }}>
+                     sx={{ bgcolor: 'white', borderRadius: 5, width:'100%' }}
+                    >
                   
                   
                   <Box sx={{ alignItems: 'center', pl: 2, pb: 3 }}>
-                    <GitHubIcon sx={{ height: 35, width: 35 }}/>
+                    <GitHubIcon sx={{ height: {xs: "1rem", sm: "1.45rem", md: "2rem"}, width: {xs: "1rem", sm: "1.45rem", md: "2rem"}, color: 'black' }}/>
                   </Box>
 
                   <Box sx={{ alignItems: 'center', pl: 1, pb: 1, typography: 'caption', overflow: 'hidden' }}>
                   <a href={`${project?.gitHubUrl}`} target="_blank">
-                    <Typography component="div" padding={1}>{ project?.gitHubUrl }</Typography>
+                    <Typography component="div" padding={1} sx={{ fontSize: {xs: "0.6rem", sm: "0.8rem", md: "0.9rem"}}}>
+                      { project?.gitHubUrl }
+                    </Typography>
                   </a>
                   </Box>    
                   
                   
               </Stack>  
-                <Stack padding="0.2rem" sx={{ bgcolor: 'white', borderRadius: 5, width:'100%' }}>      
+
+                <Stack padding="0.2rem" color="white" sx={{ bgcolor: 'white', borderRadius: 5, width:'100%' }}>      
                   <IconButton aria-label="next">
-                    <WhatsAppIcon sx={{ height: 35, width: 35 }}/>
+                    <WhatsAppIcon sx={{ height: {xs: "1rem", sm: "1.45rem", md: "2rem"}, width: {xs: "1rem", sm: "1.45rem", md: "2rem"}, color: 'black' }}/>
                     <Box sx={{ alignItems: 'center', pl: 1, pb: 1 }}>
                     { project?.wspUrl ?  
-                    <Typography component="div" padding={1}>{ project?.wspUrl }</Typography>  
-                    : <Typography component="div" padding={1} color="red">Debe Ingresar Whatsapp</Typography>
+                    <Typography component="div" padding={1} sx={{ fontSize: {xs: "0.6rem", sm: "0.8rem", md: "0.9rem"}}}>
+                      { project?.wspUrl }
+                    </Typography>  
+                    : <Typography component="div" padding={1} color="red" sx={{ fontSize: {xs: "0.6rem", sm: "0.8rem", md: "0.9rem"}}}>
+                      Debe Ingresar Whatsapp
+                      </Typography>
                     }
                     </Box>
                   </IconButton>  
                 </Stack>      
-                <Stack sx={{ bgcolor: 'white', borderRadius: 5, width:'100%' }}>
-                <Typography variant="subtitle1" color="text.primary" component="div">
-                    <span className='titleTechs'>Techs: </span>{ 
-                        project?.tech?.length > 0 && project?.tech.map(element => {
-                          return (<span key={Math.random()}>{`${element.charAt(0).toUpperCase() + element.slice(1)}, `} </span>)
-                        })
-                      }
-                </Typography>
-                </Stack>
+                <Box sx={{ bgcolor: 'white', borderRadius: 5, width:'100%' }}>
+                  <Typography variant="subtitle1" color="text.primary" component="div" sx={{ fontSize: {xs: "0.6rem", sm: "0.8rem", md: "0.9rem"}}}>
+                      <span className='titleTechs'>Techs: </span>{ 
+                          project?.tech?.length > 0 && project?.tech.map(element => {
+                            return (<span key={Math.random()}>{`${element.charAt(0).toUpperCase() + element.slice(1)}, `} </span>)
+                          })
+                        }
+                  </Typography>
+                </Box>
                 <Stack sx={{ display: 'flex', bgcolor: 'white', borderRadius: 5, width:'100%' }}>
                   <Box sx={{ alignItems: 'center', pl: 1, pb: 1 }}>
-                    <Typography>Estado: {project?.status}</Typography>
+                    <Typography sx={{ fontSize: {xs: "0.6rem", sm: "0.8rem", md: "0.9rem"}}}>Estado: {project?.status}</Typography>
                   </Box>
                   
                   <Box sx={{ alignItems: 'center', pl: 1, pb: 1 }}>
-                    <Typography>Tipo Proyecto : { `${project?.payment ? 'Remunerado' : 'Colaborativo' }` } </Typography>
+                    <Typography sx={{ fontSize: {xs: "0.6rem", sm: "0.8rem", md: "0.9rem"}}}>Tipo Proyecto : { `${project?.payment ? 'Remunerado' : 'Colaborativo' }` } </Typography>
                   </Box>
                 </Stack>
 
                 <Stack sx={{ borderRadius: 1}} direction="row" spacing={2} width="100%" marginTop="1rem">
 
                   <Box display='flex' width="100%" height="70%" alignItems='end' justifyContent='center' padding={2}>
-                      <Button variant='contained' color='info' startIcon={<ArrowBackIosNewIcon/>} onClick={handlegoback} href="/projects">Volver</Button>
+                      <Button variant='contained'
+                              color='info'
+                              // startIcon={<ArrowBackIosNewIcon/>}
+                              sx={{ size: {xs: "small", sm: "medium", md: "large"}}}
+                              onClick={handlegoback}
+                              href="/projects">
+                          Volver
+                      </Button>
                   </Box>       
                   
                   <Box display='flex'>
@@ -251,8 +276,8 @@ useEffect(() => {
                       component="img"
                       sx={{ 
                         position: "center",
-                        width: 50,
-                        height: 50,
+                        width: { xs: "1.25rem", sm: "2rem", md: "3rem" },
+                        height: { xs: "1.25rem", sm: "2rem", md: "3rem" },
                         // borderBottomLeftRadius: 100,
                         // borderTopLeftRadius: 100,
                       }}
@@ -269,10 +294,11 @@ useEffect(() => {
               component="img"
               sx={{ 
                 position: "right",
-                width: 150,
-                height: 150,
+                width: { xs: "2rem", sm: "7rem", md: "10rem" },
+                height: { xs: "2rem", sm: "7rem", md: "10rem" },
                 borderBottomLeftRadius: 100,
                 borderTopLeftRadius: 100,
+                
               }}
               src={project?.image}
               alt={project?.title}
