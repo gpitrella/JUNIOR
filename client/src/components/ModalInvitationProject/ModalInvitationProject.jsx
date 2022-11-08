@@ -14,12 +14,13 @@ import { closeModalInfoCollaborator } from '../../redux/actions/generalActions.j
 import { sendCollaborate, clearDataProject } from '../../redux/actions/projectsActions.js';
 
 import { useNavigate } from "react-router-dom";
-import './ModalCollaborate.css';
+import './ModalInvitationProject.css';
 
-export default function ModalCollaborate() {
+export default function ModalInvitationProject() {
     // Cartel desplegable de Login
     const dispatch = useDispatch();
-    const { modalInfoCollaborator  } = useSelector((state) => state.homepageReducer);
+    
+    const { modalInvitationProject } = useSelector((state) => state.homepageReducer);
     const { user, idProject } = useSelector((state) => state.homepageReducer);
     const { newCollaborate, errorsProject } = useSelector((state) => state.projectsReducer);
     const [errors, setErrors] = React.useState({});
@@ -105,7 +106,7 @@ export default function ModalCollaborate() {
 
     return (
       <>
-      { modalInfoCollaborator && 
+      { modalInvitationProject && 
           <div className='main_modal_collaborador'>
             <div className='container_modal_collaborador' >
             <BootstrapDialogTitle className='button_close_collaborate'>
