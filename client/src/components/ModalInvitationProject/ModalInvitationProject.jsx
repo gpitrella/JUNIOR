@@ -110,15 +110,15 @@ export default function ModalInvitationProject() {
           <div className='main_modal_collaborador'>
             <div className='container_modal_collaborador' >
             <BootstrapDialogTitle className='button_close_collaborate'>
-               👏Listo/a para Colaborar :
+              🚀Enviar Invitación a Projecto:
                <button className="btnCollaboratorClose" onClick={(e) => handleCloseInfo(e)}> X </button>
             </BootstrapDialogTitle>
             { !newCollaborate.message && errorsProject === '' ? 
             <div>
             <DialogContent dividers>
                 <Typography gutterBottom>
-                    Te felicitamos por tus ganas de crecer y colaborar. 🚀 Te solicitamos a continuación tu información
-                    de contacto para que podamos enviarsela al creador del proyecto y puedan comunicarse para avanzar con 
+                    Te felicitamos por tus ganas de crecer y sumar colaboradores. 🚀 Te solicitamos a continuación tu información
+                    de contacto para que podamos enviarsela al futuro colaborador del proyecto y puedan comunicarse para avanzar con 
                     el proyecto. 
                 </Typography>
             </DialogContent>
@@ -173,7 +173,7 @@ export default function ModalInvitationProject() {
                   className='formInputTextArea'
                   id='text'
                   name = {'text'}
-                  placeholder='Comentale al Creador/a del proyecto tus ganas de colaborar, el área en el que te especializas o te gustaría trabajar, las Techs que conoces o cualquier otra información que consideres relevante.'
+                  placeholder='Comentale al futuro Colaborador la idea del proyecto y tus ganas de sumarlo al proyecto, las Techs del proyecto y cualquier otra información que consideres relevante.'
                   value = {infoCollaborador.text}
                   onChange={(e) => handleChange(e)}
                 />                 
@@ -182,17 +182,17 @@ export default function ModalInvitationProject() {
             </form>
             <DialogActions>
                 <button className="btnCollaborator" type='submit' onClick={(e) => handleSubmit(e)}>
-                    Quiero Colaborar
+                    Enviar Invitación
                 </button>
             </DialogActions>
             </div>
             : newCollaborate.message ? <div className='successSend'> 
-                ✅ Felicitaciones ya enviamos al creador del proyecto todos tus datos para que
-                puedan contactarse y puedas ser parte del proyecto. Contactalo así podes empezar
+                ✅ Felicitaciones ya enviamos al futuro colaborador todos tus datos para que
+                puedan contactarse y pueda ser parte del proyecto. Contactalo así podes empezar
                 a sumar experiencia rápido.   
                 </div> 
               : <div className='successSend'> 
-                ❌ Hubo algún error al enviar la información al creador del proyecto, intentalo nuevamente.
+                ❌ Hubo algún error al enviar la información al enviar, intentalo nuevamente.
                 Cualquier inconveniente ponete en contacto con nosotros.
                 <p> -- { typeof(errorsProject) === 'string' && errorsProject} </p>
                 </div> } 
