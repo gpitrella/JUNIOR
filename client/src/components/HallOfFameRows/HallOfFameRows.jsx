@@ -1,5 +1,6 @@
 import React from 'react';
 import HallOfFameRow from '../HallOfFameRow/HallOfFameRow';
+import ModalInvitationProject from '../ModalInvitationProject/ModalInvitationProject';
 import s from './HallOfFameRows.module.css';
 
 export default function HallOfFameRows({ users }) {
@@ -35,6 +36,7 @@ export default function HallOfFameRows({ users }) {
 
         )
       }
+      <ModalInvitationProject />
     </div>
   );
 }

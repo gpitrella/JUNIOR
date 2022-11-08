@@ -16,7 +16,8 @@ import {
   CLOSE_MODAL_INFO_COLLABORATOR,
   OPEN_MODAL_INFO_COLLABORATOR,
   UPDATE_DATA_USER,
-  LOAD_STORAGE
+  LOAD_STORAGE,
+  OPEN_MODAL_SEND_INVITATION
 } from '../actions/actiontype';
 import { LocalStorage } from '../../util/localStorage';
 
@@ -29,7 +30,9 @@ const initialState = {
   modalInfoCollaborator: false,
   passRecoveryMessage: {},
   idProject: '',
-  updateDataUsersMsg: ''
+  updateDataUsersMsg: '',
+  modalInvitationProject: false,
+  emailUserToInvite: ''
 };
 
 
@@ -143,6 +146,13 @@ const homepageReducer = function(state = initialState, { type, payload }) {
           user: user ? user : state.user,
         }
       }
+
+      case OPEN_MODAL_SEND_INVITATION:
+        return {
+          ...state,
+          modalInvitationProject: true,
+          emailUserToInvite: payload
+        }
 
     default:
       return state;

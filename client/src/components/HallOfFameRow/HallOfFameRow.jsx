@@ -5,13 +5,20 @@ import PlayerIcon from '../PlayerIcon/PlayerIcon';
 import Linkedin from '../SVG/Linkedin';
 import Github from '../SVG/Github';
 import Email from '../SVG/Email';
+import { openModalInvitationProject } from '../../redux/actions/generalActions.js';
 
 import s from './HallOfFameRow.module.css';
 
 export default function HallOfFameRow({ name, collaborations, image, index, email, github, linkedin, techs }) {
   const { sendInvitationToProject } = useSelector((state) => state.projectsReducer);
+  const dispatch = useDispatch();
   let handleClick = function(link) {
     window.open(link, '_blank');
+  }
+
+  const handleOpenInvitation = (e) => {
+    e.preventDefault();
+    dispatch(openModalInvitationProject(email))
   }
 
   return (
@@ -42,7 +49,7 @@ export default function HallOfFameRow({ name, collaborations, image, index, emai
             </span>
             { sendInvitationToProject &&
               <div>
-                <Button id={s.btn_invitation} variant="contained">
+                <Button id={s.btn_invitation} variant="contained" onClick={(e) => handleOpenInvitation(e)}>
                     Invitar
                 </Button>
               </div>
