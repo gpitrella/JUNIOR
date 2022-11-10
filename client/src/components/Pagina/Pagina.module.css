@@ -13,12 +13,12 @@
 .btn_page {
     background: #5f63684f;
     color: #fff;
-    height: 37px;
-    width: 37px;
+    height: 40px;
+    width: 40px;
     font-size: 18px;
     font-weight: 500;
     border-radius: 20px;
-    padding: 0 10px;
+    padding: 0 5px;
     letter-spacing: 0.1em;
 }
 
