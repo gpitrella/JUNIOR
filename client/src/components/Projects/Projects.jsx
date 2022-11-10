@@ -72,7 +72,6 @@ export default function Projects() {
                             <p> Projectos Filtrados: {allProjects.length}	</p>
                         </div>
                         <Pagina currentPage={currentPage} maxpage={maxpage}></Pagina>
-
                       </div>
                       {
                         projectsToShow()?.length > 0 && projectsToShow()?.map(project => {

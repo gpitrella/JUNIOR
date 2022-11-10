@@ -19,7 +19,8 @@ import {
   OPEN_MODAL_INFO_COLLABORATOR,
   CLOSE_MODAL_INFO_COLLABORATOR,
   UPDATE_DATA_USER,
-  LOAD_STORAGE
+  LOAD_STORAGE,
+  OPEN_MODAL_SEND_INVITATION
 } from './actiontype';
 import dotenv from "dotenv";
 dotenv.config()
@@ -128,7 +129,7 @@ export function getAllUsers(){
   }
 };
                   
-// Open Message Must Login
+// Open Modal Send Info Collaborate to Project Creator
 export function openModalInfoCollaborator(idProject){
   return function(dispatch){
       return dispatch({ type: OPEN_MODAL_INFO_COLLABORATOR, payload: idProject})
@@ -155,5 +156,12 @@ export function updateDataUsers(id, data){
 export const loadStorage = function() {
   return {
     type: LOAD_STORAGE
+  }
+};
+
+// Open Modal Send Invitation to Project 
+export function openModalInvitationProject(emailUserToInvite){
+  return function(dispatch){
+      return dispatch({ type: OPEN_MODAL_SEND_INVITATION, payload: emailUserToInvite})
   }
 };
