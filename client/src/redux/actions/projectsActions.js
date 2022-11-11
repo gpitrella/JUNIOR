@@ -22,7 +22,8 @@ import {
   LOADING_DATA,
   GET_PROJECT_COLLABORATORS,
   CLEAR_PROJECT,
-  SEND_INVITATION_TO_PROJECT
+  SEND_INVITATION_TO_PROJECT,
+  ENABLE_INVITATION_TO_PROJECT
 } from './actiontype';
 
 import dotenv from "dotenv";
@@ -180,9 +181,19 @@ export function sendCollaborate(data){
   }
 };
 
-export function sendInvitationToProject() {
+// Enable Invitation to Project
+export function enableInvitationToProject() {
   return {
-    type: SEND_INVITATION_TO_PROJECT
+    type: ENABLE_INVITATION_TO_PROJECT
+  }
+};
+
+// Send data to invitation to Project
+export function sendInvitationToProject(data){
+  return function(dispatch){
+      return axios.post(`${BASE_URL}/user/sendinvitation`, data)
+                  .then(project => dispatch({ type: SEND_INVITATION_TO_PROJECT, payload: project.data }))
+                  .catch(error => dispatch({ type: ERROS_COLLABORATE, payload: error.response.data }))
   }
 };
 
