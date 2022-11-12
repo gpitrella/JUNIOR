@@ -107,13 +107,13 @@ export default function ModalCollaborate() {
       <>
       { modalInfoCollaborator && 
           <div className='main_modal_collaborador'>
-            <div className='container_modal_collaborador' >
+            <div className='container_modal_collaborador' style={!newCollaborate.message && errorsProject === '' ? {height: '750px', marginTop: '100px'} : { height: '250px', marginTop: '150px'}}>
+            { !newCollaborate.message && errorsProject === '' ? 
+            <div className='mainContainerPopUpCollaboration'>
             <BootstrapDialogTitle className='button_close_collaborate'>
                👏Listo/a para Colaborar :
                <button className="btnCollaboratorClose" onClick={(e) => handleCloseInfo(e)}> X </button>
             </BootstrapDialogTitle>
-            { !newCollaborate.message && errorsProject === '' ? 
-            <div>
             <DialogContent dividers>
                 <Typography gutterBottom>
                     Te felicitamos por tus ganas de crecer y colaborar. 🚀 Te solicitamos a continuación tu información
@@ -185,16 +185,33 @@ export default function ModalCollaborate() {
                 </button>
             </DialogActions>
             </div>
-            : newCollaborate.message ? <div className='successSend'> 
-                ✅ Felicitaciones ya enviamos al creador del proyecto todos tus datos para que
-                puedan contactarse y puedas ser parte del proyecto. Contactalo así podes empezar
-                a sumar experiencia rápido.   
-                </div> 
-              : <div className='successSend'> 
-                ❌ Hubo algún error al enviar la información al creador del proyecto, intentalo nuevamente.
-                Cualquier inconveniente ponete en contacto con nosotros.
-                <p> -- { typeof(errorsProject) === 'string' && errorsProject} </p>
-                </div> } 
+            : newCollaborate.message ? 
+                <div>
+                  <BootstrapDialogTitle className='button_close_collaborate'>
+                    👏Listo/a para Colaborar :
+                    <button className="btnCollaboratorClose" onClick={(e) => handleCloseInfo(e)}> X </button>
+                  </BootstrapDialogTitle>
+              
+                  <div className='successSend'> 
+                    ✅ Felicitaciones ya enviamos al creador del proyecto todos tus datos para que
+                    puedan contactarse y puedas ser parte del proyecto. Contactalo así podes empezar
+                    a sumar experiencia rápido.   
+                  </div> 
+                </div>
+              : 
+                <div>
+                  <BootstrapDialogTitle className='button_close_collaborate'>
+                    👏 Listo/a para Colaborar :
+                    <button className="btnCollaboratorClose" onClick={(e) => handleCloseInfo(e)}> X </button>
+                  </BootstrapDialogTitle>          
+
+                  <div className='successSend'> 
+                    ❌ Hubo algún error al enviar la información al creador del proyecto, intentalo nuevamente.
+                    Cualquier inconveniente ponete en contacto con nosotros.
+                    <p> -- { typeof(errorsProject) === 'string' && errorsProject} </p>
+                  </div> 
+                </div>
+                  } 
             </div>
          </div> }
          </>

@@ -18,7 +18,6 @@ export default function Filters() {
     return tech.name.charAt(0).toUpperCase() + tech.name.slice(1);
   })
 
-  // console.log(filterTechs);
   let handleChangeSelect = function(field, newValue) {
     // if (filterReducer[field] === newValue) return;
     // dispatch(updateStatusFilter({ field, newValue }));
