@@ -24,6 +24,20 @@
   margin: 5px 25px;
 }
 
+#btn_developersInvitation {
+  font-size: 12px;
+  height: 35px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  font-size: 10px;
+  box-shadow: var(--mainShadow);
+}
+
+#btn_developersInvitation:hover {
+  opacity: 0.9;
+  box-shadow: none;
+}
+
 .detailsProjects p {
   font-family: var(--font-family);
 	font-style: normal;

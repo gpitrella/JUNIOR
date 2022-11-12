@@ -7,7 +7,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 100vw;
+    height: 200vh;
     right: 0;
     background-color: rgba(185, 185, 185, 0.315);
     z-index: 1;
@@ -19,8 +19,11 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 620px;
     width: 600px;
+}
+
+.mainContainerPopUpCollaboration {
+    height: 100%;
 }
 
 .button_close_collaborate {
