@@ -45,7 +45,6 @@ export default function ModalAddImage({ handleImage }) {
     let resultValidation = validateImageToUpload(fileToUpload);
     if (resultValidation.valid) setFile({ fileName: fileToUpload.name, data: fileToUpload });
     else e.target.value = null;
-    console.log('FILE CON FOTO:',file);
     setValidation(resultValidation.msg);
   }
 
@@ -61,7 +60,6 @@ export default function ModalAddImage({ handleImage }) {
     let formData = new FormData();
     formData.append('file', file.data);
     formData.append('upload_preset', 'tech_market_henry');
-    console.log('FORMDATA',formData);
     dispatch(uploadImage(formData));
   }
 

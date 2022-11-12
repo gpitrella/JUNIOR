@@ -64,7 +64,6 @@ export default function SendEmail() {
       };
 
       React.useEffect(() => {
-        // console.log(logInError)
         if(logInError === 'User not found'){
           setOpenEmail(true)
           errors.email = "Unregistered Email"

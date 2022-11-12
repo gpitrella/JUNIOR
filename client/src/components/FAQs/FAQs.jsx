@@ -4,7 +4,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { TextField, CardContent, Card, Grid, Button } from "@mui/material";
+import { CardContent, Card, Grid } from "@mui/material";
 
 export default function FAQs() {
     const [expanded, setExpanded] = React.useState(false);

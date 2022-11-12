@@ -18,6 +18,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { closeModalInfoCollaborator } from '../../redux/actions/generalActions.js';
 import { sendInvitationToProject, clearDataProject } from '../../redux/actions/projectsActions.js';
 import './ModalInvitationProject.css';
+import { height } from '@mui/system';
 
 export default function ModalInvitationProject() {
     // Cartel desplegable de Login
@@ -45,12 +46,7 @@ export default function ModalInvitationProject() {
       ...infoCollaborador,
       idProject: event.target.value
     })
-  };
-
-  console.log('INFO:', infoCollaborador)
-    console.log('USER TO INVITE:', idUserToInvite)
-
-    // idProject, idUserToInvite, linkedin, number, text, github 
+  }; 
 
     React.useEffect(() => {
     
@@ -71,6 +67,14 @@ export default function ModalInvitationProject() {
 
     const handleCloseInfo = (e) => {
         e.preventDefault();
+        setInfoCollaborador({
+            idProject: '',
+            idUserToInvite: '',
+            linkedin: user.user?.linkedin === '' ? '' : user.user?.linkedin,
+            text: '',
+            number: user.user?.phone === '' ? '' : user.user?.phone,
+            github: user.user?.github === '' ? '' : user.user?.github
+        })
         dispatch(closeModalInfoCollaborator());
         dispatch(clearDataProject());
     };
@@ -131,14 +135,14 @@ export default function ModalInvitationProject() {
     return (
       <>
       { modalInvitationProject && 
-          <div className='main_modal_collaborador'>
-            <div className='container_modal_collaborador' >
+          <div className='main_modal_collaborador' >
+            <div className='container_modal_collaborador' style={!sendInvitation.message && errorsProject === '' ? {height: '750px', marginTop: '100px'} : { height: '250px', marginTop: '150px'} }>
+            { !sendInvitation.message && errorsProject === '' ? 
+            <div className="mainContainerPopUpInvitation">
             <BootstrapDialogTitle className='button_close_collaborate'>
               🚀Enviar Invitación a Projecto:
                <button className="btnCollaboratorClose" onClick={(e) => handleCloseInfo(e)}> X </button>
             </BootstrapDialogTitle>
-            { !sendInvitation.message && errorsProject === '' ? 
-            <div>
             <DialogContent dividers>
                 <Typography gutterBottom>
                     Te felicitamos por tus ganas de crecer y sumar colaboradores. 🚀 Te solicitamos a continuación tu información
@@ -147,8 +151,8 @@ export default function ModalInvitationProject() {
                 </Typography>
             </DialogContent>
             <form className='formCollaborator' id='form' >
-              <Box sx={{ minWidth: 80 }}>
-                <FormControl fullWidth>
+              <Box sx={{ textAlign: 'center', margin: '10px'}}>
+                <FormControl sx={{ width: '70%' }}>
                   <InputLabel id="demo-simple-select-label">Proyecto: </InputLabel>
                   <Select
                     labelId="demo-simple-select-label"
@@ -228,16 +232,33 @@ export default function ModalInvitationProject() {
                 </button>
             </DialogActions>
             </div>
-            : sendInvitation.message ? <div className='successSend'> 
-                ✅ Felicitaciones ya enviamos al futuro colaborador todos tus datos para que
-                puedan contactarse y pueda ser parte del proyecto. Contactalo así podes empezar
-                a sumar experiencia rápido.   
-                </div> 
-              : <div className='successSend'> 
-                ❌ Hubo algún error al enviar la información, intentalo nuevamente.
-                Cualquier inconveniente ponete en contacto con nosotros.
-                <p> -- { typeof(errorsProject) === 'string' && errorsProject} </p>
-                </div> } 
+            : sendInvitation.message ? 
+                <div>
+                  <BootstrapDialogTitle className='button_close_collaborate'>
+                    🚀Enviar Invitación a Projecto:
+                    <button className="btnCollaboratorClose" onClick={(e) => handleCloseInfo(e)}> X </button>
+                  </BootstrapDialogTitle>   
+
+                  <div className='successSend'> 
+                    ✅ Felicitaciones ya enviamos al futuro colaborador todos tus datos para que
+                    puedan contactarse y pueda ser parte del proyecto. Contactalo así podes empezar
+                    a sumar experiencia rápido.   
+                  </div> 
+                </div>
+              : 
+                <div>
+                  <BootstrapDialogTitle className='button_close_collaborate'>
+                    🚀Enviar Invitación a Projecto:
+                    <button className="btnCollaboratorClose" onClick={(e) => handleCloseInfo(e)}> X </button>
+                  </BootstrapDialogTitle>                
+
+                  <div className='successSend'> 
+                  ❌ Hubo algún error al enviar la información, intentalo nuevamente.
+                  Cualquier inconveniente ponete en contacto con nosotros.
+                  <p> -- { typeof(errorsProject) === 'string' && errorsProject} </p>
+                  </div> 
+                </div>
+                } 
             </div>
          </div> }
          </>

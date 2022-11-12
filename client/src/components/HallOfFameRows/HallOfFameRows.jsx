@@ -1,14 +1,17 @@
 import React from 'react';
 import HallOfFameRow from '../HallOfFameRow/HallOfFameRow';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import ModalInvitationProject from '../ModalInvitationProject/ModalInvitationProject';
+import { enableInvitationToProject } from '../../redux/actions/projectsActions.js';
 import Pagina from "../Pagina/Pagina.jsx";
+import Button from '@mui/material/Button';
 import s from './HallOfFameRows.module.css';
 
 export default function HallOfFameRows({ users }) {
-  const { pagina  } = useSelector(state => state.projectsReducer);
-  
-  //? paginado
+  const { pagina } = useSelector(state => state.projectsReducer);
+  const { user } = useSelector((state) => state.homepageReducer);
+  const dispatch = useDispatch();
+  // Paginado:
   let currentPage = 0;
   currentPage = pagina;
   const maxpage = Math.ceil(users?.length / 25);
@@ -20,6 +23,11 @@ export default function HallOfFameRows({ users }) {
     );
     return developerShow;
   };
+
+  function handleInvitation(e) {
+    e.preventDefault();
+    dispatch(enableInvitationToProject())
+  }
   
   return (
     <div className = {s.container}>
@@ -34,11 +42,16 @@ export default function HallOfFameRows({ users }) {
 			</p>
       </div>
       <div className={s.detailsProjects} >
-          <div className = {s.totalandfilterproject}>
+        <div className = {s.totalandfilterproject}>
             <p> Total Developers: {users && users.length}	</p>
-            {/* <p> Projectos Filtrados: {allProjects.length}	</p> */}
         </div>
         <Pagina currentPage={currentPage} maxpage={maxpage}></Pagina>
+        { user?.user && user.user?.projects?.length > 0 &&
+          <Button id={s.btn_developersInvitation} variant="contained" onClick={(e) => handleInvitation(e)}>
+              Invitar Colaboradores
+          </Button>
+        }
+
       </div>
       {        
         users && users.length > 0 && developerToShow().map((user, index) => 
