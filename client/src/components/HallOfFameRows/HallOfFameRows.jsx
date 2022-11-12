@@ -11,7 +11,7 @@ export default function HallOfFameRows({ users }) {
   //? paginado
   let currentPage = 0;
   currentPage = pagina;
-  const maxpage = Math.ceil(users?.length / 3);
+  const maxpage = Math.ceil(users?.length / 25);
 
   const developerToShow = () => {
     const developerShow = users?.slice(
@@ -44,7 +44,7 @@ export default function HallOfFameRows({ users }) {
         users && users.length > 0 && developerToShow().map((user, index) => 
 
           <HallOfFameRow
-            id = {user.id}
+            id = {user._id}
             name = {user.name}
             collaborations = {user.collaborations}
             image = {user.image}

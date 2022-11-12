@@ -160,8 +160,8 @@ export const loadStorage = function() {
 };
 
 // Open Modal Send Invitation to Project 
-export function openModalInvitationProject(emailUserToInvite){
+export function openModalInvitationProject(idUserToInvite){
   return function(dispatch){
-      return dispatch({ type: OPEN_MODAL_SEND_INVITATION, payload: emailUserToInvite})
+      return dispatch({ type: OPEN_MODAL_SEND_INVITATION, payload: idUserToInvite})
   }
 };
