@@ -38,8 +38,6 @@ export default function ModalInvitationProject() {
     });
 
 
-
-
   const handleChangeProject = (event) => {
     event.preventDefault();
     setSelectProject(event.target.value);
@@ -49,18 +47,24 @@ export default function ModalInvitationProject() {
     })
   };
 
+  console.log('INFO:', infoCollaborador)
+    console.log('USER TO INVITE:', idUserToInvite)
 
     // idProject, idUserToInvite, linkedin, number, text, github 
 
     React.useEffect(() => {
-      if(infoCollaborador.idUserToInvite === '') {
+    
         setInfoCollaborador({
           ...infoCollaborador,
           idUserToInvite: idUserToInvite
         })
-      }
+      
 
       return () => {
+        setInfoCollaborador({
+          ...infoCollaborador,
+          idUserToInvite: ''
+        })
         dispatch(clearDataProject())
       }
     }, [idUserToInvite]);
@@ -155,7 +159,7 @@ export default function ModalInvitationProject() {
                   >
                     { 
                       projectByUser.length > 0 && projectByUser.map((project)=> {
-                        return (<MenuItem value={project._id}> {project.title} </MenuItem>)
+                        return (<MenuItem key={project._id} value={project._id}> {project.title} </MenuItem>)
                       })
                     }
                   </Select>

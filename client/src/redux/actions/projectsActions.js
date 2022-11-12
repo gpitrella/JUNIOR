@@ -191,6 +191,7 @@ export function enableInvitationToProject() {
 // Send data to invitation to Project
 export function sendInvitationToProject(data){
   return function(dispatch){
+    console.log('INFO A ENVIAR AL BACK:', data);
       return axios.post(`${BASE_URL}/user/sendinvitation`, data)
                   .then(project => dispatch({ type: SEND_INVITATION_TO_PROJECT, payload: project.data }))
                   .catch(error => dispatch({ type: ERROS_COLLABORATE, payload: error.response.data }))
