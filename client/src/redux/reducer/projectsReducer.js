@@ -17,7 +17,8 @@ import {
   LOADING_DATA,
   GET_PROJECT_COLLABORATORS,
   CLEAR_PROJECT,
-  SEND_INVITATION_TO_PROJECT
+  SEND_INVITATION_TO_PROJECT,
+  ENABLE_INVITATION_TO_PROJECT
 } from '../actions/actiontype';
 
 const initialState = {
@@ -37,7 +38,9 @@ const initialState = {
   projectCollaborateByUser: [],
   loadingDataStatus: false,
   projectCollaborators: [],
-  sendInvitationToProject: false
+  enableInvitationToProject: false,
+  sendInvitation: ''
+
 };
 
 const projectsReducer = function(state = initialState, { type, payload }) {
@@ -125,7 +128,8 @@ const projectsReducer = function(state = initialState, { type, payload }) {
         errorsProject: '',
         newCollaborate: '',
         loadingDataStatus: false,
-        newProject: {}
+        newProject: {},
+        sendInvitation: ''
       }
     
     case ERROS_PROJECTS:
@@ -158,10 +162,16 @@ const projectsReducer = function(state = initialState, { type, payload }) {
         loadingDataStatus: true,
       }
 
+    case ENABLE_INVITATION_TO_PROJECT:
+      return {
+        ...state,
+        enableInvitationToProject: true,
+      }
+
     case SEND_INVITATION_TO_PROJECT:
       return {
         ...state,
-        sendInvitationToProject: true,
+        sendInvitation: payload,
       }
 
     default:

@@ -9,8 +9,8 @@ import { openModalInvitationProject } from '../../redux/actions/generalActions.j
 
 import s from './HallOfFameRow.module.css';
 
-export default function HallOfFameRow({ name, collaborations, image, index, email, github, linkedin, techs }) {
-  const { sendInvitationToProject } = useSelector((state) => state.projectsReducer);
+export default function HallOfFameRow({ id, name, collaborations, image, index, email, github, linkedin, techs }) {
+  const { enableInvitationToProject } = useSelector((state) => state.projectsReducer);
   const dispatch = useDispatch();
   let handleClick = function(link) {
     window.open(link, '_blank');
@@ -18,7 +18,7 @@ export default function HallOfFameRow({ name, collaborations, image, index, emai
 
   const handleOpenInvitation = (e) => {
     e.preventDefault();
-    dispatch(openModalInvitationProject(email))
+    dispatch(openModalInvitationProject(id))
   }
 
   return (
@@ -47,7 +47,7 @@ export default function HallOfFameRow({ name, collaborations, image, index, emai
               </div>  
             }
             </span>
-            { sendInvitationToProject &&
+            { enableInvitationToProject &&
               <div>
                 <Button id={s.btn_invitation} variant="contained" onClick={(e) => handleOpenInvitation(e)}>
                     Invitar

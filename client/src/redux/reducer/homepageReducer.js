@@ -129,7 +129,8 @@ const homepageReducer = function(state = initialState, { type, payload }) {
     case CLOSE_MODAL_INFO_COLLABORATOR:
       return {
         ...state,
-        modalInfoCollaborator: false
+        modalInfoCollaborator: false,
+        modalInvitationProject: false,
       }
     
     case UPDATE_DATA_USER:
@@ -151,7 +152,7 @@ const homepageReducer = function(state = initialState, { type, payload }) {
         return {
           ...state,
           modalInvitationProject: true,
-          emailUserToInvite: payload
+          idUserToInvite: payload
         }
 
     default:

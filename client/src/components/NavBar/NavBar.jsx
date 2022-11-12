@@ -44,9 +44,12 @@ export default function Navbar ({ handleSignOut }) {
 	const { user } = useSelector((state) => state.homepageReducer);
 
 	// SCROLL DOWN NAVBAR
-	window.onscroll = function() {scrollFunction()};
-	function scrollFunction() {
-		if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+	window.onscroll = (e) => {
+		e.preventDefault();
+		scrollFunction()
+	};
+	const scrollFunction = () => {
+		if (document.body.scrollTop >= 50 || document.documentElement.scrollTop >= 50) {
 			setStickyNavbar(true);
 		} else {
 			setStickyNavbar(false);

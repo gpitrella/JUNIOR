@@ -7,13 +7,16 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { closeModalInfoCollaborator } from '../../redux/actions/generalActions.js';
-import { sendCollaborate, clearDataProject } from '../../redux/actions/projectsActions.js';
-
-import { useNavigate } from "react-router-dom";
+import { sendInvitationToProject, clearDataProject } from '../../redux/actions/projectsActions.js';
 import './ModalInvitationProject.css';
 
 export default function ModalInvitationProject() {
@@ -21,31 +24,50 @@ export default function ModalInvitationProject() {
     const dispatch = useDispatch();
     
     const { modalInvitationProject } = useSelector((state) => state.homepageReducer);
-    const { user, idProject } = useSelector((state) => state.homepageReducer);
-    const { newCollaborate, errorsProject } = useSelector((state) => state.projectsReducer);
+    const { user, idUserToInvite } = useSelector((state) => state.homepageReducer);
+    const { sendInvitation, errorsProject, projectByUser } = useSelector((state) => state.projectsReducer);
     const [errors, setErrors] = React.useState({});
+    const [ selectProject, setSelectProject] = React.useState('');
     const [ infoCollaborador, setInfoCollaborador ] = React.useState({
-      idProject: idProject,
-      idUserCollaborator: user?.user?._id,
-      email: user?.user?.email,
-      linkedin: '',
+      idProject: '',
+      idUserToInvite: '',
+      linkedin: user.user?.linkedin === '' ? '' : user.user?.linkedin,
       text: '',
-      number: '',
-      github: ''
+      number: user.user?.phone === '' ? '' : user.user?.phone,
+      github: user.user?.github === '' ? '' : user.user?.github
     });
 
+
+  const handleChangeProject = (event) => {
+    event.preventDefault();
+    setSelectProject(event.target.value);
+    setInfoCollaborador({
+      ...infoCollaborador,
+      idProject: event.target.value
+    })
+  };
+
+  console.log('INFO:', infoCollaborador)
+    console.log('USER TO INVITE:', idUserToInvite)
+
+    // idProject, idUserToInvite, linkedin, number, text, github 
+
     React.useEffect(() => {
-      if(infoCollaborador.idProject === '') {
+    
         setInfoCollaborador({
           ...infoCollaborador,
-          idProject: idProject
+          idUserToInvite: idUserToInvite
         })
-      }
+      
 
       return () => {
+        setInfoCollaborador({
+          ...infoCollaborador,
+          idUserToInvite: ''
+        })
         dispatch(clearDataProject())
       }
-    }, [idProject]);
+    }, [idUserToInvite]);
 
     const handleCloseInfo = (e) => {
         e.preventDefault();
@@ -101,8 +123,10 @@ export default function ModalInvitationProject() {
 
     const handleSubmit = (e) => { 
       e.preventDefault();
-      dispatch(sendCollaborate(infoCollaborador))
+      dispatch(sendInvitationToProject(infoCollaborador))
     }
+
+    
 
     return (
       <>
@@ -113,7 +137,7 @@ export default function ModalInvitationProject() {
               🚀Enviar Invitación a Projecto:
                <button className="btnCollaboratorClose" onClick={(e) => handleCloseInfo(e)}> X </button>
             </BootstrapDialogTitle>
-            { !newCollaborate.message && errorsProject === '' ? 
+            { !sendInvitation.message && errorsProject === '' ? 
             <div>
             <DialogContent dividers>
                 <Typography gutterBottom>
@@ -123,6 +147,24 @@ export default function ModalInvitationProject() {
                 </Typography>
             </DialogContent>
             <form className='formCollaborator' id='form' >
+              <Box sx={{ minWidth: 80 }}>
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">Proyecto: </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={selectProject}
+                    label="selectProject"
+                    onChange={handleChangeProject}
+                  >
+                    { 
+                      projectByUser.length > 0 && projectByUser.map((project)=> {
+                        return (<MenuItem key={project._id} value={project._id}> {project.title} </MenuItem>)
+                      })
+                    }
+                  </Select>
+                </FormControl>
+              </Box>
               <div className={`form__group`} id='linkedin'>
                 <label htmlFor="linkedin" className='labelInfoCollaborator'>Linkedin: </label>
                 <input
@@ -186,13 +228,13 @@ export default function ModalInvitationProject() {
                 </button>
             </DialogActions>
             </div>
-            : newCollaborate.message ? <div className='successSend'> 
+            : sendInvitation.message ? <div className='successSend'> 
                 ✅ Felicitaciones ya enviamos al futuro colaborador todos tus datos para que
                 puedan contactarse y pueda ser parte del proyecto. Contactalo así podes empezar
                 a sumar experiencia rápido.   
                 </div> 
               : <div className='successSend'> 
-                ❌ Hubo algún error al enviar la información al enviar, intentalo nuevamente.
+                ❌ Hubo algún error al enviar la información, intentalo nuevamente.
                 Cualquier inconveniente ponete en contacto con nosotros.
                 <p> -- { typeof(errorsProject) === 'string' && errorsProject} </p>
                 </div> } 

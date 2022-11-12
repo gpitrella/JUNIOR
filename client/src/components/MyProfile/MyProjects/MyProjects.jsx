@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import CardProject from '../../CardProject/CardProject';
 import Button from '@mui/material/Button';
 import { Link, useNavigate } from 'react-router-dom';
-import { getProjectsByUser, sendInvitationToProject } from '../../../redux/actions/projectsActions.js';
+import { getProjectsByUser, enableInvitationToProject } from '../../../redux/actions/projectsActions.js';
 import './MyProjects.css'
 
 
@@ -23,7 +23,7 @@ export default function MyProjects() {
 
   function handleInvitation(e) {
     e.preventDefault();
-    dispatch(sendInvitationToProject())
+    dispatch(enableInvitationToProject())
     navigate('/developers')
   }
 
