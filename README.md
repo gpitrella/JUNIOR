@@ -38,3 +38,28 @@ Node.js, Express, Mongoose, JWT
 
 ### Database:
 MongoDB
+
+## Carpetas de alojamiento de JUNIOR
+
+Hay dos carpetas compartidas que alojan a JUNIOR: Client o Front End: `JUNIOR` and API o Back End: `JUNIOR-API`.
+Puedes encontrar la primera de cliente o front en 'JUNIOR' en este repo y la segunda carpeta 'JUNIOR-API' en este mismo github.
+
+En ambas carpetas al clonarlas debes crear el archivo: `.env`
+
+En la carpeta de client o Front End `JUNIOR`, el archivo `.env` debe incluir:
+
+```
+REACT_APP_GOOGLE=******
+REACT_APP_GITHUB=******
+REACT_APP_SERVICEID=******
+REACT_APP_TEMPLATEID=******
+REACT_APP_PUBLICKEY=******
+REACT_APP_BASE_URL_FLY="http://localhost:4001"
+```
+
+You have to replace `DB_USER` and `DB_PASSWORD` with your own credentials to connect to postgres database. This file will be ignored by github, as it contains sensitive information (the credentials).
+
+The `DB_KEY` is a random security keyword, you can change or keep it. 
+The `ACCESS_TOKEN` is a security keyword to Mercado Pago, you can create one in this platform and make a success buy. In this link https://www.mercadopago.com.ar/developers/es/docs/checkout-api/integration-test/test-cards you can get all information to check a success buy in TechMarket.
+
+In Auth Config you must generated your own Google and SendGrid credential to use this functionalities.
