@@ -62,4 +62,4 @@ You have to replace `DB_USER` and `DB_PASSWORD` with your own credentials to con
 The `DB_KEY` is a random security keyword, you can change or keep it. 
 The `ACCESS_TOKEN` is a security keyword to Mercado Pago, you can create one in this platform and make a success buy. In this link https://www.mercadopago.com.ar/developers/es/docs/checkout-api/integration-test/test-cards you can get all information to check a success buy in TechMarket.
 
-In Auth Config you must generated your own Google and SendGrid credential to use this functionalities.
+In Auth Config you must generated your own Google and SendGrid credential to use this functionalities.s.
