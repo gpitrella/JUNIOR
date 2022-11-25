@@ -51,7 +51,7 @@ En la carpeta de client o Front End `JUNIOR`, el archivo `.env` debe incluir:
 ```
 REACT_APP_GOOGLE=******
 REACT_APP_GITHUB=******
-REACT_APP_SERVICEID=******
+REACT_APP_SERVICEID=*******
 REACT_APP_TEMPLATEID=******
 REACT_APP_PUBLICKEY=******
 REACT_APP_BASE_URL_FLY="http://localhost:4001"
