@@ -15,6 +15,22 @@ export const detailabout = {
         p4: `¿Estás preparado/a? ¿Estás listo/a para empezar? ¿Ya sos parte?`
     }    
 }
+
+export const detailaboutEN = {
+    title: 'JUNIOR',
+    description: {
+        p1: `JUNIOR’ is a collaborative project that aims to enhance the development of programmers or any other 
+        enthusiastic professional, such as designers, entrepreneurs and more.`,
+        p2: `JUNIOR's contribution focus to provide a collaboration space that allows the user not only to be part 
+        of a project, but also contribute with knowledge, learn from the experience of others, learn by doing and 
+        also have the possibility of publishing your own project leading the development.
+        In addition to this collaboration space in JUNIOR you can find links to other learning platforms of interest, 
+        development tools and other useful resources to promote professional growth.`,
+        p3: `In this way you can not only enhance learning, teamwork and mutual collaboration, but also adding the 
+        experience lived in JUNIOR to the CV and you can aspire to better opportunities future jobs.`,
+        p4: `Are you ready? Are you ready to start? Are you already a part of the team?`
+    }    
+}
   
 export const developers = [
     {

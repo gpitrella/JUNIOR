@@ -17,8 +17,9 @@ import { styled } from '@mui/material/styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { closeModalInfoCollaborator } from '../../redux/actions/generalActions.js';
 import { sendInvitationToProject, clearDataProject } from '../../redux/actions/projectsActions.js';
+import validateInvitation from './validateInvitation.jsx';
 import './ModalInvitationProject.css';
-import { height } from '@mui/system';
+
 
 export default function ModalInvitationProject() {
     // Cartel desplegable de Login
@@ -27,7 +28,6 @@ export default function ModalInvitationProject() {
     const { modalInvitationProject } = useSelector((state) => state.homepageReducer);
     const { user, idUserToInvite } = useSelector((state) => state.homepageReducer);
     const { sendInvitation, errorsProject, projectByUser } = useSelector((state) => state.projectsReducer);
-    const [errors, setErrors] = React.useState({});
     const [ selectProject, setSelectProject] = React.useState('');
     const [ infoCollaborador, setInfoCollaborador ] = React.useState({
       idProject: '',
@@ -36,6 +36,13 @@ export default function ModalInvitationProject() {
       text: '',
       number: user.user?.phone === '' ? '' : user.user?.phone,
       github: user.user?.github === '' ? '' : user.user?.github
+    });
+
+    const [errors, setErrors] = React.useState({
+      linkedin: "Agrega tu linkedin",
+      text: "Agrega una nota para el colaborador",
+      github: "Agrega un URL valida a tu proyecto de GitHub",
+      number: "Agrega una numero de contacto",
     });
 
 
@@ -123,6 +130,13 @@ export default function ModalInvitationProject() {
           ...infoCollaborador,
           [e.target.name]: e.target.value
       });
+      setErrors(validateInvitation({
+        ...infoCollaborador,
+        [e.target.name]: e.target.value
+      }, errors))
+      // if (!errors.title || !errors.description || !errors.image || !errors.gitHubUrl || !errors.newtech) {
+      //   document.getElementById('form__msn').classList.remove('form__msn-activo')
+      // }
     };
 
     const handleSubmit = (e) => { 
@@ -223,8 +237,8 @@ export default function ModalInvitationProject() {
                   value = {infoCollaborador.text}
                   onChange={(e) => handleChange(e)}
                 />                 
-                <p className='form__input-error'>{errors?.coverLetter}</p>
               </div>
+                <p id='form__input-error' className='display_form__input-error'>{errors?.text}</p>
             </form>
             <DialogActions>
                 <button className="btnCollaborator" type='submit' onClick={(e) => handleSubmit(e)}>

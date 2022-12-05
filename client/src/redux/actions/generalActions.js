@@ -20,7 +20,8 @@ import {
   CLOSE_MODAL_INFO_COLLABORATOR,
   UPDATE_DATA_USER,
   LOAD_STORAGE,
-  OPEN_MODAL_SEND_INVITATION
+  OPEN_MODAL_SEND_INVITATION,
+  CHANGE_LENGUAGE
 } from './actiontype';
 import dotenv from "dotenv";
 dotenv.config()
@@ -162,5 +163,12 @@ export const loadStorage = function() {
 export function openModalInvitationProject(idUserToInvite){
   return function(dispatch){
       return dispatch({ type: OPEN_MODAL_SEND_INVITATION, payload: idUserToInvite})
+  }
+};
+
+// CHANGE_LENGUAGE
+export function changeLenguage(lenguage){
+  return function(dispatch){
+    return dispatch({ type: CHANGE_LENGUAGE, payload: lenguage})
   }
 };
