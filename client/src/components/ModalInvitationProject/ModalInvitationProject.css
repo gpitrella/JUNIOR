@@ -120,7 +120,6 @@
 
 .form__group-incorrecto .form__label{
     color: #bb2929;
-
 }
 
 .form__group-incorrecto .formInputCollaborator{
@@ -133,6 +132,14 @@
 
 .form__group-correcto .formInputCollaborator{
     border: 3px solid #119200;
+}
+
+.display_form__input-error {
+    display: none;
+}
+
+.form__input-error-activo{
+    display: block;
 }
 
 .btnCollaborator {
