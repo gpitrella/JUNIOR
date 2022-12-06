@@ -64,6 +64,7 @@
 	text-transform: capitalize;
 	margin: 0 1rem;
 	cursor: pointer;
+	min-width: 80px;
 }
 
 .navbar-sign button,

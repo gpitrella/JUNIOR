@@ -34,7 +34,6 @@ export default function Filters() {
     if (newValue === "All") {
       dispatch(getAllProjects());
     } else {
-      console.log('lo que devuelve el generador:',generateQueryWithState({ ...filterReducer, [field]: newValue }))
       dispatch(updateFilterProjects(generateQueryWithState({ ...filterReducer, [field]: newValue })));
     }
   }

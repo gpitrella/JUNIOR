@@ -17,7 +17,8 @@ import {
   OPEN_MODAL_INFO_COLLABORATOR,
   UPDATE_DATA_USER,
   LOAD_STORAGE,
-  OPEN_MODAL_SEND_INVITATION
+  OPEN_MODAL_SEND_INVITATION,
+  CHANGE_LENGUAGE
 } from '../actions/actiontype';
 import { LocalStorage } from '../../util/localStorage';
 
@@ -32,7 +33,8 @@ const initialState = {
   idProject: '',
   updateDataUsersMsg: '',
   modalInvitationProject: false,
-  emailUserToInvite: ''
+  emailUserToInvite: '',
+  lenguage: 'ES'
 };
 
 
@@ -154,6 +156,13 @@ const homepageReducer = function(state = initialState, { type, payload }) {
           modalInvitationProject: true,
           idUserToInvite: payload
         }
+      
+      case CHANGE_LENGUAGE:
+        return {
+          ...state,
+          lenguage: payload
+        }  
+        
 
     default:
       return state;
