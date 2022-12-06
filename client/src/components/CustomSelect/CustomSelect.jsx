@@ -18,9 +18,18 @@ export default function CustomSelect({valueSelected, values, handleValue, name, 
 
   return (
     <div className = {s.containerGlobal}>
-      <div className = {s.container} onClick = {handleOpenSelect}>
-        <div className = {s.selectSelectedZone}>
-          <span className = {s.selectSelected}>{valueSelected}</span>
+      <div className = {`${s.container} ${valueSelected === "Español" || valueSelected === "English" || valueSelected === "Italiano" ? s.optionFlagsContainer : ''}`} onClick = {handleOpenSelect}>
+        <div className = {`${s.selectSelectedZone} ${valueSelected === "Español" || valueSelected === "English" || valueSelected === "Italiano" ? s.optionFlags : ''}`}>
+          <span className = {s.selectSelected}>
+            { valueSelected === "Español"
+                  ? <img src="https://flagcdn.com/w40/es.webp" alt='flag spanish'/>
+                  : valueSelected === "English"
+                      ? <img src="https://flagcdn.com/w40/gb-eng.webp" alt='flag english'/>
+                      : valueSelected === "Italiano"
+                          ? <img src="https://flagcdn.com/w40/it.webp" alt='flag italy'/>
+                          : valueSelected
+            }          
+          </span>
           <div className = {`${s.triangle} ${showOptions ? s.open : ''}`}></div>
         </div>
       </div>

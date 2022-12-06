@@ -19,7 +19,7 @@ export const detailabout = {
 export const detailaboutEN = {
     title: 'JUNIOR',
     description: {
-        p1: `JUNIOR’ is a collaborative project that aims to enhance the development of programmers or any other 
+        p1: `JUNIOR is a collaborative project that aims to enhance the development of programmers or any other 
         enthusiastic professional, such as designers, entrepreneurs and more.`,
         p2: `JUNIOR's contribution focus to provide a collaboration space that allows the user not only to be part 
         of a project, but also contribute with knowledge, learn from the experience of others, learn by doing and 
@@ -31,7 +31,24 @@ export const detailaboutEN = {
         p4: `Are you ready? Are you ready to start? Are you already a part of the team?`
     }    
 }
-  
+
+export const detailaboutIT = {
+    title: 'JUNIOR',
+    description: {
+        p1: `JUNIOR è un progetto collaborativo che mira a migliorare lo sviluppo di programmatori o qualsiasi altro
+         professionista entusiasta, come designer, imprenditori ed altri ancora.`,
+        p2: `Il contributo di JUNIOR è quello di fornire uno spazio di collaborazione che consenta all'utente non 
+        solo di essere parte di un progetto, ma anche contribuire con la conoscenza, imparare dall'esperienza degli 
+        altri, Impara facendo e hai anche la possibilità di pubblicare il tuo progetto guidando lo sviluppo. Oltre a 
+        questo spazio di collaborazione in JUNIOR puoi trovare collegamenti ad altre piattaforme di apprendimento di 
+        interesse, strumenti di sviluppo e altre risorse utili per promuovere la crescita professionale.`,
+        p3: `In questo modo non solo potrai migliorare l'apprendimento, il lavoro di squadra e la collaborazione 
+        reciproca, ma anche aggiungendo al CV l'esperienza vissuta in JUNIOR potrai aspirare a migliori opportunità 
+        di futuri lavori.`,
+        p4: `Sei pronto? Sei pronto per iniziare? Fai già parte?`
+    }    
+}      
+
 export const developers = [
     {
         id: 1,
