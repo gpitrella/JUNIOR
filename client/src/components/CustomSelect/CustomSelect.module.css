@@ -20,6 +20,12 @@
 
   cursor: pointer;
 }
+.optionFlags {
+  width: 65% !important;
+}
+.optionFlagsContainer {
+  justify-items: left !important;
+}
 
 .selectOption {
   font-size: var(--fontSmall);

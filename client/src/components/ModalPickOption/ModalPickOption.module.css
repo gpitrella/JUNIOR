@@ -44,6 +44,10 @@
   font-size: var(--fontSmall);
 }
 
+.optionFlags {
+  width: 65% !important;
+}
+
 .selectOption:hover {
   color: rgba(235, 0, 27, 1);
 }

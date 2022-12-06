@@ -10,15 +10,16 @@ import Select from '@mui/material/Select';
 import './NavBar.css';
 import logo from '../../assets/logo.png';
 import { changeLenguage } from '../../redux/actions/generalActions.js';
+import CustomSelect from '../CustomSelect/CustomSelect';
 
 const Menu = ({handleSignOut, user}) => {
 	const { lenguage } = useSelector((state) => state.homepageReducer);
-	const [lenguageIn, setLenguageIn] = React.useState('SP');
+	const [lenguageIn, setLenguageIn] = React.useState(lenguage);
 	const dispatch = useDispatch(); 
-	const handleChangeLenguage = (event) => {
-		setLenguageIn(event.target.value);
-		dispatch(changeLenguage(event.target.value))
-	};
+	let handleChangeSelectLenguage = function(name, value) {
+		setLenguageIn(value)
+		dispatch(changeLenguage(value))
+	}
 	return (
 		<>
 			<Link to='/projects'><p>Proyectos</p></Link>
@@ -26,22 +27,15 @@ const Menu = ({handleSignOut, user}) => {
 			<Link to='/tools'><p>Herramientas</p></Link>
 			<Link to='/developers'><p>Developers</p></Link>
             {user?.user && <p id='btnLogOutNavbar'><a onClick={(e) => handleSignOut(e)}>LogOut</a></p> }
-			<Box sx={{ minWidth: 120 }}>
-				<FormControl fullWidth>
-					<InputLabel id="demo-simple-select-label">Idioma</InputLabel>
-					<Select
-						labelId="demo-simple-select-label"
-						id="demo-simple-select"
-						value={lenguageIn}
-						label="lenguageIn"
-						onChange={handleChangeLenguage}
-					>
-					<MenuItem value={"SP"}><img src="https://flagcdn.com/w40/es.webp" alt='flag spanish'/></MenuItem>
-					<MenuItem value={"EN"}><img src="https://flagcdn.com/w40/gb-eng.webp" alt='flag english'/></MenuItem>
-					<MenuItem value={"IT"}><img src="https://flagcdn.com/w40/it.webp" alt='flag italy'/></MenuItem>
-					</Select>
-				</FormControl>
-			</Box>
+			<CustomSelect
+				disabled={false}
+				valueSelected={lenguageIn}
+				// disabled = {searchState.loading}
+				// valueSelected = {searchState.orderBy}
+				values = {["Español", "English", "Italiano"]}
+				handleValue = {handleChangeSelectLenguage}
+				name = {"lenguage"}
+			/>
 		</>
 )}
 
