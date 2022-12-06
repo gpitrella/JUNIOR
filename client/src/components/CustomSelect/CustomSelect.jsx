@@ -17,16 +17,16 @@ export default function CustomSelect({valueSelected, values, handleValue, name, 
   }
 
   return (
-    <div className = {s.containerGlobal}>
-      <div className = {`${s.container} ${valueSelected === "Español" || valueSelected === "English" || valueSelected === "Italiano" ? s.optionFlagsContainer : ''}`} onClick = {handleOpenSelect}>
-        <div className = {`${s.selectSelectedZone} ${valueSelected === "Español" || valueSelected === "English" || valueSelected === "Italiano" ? s.optionFlags : ''}`}>
+    <div className = {`${valueSelected === "ES" || valueSelected === "EN" || valueSelected === "IT" ? s.containerGlobalFlag : s.containerGlobal}`}>
+      <div className = {`${s.container} ${valueSelected === "ES" || valueSelected === "EN" || valueSelected === "IT" ? s.optionFlagsContainer : ''}`} onClick = {handleOpenSelect}>
+        <div className = {`${s.selectSelectedZone} ${valueSelected === "ES" || valueSelected === "EN" || valueSelected === "IT" ? s.optionFlags : ''}`}>
           <span className = {s.selectSelected}>
-            { valueSelected === "Español"
-                  ? <img src="https://flagcdn.com/w40/es.webp" alt='flag spanish'/>
-                  : valueSelected === "English"
-                      ? <img src="https://flagcdn.com/w40/gb-eng.webp" alt='flag english'/>
-                      : valueSelected === "Italiano"
-                          ? <img src="https://flagcdn.com/w40/it.webp" alt='flag italy'/>
+            { valueSelected === "ES"
+                  ? <img src="https://flagcdn.com/w40/es.webp" alt='flag spanish' width="25px"/>
+                  : valueSelected === "EN"
+                      ? <img src="https://flagcdn.com/w40/gb-eng.webp" alt='flag EN' width="25px"/>
+                      : valueSelected === "IT"
+                          ? <img src="https://flagcdn.com/w40/it.webp" alt='flag italy' width="25px"/>
                           : valueSelected
             }          
           </span>
@@ -35,7 +35,7 @@ export default function CustomSelect({valueSelected, values, handleValue, name, 
       </div>
       <ModalPickOption 
         name = { name }
-        style = {s.modalPickOptionStyle}
+        style = {`${valueSelected === "ES" || valueSelected === "EN" || valueSelected === "IT" ? s.modalPickOptionStyleFlag : s.modalPickOptionStyle}`}
         values = {values}
         show = {showOptions}
         handleClose = {handleOpenSelect}

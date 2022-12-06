@@ -15,33 +15,33 @@ export default function AboutView() {
             {detailabout.title}
 					</h1>
 					<p>
-          { lenguage === "English" 
+          { lenguage === "EN" 
                     ? detailaboutEN.description.p1
-                    : lenguage === "Italiano"
+                    : lenguage === "IT"
                           ? detailaboutIT.description.p1
                           : detailabout.description.p1
             } 
 					</p>
           <p>
-          { lenguage === "English" 
+          { lenguage === "EN" 
                     ? detailaboutEN.description.p2
-                    : lenguage === "Italiano"
+                    : lenguage === "IT"
                           ? detailaboutIT.description.p2
                           : detailabout.description.p2
             } 
 					</p>
           <p>
-          { lenguage === "English" 
+          { lenguage === "EN" 
                     ? detailaboutEN.description.p3
-                    : lenguage === "Italiano"
+                    : lenguage === "IT"
                           ? detailaboutIT.description.p3
                           : detailabout.description.p3
             } 
 					</p>
           <p>
-          { lenguage === "English" 
+          { lenguage === "EN" 
                     ? detailaboutEN.description.p4
-                    : lenguage === "Italiano"
+                    : lenguage === "IT"
                           ? detailaboutIT.description.p4
                           : detailabout.description.p4
             } 
@@ -50,9 +50,9 @@ export default function AboutView() {
       </div>
       <div className={s.aboutDevelopers}>
         <h1 className={s.gradient__text}>
-        { lenguage === "English" 
+        { lenguage === "EN" 
                     ? "Developers"
-                    : lenguage === "Italiano"
+                    : lenguage === "IT"
                           ? "Sviluppatori"
                           : "Desarrolladores"
             }  </h1>
