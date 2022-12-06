@@ -34,7 +34,7 @@ const initialState = {
   updateDataUsersMsg: '',
   modalInvitationProject: false,
   emailUserToInvite: '',
-  lenguage: 'Español'
+  lenguage: 'ES'
 };
 
 
