@@ -1,5 +1,5 @@
 import React from 'react';
-import $ from 'jquery'; 
+import $ from 'jquery';
 import { Link } from 'react-router-dom';
 import Typewriter from 'typewriter-effect';
 import logo from './logoJRremovebg.png';
@@ -9,23 +9,23 @@ import './LandingPage.scss';
 
 export default function LandingPage() {
 
-    const [ sound, setSound ] = React.useState(true);
+    const [sound, setSound] = React.useState(true);
 
     // Lottie
     const options = {
         animationData: rocketLP,
         loop: true
-      };
+    };
     const { View } = useLottie(options);
 
     return (
-  
+
         <div className="landingpageContainer">
-            
+
             <Link to='/home'>
                 <div>
                     <div className='night'>
-                        <img src={logo} className='logolandingpage'/>
+                        <img src={logo} className='logolandingpage' />
                         <span className='moon'></span>
                         <span className="spot1"></span>
                         <span className="spot2"></span>
@@ -34,7 +34,7 @@ export default function LandingPage() {
                             <li></li>
                             <li></li>
                             <li></li>
-                            <li></li>	
+                            <li></li>
                         </ul>
                     </div>
                 </div>
@@ -51,9 +51,9 @@ export default function LandingPage() {
                 />
             </div>
             <span id='rocketLandingPage'>
-                { View }
+                {View}
             </span>
         </div>
-      
+
     )
 }

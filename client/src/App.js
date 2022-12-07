@@ -55,7 +55,7 @@ AOS.init({
 
 export default function App() {
   // ?-- Auth width Google
-  
+
   const dispatch = useDispatch()
   const location = useLocation();
   const navigate = useNavigate();
@@ -68,27 +68,27 @@ export default function App() {
   }
 
   function handleSignOut(e) {
-    
+
     e.preventDefault();
     dispatch(logOut());
-    if(location.pathname.includes("miperfil")) {
+    if (location.pathname.includes("miperfil")) {
       navigate('/home');
     }
   }
 
-  function handleGoogle(){
+  function handleGoogle() {
     /* global google */
-      google.accounts.id.initialize({
+    google.accounts.id.initialize({
       client_id: REACT_APP_GOOGLE,
       callback: handleCallbackResponse
     });
 
     google.accounts.id.renderButton(
       document.getElementById("signInDiv"),
-      { theme:"filled_blue", size: "large"}
+      { theme: "filled_blue", size: "large" }
     );
 
-    google.accounts.id.prompt();    
+    google.accounts.id.prompt();
   };
   // ?-- End Auth Google
 
@@ -97,46 +97,46 @@ export default function App() {
   }, []);
 
   return (
-     <React.Fragment>
-      
-        <div className="App"></div>
-        { location.pathname !== '/' && <Navbar handleSignOut={handleSignOut}/> }
-        <Background />
-        <div className="gradient__bg"></div>
-            <Routes>
-                <Route exact path="/" element={<LandingPage />}/>
-                <Route exact path="/background" />
-                <Route exact path="/login" element={ user.user ? <Navigate to="/home"/> : <LogIn handleGoogle={handleGoogle} /> }  />
-                <Route exact path="/signup" element={ user.user ? <Navigate to="/home"/> : <SignUp/> } />
-                <Route exact path="/sendemail" element={ <SendEmail />  } />
-                <Route exact path="/newpassword" element = { user.user ? <UpdatePassword /> : <LogIn handleGoogle={handleGoogle} /> } />
-                <Route exact path="/home" element={<Home />}/>
-                <Route exact path="/projects" element={<Projects />} />
-                <Route exact path="/projects/:id" element={<ProjectDetails />} />
-                <Route exact path="/developers" element={<HallOfFameView />} />
-                <Route exact path="/About" element={<About />} />
-                <Route exact path="/crearproyecto" element={ user.user ? <CreateProject /> : <LogIn handleGoogle={handleGoogle} /> } />
-                <Route exact path="/contactus" element={<ContactUsForm />} />
-                <Route exact path="/miperfil" element={ user.user ? <MyProfile handleSignOut={handleSignOut}/> : <LogIn handleGoogle={handleGoogle} />} />             
-                <Route exact path ="/miperfil/personalinformation" element= { user.user ? <PersonalInformation /> : <LogIn handleGoogle={handleGoogle} />}/>
-                <Route exact path ="/miperfil/colaboraciones" element= { user.user ? <Collaborate /> : <LogIn handleGoogle={handleGoogle} />}/>
-                <Route exact path ="/miperfil/misproyectos" element=  { user.user ? <MyProjects /> : <LogIn handleGoogle={handleGoogle}/>} />
-                <Route exact path ="/miperfil/editproyecto/:id" element=  { user.user ? <EditProject /> : <LogIn handleGoogle={handleGoogle}/>} />
-                <Route exact path ="/miperfil/miscomentarios" element=  { user.user ? <MyComments /> : <LogIn handleGoogle={handleGoogle}/>} />
-                <Route exact path ="/tools" element= {<Tools />}  />
-                <Route exact path ="/tools/codeo" element= {<Codeo />}  />
-                <Route exact path ="/tools/organizacion" element= {<OrganizationTool />}  />
-                <Route exact path ="/tools/design" element= {<DesignTool />}  /> 
-                <Route exact path ="/tools/youtube" element= {<YouTuveTool />}  />
-                <Route exact path ="/tools/meet" element= {<MeetTool />}  /> 
-                <Route exact path ="/tools/cv" element= {<CvTool />}  />  
-                <Route exact path ="/tools/idlive" element= {<IdLiveTool />} /> 
-                <Route exact path ="/tools/frontdeploy" element= {<FrontDeploy />} /> 
-                <Route exact path ="/tools/backdeploy" element= {<BackDeploy />} />   
-                <Route exact path="/faqs" element= {<FAQs />} />         
-                <Route exact path='*' component={<Navigate to="/home"/>} />
-          </Routes> 
-        { location.pathname !== '/' && <Footer /> }
+    <React.Fragment>
+
+      <div className="App"></div>
+      {location.pathname !== '/' && <Navbar handleSignOut={handleSignOut} />}
+      <Background />
+      <div className="gradient__bg"></div>
+      <Routes>
+        <Route exact path="/" element={<LandingPage />} />
+        <Route exact path="/background" />
+        <Route exact path="/login" element={user.user ? <Navigate to="/home" /> : <LogIn handleGoogle={handleGoogle} />} />
+        <Route exact path="/signup" element={user.user ? <Navigate to="/home" /> : <SignUp />} />
+        <Route exact path="/sendemail" element={<SendEmail />} />
+        <Route exact path="/newpassword" element={user.user ? <UpdatePassword /> : <LogIn handleGoogle={handleGoogle} />} />
+        <Route exact path="/home" element={<Home />} />
+        <Route exact path="/projects" element={<Projects />} />
+        <Route exact path="/projects/:id" element={<ProjectDetails />} />
+        <Route exact path="/developers" element={<HallOfFameView />} />
+        <Route exact path="/About" element={<About />} />
+        <Route exact path="/crearproyecto" element={user.user ? <CreateProject /> : <LogIn handleGoogle={handleGoogle} />} />
+        <Route exact path="/contactus" element={<ContactUsForm />} />
+        <Route exact path="/miperfil" element={user.user ? <MyProfile handleSignOut={handleSignOut} /> : <LogIn handleGoogle={handleGoogle} />} />
+        <Route exact path="/miperfil/personalinformation" element={user.user ? <PersonalInformation /> : <LogIn handleGoogle={handleGoogle} />} />
+        <Route exact path="/miperfil/colaboraciones" element={user.user ? <Collaborate /> : <LogIn handleGoogle={handleGoogle} />} />
+        <Route exact path="/miperfil/misproyectos" element={user.user ? <MyProjects /> : <LogIn handleGoogle={handleGoogle} />} />
+        <Route exact path="/miperfil/editproyecto/:id" element={user.user ? <EditProject /> : <LogIn handleGoogle={handleGoogle} />} />
+        <Route exact path="/miperfil/miscomentarios" element={user.user ? <MyComments /> : <LogIn handleGoogle={handleGoogle} />} />
+        <Route exact path="/tools" element={<Tools />} />
+        <Route exact path="/tools/codeo" element={<Codeo />} />
+        <Route exact path="/tools/organizacion" element={<OrganizationTool />} />
+        <Route exact path="/tools/design" element={<DesignTool />} />
+        <Route exact path="/tools/youtube" element={<YouTuveTool />} />
+        <Route exact path="/tools/meet" element={<MeetTool />} />
+        <Route exact path="/tools/cv" element={<CvTool />} />
+        <Route exact path="/tools/idlive" element={<IdLiveTool />} />
+        <Route exact path="/tools/frontdeploy" element={<FrontDeploy />} />
+        <Route exact path="/tools/backdeploy" element={<BackDeploy />} />
+        <Route exact path="/faqs" element={<FAQs />} />
+        <Route exact path='*' component={<Navigate to="/home" />} />
+      </Routes>
+      {location.pathname !== '/' && <Footer />}
     </React.Fragment>
   );
 }

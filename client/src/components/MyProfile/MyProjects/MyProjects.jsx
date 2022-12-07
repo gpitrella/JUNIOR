@@ -12,7 +12,7 @@ export default function MyProjects() {
   const { projectByUser } = useSelector((state) => state.projectsReducer);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+
   function handleOpenMessageLogin() {
     // if(!user?.user) {
     //   dispatch(openMessageMustLogin({ open: true, msg: 2 }));
@@ -29,7 +29,7 @@ export default function MyProjects() {
 
   React.useEffect(() => {
     dispatch(getProjectsByUser(user?.user._id, user?.token))
-  },[user]);
+  }, [user]);
 
   return (
     <div className='main_box_personalinformation'>
@@ -38,24 +38,24 @@ export default function MyProjects() {
       <div>
         {
           user?.user.projects?.length === 0 && projectByUser?.length === 0
-             ? <h3>Todavía no creaste ningún Proyecto, ANIMATE y crea uno. 🚀 </h3>
-             : projectByUser.map(project => {
-            return (
-              <div className='myproyectsEdit' key={project?._id}>
+            ? <h3>Todavía no creaste ningún Proyecto, ANIMATE y crea uno. 🚀 </h3>
+            : projectByUser.map(project => {
+              return (
+                <div className='myproyectsEdit' key={project?._id}>
                   <div className='positionButtonEdit'>
                     <Link to={`/miperfil/editproyecto/${project?._id}`}>
-                        <Button id='btn_personalinformationEditProject' variant="contained">
-                            Editar Proyecto
-                        </Button>
+                      <Button id='btn_personalinformationEditProject' variant="contained">
+                        Editar Proyecto
+                      </Button>
                     </Link>
                     <Button id='btn_personalinformationEditProject' variant="contained" onClick={(e) => handleInvitation(e)}>
-                        Invitar Colaboradores
+                      Invitar Colaboradores
                     </Button>
                   </div>
-                <CardProject key={project?._id} project={project} handleOpenMessageLogin={handleOpenMessageLogin}/>
-              </div>
+                  <CardProject key={project?._id} project={project} handleOpenMessageLogin={handleOpenMessageLogin} />
+                </div>
               )
-          })
+            })
         }
       </div>
       <Link to={`/miperfil`}>

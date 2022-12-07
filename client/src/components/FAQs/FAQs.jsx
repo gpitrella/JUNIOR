@@ -21,7 +21,7 @@ export default function FAQs() {
             <br />
             <Grid>
                 <Card style={{ maxWidth: 1000, padding: "20px 20px", margin: "0 auto", backgroundColor: 'var(--primaryColor)' }}>
-                    <Typography gutterBottom variant="h5" style={{ color: 'white', padding: "5px 20px"}}>
+                    <Typography gutterBottom variant="h5" style={{ color: 'white', padding: "5px 20px" }}>
                         Preguntas Frecuentes - FAQs
                     </Typography>
                     <CardContent>
@@ -140,12 +140,12 @@ export default function FAQs() {
                                     cliquear en el boton "CREAR PROYECTO". <b />
                                     En esta sección va a ser necesario que cargues todos los datos correspondientes al proyecto para que futuros colaboradores
                                     puedan sumarse y avanzar en la finalización del mismo.<b />
-                                     Selecciona el tipo de proyecto pago de acuerdo a tu presupuesto y te solicitamos que te pongas en contacto con
+                                    Selecciona el tipo de proyecto pago de acuerdo a tu presupuesto y te solicitamos que te pongas en contacto con
                                     nosotros (JUNIOR) para que podamos coordinar y elegir a los desarrolladores disponibles para que completen tu proyecto.
                                 </Typography>
                             </AccordionDetails>
                         </Accordion>
-                       
+
                     </CardContent>
                 </Card>
             </Grid>

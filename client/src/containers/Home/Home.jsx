@@ -9,23 +9,23 @@ import { useDispatch } from 'react-redux';
 import { getAllProjects, getAllTechs } from '../../redux/actions/projectsActions.js';
 import { CTA, Brand } from '../../components';
 
-export default function Home () {
+export default function Home() {
 
   const dispatch = useDispatch();
 
-  React.useEffect(()=> {
+  React.useEffect(() => {
     dispatch(getAllProjects());
     dispatch(getAllTechs());
   }, [])
-  
-	return (
-		<div className={styled.gradient__bg}>
-			      <Header />
-            <CTA />
-            <Features />
-            <Brand />
-            <Features2 />
-            <Possibility />
-		</div>
-	)
+
+  return (
+    <div className={styled.gradient__bg}>
+      <Header />
+      <CTA />
+      <Features />
+      <Brand />
+      <Features2 />
+      <Possibility />
+    </div>
+  )
 };

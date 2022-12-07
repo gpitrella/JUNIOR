@@ -17,8 +17,8 @@ dotenv.config();
 const BASE_URL = process.env.REACT_APP_BASE_URL_FLY;
 const REACT_APP_GITHUB = process.env.REACT_APP_GITHUB;
 
-export default function LogIn({handleGoogle, github}) {
-  
+export default function LogIn({ handleGoogle, github }) {
+
   const [redirect, setRedirect] = useState({ value: false })
   const dispatch = useDispatch();
   // const [checkMailPassword, setCheckMailPassword] = useState(false)
@@ -32,8 +32,8 @@ export default function LogIn({handleGoogle, github}) {
   const [errors, setErrors] = useState({
     email: "Add an email",
     password: "Add a password"
-})
- 
+  })
+
 
   const google = () => {
     window.open(`${BASE_URL}/auth/google`, "_self");
@@ -66,40 +66,40 @@ export default function LogIn({handleGoogle, github}) {
     setOpenBanned(false);
   };
 
-  const [ input, setInput ] = useState({
-      email: '',
-      password: ''
+  const [input, setInput] = useState({
+    email: '',
+    password: ''
   })
 
-    const handleChange = (e) => {
-        e.preventDefault();
-        setInput({...input,[e.target.name]: e.target.value})
-        setErrors(validateEmail({...input,[e.target.name]: e.target.value}, errors))
-        setErrors(validatePassword({...input,[e.target.name]: e.target.value}, errors))
-    }
-
-  const handleSubmit = (e) => {
-      e.preventDefault();
-      setErrors(validateEmail({...input,[e.target.name]: e.target.value}, errors))
-      setErrors(validatePassword({...input,[e.target.name]: e.target.value}, errors))
-      if(Object.keys(errors).length === 0) {
-        dispatch(logIn(input.email, input.password))
-      }
+  const handleChange = (e) => {
+    e.preventDefault();
+    setInput({ ...input, [e.target.name]: e.target.value })
+    setErrors(validateEmail({ ...input, [e.target.name]: e.target.value }, errors))
+    setErrors(validatePassword({ ...input, [e.target.name]: e.target.value }, errors))
   }
 
-  React.useEffect(() => { 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setErrors(validateEmail({ ...input, [e.target.name]: e.target.value }, errors))
+    setErrors(validatePassword({ ...input, [e.target.name]: e.target.value }, errors))
+    if (Object.keys(errors).length === 0) {
+      dispatch(logIn(input.email, input.password))
+    }
+  }
+
+  React.useEffect(() => {
     handleGoogle()
   }, [])
 
   React.useEffect(() => {
-    if(logInError.status === 404){
+    if (logInError.status === 404) {
       setOpenEmail(true)
       errors.email = logInError.data
       document.getElementById('email').classList.add('login__group-incorrecto')
       document.getElementById('email').classList.remove('login__group-correcto')
       document.querySelector('#email .login__input-error').classList.add('login__input-error-activo')
-    } 
-  },[logInError]); 
+    }
+  }, [logInError]);
 
 
 
@@ -107,81 +107,81 @@ export default function LogIn({handleGoogle, github}) {
   return (
 
     <div className="login">
-      <div className = {`login__wrapper ${s.loginContainer}`}>
+      <div className={`login__wrapper ${s.loginContainer}`}>
 
         <div className='login__group'>
           <h1 className="login__title">LogIn</h1>
         </div>
 
         <div className='login__group' id='email'>
-            <input
+          <input
             type="email"
             id="email"
             name={"email"}
             value={input.email}
             placeholder="Email"
             onChange={(e) => handleChange(e)}
-            className = {`login__input ${s.input}`}
-            />
-            <p className = {`login__input-error ${s.errorMsg}`}>{errors.email}</p>
+            className={`login__input ${s.input}`}
+          />
+          <p className={`login__input-error ${s.errorMsg}`}>{errors.email}</p>
         </div>
 
         <div className='login__group' id='password'>
-            <input
+          <input
             type="password"
             id='password'
             name={"password"}
             value={input.password}
             placeholder="Password"
             onChange={(e) => handleChange(e)}
-            className = {`login__input ${s.input}`}
-            />
-            <p className = {`login__input-error ${s.errorMsg}`}>{errors.password}</p>
+            className={`login__input ${s.input}`}
+          />
+          <p className={`login__input-error ${s.errorMsg}`}>{errors.password}</p>
         </div>
         <div className='login__group' >
           <button type='submit' className="login__btn" onClick={(e) => handleSubmit(e)} >Loguearse</button>
         </div>
         <p className="login__text"><Link to='/sendemail' className="link">Olvidaste el password?</Link></p>
-                    
-          {redirect?.value ? <Navigate push to={'/'} underline="none" /> : null}
 
-          <div className="login__group">
-            <div className="login_lines">
-          <div className="or">OR</div>
+        {redirect?.value ? <Navigate push to={'/'} underline="none" /> : null}
+
+        <div className="login__group">
+          <div className="login_lines">
+            <div className="or">OR</div>
           </div>
-          </div>
-          
-          <div className='login__google' >
-              <div id="signInDiv"></div>
-          </div>
-          <div className="loginButton githublogin" id="example">
-            <LoginGithub className="loginGitHub" clientId={REACT_APP_GITHUB}
-              onSuccess={onSuccess}
-              onFailure={onFailure}
-            />
-            <img src={Github} alt="" className="icongithublogin" />
-          </div>
-          
+        </div>
 
-          <p className="login__text">No tienes cuenta? <Link to='/signup' className="link">Sign up aqui!</Link></p>
+        <div className='login__google' >
+          <div id="signInDiv"></div>
+        </div>
+        <div className="loginButton githublogin" id="example">
+          <LoginGithub className="loginGitHub" clientId={REACT_APP_GITHUB}
+            onSuccess={onSuccess}
+            onFailure={onFailure}
+          />
+          <img src={Github} alt="" className="icongithublogin" />
+        </div>
 
-          <Snackbar autoHideDuration={4000} open={openPassword} onClose={handleClosePassword}>
-            <Alert onClose={handleClosePassword} severity="error" sx={{ width: '100%' }}>
-               Wrong Email or Password
-            </Alert>
-          </Snackbar>
 
-          <Snackbar autoHideDuration={4000} open={openEmail} onClose={handleCloseEmail}>
-            <Alert onClose={handleCloseEmail} severity="error" sx={{ width: '100%' }}>
-               Wrong Email or Password
-            </Alert>
-          </Snackbar>
+        <p className="login__text">No tienes cuenta? <Link to='/signup' className="link">Sign up aqui!</Link></p>
 
-          <Snackbar autoHideDuration={4000} open={openBanned} onClose={handleCloseBanned}>
-            <Alert onClose={handleCloseEmail} severity="error" sx={{ width: '100%' }}>
-                YOU ARE BANNED!!!
-            </Alert>
-          </Snackbar>
+        <Snackbar autoHideDuration={4000} open={openPassword} onClose={handleClosePassword}>
+          <Alert onClose={handleClosePassword} severity="error" sx={{ width: '100%' }}>
+            Wrong Email or Password
+          </Alert>
+        </Snackbar>
+
+        <Snackbar autoHideDuration={4000} open={openEmail} onClose={handleCloseEmail}>
+          <Alert onClose={handleCloseEmail} severity="error" sx={{ width: '100%' }}>
+            Wrong Email or Password
+          </Alert>
+        </Snackbar>
+
+        <Snackbar autoHideDuration={4000} open={openBanned} onClose={handleCloseBanned}>
+          <Alert onClose={handleCloseEmail} severity="error" sx={{ width: '100%' }}>
+            YOU ARE BANNED!!!
+          </Alert>
+        </Snackbar>
 
       </div>
     </div>
