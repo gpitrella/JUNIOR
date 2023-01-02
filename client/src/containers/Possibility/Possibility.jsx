@@ -10,8 +10,8 @@ export default function Possibility () {
 					<img src={possibilityImg} alt="Person with idea" />
 				</div>
 				<div className={s.possibility_content}>
-					<h4>Tambien podes tener un proyecto sin ser Desarrollador</h4>
-					<h1 className='gradient__text'>¿NO sos Desarrollar? Pero tenes un proyecto para desarrollar.</h1>
+					<h4>Tambien podes tener un proyecto sin ser <Desarrollador></Desarrollador></h4>
+					<h1 className='gradient__text'>¿NO sos Desarrollador? Pero tenes un proyecto para desarrollar.</h1>
 					<p>
 						Contactanos y vas a tener a los mejores Juniors disponibles para llevar tus proyectos a la realidad.
 					</p>

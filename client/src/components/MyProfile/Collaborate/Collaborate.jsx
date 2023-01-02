@@ -11,13 +11,13 @@ export default function Collaborate() {
   const { user } = useSelector((state) => state.homepageReducer);
   const { projectCollaborateByUser } = useSelector((state) => state.projectsReducer);
   const dispatch = useDispatch();
-  
+
 
   React.useEffect(() => {
-    if(user?.user){
+    if (user?.user) {
       dispatch(getCollaborationByUser(user?.user._id));
     }
-  },[user]);
+  }, [user]);
 
   function handleOpenMessageLogin() {
     // if(!user?.user) {
@@ -34,10 +34,10 @@ export default function Collaborate() {
       <div>
         {
           user?.user?.collaborations?.length === 0 && projectCollaborateByUser?.length === 0
-             ? <h3>Todavía no te summaste a ningún Proyecto, ANIMATE y suma experiencia. 🚀 </h3>
-             : projectCollaborateByUser.map(project => {
-            return (<CardProject key={project?._id} project={project} handleOpenMessageLogin={handleOpenMessageLogin}/>)
-          })
+            ? <h3>Todavía no te summaste a ningún Proyecto, ANIMATE y suma experiencia. 🚀 </h3>
+            : projectCollaborateByUser.map(project => {
+              return (<CardProject key={project?._id} project={project} handleOpenMessageLogin={handleOpenMessageLogin} />)
+            })
         }
       </div>
       <Link to={`/miperfil`}>

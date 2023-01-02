@@ -13,7 +13,7 @@ export const detailabout = {
         sino que además sumando la experiencia vivida en JUNIOR al CV y se puede aspirar a mejores oportunidades 
         laborales futuras.`,
         p4: `¿Estás preparado/a? ¿Estás listo/a para empezar? ¿Ya sos parte?`
-    }    
+    }
 }
 
 export const detailaboutEN = {
@@ -29,7 +29,7 @@ export const detailaboutEN = {
         p3: `In this way you can not only enhance learning, teamwork and mutual collaboration, but also adding the 
         experience lived in JUNIOR to the CV and you can aspire to better opportunities future jobs.`,
         p4: `Are you ready? Are you ready to start? Are you already a part of the team?`
-    }    
+    }
 }
 
 export const detailaboutIT = {
@@ -46,8 +46,8 @@ export const detailaboutIT = {
         reciproca, ma anche aggiungendo al CV l'esperienza vissuta in JUNIOR potrai aspirare a migliori opportunità 
         di futuri lavori.`,
         p4: `Sei pronto? Sei pronto per iniziare? Fai già parte?`
-    }    
-}      
+    }
+}
 
 export const developers = [
     {
@@ -66,7 +66,7 @@ export const developers = [
         email: "mailto:enz997.ing.ind@gmail.com",
         img: "https://avatars.githubusercontent.com/u/96807793?v=4"
     },
-    { 
+    {
         id: 3,
         name: "Horacio Abitu",
         linkedin: "https://www.linkedin.com/in/horacioabitu/",
@@ -74,7 +74,7 @@ export const developers = [
         email: "mailto:ahabitu@gmail.com",
         img: "https://avatars.githubusercontent.com/u/97068418?v=4"
     },
-    { 
+    {
         id: 4,
         name: "Federico Faraz",
         linkedin: "https://www.linkedin.com/in/federicofaraz-fullstack/",
@@ -97,7 +97,7 @@ export const developers = [
         github: "https://github.com/Emicon97",
         email: "",
         img: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664370720/Emilio_uu93ub.png"
-    }, 
+    },
     {
         id: 7,
         name: "Joan Quispe Cusi",
@@ -105,7 +105,7 @@ export const developers = [
         github: "https://github.com/joanQ95",
         email: "joan.quispec@gmail.com",
         img: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666635335/joan_hmntgi.jpg"
-    }, 
+    },
     {
         id: 8,
         name: "Natalia Leiva",
@@ -114,7 +114,7 @@ export const developers = [
         email: "natti35443839@gmail.com",
         img: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664324498/Natalia_Leiva_sg8uvm.jpg"
     }
-]; 
+];
 
 // Joan Quispe Cusi
 // Natalia leiva
@@ -130,24 +130,24 @@ export const messagePopUp = {
 };
 
 export const codePage = [
-    { 
+    {
         id: 1,
         name: 'Codility_',
         description: `En Codility_ es un sitio para mejorar y practicar tu código haciendo ejercicios practicos para resolver
         en diferentes lenguajes de programación y con diferentes niveles de dificultad.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664621189/CodilitySocial.jpg_wxyqbd.jpg",
         link: 'https://app.codility.com/programmers/'
-    }, 
-    { 
+    },
+    {
         id: 2,
         name: 'Code-Chef',
         description: `Code-Chef es un programa educativo en línea y una comunidad de programación competitiva de programadores 
         globales. Code-Chef comenzó como una iniciativa educativa en 2009 de Directi, una empresa de software india. 
         En 2020, pasó a ser propiedad de Unacademy.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664625143/codechef_y1ndg4.webp",
-        link: 'https://www.codechef.com/' 
+        link: 'https://www.codechef.com/'
     },
-    { 
+    {
         id: 3,
         name: 'Codewars',
         description: `Lanzado en 2012, Codewars proporciona kata de práctica, o pequeños ejercicios de codificación, que avanza 
@@ -156,7 +156,7 @@ export const codePage = [
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664625551/INT-TipsTricks-Codewars.com__dwhscn.jpg",
         link: 'https://www.codewars.com/'
     },
-    { 
+    {
         id: 4,
         name: 'Codingame',
         description: `Con más de 25 idiomas admitidos, CodinGame brinda capacitación en programación basada en desafíos 
@@ -164,7 +164,7 @@ export const codePage = [
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664625826/codingame_logo_square_pyuk9q.jpg",
         link: 'https://www.codingame.com/'
     },
-    { 
+    {
         id: 5,
         name: 'Hackerrank',
         description: `HackerRank brinda práctica con desafíos de codificación a más de 18 millones de usuarios y 
@@ -176,28 +176,28 @@ export const codePage = [
 ];
 
 export const organizationTool = [
-    { 
+    {
         id: 1,
         name: 'Trello',
         description: `Trello es una herramienta visual que permite a los equipos gestionar cualquier tipo de proyecto y flujo de trabajo, 
         así como supervisar tareas. Añade archivos, checklists o incluso automatizaciones: personalízalo todo según las necesidades de tu equipo. 
         Solo tienes que registrarte, crear un tablero y ¡listo!`,
-        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1665861610/TRELLO300_stjft8.png",        
+        image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1665861610/TRELLO300_stjft8.png",
         link: 'https://trello.com/'
-    }, 
-    { 
+    },
+    {
         id: 2,
         name: 'Notion',
         description: `Notion es un organizador de tareas multiplataforma que te permite llevar tu planificación personal y laboral al siguiente nivel. 
         Ya sea que te encuentres conectado a internet o no, en desktop o desde el celular, podrás apuntar y organizar todo lo que se te ocurra y colaborar 
         con quienes necesites.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664638362/NOTION_lg60ak.png",
-        link: 'https://www.notion.so/' 
+        link: 'https://www.notion.so/'
     }
 ];
 
 export const designTool = [
-    { 
+    {
         id: 1,
         name: 'Figma',
         description: `Figma es una herramienta de prototipado web y editor de gráficos vectorial que se aloja en la web. 
@@ -205,17 +205,17 @@ export const designTool = [
         con tu equipo y hacer modificaciones en la misma mesa de trabajo.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664629599/unnamed_hv99kl.png",
         link: 'https://www.figma.com/'
-    }, 
-    { 
+    },
+    {
         id: 2,
         name: 'Canva',
         description: `Se trata de un portal con enorme flexibilidad, permitiéndote crear diseños personales, educativos 
         o profesionales de todo tipo de proyectos múltiples. Una de sus principales ventajas es que tiene una interfaz 
         extremadamente intuitiva y fácil de utilizar, con centenares de plantillas y elementos multimedia que puedes agregar.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664629909/descarga_1_jy4dyu.png",
-        link: 'https://www.canva.com/' 
+        link: 'https://www.canva.com/'
     },
-    { 
+    {
         id: 3,
         name: 'Excalidraw',
         description: `Excalidraw es una herramienta de dibujo online, sencilla pero potente. A veces, los equipos o proyectos sólo necesitan 
@@ -223,37 +223,37 @@ export const designTool = [
          crear y compartir diagramas.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666527623/skalydraw_e5ngms.png",
         link: 'https://excalidraw.com'
-    }, 
-    { 
+    },
+    {
         id: 4,
         name: 'Codepen',
         description: `CodePen es un ambiente de desarollo y al mismo tiempo una red social, lo que significa que, más allá 
         de poder seguir a las personas, dar like en los códigos y dejar comentarios, también tenemos en las manos un 
         editor de código online, donde las personas que ya saben o que quieren aprender programación, pueden escribir sus códigos.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666527938/codepen_ozbnnj.png",
-        link: 'https://codepen.io/' 
+        link: 'https://codepen.io/'
     }
-]; 
+];
 
 
 export const youtubeTool = [
-    { 
+    {
         id: 1,
         name: 'Soy Dalto',
         description: `Lucas Dalto es la cara detrás de Soy Dalto, el canal de Youtube dedicado a enseñar programación de mayor audiencia 
         en la Argentina. Sostiene que aprender código permite cambiar la vida de la gente, sin importar de dónde vengan.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666531106/dalto1_opkqg7.png",
         link: 'https://www.youtube.com/c/soydalto'
-    }, 
-    { 
+    },
+    {
         id: 2,
         name: 'Hola Mundo',
         description: `Es uno de los canales más vistos en Español dedicado al aprendizaje de diferentes lenguajes de programación,
         en donde podrás aprender desde Javascript, Docker, Phyton, entre otras herramientas utiles.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666531031/holamundo1_gfgxk3.png",
-        link: 'https://www.youtube.com/c/HolaMundoDev' 
+        link: 'https://www.youtube.com/c/HolaMundoDev'
     },
-    { 
+    {
         id: 3,
         name: 'Fazt Code',
         description: `Creado por Fazt es un canal en donde puedes encontrar todo sobre Programación, Desarrollo Web. Desde hacer 
@@ -261,16 +261,16 @@ export const youtubeTool = [
         similares como Fazt Tech, Fazt Code, entre otros.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666528237/fazt_a3qyp3.png",
         link: 'https://www.youtube.com/c/FaztCode'
-    }, 
-    { 
+    },
+    {
         id: 4,
         name: 'VidaMRR',
         description: `Vida MRR es un canal de diseño y desarrollo web, donde puedes encontrar contenido de Javascript, Bootstrap,
-         TailwindCSS, Node.js, PHP y MySQL y más recursos necesarios para ser el mejor desarrollador web.`,
+        TailwindCSS, Node.js, PHP y MySQL y más recursos necesarios para ser el mejor desarrollador web.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666528494/vida_cll9q5.png",
-        link: 'https://www.youtube.com/c/VidaMRR' 
+        link: 'https://www.youtube.com/c/VidaMRR'
     },
-    { 
+    {
         id: 5,
         name: 'Fernando Herrera',
         description: `Canal creado por Fernando Herrera, Fullstack developer y profesor en línea a quien le encanta programar y 
@@ -278,31 +278,31 @@ export const youtubeTool = [
         interesarte.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666528772/fernando_ya82em.png",
         link: 'https://www.youtube.com/c/FernandoHerreraCr'
-    }, 
-    { 
+    },
+    {
         id: 6,
         name: 'Free Code Camp',
         description: `Free Code Camp es una organización sin fines de lucro[2] que consta de una plataforma web de aprendizaje 
         interactivo, un foro comunitario en línea, salas de chat, publicaciones en línea y organizaciones locales que pretenden 
         hacer que el desarrollo web de aprendizaje sea accesible para cualquiera.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666529016/free_hpdh4a.png",
-        link: 'https://www.youtube.com/c/Freecodecamp' 
+        link: 'https://www.youtube.com/c/Freecodecamp'
     },
-    { 
+    {
         id: 7,
         name: 'Carlos Azaustre',
         description: `Carlos Azaustre se dedica al Desarrollo Web desde hace más de 10 años. En su canal podrás encontrar 
         tutoriales de programación y desarrollo web con tecnologías como JAVASCRIPT, REACT, NODEJS, FIREBASE, y más. `,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666530600/carlos_hoju3a.png",
         link: 'https://www.youtube.com/c/CarlosAzaustre'
-    }, 
-    { 
+    },
+    {
         id: 8,
         name: 'Midulive',
         description: `En este canal vas a poder encontrar streamings sobre Desarrollo FullStack con JavaScript de midudev en Twitch. 
         Directos completos y extracto de los mejores momentos.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666530858/midu_ans7to.png",
-        link: 'https://www.youtube.com/c/midulive/videos' 
+        link: 'https://www.youtube.com/c/midulive/videos'
     }
 ];
 
@@ -311,7 +311,7 @@ export const youtubeTool = [
 
 
 export const meetTool = [
-    { 
+    {
         id: 1,
         name: 'Google Meet',
         description: `Google Meet es la aplicación de videoconferencias de Google, para navegadores 
@@ -319,17 +319,17 @@ export const meetTool = [
         dentro de G-Suite, el pack de aplicaciones de Google para profesionales.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664635888/meet_gy425s.png",
         link: 'https://meet.google.com/'
-    }, 
-    { 
+    },
+    {
         id: 2,
         name: 'Discord',
         description: `la plataforma Discord te ayudará a organizar, socializar y comunicarte con tus amigos. 
         Discord es una aplicación de chat, similar a programas como Skype, TeamSpeak o plataformas de 
         comunicación profesionales como Slack.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664636064/discord_qrsjec.png",
-        link: 'https://discord.com/' 
+        link: 'https://discord.com/'
     },
-    { 
+    {
         id: 3,
         name: 'Skype',
         description: `Skype es una aplicación patentada y operada por Skype Technologies (división de Microsoft), 
@@ -337,24 +337,24 @@ export const meetTool = [
         mensajería instantánea, transferencia de archivos, llamadas con débito a teléfonos fijos y móviles, y otras funciones.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666534529/skype_an2hjn.png",
         link: 'https://www.skype.com/en/'
-    }, 
-    { 
+    },
+    {
         id: 4,
         name: 'Jitsi',
         description: `Jitsi es una colección de aplicaciones de mensajería instantánea, videoconferencia y voz multiplataforma
          gratuitas y de código abierto para la plataforma web, Windows, Linux, macOS, iOS y Android. El proyecto Jitsi comenzó 
          con Jitsi Desktop.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666534664/jitsi_mbnfqm.png",
-        link: 'https://meet.jit.si/' 
-    }, 
-    { 
+        link: 'https://meet.jit.si/'
+    },
+    {
         id: 5,
         name: 'Zoom',
         description: `Zoom es una de las principales aplicaciones de software de videoconferencia. Permite interactuar 
         virtualmente con los compañeros de trabajo cuando no es posible celebrar reuniones en persona, y también ha tenido 
         un gran éxito en los eventos sociales. (40 minutos gratis)`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1666534959/zoom_xoku0e.png",
-        link: 'https://zoom.us/' 
+        link: 'https://zoom.us/'
     }
 ];
 
@@ -365,7 +365,7 @@ export const meetTool = [
 export const cvTool = [];
 
 export const idLivePage = [
-    { 
+    {
         id: 1,
         name: 'CodeSandbox',
         description: `CodeSandbox es una plataforma para desarrolladores de aplicaciones. Cuenta con un editor 
@@ -374,17 +374,17 @@ export const idLivePage = [
         Es posible que varias personas trabajen en el programa al mismo tiempo con el uso de contenedores.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1665861924/codesandbox300_emmisw.png",
         link: 'https://codesandbox.io/'
-    }, 
-    { 
+    },
+    {
         id: 2,
         name: 'Online-Ide',
         description: `IDE en línea es una herramienta basada en la web impulsada por el editor de código ACE. 
         Esta herramienta se puede utilizar para aprender, construir, ejecutar y probar su programa. Puede abrir 
         el código desde su local y continuar compilando usando este IDE. El código y la salida se pueden descargar.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1665861984/online300_zea9ku.png",
-        link: 'https://www.online-ide.com/' 
+        link: 'https://www.online-ide.com/'
     },
-    { 
+    {
         id: 3,
         name: 'Replit',
         description: `Una de las ventajas principales por las que destaca Repl.it es su sencillo funcionamiento. Tal y 
@@ -393,8 +393,8 @@ export const idLivePage = [
         C++, Java, JavaScript, Swift o Python, entre muchos otros.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1665862045/replit300_mjeep6.png",
         link: 'https://replit.com/'
-    }, 
-    { 
+    },
+    {
         id: 4,
         name: 'VS Code',
         description: `Visual Studio Code es un editor de código fuente desarrollado por Microsoft. Es software 
@@ -402,12 +402,12 @@ export const idLivePage = [
         Git, cuenta con soporte para depuración de código, y dispone de un sinnúmero de extensiones, que básicamente te da 
         la posibilidad de escribir y ejecutar código en cualquier lenguaje de programación.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664826792/vs_ppgmwu.png",
-        link: 'https://vscode.dev/' 
+        link: 'https://vscode.dev/'
     },
 ]
 
 export const frontPage = [
-    { 
+    {
         id: 1,
         name: 'Vercel',
         description: `Vercel es una plataforma en la nube para sitios estáticos y funciones sin servidor que se 
@@ -415,19 +415,19 @@ export const frontPage = [
         web que se implementan instantáneamente, escalan automáticamente y no requieren supervisión, todo sin configuración.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1665862231/vercel300_s30ww4.png",
         link: 'https://vercel.com/'
-    }, 
-    { 
+    },
+    {
         id: 2,
         name: 'Netlify',
         description: `Netlify es una plataforma que nace para automatizar proyectos webs estáticos. Aúna las tareas 
         de integración continua y despliegue de infraestructura web en un solo flujo de ejecución.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1664827954/net_njsrse.png",
-        link: 'https://www.netlify.com/' 
+        link: 'https://www.netlify.com/'
     }
 ]
 
 export const backPage = [
-    { 
+    {
         id: 1,
         name: 'Render',
         description: `Render hace que implementar su aplicación sea tan fácil como enviar su código al control de 
@@ -436,21 +436,21 @@ export const backPage = [
         conectar sus cuentas de Git a Render, consulte nuestros documentos para GitHub y GitLab.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1665862473/render300_qxr3du.png",
         link: 'https://render.com/'
-    }, 
-    { 
+    },
+    {
         id: 2,
         name: 'Fly.io',
         description: `Fly.io es una plataforma global de distribución de aplicaciones. Ejecutan el 
         código en microVM Firecracker en todo el mundo.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1665862531/fly300_eaps8s.png",
-        link: 'https://www.fly.io/' 
+        link: 'https://www.fly.io/'
     },
-    { 
+    {
         id: 3,
         name: 'Railway',
         description: `Railway es una plataforma de infraestructura donde puede aprovisionar infraestructura, 
         desarrollar con esa infraestructura localmente y luego implementar en la nube.`,
         image: "https://res.cloudinary.com/djgghmpgh/image/upload/v1665862654/riel300_v8h4a6.png",
-        link: 'https://railway.app/' 
+        link: 'https://railway.app/'
     },
 ]
