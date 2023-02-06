@@ -49,8 +49,8 @@ En ambas carpetas al clonarlas debes crear el archivo: `.env`
 En la carpeta de client o Front End `JUNIOR`, el archivo `.env` debe incluir:
 
 ```
-REACT_APP_GOOGLE=******
-REACT_APP_GITHUB=******
+REACT_APP_GOOGLE=*******
+REACT_APP_GITHUB=*******
 REACT_APP_SERVICEID=*******
 REACT_APP_TEMPLATEID=*****
 REACT_APP_PUBLICKEY=******
