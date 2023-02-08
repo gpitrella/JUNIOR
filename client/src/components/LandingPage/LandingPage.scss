@@ -34,7 +34,15 @@
     font-size: 40px;
     padding: 5rem 5rem 0rem 5rem
 }
-
+.container-sound-buttom {
+    width: 95%;
+    text-align: end;
+    margin-top: 3%;
+}
+.sound-button {
+    max-width: 50px;
+    cursor: pointer;
+}
 .landingpageContainer {
     padding-top: 200px;
     display: flex;
