@@ -6,12 +6,23 @@ import logo from './logoJRremovebg.png';
 import { useLottie } from "lottie-react";
 import rocketLP from '../../assets/rocketLP.json';
 import './LandingPage.scss';
+import track from '../../assets/junior_track.mp3';
+import {Howl, Howler} from 'howler';
 
 export default function LandingPage() {
 
     const [ sound, setSound ] = React.useState(true);
+    const handleClick = () =>{
+        
+        const music = new Howl({
+            src: [track],
+            loop: true,
+          });
+        music.play();
 
-    // Lottie
+    }
+
+    // Lottie 
     const options = {
         animationData: rocketLP,
         loop: true
@@ -21,7 +32,7 @@ export default function LandingPage() {
     return (
   
         <div className="landingpageContainer">
-            
+            <button id="music" onClick={()=>{handleClick()}}>Musica</button>
             <Link to='/home'>
                 <div>
                     <div className='night'>
