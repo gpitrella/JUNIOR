@@ -6,12 +6,33 @@ import logo from './logoJRremovebg.png';
 import { useLottie } from "lottie-react";
 import rocketLP from '../../assets/rocketLP.json';
 import './LandingPage.scss';
+import track from '../../assets/junior_track.mp3';
+import {Howl, Howler} from 'howler';
+import play from '../../assets/play.png';
+import mute from '../../assets/mute.png';
 
 export default function LandingPage() {
 
-    const [ sound, setSound ] = React.useState(true);
+    const [ sound, setSound ] = React.useState(false);
+    const music = new Howl({
+        src: [track],
+        loop: true,
+      });
+    const handleClick = () =>{
+        setSound(!sound);
+    }
+    React.useEffect(() => {
+        if(sound) {
+            music.play();
+        } else {
+            music.pause();        
+        }  
+        return () => {
+            music.pause();
+        }
+      }, [sound]);
 
-    // Lottie
+    // Lottie 
     const options = {
         animationData: rocketLP,
         loop: true
@@ -19,9 +40,12 @@ export default function LandingPage() {
     const { View } = useLottie(options);
 
     return (
-  
+        <>
+        { sound 
+            ? <div class="container-sound-buttom"><img src={play} alt="Play Buttom Sound" className='sound-button' onClick={()=>{handleClick()}}/></div>
+            : <div class="container-sound-buttom"><img src={mute} alt="Stop Buttom Sound" className='sound-button' onClick={()=>{handleClick()}}/></div>
+        }
         <div className="landingpageContainer">
-            
             <Link to='/home'>
                 <div>
                     <div className='night'>
@@ -54,6 +78,6 @@ export default function LandingPage() {
                 { View }
             </span>
         </div>
-      
+        </>
     )
 }
