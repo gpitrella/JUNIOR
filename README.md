@@ -2,7 +2,7 @@
 De JUNIOR para Juniors
 
 <p align='left'>
-    <img src='https://res.cloudinary.com/djgghmpgh/image/upload/v1665672746/JuniorLogo_pitmgl.png' </img>
+    <img src='https://res.cloudinary.com/djgghmpgh/image/upload/v1665672746/JuniorLogo_pitmgl.png'</img>
 </p>
 
 
@@ -49,7 +49,7 @@ En ambas carpetas al clonarlas debes crear el archivo: `.env`
 En la carpeta de client o Front End `JUNIOR`, el archivo `.env` debe incluir:
 
 ```
-REACT_APP_GOOGLE=******
+REACT_APP_GOOGLE=*****
 REACT_APP_GITHUB=******
 REACT_APP_SERVICEID=******
 REACT_APP_TEMPLATEID=*****
