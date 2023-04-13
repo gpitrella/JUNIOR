@@ -12,6 +12,7 @@ De JUNIOR para Juniors
 ![Material UI](https://shields.io/badge/FrontEnd-MUI-green?logo=mui&style=plastic)
 ![Node.js](https://shields.io/badge/BackEnd-Node.js-violet?logo=nodedotjs&style=plastic)
 ![Express](https://shields.io/badge/BackEnd-Express-violet?logo=express&style=plastic)
+![Status](https://img.shields.io/badge/Status-Deployed-orange)
 
 ## Introducción: 
 
